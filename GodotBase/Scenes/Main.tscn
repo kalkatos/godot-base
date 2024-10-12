@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://j2h5vyx78c58"]
+
+[ext_resource type="PackedScene" uid="uid://o0eo3uqsekuf" path="res://Prefabs/DebugCommands.tscn" id="1_yxp5g"]
+
+[node name="Main" type="Node2D"]
+
+[node name="DebugCommands" parent="." instance=ExtResource("1_yxp5g")]
