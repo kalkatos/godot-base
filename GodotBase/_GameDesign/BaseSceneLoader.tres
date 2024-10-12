@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="ResignalScene" load_steps=3 format=3 uid="uid://cvo5m8rf0fqlc"]
-
-[ext_resource type="PackedScene" uid="uid://cg4c7nvlsc765" path="res://Scenes/Base.tscn" id="1_umtgp"]
-[ext_resource type="Script" path="res://Scripts/GodotGame/Resignals/ResignalScene.cs" id="1_xdxpc"]
-
-[resource]
-script = ExtResource("1_xdxpc")
-Scene = ExtResource("1_umtgp")

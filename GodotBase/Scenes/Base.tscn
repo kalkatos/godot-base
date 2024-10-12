@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cg4c7nvlsc765"]
+[gd_scene load_steps=2 format=3 uid="uid://cg4c7nvlsc765"]
+
+[ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://icon.svg" id="1_1dnga"]
 
 [node name="Base" type="Node2D"]
 
@@ -22,3 +24,7 @@ offset_right = 44.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "Base Scene"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1120, 406)
+texture = ExtResource("1_1dnga")

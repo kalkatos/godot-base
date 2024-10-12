@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://j2h5vyx78c58"]
+[gd_scene load_steps=2 format=3 uid="uid://j2h5vyx78c58"]
+
+[ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://icon.svg" id="1_b3ruk"]
 
 [node name="Main" type="Node2D"]
 
@@ -22,3 +24,7 @@ offset_right = 44.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "Main Scene"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(274, 392)
+texture = ExtResource("1_b3ruk")
