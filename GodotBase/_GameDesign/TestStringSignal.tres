@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ResignalString" load_steps=2 format=3 uid="uid://cq3b003l4o4lr"]
+
+[ext_resource type="Script" path="res://Scripts/GodotGame/Resignals/ResignalString.cs" id="1_uyurs"]
+
+[resource]
+script = ExtResource("1_uyurs")
+Value = ""

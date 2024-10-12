@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnwgoirkbdeid"]
+
+[ext_resource type="Script" path="res://Scripts/GodotGame/Resignals/SignalEmitter.cs" id="1_tgmui"]
+[ext_resource type="Resource" uid="uid://cq3b003l4o4lr" path="res://_GameDesign/TestStringSignal.tres" id="2_ckj6h"]
+
+[node name="Button" type="Button"]
+offset_left = 583.0
+offset_top = 44.0
+offset_right = 728.0
+offset_bottom = 85.0
+text = "Test Button"
+script = ExtResource("1_tgmui")
+Signal = ExtResource("2_ckj6h")
+
+[connection signal="pressed" from="." to="." method="EmitSignal" binds= ["Juju"]]

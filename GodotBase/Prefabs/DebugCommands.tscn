@@ -2,34 +2,34 @@
 
 [ext_resource type="Script" path="res://Scripts/GodotGame/Debug/DebugCommands.cs" id="1_eq0eo"]
 
-[node name="DebugCommands" type="Control" node_paths=PackedStringArray("DebugText", "InputText")]
-top_level = true
-custom_minimum_size = Vector2(1280, 720)
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 128
+
+[node name="DebugCommands" type="Control" parent="." node_paths=PackedStringArray("DebugText", "InputText")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_eq0eo")
 MaxSize = 20000
 DebugText = NodePath("DebugText")
 InputText = NodePath("InputText")
 
-[node name="DebugText" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(1000, 0)
+[node name="DebugText" type="RichTextLabel" parent="DebugCommands"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 336.0
 grow_horizontal = 2
-size_flags_horizontal = 3
-text = "Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit Amet "
-fit_content = true
+mouse_filter = 2
+scroll_following = true
 
-[node name="InputText" type="TextEdit" parent="."]
+[node name="InputText" type="LineEdit" parent="DebugCommands"]
 layout_mode = 0
 offset_top = 336.0
-offset_right = 1129.0
-offset_bottom = 373.0
+offset_right = 1150.0
+offset_bottom = 367.0
 placeholder_text = "Enter command"
