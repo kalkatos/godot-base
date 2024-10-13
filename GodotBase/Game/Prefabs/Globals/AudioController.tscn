@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ds7kfm2ntl4c6"]
 
-[ext_resource type="Script" path="res://Scripts/GodotGame/Audio/AudioController.cs" id="1_ky000"]
+[ext_resource type="Script" path="res://Game/Scripts/GodotGame/Audio/AudioController.cs" id="1_ky000"]
 
 [node name="AudioController" type="Node2D" node_paths=PackedStringArray("MusicChannel", "SfxChannels")]
 script = ExtResource("1_ky000")

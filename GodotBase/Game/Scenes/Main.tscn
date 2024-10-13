@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://j2h5vyx78c58"]
+[gd_scene load_steps=4 format=3 uid="uid://j2h5vyx78c58"]
 
-[ext_resource type="PackedScene" uid="uid://bnwgoirkbdeid" path="res://Prefabs/TestButton.tscn" id="1_abdkw"]
-[ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://icon.svg" id="1_b3ruk"]
-[ext_resource type="Script" path="res://Scripts/GodotGame/Utils/StartCaller.cs" id="1_ba3h4"]
-[ext_resource type="Resource" uid="uid://ceiptuaddd2ou" path="res://_GameDesign/Audio/MainMusic.tres" id="2_q2bfk"]
+[ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://Settings/icon.svg" id="1_b3ruk"]
+[ext_resource type="Script" path="res://Game/Scripts/GodotGame/Utils/StartCaller.cs" id="1_ba3h4"]
+[ext_resource type="Resource" uid="uid://ceiptuaddd2ou" path="res://Game/_GameDesign/Audio/MainMusic.tres" id="2_q2bfk"]
 
 [node name="Main" type="Node2D"]
 
@@ -25,8 +24,6 @@ offset_right = 44.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "Main Scene"
-
-[node name="Button" parent="Canvas" instance=ExtResource("1_abdkw")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(274, 392)

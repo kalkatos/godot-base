@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResignalMusic" load_steps=3 format=3 uid="uid://ceiptuaddd2ou"]
+
+[ext_resource type="AudioStream" uid="uid://y7fnlln7fddl" path="res://Game/Audio/Music/battle_bloody_winds.ogg" id="1_5sweg"]
+[ext_resource type="Script" path="res://Game/Scripts/GodotGame/Audio/ResignalMusic.cs" id="1_jlqjt"]
+
+[resource]
+script = ExtResource("1_jlqjt")
+Volume = 1.0
+SingleMusic = ExtResource("1_5sweg")
+RandomMusic = null

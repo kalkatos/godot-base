@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ResignalSfx" load_steps=5 format=3 uid="uid://dqxyri4io5qjt"]
+
+[ext_resource type="AudioStream" uid="uid://dwxmgc68e8wcq" path="res://Game/Audio/Sfx/hit_paper_1.wav" id="1_bq3kv"]
+[ext_resource type="AudioStream" uid="uid://dor8cbsjprvk3" path="res://Game/Audio/Sfx/hit_paper_2.wav" id="2_86575"]
+[ext_resource type="AudioStream" uid="uid://biegctqjcoc8w" path="res://Game/Audio/Sfx/hit_paper_3.wav" id="3_rx6l0"]
+[ext_resource type="Script" path="res://Game/Scripts/GodotGame/Audio/ResignalSfx.cs" id="4_vlla1"]
+
+[resource]
+script = ExtResource("4_vlla1")
+ClipVariations = Array[AudioStream]([ExtResource("1_bq3kv"), ExtResource("2_86575"), ExtResource("3_rx6l0")])
+Volume = 1.0
+Pitch = Vector2(0.8, 1.2)

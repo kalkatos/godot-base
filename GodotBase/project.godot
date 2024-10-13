@@ -11,15 +11,19 @@ config_version=5
 [application]
 
 config/name="GodotBase"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Game/Scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Settings/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://Settings/default_bus_layout.tres"
 
 [autoload]
 
-DebugCommands="*res://Prefabs/Globals/DebugCommands.tscn"
-ResignalSettings="*res://Prefabs/Globals/ResignalSettings.tscn"
-AudioController="*res://Prefabs/Globals/AudioController.tscn"
+DebugCommands="*res://Game/Prefabs/Globals/DebugCommands.tscn"
+ResignalSettings="*res://Game/Prefabs/Globals/ResignalSettings.tscn"
+AudioController="*res://Game/Prefabs/Globals/AudioController.tscn"
 
 [display]
 

@@ -1,6 +1,6 @@
 [submodule "GodotBase/Scripts/CSharpGame"]
-	path = GodotBase/Scripts/CSharpGame
+	path = GodotBase/Game/Scripts/CSharpGame
 	url = https://github.com/kalkatos/csharpgame.git
 [submodule "GodotBase/Scripts/GodotGame"]
-	path = GodotBase/Scripts/GodotGame
+	path = GodotBase/Game/Scripts/GodotGame
 	url = https://github.com/kalkatos/godotgame.git

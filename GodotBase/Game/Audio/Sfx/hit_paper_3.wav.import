@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://biegctqjcoc8w"
-path="res://.godot/imported/hit_paper_3.wav-c93c816f74b1be28ba2f80e12b26ce95.sample"
+path="res://.godot/imported/hit_paper_3.wav-36a50e85e483bb404cc7acbccce52ddb.sample"
 
 [deps]
 
-source_file="res://Audio/Sfx/hit_paper_3.wav"
-dest_files=["res://.godot/imported/hit_paper_3.wav-c93c816f74b1be28ba2f80e12b26ce95.sample"]
+source_file="res://Game/Audio/Sfx/hit_paper_3.wav"
+dest_files=["res://.godot/imported/hit_paper_3.wav-36a50e85e483bb404cc7acbccce52ddb.sample"]
 
 [params]
 

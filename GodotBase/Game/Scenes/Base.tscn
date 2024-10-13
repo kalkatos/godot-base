@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cg4c7nvlsc765"]
 
-[ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://icon.svg" id="1_1dnga"]
+[ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://Settings/icon.svg" id="1_1dnga"]
 
 [node name="Base" type="Node2D"]
 
