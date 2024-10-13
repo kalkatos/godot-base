@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg4c7nvlsc765"]
+[gd_scene load_steps=2 format=3 uid="uid://j2h5vyx78c58"]
 
-[ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://Settings/icon.svg" id="1_1dnga"]
+[ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://Settings/icon.svg" id="1_j6jcv"]
 
-[node name="Base" type="Node2D"]
+[node name="Sample Scene" type="Node2D"]
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
@@ -17,8 +17,8 @@ offset_top = -23.0
 offset_right = 44.5
 grow_horizontal = 2
 grow_vertical = 0
-text = "Base Scene"
+text = "Sample Scene"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1120, 406)
-texture = ExtResource("1_1dnga")
+position = Vector2(640, 360)
+texture = ExtResource("1_j6jcv")
