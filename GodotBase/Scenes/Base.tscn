@@ -4,15 +4,9 @@
 
 [node name="Base" type="Node2D"]
 
-[node name="Canvas" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-mouse_filter = 2
+[node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="Scene Name" type="Label" parent="Canvas"]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

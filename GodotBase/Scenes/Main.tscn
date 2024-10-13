@@ -1,18 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://j2h5vyx78c58"]
+[gd_scene load_steps=5 format=3 uid="uid://j2h5vyx78c58"]
 
+[ext_resource type="PackedScene" uid="uid://bnwgoirkbdeid" path="res://Prefabs/TestButton.tscn" id="1_abdkw"]
 [ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://icon.svg" id="1_b3ruk"]
+[ext_resource type="Script" path="res://Scripts/GodotGame/Utils/StartCaller.cs" id="1_ba3h4"]
+[ext_resource type="Resource" uid="uid://ceiptuaddd2ou" path="res://_GameDesign/Audio/MainMusic.tres" id="2_q2bfk"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Canvas" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
-mouse_filter = 2
+[node name="MainMusic" type="Node" parent="."]
+script = ExtResource("1_ba3h4")
+OnReadySignals = Array[Object]([ExtResource("2_q2bfk")])
+
+[node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="Scene Name" type="Label" parent="Canvas"]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -24,6 +25,8 @@ offset_right = 44.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "Main Scene"
+
+[node name="Button" parent="Canvas" instance=ExtResource("1_abdkw")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(274, 392)
