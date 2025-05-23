@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://j2h5vyx78c58"]
 
-[ext_resource type="Script" path="res://Game/Scripts/GodotGame/Utils/VersionText.cs" id="1_5odvk"]
+[ext_resource type="Script" uid="uid://cbbl5i7b05chl" path="res://Game/Scripts/GodotGame/Utils/VersionText.cs" id="1_5odvk"]
 [ext_resource type="Texture2D" uid="uid://bp0bk88plexjv" path="res://Settings/icon.svg" id="1_j6jcv"]
 
 [node name="Sample Scene" type="Node2D"]

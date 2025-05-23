@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o0eo3uqsekuf"]
 
-[ext_resource type="Script" path="res://Game/Scripts/GodotGame/Debug/DebugCommands.cs" id="1_eq0eo"]
+[ext_resource type="Script" uid="uid://b6bhjte7a2qet" path="res://Game/Scripts/GodotGame/Debug/DebugCommands.cs" id="1_eq0eo"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 128

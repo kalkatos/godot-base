@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://uktcjeg03rj2"]
 
-[ext_resource type="Script" path="res://Game/Scripts/GodotGame/Resignals/ResignalSettings.cs" id="1_vq2xg"]
+[ext_resource type="Script" uid="uid://bwg08jh32tub0" path="res://Game/Scripts/GodotGame/Resignals/ResignalSettings.cs" id="1_vq2xg"]
 
 [node name="ResignalSettings" type="Node"]
 script = ExtResource("1_vq2xg")
