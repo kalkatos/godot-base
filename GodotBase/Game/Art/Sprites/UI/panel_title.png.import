@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp0bk88plexjv"
-path="res://.godot/imported/icon.svg-4de57bc70f8aa7a78c5a71123f64e040.ctex"
+uid="uid://dlqu48pu0th8c"
+path="res://.godot/imported/panel_title.png-b083a2f861d5fd3d2a816173d8188082.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Settings/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-4de57bc70f8aa7a78c5a71123f64e040.ctex"]
+source_file="res://Game/Art/Sprites/UI/panel_title.png"
+dest_files=["res://.godot/imported/panel_title.png-b083a2f861d5fd3d2a816173d8188082.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
