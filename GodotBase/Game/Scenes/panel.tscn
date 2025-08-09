@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj2y334ax7x4n"]
+
+[ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Scripts/Core/Signals/global_bus.gd" id="1_mtts2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 183.0
+offset_top = 202.0
+offset_right = 409.0
+offset_bottom = 361.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 30.0
+offset_right = 167.0
+offset_bottom = 63.0
+text = "Press Me"
+script = ExtResource("1_mtts2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 96.0
+offset_right = 185.0
+offset_bottom = 139.0
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_mtts2")

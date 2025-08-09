@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="GodotBase"
+run/main_scene="uid://3xw4mdeg243b"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalBus="*res://Game/_GameDesign/Globals/global_bus.tscn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GDScriptMacros/plugin.cfg")
 
 [rendering]
 
