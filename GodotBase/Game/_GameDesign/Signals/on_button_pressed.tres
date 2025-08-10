@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="SignalBase" load_steps=2 format=3 uid="uid://dykpgw3f8vykc"]
-
-[ext_resource type="Script" uid="uid://d32yxrm5ey0j1" path="res://Game/Scripts/Core/Signals/signal_base.gd" id="1_5cdye"]
-
-[resource]
-script = ExtResource("1_5cdye")
-metadata/_custom_type_script = "uid://d32yxrm5ey0j1"
