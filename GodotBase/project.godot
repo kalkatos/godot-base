@@ -19,10 +19,15 @@ config/icon="res://icon.svg"
 
 GlobalBus="*res://Game/_GameDesign/Globals/global_bus.tscn"
 Debug="*res://Game/_GameDesign/Globals/debug_commands.tscn"
+DragAndDropGroupHelper="*res://addons/DragAndDrop3D/DragAndDropGroupHelper.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GDScriptMacros/plugin.cfg")
+enabled=PackedStringArray("res://addons/DragAndDrop3D/plugin.cfg", "res://addons/GDScriptMacros/plugin.cfg")
+
+[global_group]
+
+DragAndDrop3D=""
 
 [input]
 

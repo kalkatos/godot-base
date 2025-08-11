@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://3xw4mdeg243b"]
+[gd_scene load_steps=2 format=3 uid="uid://3xw4mdeg243b"]
 
 [ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Scripts/Core/global_bus.gd" id="1_pk07d"]
-[ext_resource type="Script" uid="uid://b1rpi5iv5vacf" path="res://Game/Scripts/temp.gd" id="1_wojpb"]
 
 [node name="TestScene" type="Node"]
-script = ExtResource("1_wojpb")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 520.0
@@ -31,7 +29,36 @@ offset_right = 689.0
 offset_bottom = 528.0
 script = ExtResource("1_pk07d")
 
+[node name="Button2" type="Button" parent="."]
+offset_left = 801.0
+offset_top = 389.0
+offset_right = 981.0
+offset_bottom = 428.0
+text = "Press Me"
+script = ExtResource("1_pk07d")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 818.0
+offset_top = 432.0
+offset_right = 965.0
+offset_bottom = 465.0
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_pk07d")
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+offset_left = 813.0
+offset_top = 493.0
+offset_right = 970.0
+offset_bottom = 524.0
+script = ExtResource("1_pk07d")
+
 [connection signal="pressed" from="Button" to="Button" method="emit_on_button_pressed"]
-[connection signal="_name_changed" from="Label" to="Label" method="set_text"]
-[connection signal="_on_button_pressed" from="Label" to="Label" method="set_text" binds= ["Finally!"]]
-[connection signal="text_submitted" from="LineEdit" to="LineEdit" method="emit_name_changed"]
+[connection signal="_on_button_pressed" from="Label" to="Label" method="set_text" binds= ["Ready!"]]
+[connection signal="_on_str_changed" from="Label" to="Label" method="set_text"]
+[connection signal="text_submitted" from="LineEdit" to="LineEdit" method="emit_on_str_changed"]
+[connection signal="pressed" from="Button2" to="Button2" method="emit_on_button_pressed"]
+[connection signal="_on_button_pressed" from="Label2" to="Label2" method="set_text" binds= ["Ready!"]]
+[connection signal="_on_str_changed" from="Label2" to="Label2" method="set_text"]
+[connection signal="text_submitted" from="LineEdit2" to="LineEdit2" method="emit_on_str_changed"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpjhpfkk3hukq"]
+
+[ext_resource type="Script" uid="uid://cocnpd1kq0t2t" path="res://addons/DragAndDrop3D/nodes/drag_and_drop_3d.gd" id="1_w3tsm"]
+[ext_resource type="PackedScene" uid="uid://c3i6b7ijjxudc" path="res://addons/DragAndDrop3D/nodes/DraggingObject3D.tscn" id="2_oevwm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tmck7"]
+
+[node name="DragAndDrop3d" type="Node3D" groups=["DragAndDrop3D"]]
+script = ExtResource("1_w3tsm")
+
+[node name="DraggingObject" parent="." instance=ExtResource("2_oevwm")]
+
+[node name="Area3D" type="Area3D" parent="DraggingObject"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="DraggingObject/Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DraggingObject/Area3D"]
+shape = SubResource("BoxShape3D_tmck7")

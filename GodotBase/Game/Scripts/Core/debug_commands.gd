@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-#@export var max_size: int
 @export var debug_text: RichTextLabel
 @export var input_text: LineEdit
 
@@ -21,10 +20,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _handle_text_submitted (text: String):
 	input_text.clear()
-	log_msg("Function executed: " + text)
-	pass
+	logm("Function executed: " + text)
 
-func log_msg (msg: String):
+func logm (msg: String):
 	print(msg)
 	debug_text.newline()
 	debug_text.append_text(msg)
