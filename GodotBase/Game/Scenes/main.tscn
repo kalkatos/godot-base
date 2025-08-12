@@ -1,64 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://3xw4mdeg243b"]
+[gd_scene load_steps=2 format=3 uid="uid://cndotgxorx3id"]
 
-[ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Scripts/Core/global_bus.gd" id="1_pk07d"]
+[ext_resource type="PackedScene" uid="uid://bvxcedqkdx3n6" path="res://Game/Prefabs/Card.tscn" id="1_jri2w"]
 
-[node name="TestScene" type="Node"]
+[node name="Main3D" type="Node3D"]
 
-[node name="Button" type="Button" parent="."]
-offset_left = 520.0
-offset_top = 393.0
-offset_right = 700.0
-offset_bottom = 432.0
-text = "Press Me"
-script = ExtResource("1_pk07d")
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 6.46, 9.298)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 537.0
-offset_top = 436.0
-offset_right = 684.0
-offset_bottom = 469.0
-text = "..."
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("1_pk07d")
-
-[node name="LineEdit" type="LineEdit" parent="."]
-offset_left = 532.0
-offset_top = 497.0
-offset_right = 689.0
-offset_bottom = 528.0
-script = ExtResource("1_pk07d")
-
-[node name="Button2" type="Button" parent="."]
-offset_left = 801.0
-offset_top = 389.0
-offset_right = 981.0
-offset_bottom = 428.0
-text = "Press Me"
-script = ExtResource("1_pk07d")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 818.0
-offset_top = 432.0
-offset_right = 965.0
-offset_bottom = 465.0
-text = "..."
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("1_pk07d")
-
-[node name="LineEdit2" type="LineEdit" parent="."]
-offset_left = 813.0
-offset_top = 493.0
-offset_right = 970.0
-offset_bottom = 524.0
-script = ExtResource("1_pk07d")
-
-[connection signal="pressed" from="Button" to="Button" method="emit_on_button_pressed"]
-[connection signal="_on_button_pressed" from="Label" to="Label" method="set_text" binds= ["Ready!"]]
-[connection signal="_on_str_changed" from="Label" to="Label" method="set_text"]
-[connection signal="text_submitted" from="LineEdit" to="LineEdit" method="emit_on_str_changed"]
-[connection signal="pressed" from="Button2" to="Button2" method="emit_on_button_pressed"]
-[connection signal="_on_button_pressed" from="Label2" to="Label2" method="set_text" binds= ["Ready!"]]
-[connection signal="_on_str_changed" from="Label2" to="Label2" method="set_text"]
-[connection signal="text_submitted" from="LineEdit2" to="LineEdit2" method="emit_on_str_changed"]
+[node name="Card" parent="." instance=ExtResource("1_jri2w")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)

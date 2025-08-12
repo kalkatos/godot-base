@@ -11,15 +11,20 @@ config_version=5
 [application]
 
 config/name="GodotBase"
-run/main_scene="uid://3xw4mdeg243b"
+run/main_scene="uid://cndotgxorx3id"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalBus="*res://Game/_GameDesign/Globals/global_bus.tscn"
-Debug="*res://Game/_GameDesign/Globals/debug_commands.tscn"
+Debug="*res://Game/_GameDesign/Globals/DebugCommands.tscn"
 DragAndDropGroupHelper="*res://addons/DragAndDrop3D/DragAndDropGroupHelper.gd"
+SignalBus="*res://Game/_GameDesign/Globals/SignalBus.tscn"
+
+[editor]
+
+naming/scene_name_casing=1
+naming/script_name_casing=1
 
 [editor_plugins]
 

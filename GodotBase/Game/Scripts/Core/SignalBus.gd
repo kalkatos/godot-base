@@ -6,18 +6,17 @@ signal _on_str_changed (new_str: String)
 
 func emit_on_str_changed (new_str: String):
 	_on_str_changed.emit(new_str)
-	GlobalBus._on_str_changed.emit(new_str)
+	SignalBus._on_str_changed.emit(new_str)
 
 func emit_on_button_pressed ():
 	_on_button_pressed.emit()
-	GlobalBus._on_button_pressed.emit()
-
+	SignalBus._on_button_pressed.emit()
 
 func _ready ():
-	if self == GlobalBus:
+	if self == SignalBus:
 		return
 	for sig in get_signal_list():
 		if not sig.name.begins_with('_'):
 			break
 		for connection in get_signal_connection_list(sig.name):
-			GlobalBus.connect(sig.name, connection.callable)
+			SignalBus.connect(sig.name, connection.callable)

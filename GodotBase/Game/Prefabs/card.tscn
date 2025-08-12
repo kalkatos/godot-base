@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvxcedqkdx3n6"]
 
-[ext_resource type="Shape3D" uid="uid://d34r4mvi663ig" path="res://Game/Settings/card_shape_3d.tres" id="1_de0jr"]
-[ext_resource type="Script" uid="uid://v3xk1dvq6df3" path="res://Game/Scripts/Input/draggable.gd" id="1_wtmb8"]
+[ext_resource type="Shape3D" uid="uid://d34r4mvi663ig" path="res://Game/Settings/CardShape3D.tres" id="1_de0jr"]
+[ext_resource type="Script" uid="uid://v3xk1dvq6df3" path="res://Game/Scripts/Input/Draggable.gd" id="1_wtmb8"]
 [ext_resource type="Texture2D" uid="uid://cjsvvxe02sh4w" path="res://Game/Art/Sprites/UI/button.png" id="2_wtmb8"]
 
 [node name="Card" type="Area3D"]

@@ -10,13 +10,8 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("toggle_debug"):
-		if is_open:
-			debug_text.visible = false
-			input_text.visible = false
-		else:
-			debug_text.visible = true
-			input_text.visible = true
 		is_open = !is_open
+		visible = is_open
 
 func _handle_text_submitted (text: String):
 	input_text.clear()
