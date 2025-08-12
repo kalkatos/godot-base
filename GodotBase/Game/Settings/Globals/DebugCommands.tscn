@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bahar2cinahxn"]
 
-[ext_resource type="Script" uid="uid://dyig4ccf7pbcb" path="res://Game/Scripts/Core/DebugCommands.gd" id="1_7hv37"]
+[ext_resource type="Script" uid="uid://dyig4ccf7pbcb" path="res://Game/Scripts/Globals/DebugCommands.gd" id="1_emqrf"]
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("debug_text", "input_text")]
 visible = false
-script = ExtResource("1_7hv37")
+script = ExtResource("1_emqrf")
 debug_text = NodePath("RichTextLabel")
 input_text = NodePath("LineEdit")
 

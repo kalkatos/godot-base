@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Debug="*res://Game/_GameDesign/Globals/DebugCommands.tscn"
-DragAndDropGroupHelper="*res://addons/DragAndDrop3D/DragAndDropGroupHelper.gd"
-SignalBus="*res://Game/_GameDesign/Globals/SignalBus.tscn"
+Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
+SignalBus="*res://Game/Settings/Globals/SignalBus.tscn"
+Global="*res://Game/Settings/Globals/Global.tscn"
 
 [editor]
 
