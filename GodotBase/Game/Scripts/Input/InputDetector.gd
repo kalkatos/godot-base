@@ -33,7 +33,6 @@ func _input_event (camera: Camera3D, event: InputEvent, _event_position: Vector3
 			_is_dragging = false
 
 func _mouse_enter () -> void:
-	Debug.logm("Mouse ENTER in parent class")
 	pass
 
 func _mouse_exit () -> void:

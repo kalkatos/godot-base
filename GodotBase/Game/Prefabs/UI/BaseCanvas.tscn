@@ -1,6 +1,19 @@
-[gd_scene format=3 uid="uid://dd1lacfgcfen5"]
+[gd_scene load_steps=2 format=3 uid="uid://dd1lacfgcfen5"]
+
+[ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Game/Scripts/Utility/VersionText.gd" id="1_pedo5"]
 
 [node name="BaseCanvas" type="CanvasLayer"]
+
+[node name="Version Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 86.0
+grow_vertical = 0
+text = "v0.0.0"
+vertical_alignment = 2
+script = ExtResource("1_pedo5")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 7
