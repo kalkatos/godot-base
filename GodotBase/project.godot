@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
 SignalBus="*res://Game/Settings/Globals/SignalBus.tscn"
 Global="*res://Game/Settings/Globals/Global.tscn"
+SceneHub="*res://Game/Settings/Globals/SceneHub.tscn"
 
 [editor]
 
@@ -28,7 +29,7 @@ naming/script_name_casing=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/DragAndDrop3D/plugin.cfg", "res://addons/GDScriptMacros/plugin.cfg")
+enabled=PackedStringArray()
 
 [global_group]
 

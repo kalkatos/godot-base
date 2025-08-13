@@ -24,7 +24,7 @@
 			"",
 			"func emit_${1:name} ():",
 			"\t_${1:name}.emit()",
-			"\tGlobalBus._${1:name}.emit()",
+			"\tSignalBus._${1:name}.emit()",
 			""
 		],
 		"description": "Add a new signal to SignalBus"
@@ -38,9 +38,9 @@
 			"",
 			"func emit_${1:name} (${2:varname}: ${3:type}):",
 			"\t_${1:name}.emit(${2:varname})",
-			"\tGlobalBus._${1:name}.emit(${2:varname})",
+			"\tSignalBus._${1:name}.emit(${2:varname})",
 			""
 		],
-		"description": "Add a new signal to SignalBus"
+		"description": "Add a new signal to SignalBus with parameters"
 	}
 }
