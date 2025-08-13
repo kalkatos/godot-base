@@ -22,6 +22,7 @@ Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
 SignalBus="*res://Game/Settings/Globals/SignalBus.tscn"
 Global="*res://Game/Settings/Globals/Global.tscn"
 SceneHub="*res://Game/Settings/Globals/SceneHub.tscn"
+InputController="*res://Game/Settings/Globals/InputController.tscn"
 
 [editor]
 
