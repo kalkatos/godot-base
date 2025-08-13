@@ -7,10 +7,10 @@
 
 [node name="BaseCanvas" parent="." instance=ExtResource("1_82lpv")]
 
-[node name="Label" parent="BaseCanvas" index="0"]
+[node name="Label" parent="BaseCanvas" index="1"]
 text = "Test Scene"
 
-[node name="Button" parent="BaseCanvas" index="1"]
+[node name="Button" parent="BaseCanvas" index="2"]
 offset_left = 8.0
 offset_top = 9.0
 offset_right = 121.0
