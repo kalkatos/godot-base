@@ -31,7 +31,7 @@ naming/script_name_casing=1
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/GenkiDraggable/plugin.cfg")
 
 [global_group]
 

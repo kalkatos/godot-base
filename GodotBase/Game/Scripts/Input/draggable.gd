@@ -10,6 +10,8 @@ class_name Draggable
 @export var drag_from_pivot: bool = true
 ## Set an offset to be applied when dragging the object.
 @export var drag_offset: Vector3 = Vector3.ZERO
+## If set to TRUE, the input will be captured when dragging the object.
+@export var drag_snap: bool = true
 ## Speed of the lerp when dragging the object.
 @export var begin_drag_speed: float = 1.0
 
@@ -19,6 +21,7 @@ var _offset: Vector3 = Vector3.ZERO
 var _target_position: Vector3 = Vector3.ZERO
 var _begin_drag_lerp: float = 0.0
 var _drag_origin: Vector3
+var _is_being_dragged: bool
 
 func _ready ():
 	input_capture_on_drag = true
@@ -52,28 +55,42 @@ func _mouse_exit () -> void:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 func _begin_drag (mouse_position: Vector2):
-	if !draggable:
+	if !draggable or InputController.is_dragging:
 		return
 	Input.set_default_cursor_shape(Input.CURSOR_MOVE)
 	InputController.begin_drag(self)
+	_is_being_dragged = true
+	var point = InputController.mouse_position_to_world_position(mouse_position)
+	_target_position = point + _offset + drag_offset
 	if !drag_from_pivot:
-		_offset = InputController.mouse_position_to_world_position(mouse_position) - global_position
+		_offset = global_position - point
 	_begin_drag_lerp = 0.0
 	_drag_origin = global_position
+	if drag_snap:
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(self, "_begin_drag_lerp", 1.0, 0.2)
+
+func _process (_delta: float) -> void:
+	if !_is_being_dragged or !draggable:
+		return
+	if is_equal_approx(_begin_drag_lerp, 1.0):
+		global_position = _target_position
+	elif drag_snap:
+		global_position = _drag_origin.lerp(_target_position, _begin_drag_lerp)
 
 func _drag (mouse_position: Vector2):
-	if !draggable:
+	if !draggable or !_is_being_dragged:
 		return
 	var point = InputController.mouse_position_to_world_position(mouse_position)
 	_target_position = point + _offset + drag_offset
-	if is_equal_approx(_begin_drag_lerp, 1.0):
-		global_position = _target_position
-	else:
+	if !drag_snap and !is_equal_approx(_begin_drag_lerp, 1.0):
 		_begin_drag_lerp = clamp(_begin_drag_lerp + begin_drag_speed * get_process_delta_time(), 0.0, 1.0)
 		global_position = _drag_origin.lerp(_target_position, _begin_drag_lerp)
 
 func _end_drag (_mouse_position: Vector2):
 	if !draggable:
 		return
+	_is_being_dragged = false
 	InputController.end_drag(self)
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
