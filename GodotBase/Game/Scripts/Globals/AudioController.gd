@@ -13,31 +13,27 @@ var _master_sfx_volume: float
 var master_music_volume := 1.0:
 	get:
 		return _master_music_volume
-	set (val):
-		_master_music_volume = val
-		Storage.save("master_music_volume", val)
-		SignalBus.emit_on_music_volume_set(val)
+	set (value):
+		SignalBus.emit_on_music_volume_set(value)
 
 var master_sfx_volume := 1.0:
 	get:
 		return _master_sfx_volume
-	set (val):
-		_master_sfx_volume = val
-		Storage.save("master_sfx_volume", val)
-		SignalBus.emit_on_sfx_volume_set(val)
+	set (value):
+		SignalBus.emit_on_sfx_volume_set(value)
 
 func _ready() -> void:
-	master_music_volume = Storage.load("master_music_volume", 1.0)
-	master_sfx_volume = Storage.load("master_sfx_volume", 1.0)
+	var saved_music_volume = Storage.load("master_music_volume", 1.0)
+	var saved_sfx_volume = Storage.load("master_sfx_volume", 1.0)
 	sfx_channels = [
 		sfx_channel_1,
 		sfx_channel_2,
 		sfx_channel_3
 	]
 	await get_tree().create_timer(0.1).timeout
-	SignalBus.emit_on_music_volume_set(master_music_volume)
+	master_music_volume = saved_music_volume
+	master_sfx_volume = saved_sfx_volume
 	SignalBus._on_music_volume_set.connect(_handle_music_volume_set)
-	SignalBus.emit_on_sfx_volume_set(master_sfx_volume)
 	SignalBus._on_sfx_volume_set.connect(_handle_sfx_volume_set)
 
 func play_sfx (sfx: AudioStream):
@@ -73,9 +69,9 @@ func stop_music ():
 		music_channel.stop()
 
 func _handle_music_volume_set (value: float):
-	master_music_volume = clamp(value, 0, 1)
-	Storage.save("master_music_volume", master_music_volume)
+	_master_music_volume = clamp(value, 0, 1)
+	Storage.save("master_music_volume", value)
 
 func _handle_sfx_volume_set (value: float):
-	master_sfx_volume = clamp(value, 0, 1)
-	Storage.save("master_sfx_volume", master_sfx_volume)
+	_master_sfx_volume = clamp(value, 0, 1)
+	Storage.save("master_sfx_volume", value)
