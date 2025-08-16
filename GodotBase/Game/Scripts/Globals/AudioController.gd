@@ -1,7 +1,5 @@
 extends AudioListener2D
 
-@export var master_music_volume := 1.0
-@export var master_sfx_volume := 1.0
 @export var music_channel: AudioStreamPlayer2D
 @export var sfx_channel_1: AudioStreamPlayer2D
 @export var sfx_channel_2: AudioStreamPlayer2D
@@ -9,15 +7,38 @@ extends AudioListener2D
 
 var sfx_channels: Array[AudioStreamPlayer2D]
 var channel_index := 0
+var _master_music_volume: float
+var _master_sfx_volume: float
+
+var master_music_volume := 1.0:
+	get:
+		return _master_music_volume
+	set (val):
+		_master_music_volume = val
+		Storage.save("master_music_volume", val)
+		SignalBus.emit_on_music_volume_set(val)
+
+var master_sfx_volume := 1.0:
+	get:
+		return _master_sfx_volume
+	set (val):
+		_master_sfx_volume = val
+		Storage.save("master_sfx_volume", val)
+		SignalBus.emit_on_sfx_volume_set(val)
 
 func _ready() -> void:
-	SignalBus._on_music_volume_set.connect(_handle_music_volume_set)
-	SignalBus._on_sfx_volume_set.connect(_handle_sfx_volume_set)
+	master_music_volume = Storage.load("master_music_volume", 1.0)
+	master_sfx_volume = Storage.load("master_sfx_volume", 1.0)
 	sfx_channels = [
 		sfx_channel_1,
 		sfx_channel_2,
 		sfx_channel_3
 	]
+	await get_tree().create_timer(0.1).timeout
+	SignalBus.emit_on_music_volume_set(master_music_volume)
+	SignalBus._on_music_volume_set.connect(_handle_music_volume_set)
+	SignalBus.emit_on_sfx_volume_set(master_sfx_volume)
+	SignalBus._on_sfx_volume_set.connect(_handle_sfx_volume_set)
 
 func play_sfx (sfx: AudioStream):
 	if is_zero_approx(master_sfx_volume):
@@ -53,6 +74,8 @@ func stop_music ():
 
 func _handle_music_volume_set (value: float):
 	master_music_volume = clamp(value, 0, 1)
+	Storage.save("master_music_volume", master_music_volume)
 
 func _handle_sfx_volume_set (value: float):
 	master_sfx_volume = clamp(value, 0, 1)
+	Storage.save("master_sfx_volume", master_sfx_volume)

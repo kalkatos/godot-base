@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bymvmbwr1i156"]
+
+[ext_resource type="Script" uid="uid://0vm7w4e1ub2h" path="res://Game/Scripts/Globals/Storage.gd" id="1_fd3wd"]
+
+[node name="Storage" type="Node"]
+script = ExtResource("1_fd3wd")
