@@ -60,7 +60,7 @@ func _begin_drag (mouse_position: Vector2):
 	Input.set_default_cursor_shape(Input.CURSOR_MOVE)
 	InputController.begin_drag(self)
 	_is_being_dragged = true
-	var point = InputController.mouse_position_to_world_position(mouse_position)
+	var point = InputController.mouse_to_world_position(mouse_position)
 	_target_position = point + _offset + drag_offset
 	if !drag_from_pivot:
 		_offset = global_position - point
@@ -82,7 +82,7 @@ func _process (_delta: float) -> void:
 func _drag (mouse_position: Vector2):
 	if !draggable or !_is_being_dragged:
 		return
-	var point = InputController.mouse_position_to_world_position(mouse_position)
+	var point = InputController.mouse_to_world_position(mouse_position)
 	_target_position = point + _offset + drag_offset
 	if !drag_snap and !is_equal_approx(_begin_drag_lerp, 1.0):
 		_begin_drag_lerp = clamp(_begin_drag_lerp + begin_drag_speed * get_process_delta_time(), 0.0, 1.0)

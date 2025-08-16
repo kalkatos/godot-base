@@ -1,12 +1,11 @@
 extends Node
 
-@export var default_scene: String = ""
+class_name SceneLoader
 
-func load_default_scene():
-    if default_scene.is_empty():
-        Debug.log_error("No default scene name provided.")
+@export_file("*.tscn") var scene: String
+
+func load_scene ():
+    if !scene:
+        Debug.log_error("No scene provided.")
         return
-    load_scene(default_scene)
-
-func load_scene(scene: String) -> void:
-    SceneHub.load_scene(scene)
+    get_tree().change_scene_to_file(scene)

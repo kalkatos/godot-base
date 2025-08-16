@@ -55,7 +55,7 @@ func end_drag (draggable: Draggable) -> void:
 	Debug.logm("Drag END on draggable: " + str(draggable))
 	on_end_drag.emit(draggable, input_info)
 
-func mouse_position_to_world_position (mouse_position: Vector2) -> Vector3:
+func mouse_to_world_position (mouse_position: Vector2) -> Vector3:
 	var camera = get_viewport().get_camera_3d()
 	if !plane:
 		plane = Plane(camera.basis.z, Vector3.ZERO)

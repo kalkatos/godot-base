@@ -16,13 +16,18 @@ run/main_scene="uid://cndotgxorx3id"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://ddnbh7f2pwxil"
+
 [autoload]
 
 Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
 SignalBus="*res://Game/Settings/Globals/SignalBus.tscn"
 Global="*res://Game/Settings/Globals/Global.tscn"
-SceneHub="*res://Game/Settings/Globals/SceneHub.tscn"
 InputController="*res://Game/Settings/Globals/InputController.tscn"
+MainListener="*res://Game/Settings/Globals/AudioController.tscn"
+AudioController="*res://Game/Settings/Globals/AudioController.tscn"
 
 [editor]
 
