@@ -11,9 +11,13 @@ sfx_channel_2 = NodePath("SfxChannel_2")
 sfx_channel_3 = NodePath("SfxChannel_3")
 
 [node name="MusicChannel" type="AudioStreamPlayer2D" parent="."]
+volume_db = -80.0
 
 [node name="SfxChannel_1" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sfx"
 
 [node name="SfxChannel_2" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sfx"
 
 [node name="SfxChannel_3" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sfx"

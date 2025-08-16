@@ -1,17 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cndotgxorx3id"]
+[gd_scene load_steps=4 format=3 uid="uid://cndotgxorx3id"]
 
 [ext_resource type="PackedScene" uid="uid://bvxcedqkdx3n6" path="res://Game/Prefabs/Card.tscn" id="1_jri2w"]
-[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Game/Scripts/Utility/AudioPlayer.gd" id="1_wcv8c"]
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/BaseCanvas.tscn" id="2_h66oc"]
-[ext_resource type="AudioStream" uid="uid://dflis8cefagn7" path="res://Game/Art/Audio/Music/main_music.wav" id="2_p0tac"]
 [ext_resource type="Script" uid="uid://d2ir7psppeo3e" path="res://Game/Scripts/Utility/SceneLoader.gd" id="3_rsmbn"]
 
 [node name="Main3D" type="Node3D"]
-
-[node name="Main Music Player" type="Node" parent="."]
-script = ExtResource("1_wcv8c")
-audio = ExtResource("2_p0tac")
-metadata/_custom_type_script = "uid://brqtcgh6awxtg"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 6.46, 9.298)
@@ -46,7 +39,6 @@ script = ExtResource("3_rsmbn")
 scene = "res://Game/Scenes/Test.tscn"
 metadata/_custom_type_script = "uid://d2ir7psppeo3e"
 
-[connection signal="ready" from="Main Music Player" to="Main Music Player" method="play_global_music"]
 [connection signal="pressed" from="BaseCanvas/Button" to="BaseCanvas/Button/SceneLoader" method="load_scene"]
 
 [editable path="BaseCanvas"]
