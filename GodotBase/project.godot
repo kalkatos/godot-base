@@ -26,7 +26,6 @@ Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
 SignalBus="*res://Game/Settings/Globals/SignalBus.tscn"
 Global="*res://Game/Settings/Globals/Global.tscn"
 InputController="*res://Game/Settings/Globals/InputController.tscn"
-MainListener="*res://Game/Settings/Globals/AudioController.tscn"
 AudioController="*res://Game/Settings/Globals/AudioController.tscn"
 
 [editor]
