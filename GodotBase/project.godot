@@ -27,7 +27,7 @@ SignalBus="*res://Game/Settings/Globals/SignalBus.tscn"
 Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
 AudioController="*res://Game/Settings/Globals/AudioController.tscn"
 Global="*res://Game/Settings/Globals/Global.tscn"
-InputController="*res://Game/Settings/Globals/InputController.tscn"
+InputController="*res://addons/GenkiDraggable/InputController.tscn"
 
 [display]
 

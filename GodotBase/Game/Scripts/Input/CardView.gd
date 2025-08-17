@@ -5,6 +5,8 @@ extends Node
 var _drag_start_pos: Vector3
 
 func _ready ():
+	if !draggable:
+		draggable = $Draggable
 	draggable.on_begin_drag.connect(_handle_begin_drag)
 	draggable.on_end_drag.connect(_handle_end_drag)
 
