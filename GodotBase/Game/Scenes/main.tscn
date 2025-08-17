@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cndotgxorx3id"]
+[gd_scene load_steps=5 format=3 uid="uid://cndotgxorx3id"]
 
 [ext_resource type="PackedScene" uid="uid://bvxcedqkdx3n6" path="res://Game/Prefabs/Card.tscn" id="1_jri2w"]
+[ext_resource type="PackedScene" uid="uid://b160sw7htqclb" path="res://Game/Prefabs/MainMusic.tscn" id="1_wbhe7"]
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/BaseCanvas.tscn" id="2_h66oc"]
 [ext_resource type="Script" uid="uid://d2ir7psppeo3e" path="res://Game/Scripts/Utility/SceneLoader.gd" id="3_rsmbn"]
 
 [node name="Main3D" type="Node3D"]
+
+[node name="Main Music" parent="." instance=ExtResource("1_wbhe7")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 6.46, 9.298)

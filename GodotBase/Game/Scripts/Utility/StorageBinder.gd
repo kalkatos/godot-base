@@ -14,6 +14,9 @@ func _ready() -> void:
 func _exit_tree () -> void:
 	Storage.on_value_saved.disconnect(_handle_value_changed)
 
+func change_value (value: Variant):
+	Storage.save(key, value)
+
 func _handle_value_changed (key_: String, value: Variant):
 	if key_ != key:
 		return
