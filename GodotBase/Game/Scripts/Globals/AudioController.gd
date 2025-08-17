@@ -15,14 +15,12 @@ var master_music_volume: float:
 	get:
 		return _master_music_volume
 	set (value):
-		Debug.logm("Set master music volume: " + str(value))
 		SignalBus.emit_on_music_volume_set(value)
 
 var master_sfx_volume: float:
 	get:
 		return _master_sfx_volume
 	set (value):
-		Debug.logm("Set master sfx volume: " + str(value))
 		SignalBus.emit_on_sfx_volume_set(value)
 
 func _ready() -> void:
@@ -33,8 +31,7 @@ func _ready() -> void:
 	sfx_channels = [
 		sfx_channel_1,
 		sfx_channel_2,
-		sfx_channel_3
-	]
+		sfx_channel_3 ]
 	SignalBus._on_music_volume_set.connect(_handle_music_volume_set)
 	SignalBus._on_sfx_volume_set.connect(_handle_sfx_volume_set)
 	await get_tree().create_timer(0.1).timeout
