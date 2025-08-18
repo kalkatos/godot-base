@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dasot63isu7nl"]
-
-[ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Scripts/Globals/SignalBus.gd" id="1_s7e26"]
-
-[node name="Node" type="Node"]
-script = ExtResource("1_s7e26")

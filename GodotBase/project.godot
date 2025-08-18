@@ -22,11 +22,11 @@ buses/default_bus_layout="uid://ddnbh7f2pwxil"
 
 [autoload]
 
-Storage="*res://Game/Settings/Globals/Storage.tscn"
-SignalBus="*res://Game/Settings/Globals/SignalBus.tscn"
+Storage="*res://Game/Scripts/Globals/Storage.gd"
+SignalBus="*res://Game/Scripts/Globals/SignalBus.gd"
 Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
 AudioController="*res://Game/Settings/Globals/AudioController.tscn"
-Global="*res://Game/Settings/Globals/Global.tscn"
+Global="*res://Game/Scripts/Globals/Global.gd"
 InputController="*res://addons/GenkiDraggable/InputController.tscn"
 
 [display]

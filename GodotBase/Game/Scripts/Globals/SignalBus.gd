@@ -5,6 +5,11 @@ signal _on_button_pressed
 signal _on_str_changed (new_str: String)
 signal _on_music_volume_set (value: float)
 signal _on_sfx_volume_set (value: float)
+signal _on_settings_panel (open: bool)
+
+func emit_on_settings_panel (open: bool):
+	_on_settings_panel.emit(open)
+	SignalBus._on_settings_panel.emit(open)
 
 func emit_on_sfx_volume_set (value: float):
 	_on_sfx_volume_set.emit(value)

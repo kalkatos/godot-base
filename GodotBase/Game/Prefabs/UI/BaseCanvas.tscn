@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd1lacfgcfen5"]
+[gd_scene load_steps=7 format=3 uid="uid://dd1lacfgcfen5"]
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Game/Settings/Themes/base_theme.tres" id="1_e2xpx"]
 [ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Game/Scripts/Utility/VersionText.gd" id="1_pedo5"]
 [ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="3_lr2du"]
 [ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Scripts/Globals/SignalBus.gd" id="4_ceq4o"]
 [ext_resource type="Script" uid="uid://bep52cret807s" path="res://Game/Scripts/Utility/StorageBinder.gd" id="5_e2xpx"]
+[ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Game/Scripts/Utility/VisibilityAnimator.gd" id="5_lr2du"]
 
 [node name="BaseCanvas" type="CanvasLayer"]
 
@@ -46,8 +47,11 @@ offset_top = -349.0
 offset_right = 627.0
 offset_bottom = -309.0
 text = "Settings"
+script = ExtResource("4_ceq4o")
 
 [node name="Settings Panel" type="Panel" parent="."]
+physics_interpolation_mode = 0
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -59,16 +63,34 @@ offset_right = 144.0
 offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_ceq4o")
 
-[node name="Title" type="Label" parent="Settings Panel"]
+[node name="VisibilityAnimator" type="Control" parent="Settings Panel" node_paths=PackedStringArray("target")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_lr2du")
+target = NodePath("..")
+animation_time = 0.2
+metadata/_custom_type_script = "uid://c7y0qe0vrsik5"
+
+[node name="Title Background" type="ColorRect" parent="Settings Panel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 289.0
+offset_bottom = 43.0
+color = Color(0.650868, 0.650868, 0.650868, 0.505882)
+
+[node name="Title" type="Label" parent="Settings Panel/Title Background"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -42.5
-offset_top = 7.0
+offset_top = 8.0
 offset_right = 42.5
-offset_bottom = 36.0
+offset_bottom = 37.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
 text = "Settings"
@@ -81,9 +103,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -125.0
-offset_top = -56.0
+offset_top = -48.0
 offset_right = 125.0
-offset_bottom = -24.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -115,9 +137,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -125.0
-offset_top = -10.0
+offset_top = -8.0
 offset_right = 125.0
-offset_bottom = 22.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -147,7 +169,10 @@ layout_mode = 1
 offset_top = 39.0
 offset_bottom = 79.0
 text = "OK"
+script = ExtResource("4_ceq4o")
 
+[connection signal="pressed" from="Settings Button" to="Settings Button" method="emit_on_settings_panel" binds= [true]]
+[connection signal="_on_settings_panel" from="Settings Panel" to="Settings Panel/VisibilityAnimator" method="animate_visibility"]
 [connection signal="_on_music_volume_set" from="Settings Panel/Music Container/Music Slider" to="Settings Panel/Music Container/Music Slider" method="set_value_no_signal"]
 [connection signal="value_changed" from="Settings Panel/Music Container/Music Slider" to="Settings Panel/Music Container/Music Slider" method="emit_on_music_volume_set"]
 [connection signal="value_changed" from="Settings Panel/Music Container/Music Slider" to="Settings Panel/Music Container/Music Slider/Music Volume Binder" method="change_value"]
@@ -156,3 +181,4 @@ text = "OK"
 [connection signal="value_changed" from="Settings Panel/Sfx Container/Sfx Slider" to="Settings Panel/Sfx Container/Sfx Slider" method="emit_on_sfx_volume_set"]
 [connection signal="value_changed" from="Settings Panel/Sfx Container/Sfx Slider" to="Settings Panel/Sfx Container/Sfx Slider/Sfx Volume Binder" method="change_value"]
 [connection signal="on_value_changed" from="Settings Panel/Sfx Container/Sfx Slider/Sfx Volume Binder" to="Settings Panel/Sfx Container/Sfx Slider" method="set_value_no_signal"]
+[connection signal="pressed" from="Settings Panel/Ok_Button" to="Settings Panel/Ok_Button" method="emit_on_settings_panel" binds= [false]]
