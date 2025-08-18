@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dd1lacfgcfen5"]
 
+[ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Game/Settings/Themes/base_theme.tres" id="1_e2xpx"]
 [ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Game/Scripts/Utility/VersionText.gd" id="1_pedo5"]
-[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Game/Scripts/Utility/AudioPlayer.gd" id="2_o1ugv"]
-[ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Game/Art/Audio/Sfx/click_button.wav" id="3_5cmm5"]
+[ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="3_lr2du"]
 [ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Scripts/Globals/SignalBus.gd" id="4_ceq4o"]
 [ext_resource type="Script" uid="uid://bep52cret807s" path="res://Game/Scripts/Utility/StorageBinder.gd" id="5_e2xpx"]
 
@@ -12,9 +12,13 @@
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 86.0
+offset_left = 5.0
+offset_top = -29.0
+offset_right = 91.0
+offset_bottom = -6.0
 grow_vertical = 0
+theme = ExtResource("1_e2xpx")
+theme_override_colors/font_color = Color(0.92178, 0.92178, 0.92178, 1)
 text = "v0.0.0"
 vertical_alignment = 2
 script = ExtResource("1_pedo5")
@@ -30,73 +34,125 @@ offset_top = -31.0
 offset_right = 80.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("1_e2xpx")
+theme_override_colors/font_color = Color(0.92178, 0.92178, 0.92178, 1)
 text = "Scene Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-offset_left = 14.0
-offset_top = 14.0
-offset_right = 127.0
-offset_bottom = 48.0
-text = "To: "
+[node name="Settings Button" parent="." instance=ExtResource("3_lr2du")]
+offset_left = 527.0
+offset_top = -349.0
+offset_right = 627.0
+offset_bottom = -309.0
+text = "Settings"
 
-[node name="AudioPlayer" type="Node" parent="Button"]
-script = ExtResource("2_o1ugv")
-audio = ExtResource("3_5cmm5")
-metadata/_custom_type_script = "uid://brqtcgh6awxtg"
+[node name="Settings Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -116.0
+offset_right = 144.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Test Button" type="Button" parent="."]
-offset_left = 207.0
-offset_top = 94.0
-offset_right = 320.0
-offset_bottom = 128.0
-text = "Test Audio"
+[node name="Title" type="Label" parent="Settings Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.5
+offset_top = 7.0
+offset_right = 42.5
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings"
 
-[node name="AudioPlayer" type="Node" parent="Test Button"]
-script = ExtResource("2_o1ugv")
-audio = ExtResource("3_5cmm5")
-metadata/_custom_type_script = "uid://brqtcgh6awxtg"
+[node name="Music Container" type="HBoxContainer" parent="Settings Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -56.0
+offset_right = 125.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
-[node name="Music Slider" type="HSlider" parent="."]
-offset_left = 181.0
-offset_top = 14.0
-offset_right = 370.0
-offset_bottom = 34.0
+[node name="Music Label" type="Label" parent="Settings Panel/Music Container"]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="Music Slider" type="HSlider" parent="Settings Panel/Music Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_e2xpx")
 max_value = 1.0
 step = 0.05
 value = 1.0
 tick_count = 5
 script = ExtResource("4_ceq4o")
 
-[node name="Music Volume Binder" type="Node" parent="Music Slider"]
+[node name="Music Volume Binder" type="Node" parent="Settings Panel/Music Container/Music Slider"]
 script = ExtResource("5_e2xpx")
 key = "master_music_volume"
 metadata/_custom_type_script = "uid://bep52cret807s"
 
-[node name="Sfx Slider" type="HSlider" parent="."]
-offset_left = 181.0
-offset_top = 48.0
-offset_right = 370.0
-offset_bottom = 68.0
+[node name="Sfx Container" type="HBoxContainer" parent="Settings Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -10.0
+offset_right = 125.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Sfx Label" type="Label" parent="Settings Panel/Sfx Container"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "SFX Volume:"
+
+[node name="Sfx Slider" type="HSlider" parent="Settings Panel/Sfx Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_e2xpx")
 max_value = 1.0
 step = 0.05
 value = 1.0
 tick_count = 5
 script = ExtResource("4_ceq4o")
 
-[node name="Sfx Volume Binder" type="Node" parent="Sfx Slider"]
+[node name="Sfx Volume Binder" type="Node" parent="Settings Panel/Sfx Container/Sfx Slider"]
 script = ExtResource("5_e2xpx")
 key = "master_sfx_volume"
 metadata/_custom_type_script = "uid://bep52cret807s"
 
-[connection signal="pressed" from="Button" to="Button/AudioPlayer" method="play_global_sfx"]
-[connection signal="pressed" from="Test Button" to="Test Button/AudioPlayer" method="play_global_sfx"]
-[connection signal="_on_music_volume_set" from="Music Slider" to="Music Slider" method="set_value_no_signal"]
-[connection signal="value_changed" from="Music Slider" to="Music Slider" method="emit_on_music_volume_set"]
-[connection signal="value_changed" from="Music Slider" to="Music Slider/Music Volume Binder" method="change_value"]
-[connection signal="on_value_changed" from="Music Slider/Music Volume Binder" to="Music Slider" method="set_value_no_signal"]
-[connection signal="_on_sfx_volume_set" from="Sfx Slider" to="Sfx Slider" method="set_value_no_signal"]
-[connection signal="value_changed" from="Sfx Slider" to="Sfx Slider" method="emit_on_sfx_volume_set"]
-[connection signal="value_changed" from="Sfx Slider" to="Sfx Slider/Sfx Volume Binder" method="change_value"]
-[connection signal="on_value_changed" from="Sfx Slider/Sfx Volume Binder" to="Sfx Slider" method="set_value_no_signal"]
+[node name="Ok_Button" parent="Settings Panel" instance=ExtResource("3_lr2du")]
+layout_mode = 1
+offset_top = 39.0
+offset_bottom = 79.0
+text = "OK"
+
+[connection signal="_on_music_volume_set" from="Settings Panel/Music Container/Music Slider" to="Settings Panel/Music Container/Music Slider" method="set_value_no_signal"]
+[connection signal="value_changed" from="Settings Panel/Music Container/Music Slider" to="Settings Panel/Music Container/Music Slider" method="emit_on_music_volume_set"]
+[connection signal="value_changed" from="Settings Panel/Music Container/Music Slider" to="Settings Panel/Music Container/Music Slider/Music Volume Binder" method="change_value"]
+[connection signal="on_value_changed" from="Settings Panel/Music Container/Music Slider/Music Volume Binder" to="Settings Panel/Music Container/Music Slider" method="set_value_no_signal"]
+[connection signal="_on_sfx_volume_set" from="Settings Panel/Sfx Container/Sfx Slider" to="Settings Panel/Sfx Container/Sfx Slider" method="set_value_no_signal"]
+[connection signal="value_changed" from="Settings Panel/Sfx Container/Sfx Slider" to="Settings Panel/Sfx Container/Sfx Slider" method="emit_on_sfx_volume_set"]
+[connection signal="value_changed" from="Settings Panel/Sfx Container/Sfx Slider" to="Settings Panel/Sfx Container/Sfx Slider/Sfx Volume Binder" method="change_value"]
+[connection signal="on_value_changed" from="Settings Panel/Sfx Container/Sfx Slider/Sfx Volume Binder" to="Settings Panel/Sfx Container/Sfx Slider" method="set_value_no_signal"]

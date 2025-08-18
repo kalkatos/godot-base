@@ -48,6 +48,11 @@ enabled=PackedStringArray("res://addons/GenkiDraggable/plugin.cfg")
 
 DragAndDrop3D=""
 
+[gui]
+
+theme/custom="uid://chuq7tes1dmyf"
+theme/custom_font="uid://bdds0l5h3uhpj"
+
 [input]
 
 toggle_debug={
