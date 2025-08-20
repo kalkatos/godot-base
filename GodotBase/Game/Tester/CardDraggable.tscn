@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://blfjs5bskwk1c"]
+
+[ext_resource type="Texture2D" uid="uid://cjsvvxe02sh4w" path="res://Game/Art/Sprites/UI/button.png" id="1_21u3d"]
+[ext_resource type="Script" uid="uid://d264b3rhgvtis" path="res://addons/GenkiDraggable/Draggable.gd" id="2_tx2i4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_714kb"]
+size = Vector3(3, 3, 0.1)
+
+[node name="Card" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+texture = ExtResource("1_21u3d")
+
+[node name="Draggable" type="Area3D" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("2_tx2i4")
+root = NodePath("..")
+begin_drag_speed = 10.0
+metadata/_custom_type_script = "uid://d264b3rhgvtis"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Draggable"]
+shape = SubResource("BoxShape3D_714kb")
