@@ -13,9 +13,10 @@ point_count = 4
 offsets = PackedFloat32Array(0, 0.763934, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="DamageNumber" type="Node2D" node_paths=PackedStringArray("text", "particles")]
+[node name="DamageNumber" type="Node2D" node_paths=PackedStringArray("text", "subviewport", "particles")]
 script = ExtResource("1_bugen")
 text = NodePath("SubViewport/Label")
+subviewport = NodePath("SubViewport")
 particles = NodePath("CPUParticles2D")
 
 [node name="SubViewport" type="SubViewport" parent="."]

@@ -5,6 +5,7 @@ class_name DamageNumber
 signal finished
 
 @export var text: Label
+@export var subviewport: SubViewport
 @export var particles: CPUParticles2D
 
 var is_playing: bool
@@ -12,7 +13,6 @@ var is_playing: bool
 func _ready() -> void:
 	is_playing = false
 	particles.emitting = false
-	var subviewport = $SubViewport
 	particles.texture = subviewport.get_texture()
 	particles.finished.connect(_handle_particles_finished)
 
