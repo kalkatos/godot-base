@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgcjg1u4h6ktw"]
+[gd_scene load_steps=5 format=3 uid="uid://cgcjg1u4h6ktw"]
 
 [ext_resource type="Script" uid="uid://cvk7ginug03c3" path="res://addons/GenkiDamage/DamageNumber.gd" id="1_bugen"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jri2w"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Curve" id="Curve_aa34x"]
+_data = [Vector2(0, 0), 0.0, 0.22, 0, 0, Vector2(0.0446097, 1), 3.655, 0.26, 0, 0, Vector2(0.8, 1.2), 0.215, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_tl6i0"]
 offsets = PackedFloat32Array(0, 0.763934, 1)
@@ -32,6 +36,7 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 60
 theme_override_font_sizes/font_size = 25
 text = "BYE!"
 horizontal_alignment = 1
@@ -48,4 +53,5 @@ spread = 30.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 50.0
+scale_amount_curve = SubResource("Curve_aa34x")
 color_ramp = SubResource("Gradient_tl6i0")

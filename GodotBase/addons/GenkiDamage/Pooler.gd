@@ -1,14 +1,14 @@
 ## General purpose pooler for any node that extends Node2D, Node3D or Control
 extends Node
 
-var pool_container: Dictionary[int, Pool]
+var _pool_container: Dictionary[int, Pool]
 
 func notify_finished (item: PoolItem):
 	var id = item.original_id
-	if !pool_container.has(id):
+	if !_pool_container.has(id):
 		Debug.log_error("Something went wrong, pool container does not have id: " + str(id))
 		return
-	var pool = pool_container[id]
+	var pool = _pool_container[id]
 	var index = pool.busy.find(item)
 	if index < 0:
 		Debug.log_error("Something went wrong, item is not in busy list")
@@ -19,9 +19,9 @@ func notify_finished (item: PoolItem):
 
 func get_new (original: Node) -> Node:
 	var id = original.get_instance_id()
-	if !pool_container.has(id):
-		pool_container[id] = Pool.new(original)
-	var other = pool_container[id].get_new()
+	if !_pool_container.has(id):
+		_pool_container[id] = Pool.new(original)
+	var other = _pool_container[id].get_new()
 	return other
 
 class Pool:
