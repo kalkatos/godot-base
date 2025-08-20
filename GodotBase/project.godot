@@ -25,10 +25,10 @@ buses/default_bus_layout="uid://ddnbh7f2pwxil"
 Storage="*res://Game/Scripts/Globals/Storage.gd"
 SignalBus="*res://Game/Scripts/Globals/SignalBus.gd"
 Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
+Pooler="*res://Game/Scripts/Globals/Pooler.gd"
 AudioController="*res://Game/Settings/Globals/AudioController.tscn"
 Global="*res://Game/Scripts/Globals/Global.gd"
 InputController="*res://addons/GenkiDraggable/InputController.tscn"
-Pooler="*res://addons/GenkiDamage/Pooler.gd"
 
 [display]
 
