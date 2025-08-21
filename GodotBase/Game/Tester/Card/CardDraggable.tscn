@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://blfjs5bskwk1c"]
+
+[ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Game/Settings/Themes/base_theme.tres" id="1_5p2fr"]
+[ext_resource type="Script" uid="uid://ba4ca2mlxei2r" path="res://Game/Scripts/Utility/UI/Sprite3DViewport.gd" id="2_8ms8j"]
+[ext_resource type="Script" uid="uid://d264b3rhgvtis" path="res://addons/GenkiDraggable/Draggable.gd" id="2_tx2i4"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uyw02"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_714kb"]
+size = Vector3(3, 3, 0.1)
+
+[node name="Card" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(150, 150)
+
+[node name="Panel" type="Panel" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5p2fr")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 80
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("vp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+double_sided = false
+texture = SubResource("ViewportTexture_uyw02")
+script = ExtResource("2_8ms8j")
+vp = NodePath("../SubViewport")
+metadata/_custom_type_script = "uid://ba4ca2mlxei2r"
+
+[node name="Draggable" type="Area3D" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("2_tx2i4")
+root = NodePath("..")
+begin_drag_speed = 10.0
+metadata/_custom_type_script = "uid://d264b3rhgvtis"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Draggable"]
+shape = SubResource("BoxShape3D_714kb")
