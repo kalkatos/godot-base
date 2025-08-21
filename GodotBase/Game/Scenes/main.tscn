@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cndotgxorx3id"]
+[gd_scene load_steps=5 format=3 uid="uid://cndotgxorx3id"]
 
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/BaseCanvas.tscn" id="2_h66oc"]
+[ext_resource type="PackedScene" uid="uid://c8o76lsj2kl4o" path="res://Game/Tester/ClampedControlTester.tscn" id="2_wbhe7"]
 [ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Game/Tester/MusicTester.tscn" id="3_rsmbn"]
 [ext_resource type="PackedScene" uid="uid://blfjs5bskwk1c" path="res://Game/Tester/CardDraggable.tscn" id="5_wcv8c"]
 
@@ -16,6 +17,8 @@ size = 24.455
 
 [node name="Label" parent="BaseCanvas" index="1"]
 text = "Main Scene"
+
+[node name="ClampedControlTester" parent="BaseCanvas" instance=ExtResource("2_wbhe7")]
 
 [node name="MusicTester" parent="." instance=ExtResource("3_rsmbn")]
 

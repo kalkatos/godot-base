@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dd1lacfgcfen5"]
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Game/Settings/Themes/base_theme.tres" id="1_e2xpx"]
-[ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Game/Scripts/Utility/VersionText.gd" id="1_pedo5"]
+[ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Game/Scripts/Utility/UI/VersionText.gd" id="1_pedo5"]
 [ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="3_lr2du"]
 [ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Scripts/Globals/SignalBus.gd" id="4_ceq4o"]
-[ext_resource type="Script" uid="uid://bep52cret807s" path="res://Game/Scripts/Utility/StorageBinder.gd" id="5_e2xpx"]
-[ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Game/Scripts/Utility/VisibilityAnimator.gd" id="5_lr2du"]
+[ext_resource type="Script" uid="uid://bep52cret807s" path="res://Game/Scripts/Utility/System/StorageBinder.gd" id="5_e2xpx"]
+[ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Game/Scripts/Utility/UI/VisibilityAnimator.gd" id="5_lr2du"]
 
 [node name="BaseCanvas" type="CanvasLayer"]
 

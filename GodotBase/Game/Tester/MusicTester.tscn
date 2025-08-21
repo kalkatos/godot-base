@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1wtvvf8esweu"]
 
-[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Game/Scripts/Utility/AudioPlayer.gd" id="1_05hqv"]
+[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Game/Scripts/Utility/System/AudioPlayer.gd" id="1_05hqv"]
 [ext_resource type="AudioStream" uid="uid://xumu28x8txhp" path="res://Game/Art/Audio/Music/main_music.mp3" id="2_oyylt"]
 
 [node name="MusicTester" type="Node"]
