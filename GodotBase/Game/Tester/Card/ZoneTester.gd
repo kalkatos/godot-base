@@ -1,4 +1,4 @@
-extends Stack
+extends Hand
 
 class_name ZoneTester
 

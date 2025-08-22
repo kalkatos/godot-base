@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cndotgxorx3id"]
+[gd_scene load_steps=10 format=3 uid="uid://cndotgxorx3id"]
 
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/BaseCanvas.tscn" id="2_h66oc"]
 [ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Game/Tester/System/MusicTester.tscn" id="3_rsmbn"]
 [ext_resource type="Script" uid="uid://s28q05eici86" path="res://Game/Tester/Card/ZoneTester.gd" id="3_wbhe7"]
 [ext_resource type="PackedScene" uid="uid://blfjs5bskwk1c" path="res://Game/Tester/Card/CardDraggable.tscn" id="5_wcv8c"]
+
+[sub_resource type="Curve" id="Curve_wbhe7"]
+_data = [Vector2(0, 0), 0.0, 4.0, 0, 0, Vector2(1, 0), -4.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wbhe7"]
 viewport_path = NodePath("SubViewport")
@@ -33,13 +37,11 @@ text = "Main Scene"
 [node name="MusicTester" parent="." instance=ExtResource("3_rsmbn")]
 
 [node name="ZoneTester" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("3_wbhe7")
-distance = 1.0
+bend = SubResource("Curve_wbhe7")
 metadata/_custom_type_script = "uid://s28q05eici86"
 
 [node name="Card_1" parent="ZoneTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Card_2" parent="ZoneTester" instance=ExtResource("5_wcv8c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

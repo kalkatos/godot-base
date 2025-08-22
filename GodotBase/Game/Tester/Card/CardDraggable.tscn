@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ba4ca2mlxei2r" path="res://Game/Scripts/Utility/UI/Sprite3DViewport.gd" id="2_8ms8j"]
 [ext_resource type="Script" uid="uid://d264b3rhgvtis" path="res://addons/GenkiDraggable/Draggable.gd" id="2_tx2i4"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_uyw02"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8ms8j"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_714kb"]
@@ -38,7 +38,7 @@ vertical_alignment = 1
 [node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("vp")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 double_sided = false
-texture = SubResource("ViewportTexture_uyw02")
+texture = SubResource("ViewportTexture_8ms8j")
 script = ExtResource("2_8ms8j")
 vp = NodePath("../SubViewport")
 metadata/_custom_type_script = "uid://ba4ca2mlxei2r"
