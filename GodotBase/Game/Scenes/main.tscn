@@ -1,11 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cndotgxorx3id"]
+[gd_scene load_steps=9 format=3 uid="uid://cndotgxorx3id"]
 
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/BaseCanvas.tscn" id="2_h66oc"]
 [ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Game/Tester/System/MusicTester.tscn" id="3_rsmbn"]
 [ext_resource type="Script" uid="uid://s28q05eici86" path="res://Game/Tester/Card/ZoneTester.gd" id="3_wbhe7"]
 [ext_resource type="PackedScene" uid="uid://blfjs5bskwk1c" path="res://Game/Tester/Card/CardDraggable.tscn" id="5_wcv8c"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rsmbn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wbhe7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wcv8c"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p0tac"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g0nht"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Main3D" type="Node3D"]
@@ -24,47 +33,49 @@ text = "Main Scene"
 [node name="MusicTester" parent="." instance=ExtResource("3_rsmbn")]
 
 [node name="ZoneTester" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("3_wbhe7")
+distance = 1.0
 metadata/_custom_type_script = "uid://s28q05eici86"
 
 [node name="Card_1" parent="ZoneTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Card_2" parent="ZoneTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="RichTextLabel" parent="ZoneTester/Card_2/SubViewport" index="1"]
 text = "2"
 
 [node name="Sprite3D" parent="ZoneTester/Card_2" index="1"]
-texture = SubResource("ViewportTexture_rsmbn")
+texture = SubResource("ViewportTexture_wbhe7")
 
 [node name="Card_3" parent="ZoneTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="RichTextLabel" parent="ZoneTester/Card_3/SubViewport" index="1"]
 text = "3"
 
 [node name="Sprite3D" parent="ZoneTester/Card_3" index="1"]
-texture = SubResource("ViewportTexture_rsmbn")
+texture = SubResource("ViewportTexture_wcv8c")
 
 [node name="Card_4" parent="ZoneTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 3, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="RichTextLabel" parent="ZoneTester/Card_4/SubViewport" index="1"]
 text = "4"
 
 [node name="Sprite3D" parent="ZoneTester/Card_4" index="1"]
-texture = SubResource("ViewportTexture_rsmbn")
+texture = SubResource("ViewportTexture_p0tac")
 
 [node name="Card_5" parent="ZoneTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="RichTextLabel" parent="ZoneTester/Card_5/SubViewport" index="1"]
 text = "5"
 
 [node name="Sprite3D" parent="ZoneTester/Card_5" index="1"]
-texture = SubResource("ViewportTexture_rsmbn")
+texture = SubResource("ViewportTexture_g0nht")
 
 [editable path="BaseCanvas"]
 [editable path="ZoneTester/Card_2"]

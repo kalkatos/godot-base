@@ -16,6 +16,7 @@ func add_item (item: Node):
 		add_child(item)
 	_item_added(item)
 	on_item_added.emit(item)
+	_organize()
 
 func insert_item (index: int, item: Node):
 	add_item(item)
@@ -25,6 +26,7 @@ func remove_item (item: Node):
 	item.reparent(get_tree().root)
 	_item_removed(item)
 	on_item_removed.emit(item)
+	_organize()
 
 func notify_item_removed (item: Node):
 	remove_item(item)
@@ -37,12 +39,23 @@ func shuffle ():
 		move_child(child, i)
 		i += 1
 	on_shuffled.emit()
+	_organize()
 
-func find (item: Node):
+func find (item: Node) -> int:
 	return get_children().find(item)
 
 func has (item: Node):
 	get_children().has(item)
+
+func get_first () -> Node:
+	if get_child_count() == 0:
+		return null
+	return get_child(0)
+
+func get_last () -> Node:
+	if get_child_count() == 0:
+		return null
+	return get_child(-1)
 
 func _item_added (_item: Node):
 	pass
@@ -51,4 +64,7 @@ func _item_removed (_item: Node):
 	pass
 
 func _shuffled ():
+	pass
+
+func _organize ():
 	pass
