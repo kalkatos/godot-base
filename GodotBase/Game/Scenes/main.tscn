@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cndotgxorx3id"]
+[gd_scene load_steps=11 format=3 uid="uid://cndotgxorx3id"]
 
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/BaseCanvas.tscn" id="2_h66oc"]
 [ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Game/Tester/System/MusicTester.tscn" id="3_rsmbn"]
@@ -21,6 +21,8 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_g0nht"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="QuadMesh" id="QuadMesh_wbhe7"]
+
 [node name="Main3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -37,6 +39,7 @@ text = "Main Scene"
 [node name="MusicTester" parent="." instance=ExtResource("3_rsmbn")]
 
 [node name="ZoneTester" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4.58403, 3.25669)
 script = ExtResource("3_wbhe7")
 bend = SubResource("Curve_wbhe7")
 metadata/_custom_type_script = "uid://s28q05eici86"
@@ -78,6 +81,10 @@ text = "5"
 
 [node name="Sprite3D" parent="ZoneTester/Card_5" index="1"]
 texture = SubResource("ViewportTexture_g0nht")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0)
+mesh = SubResource("QuadMesh_wbhe7")
 
 [editable path="BaseCanvas"]
 [editable path="ZoneTester/Card_2"]

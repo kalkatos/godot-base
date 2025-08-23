@@ -2,6 +2,8 @@ extends Hand
 
 class_name ZoneTester
 
+var counter := 5
+
 func _ready () -> void:
 	pass
 
@@ -12,7 +14,11 @@ func _input (event: InputEvent) -> void:
 			shuffle()
 			_organize()
 		elif event.keycode == KEY_D:
-			Debug.logm("Organizing")
+			Debug.logm("Adding")
+			var new_card = get_last().duplicate()
+			add_item(new_card)
+			counter += 1
+			new_card.get_node("SubViewport/RichTextLabel").text = str(counter)
 			_organize()
 	elif event.is_action_pressed("click") \
 	and get_child_count() > 0:
