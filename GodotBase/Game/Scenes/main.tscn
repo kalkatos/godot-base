@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://blfjs5bskwk1c" path="res://Game/Tester/Card/CardDraggable.tscn" id="5_wcv8c"]
 
 [sub_resource type="Curve" id="Curve_wbhe7"]
-_data = [Vector2(0, 0), 0.0, 4.0, 0, 0, Vector2(1, 0), -4.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 2.0, 0, 0, Vector2(1, 0), -2.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_g0nht"]
@@ -55,6 +55,7 @@ text = "Main Scene"
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4.58403, 3.25669)
 script = ExtResource("3_wbhe7")
 bend = SubResource("Curve_wbhe7")
+max_angle = 9.0
 metadata/_custom_type_script = "uid://s28q05eici86"
 
 [node name="Card_1" parent="ZoneTester" instance=ExtResource("5_wcv8c")]

@@ -3,6 +3,7 @@ extends Hand
 class_name ZoneTester
 
 var counter := 5
+var prefab: Node
 
 func _ready () -> void:
 	pass
@@ -15,7 +16,9 @@ func _input (event: InputEvent) -> void:
 			_organize()
 		elif event.keycode == KEY_D:
 			Debug.logm("Adding")
-			var new_card = get_last().duplicate()
+			if !prefab:
+				prefab = get_last()
+			var new_card = prefab.duplicate()
 			add_item(new_card)
 			counter += 1
 			new_card.get_node("SubViewport/RichTextLabel").text = str(counter)
