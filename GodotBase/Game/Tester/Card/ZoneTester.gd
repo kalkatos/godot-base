@@ -20,6 +20,8 @@ func _input (event: InputEvent) -> void:
 			counter += 1
 			new_card.get_node("SubViewport/RichTextLabel").text = str(counter)
 			_organize()
+		elif event.keycode == KEY_S:
+			_organize()
 	elif event.is_action_pressed("click") \
 	and get_child_count() > 0:
 		var card = get_last()

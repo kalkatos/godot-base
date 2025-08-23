@@ -25,7 +25,7 @@ func _organize ():
 		var pos_y = 0.0
 		if bend:
 			pos_y = bend.sample(t) * bend_height
-		card.global_position = to_global(Vector3(pos_x, pos_y, 0))
-		(card as Node3D).rotation_degrees = (self as Node3D).rotation_degrees
 		var angle = lerp(max_angle, -max_angle, t)
-		card.rotation_degrees = Vector3(rotation_degrees.x, rotation_degrees.y, rotation_degrees.z + angle)
+		var tween = card.create_tween()
+		tween.tween_property(card, "position", Vector3(pos_x, pos_y, 0), 0.2)
+		tween.parallel().tween_property(card, "rotation_degrees", Vector3(0, 0, angle), 0.2)
