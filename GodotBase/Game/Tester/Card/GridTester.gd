@@ -7,8 +7,6 @@ var _prefab: Node
 var _next_slot_position: Callable = _next_slot_position_with_negatives
 
 func _ready () -> void:
-	if !allow_negative:
-		_next_slot_position = _next_slot_position_no_negatives
 	for card in get_children():
 		_counter += 1
 		card.get_node("Front/SubViewport/RichTextLabel").text = str(_counter)

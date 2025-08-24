@@ -4,7 +4,6 @@ class_name Grid
 
 @export var size: Vector2i = Vector2i(0, 0)
 @export var distance: Vector2 = Vector2(3.0, 3.0)
-@export var allow_negative: bool = false
 
 var grid: Dictionary[Vector2i, Node]
 

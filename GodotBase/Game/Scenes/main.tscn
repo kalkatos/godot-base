@@ -31,7 +31,6 @@ text = "Main Scene"
 [node name="GridTester" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 script = ExtResource("3_wcv8c")
-allow_negative = true
 metadata/_custom_type_script = "uid://bxsjs7nikjdl"
 
 [node name="Card_1" parent="GridTester" instance=ExtResource("5_wcv8c")]
