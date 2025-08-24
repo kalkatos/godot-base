@@ -1,12 +1,14 @@
 extends Hand
 
-class_name ZoneTester
+class_name HandTester
 
-var counter := 5
+var counter := 0
 var prefab: Node
 
 func _ready () -> void:
-	pass
+	for card in get_children():
+		counter += 1
+		card.get_node("Front/SubViewport/RichTextLabel").text = str(counter)
 
 func _input (event: InputEvent) -> void:
 	if event is InputEventKey and !event.echo and event.pressed:
@@ -21,7 +23,7 @@ func _input (event: InputEvent) -> void:
 			var new_card = prefab.duplicate()
 			add_item(new_card)
 			counter += 1
-			new_card.get_node("SubViewport/RichTextLabel").text = str(counter)
+			new_card.get_node("Front/SubViewport/RichTextLabel").text = str(counter)
 			_organize()
 		elif event.keycode == KEY_S:
 			_organize()
