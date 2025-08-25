@@ -1,4 +1,3 @@
-# Global project-wide constants and utility functions
 extends Node
-
+## Global project-wide constants and utility functions
 

@@ -1,6 +1,5 @@
-extends Zone
-
 class_name Hand
+extends Zone
 
 @export var bend: Curve
 @export var bend_height: float = 1.0
@@ -9,8 +8,10 @@ class_name Hand
 @export var max_width: float = 15.0
 @export var count_reference: int = 5
 
+
 func _organize ():
 	_organize_option(false)
+
 
 func _organize_option (snap: bool):
 	var count = get_child_count()

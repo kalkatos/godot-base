@@ -1,24 +1,25 @@
+class_name HandTester
 extends Hand
 
-class_name HandTester
-
-var counter := 0
+var counter: int = 0
 var prefab: Node
+
 
 func _ready () -> void:
 	for card in get_children():
 		counter += 1
 		card.get_node("Front/SubViewport/RichTextLabel").text = str(counter)
 
+
 func _input (event: InputEvent) -> void:
-	if event is InputEventKey and !event.echo and event.pressed:
+	if event is InputEventKey and not event.echo and event.pressed:
 		if event.keycode == KEY_SPACE:
 			Debug.logm("Shuffling")
 			shuffle()
 			_organize()
 		elif event.keycode == KEY_D:
 			Debug.logm("Adding")
-			if !prefab:
+			if not prefab:
 				prefab = get_last()
 			var new_card = prefab.duplicate()
 			add_item(new_card)

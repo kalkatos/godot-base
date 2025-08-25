@@ -1,8 +1,8 @@
+class_name SceneLoader
 extends Node
 
-class_name SceneLoader
-
 @export_file("*.tscn") var scene: String
+
 
 func load_scene ():
 	if !scene:

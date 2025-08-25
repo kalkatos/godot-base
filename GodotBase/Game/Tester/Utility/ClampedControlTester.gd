@@ -4,9 +4,10 @@ extends Control
 
 var is_open: bool
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
-		if !is_open:
+		if not is_open:
 			Debug.logm("Opening")
 			control.set_position_screen_clamped(event.position)
 			control.open()

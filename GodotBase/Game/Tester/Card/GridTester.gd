@@ -1,10 +1,10 @@
+class_name GridTester
 extends Grid
 
-class_name GridTester
-
-var _counter := 0
+var _counter: int = 0
 var _prefab: Node
 var _next_slot_position: Callable = _next_slot_position_with_negatives
+
 
 func _ready () -> void:
 	for card in get_children():
@@ -14,8 +14,9 @@ func _ready () -> void:
 		grid[next] = card
 		card.get_node("Draggable").on_click.connect(func(_pos): _handle_click(next.x, next.y))
 
+
 func _input (event: InputEvent) -> void:
-	if event is InputEventKey and !event.echo and event.pressed:
+	if event is InputEventKey and not event.echo and event.pressed:
 		if event.keycode == KEY_D:
 			Debug.logm("Adding")
 			if !_prefab:
@@ -30,12 +31,14 @@ func _input (event: InputEvent) -> void:
 		elif event.keycode == KEY_S:
 			_organize()
 
+
 func _handle_click (x, y):
 	var pos = Vector2i(x, y)
 	if grid.has(pos):
 		var card = grid[pos]
 		remove_from_grid(pos)
 		card.queue_free()
+
 
 func _next_slot (x: int = 0, y: int = 0, depth: int = 0) -> Vector2i:
 	var next = Vector2i(x, y)
@@ -46,12 +49,13 @@ func _next_slot (x: int = 0, y: int = 0, depth: int = 0) -> Vector2i:
 		x = 1
 		return _next_slot(1, 0, 1)
 	while true:
-		if !grid.has(next):
+		if not grid.has(next):
 			return next
 		next = _next_slot_position.call(next.x, next.y, depth)
 		if abs(next.x) > depth or abs(next.y) > depth:
 			break
 	return _next_slot(next.x, next.y, depth + 1)
+
 
 func _next_slot_position_no_negatives (x: int, y: int, depth: int) -> Vector2i:
 	if x == depth:
@@ -61,6 +65,7 @@ func _next_slot_position_no_negatives (x: int, y: int, depth: int) -> Vector2i:
 	if x == 0:
 		return Vector2i(depth + 1, 0)
 	return Vector2i(x - 1, y)
+
 
 func _next_slot_position_with_negatives (x: int, y: int, depth: int) -> Vector2i:
 	if x == depth:

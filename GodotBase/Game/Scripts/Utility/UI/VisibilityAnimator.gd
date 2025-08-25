@@ -1,16 +1,17 @@
-extends Control
-
 class_name VisibilityAnimator
+extends Control
 
 @export var start_active: bool
 @export var deactivate_on_end: bool = true
 @export var target: Control
 @export var animation_time: float = 0.3
 
+
 func _ready () -> void:
-	if !target.is_node_ready():
+	if not target.is_node_ready():
 		await target.ready
 	target.visible = start_active
+
 
 func animate_visibility (active: bool):
 	var tween = create_tween()

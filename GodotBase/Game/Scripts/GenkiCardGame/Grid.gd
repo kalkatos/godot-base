@@ -7,11 +7,14 @@ class_name Grid
 
 var grid: Dictionary[Vector2i, Node]
 
+
 func _organize ():
 	for pos in grid:
 		var target_position = Vector3(pos.x * distance.x, pos.y * distance.y, 0)
-		if grid[pos].position == target_position \
-		and grid[pos].rotation_degrees == Vector3.ZERO:
+		if (
+				grid[pos].position == target_position
+				and grid[pos].rotation_degrees == Vector3.ZERO
+		):
 			continue
 		var tween = grid[pos].create_tween()
 		tween.tween_property(grid[pos], "position", target_position, 0.2)
@@ -24,8 +27,9 @@ func add_to_grid (node: Node, pos: Vector2i):
 	grid[pos] = node
 	add_item(node)
 
+
 func remove_from_grid (pos: Vector2i) -> Node:
-	if !grid.has(pos):
+	if not grid.has(pos):
 		return null
 	var node = grid[pos]
 	grid.erase(pos)

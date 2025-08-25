@@ -6,7 +6,7 @@ extends AudioListener2D
 @export var sfx_channel_3: AudioStreamPlayer2D
 
 var sfx_channels: Array[AudioStreamPlayer2D]
-var channel_index := 0
+var channel_index: int = 0
 var _master_music_volume: float = 1.0
 var _master_sfx_volume: float = 1.0
 var _has_loaded_volume: bool
@@ -23,6 +23,7 @@ var master_sfx_volume: float:
 	set (value):
 		SignalBus.emit_on_sfx_volume_set(value)
 
+
 func _ready() -> void:
 	var saved_music_volume = Storage.load("master_music_volume", 1.0)
 	Debug.logm("Loaded music volume: " + str(saved_music_volume))
@@ -31,13 +32,14 @@ func _ready() -> void:
 	sfx_channels = [
 		sfx_channel_1,
 		sfx_channel_2,
-		sfx_channel_3 ]
+		sfx_channel_3, ]
 	SignalBus._on_music_volume_set.connect(_handle_music_volume_set)
 	SignalBus._on_sfx_volume_set.connect(_handle_sfx_volume_set)
 	await get_tree().create_timer(0.1).timeout
 	master_music_volume = saved_music_volume
 	master_sfx_volume = saved_sfx_volume
 	_has_loaded_volume = true
+
 
 func play_sfx (sfx: AudioStream):
 	while !_has_loaded_volume:
@@ -49,14 +51,17 @@ func play_sfx (sfx: AudioStream):
 	player.stream = sfx
 	player.play(0)
 
+
 func play_music (music: AudioStream):
 	play_music_option(music, false)
+
 
 func play_music_force (music: AudioStream):
 	play_music_option(music, true)
 
+
 func play_music_option (music: AudioStream, force: bool):
-	while !_has_loaded_volume:
+	while not _has_loaded_volume:
 		await get_tree().process_frame
 	if is_zero_approx(master_music_volume):
 		return
@@ -70,15 +75,18 @@ func play_music_option (music: AudioStream, force: bool):
 	if music_channel.volume_linear < master_music_volume:
 		create_tween().tween_property(music_channel, "volume_linear", master_music_volume, 0.5)
 
+
 func stop_music ():
 	if music_channel.playing:
 		await create_tween().tween_property(music_channel, "volume_linear", 0, 0.5).finished
 		music_channel.stop()
 
+
 func _handle_music_volume_set (value: float):
 	_master_music_volume = clamp(value, 0, 1)
 	music_channel.volume_linear = _master_music_volume
 	Storage.save("master_music_volume", _master_music_volume)
+
 
 func _handle_sfx_volume_set (value: float):
 	_master_sfx_volume = clamp(value, 0, 1)

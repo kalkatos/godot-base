@@ -5,9 +5,10 @@ extends Node2D
 var _instance: DamageNumber
 var _test_value: int = 100
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
-		if !_instance:
+		if not _instance:
 			_instance = damage_number.instantiate() as DamageNumber
 			add_child(_instance)
 			_instance.owner = self

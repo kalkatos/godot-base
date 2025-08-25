@@ -1,7 +1,8 @@
-## General purpose pooler for any node that extends Node2D, Node3D or Control
 extends Node
+## General purpose pooler for any node that extends Node2D, Node3D or Control
 
 var _pool_container: Dictionary[int, Pool]
+
 
 func notify_finished (item: PoolItem):
 	var id = item.original_id
@@ -17,12 +18,14 @@ func notify_finished (item: PoolItem):
 	Debug.logm("Recycling item " + str(item.number))
 	pool.available.insert(0, item)
 
+
 func get_new (original: Node) -> Node:
 	var id = original.get_instance_id()
 	if !_pool_container.has(id):
 		_pool_container[id] = Pool.new(original)
 	var other = _pool_container[id].get_new()
 	return other
+
 
 class Pool:
 	var original_id: int
@@ -31,10 +34,12 @@ class Pool:
 	var busy: Array[PoolItem]
 	var count: int
 
+
 	func _init (original: Node):
 		original_id = original.get_instance_id()
 		prefab = original.duplicate()
 		count = 1
+
 
 	func get_new () -> Node:
 		if available.size() == 0:
@@ -52,7 +57,8 @@ class Pool:
 		else:
 			return create_new()
 		return item.instance
-	
+
+
 	func create_new () -> Node:
 		var new_obj = prefab.duplicate()
 		var new_item = PoolItem.new(new_obj, original_id)
@@ -62,15 +68,18 @@ class Pool:
 		Debug.logm("New instance count: " + str(count))
 		return new_obj
 
+
 class PoolItem:
 	var instance: Node
 	var original_id: int
 	var number: int
 
+
 	func _init (_instance: Node, _id: int):
 		instance = _instance
 		original_id = _id
 		instance.visibility_changed.connect(_handle_visibility_changed)
+
 	
 	func _handle_visibility_changed ():
 		if !instance.visible:
