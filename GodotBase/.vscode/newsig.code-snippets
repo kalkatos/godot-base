@@ -22,6 +22,7 @@
 		"body": [
 			"signal _${1:name}",
 			"",
+			"",
 			"func emit_${1:name} ():",
 			"\t_${1:name}.emit()",
 			"\tSignalBus._${1:name}.emit()",
@@ -35,6 +36,7 @@
 		"prefix": "newsigp",
 		"body": [
 			"signal _${1:name} (${2:varname}: ${3:type})",
+			"",
 			"",
 			"func emit_${1:name} (${2:varname}: ${3:type}):",
 			"\t_${1:name}.emit(${2:varname})",
