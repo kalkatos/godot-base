@@ -16,17 +16,17 @@ func _notification (what):
 
 func send_event (key: String):
 	if _is_initialized():
-		sender.send(key)
+		sender.send(key, "")
 
 
 func send_event_with_string (key: String, value: String):
 	if _is_initialized():
-		sender.send_str(key, value)
+		sender.send(key, value)
 
 
 func send_event_with_number (key: String, num: float):
 	if _is_initialized():
-		sender.send_num(key, num)
+		sender.send(key, str(num))
 
 
 func send_unique_event (key: String, opt_value: String = ""):
@@ -35,7 +35,7 @@ func send_unique_event (key: String, opt_value: String = ""):
 	if Storage.has_value(key):
 		return
 	Storage.save(key, opt_value)
-	sender.send_str(key, opt_value)
+	sender.send(key, opt_value)
 
 
 func _is_initialized () -> bool:
