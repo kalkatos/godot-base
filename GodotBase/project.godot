@@ -29,6 +29,7 @@ Pooler="*res://Game/Scripts/Globals/Pooler.gd"
 AudioController="*res://Game/Settings/Globals/AudioController.tscn"
 Global="*res://Game/Scripts/Globals/Global.gd"
 InputController="*res://addons/GenkiDraggable/InputController.tscn"
+Analytics="*res://Game/Scripts/GenkiAnalytics/Analytics.tscn"
 
 [display]
 

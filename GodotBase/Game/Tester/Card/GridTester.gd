@@ -12,21 +12,21 @@ func _ready () -> void:
 		card.get_node("Front/SubViewport/RichTextLabel").text = str(_counter)
 		var next = _next_slot()
 		grid[next] = card
-		card.get_node("Draggable").on_click.connect(func(_pos): _handle_click(next.x, next.y))
+		card.get_node("Draggable").on_clicked.connect(func(_pos): _handle_click(next.x, next.y))
 
 
 func _input (event: InputEvent) -> void:
 	if event is InputEventKey and not event.echo and event.pressed:
 		if event.keycode == KEY_D:
 			Debug.logm("Adding")
-			if !_prefab:
+			if not _prefab:
 				_prefab = get_last()
 			var new_card = _prefab.duplicate()
 			var next = _next_slot()
 			add_to_grid(new_card, next)
 			_counter += 1
 			new_card.get_node("Front/SubViewport/RichTextLabel").text = str(_counter)
-			new_card.get_node("Draggable").on_click.connect(func(_pos): _handle_click(next.x, next.y))
+			new_card.get_node("Draggable").on_clicked.connect(func(_pos): _handle_click(next.x, next.y))
 			_organize()
 		elif event.keycode == KEY_S:
 			_organize()

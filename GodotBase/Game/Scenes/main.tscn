@@ -34,19 +34,14 @@ script = ExtResource("3_wcv8c")
 metadata/_custom_type_script = "uid://bxsjs7nikjdl"
 
 [node name="Card_1" parent="GridTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Card_2" parent="GridTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Card_3" parent="GridTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Card_4" parent="GridTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Card_5" parent="GridTester" instance=ExtResource("5_wcv8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0)

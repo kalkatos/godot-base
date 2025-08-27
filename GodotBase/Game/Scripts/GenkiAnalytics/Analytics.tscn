@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqoje466dvsjk"]
+
+[ext_resource type="Script" uid="uid://d3g7c5taq8jwp" path="res://Game/Scripts/GenkiAnalytics/Analytics.gd" id="1_jvmy8"]
+[ext_resource type="Script" uid="uid://b38dtp54cagi3" path="res://Game/Scripts/GenkiAnalytics/HttpSender.gd" id="2_2la7n"]
+[ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Scripts/Globals/SignalBus.gd" id="3_2la7n"]
+
+[node name="Analytics" type="Node" node_paths=PackedStringArray("sender")]
+script = ExtResource("1_jvmy8")
+sender = NodePath("HttpSender")
+
+[node name="HttpSender" type="Node" parent="."]
+script = ExtResource("2_2la7n")
+metadata/_custom_type_script = "uid://b38dtp54cagi3"
+
+[node name="SignalBus" type="Node" parent="."]
+script = ExtResource("3_2la7n")
+
+[connection signal="_on_settings_panel" from="SignalBus" to="." method="send_event" binds= ["opened_panel"]]
