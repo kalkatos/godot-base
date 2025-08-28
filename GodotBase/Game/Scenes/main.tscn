@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cndotgxorx3id"]
+[gd_scene load_steps=6 format=3 uid="uid://cndotgxorx3id"]
 
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/BaseCanvas.tscn" id="2_h66oc"]
 [ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Game/Tester/System/MusicTester.tscn" id="3_rsmbn"]
-[ext_resource type="Script" uid="uid://bxsjs7nikjdl" path="res://Game/Tester/Card/GridTester.gd" id="3_wcv8c"]
 [ext_resource type="Texture2D" uid="uid://cehfsbt5in6v3" path="res://Game/Art/Sprites/placeholder_tex.png" id="5_p0tac"]
-[ext_resource type="PackedScene" uid="uid://blfjs5bskwk1c" path="res://Game/Tester/Card/CardDraggable.tscn" id="5_wcv8c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uibud"]
 shading_mode = 0
@@ -28,23 +26,8 @@ text = "Main Scene"
 
 [node name="MusicTester" parent="." instance=ExtResource("3_rsmbn")]
 
-[node name="GridTester" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-script = ExtResource("3_wcv8c")
-metadata/_custom_type_script = "uid://bxsjs7nikjdl"
-
-[node name="Card_1" parent="GridTester" instance=ExtResource("5_wcv8c")]
-
-[node name="Card_2" parent="GridTester" instance=ExtResource("5_wcv8c")]
-
-[node name="Card_3" parent="GridTester" instance=ExtResource("5_wcv8c")]
-
-[node name="Card_4" parent="GridTester" instance=ExtResource("5_wcv8c")]
-
-[node name="Card_5" parent="GridTester" instance=ExtResource("5_wcv8c")]
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, 100, 0, -100, -4.37114e-06, 0, -0.1, 0)
 material_override = SubResource("StandardMaterial3D_uibud")
 mesh = SubResource("QuadMesh_wbhe7")
 

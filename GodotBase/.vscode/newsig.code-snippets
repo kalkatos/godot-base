@@ -44,5 +44,16 @@
 			""
 		],
 		"description": "Add a new signal to SignalBus with parameters"
-	}
+	},
+
+	"Variable to Dictionary": {
+		"scope": "gdscript",
+		"prefix": "vtod",
+		"body": [
+			"var ${1:varname}: String:",
+			"\tget: return _values.${1:varname}",
+			"\tset(value): _values.${1:varname} = value",
+		],
+		"description": "Creates a variable that updates dictionary '_values'"
+	},
 }

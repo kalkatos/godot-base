@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Game/Settings/Themes/base_theme.tres" id="1_4lkno"]
 [ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Game/Scripts/Utility/System/AudioPlayer.gd" id="2_7vtla"]
-[ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Game/Art/Audio/Sfx/click_button.wav" id="3_ga26l"]
+[ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://modules/audio/samples/click_button.wav" id="3_ga26l"]
 
 [node name="BaseButton" type="Button"]
 anchors_preset = 8

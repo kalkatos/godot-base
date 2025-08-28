@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dtmxl00momw0h"
-path="res://.godot/imported/click_button.wav-8640c1e6022be74f6aec6ab0450f044a.sample"
+path="res://.godot/imported/click_button.wav-cb7ea384186fadb9f12d6bf7ceff05d3.sample"
 
 [deps]
 
-source_file="res://Game/Art/Audio/Sfx/click_button.wav"
-dest_files=["res://.godot/imported/click_button.wav-8640c1e6022be74f6aec6ab0450f044a.sample"]
+source_file="res://modules/audio/samples/click_button.wav"
+dest_files=["res://.godot/imported/click_button.wav-cb7ea384186fadb9f12d6bf7ceff05d3.sample"]
 
 [params]
 

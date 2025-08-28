@@ -26,11 +26,10 @@ Storage="*res://Game/Scripts/Globals/Storage.gd"
 SignalBus="*res://Game/Scripts/Globals/SignalBus.gd"
 Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
 Pooler="*res://Game/Scripts/Globals/Pooler.gd"
-AudioController="*res://Game/Settings/Globals/AudioController.tscn"
+AudioController="*res://modules/audio/AudioController.tscn"
 Global="*res://Game/Scripts/Globals/Global.gd"
 InputController="*res://addons/GenkiDraggable/InputController.tscn"
-Analytics="*res://Game/Scripts/GenkiAnalytics/Analytics.tscn"
-AnalyticsTester="*res://Game/Tester/Utility/AnalyticsTester.gd"
+Analytics="*res://addons/GenkiAnalytics/Analytics.tscn"
 
 [display]
 
