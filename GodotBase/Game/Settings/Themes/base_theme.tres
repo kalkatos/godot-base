@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cb7ekgkmdk0m6" path="res://Game/Art/Sprites/UI/handle_small_disabled.png" id="6_o3564"]
 [ext_resource type="Texture2D" uid="uid://1nugr1ytqkkr" path="res://Game/Art/Sprites/UI/handle_small_highlighted.png" id="7_8lyx0"]
 [ext_resource type="StyleBox" uid="uid://c163ejuhsfmqa" path="res://Game/Settings/Themes/borderless.tres" id="7_dbhrl"]
-[ext_resource type="FontFile" uid="uid://bdds0l5h3uhpj" path="res://Game/Art/Fonts/itim_regular.ttf" id="10_weoet"]
+[ext_resource type="FontFile" uid="uid://bdds0l5h3uhpj" path="res://Placeholders/Fonts/itim_regular.ttf" id="10_weoet"]
 
 [sub_resource type="Image" id="Image_o3564"]
 data = {

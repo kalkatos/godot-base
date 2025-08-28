@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bahar2cinahxn"]
 
-[ext_resource type="Script" uid="uid://dyig4ccf7pbcb" path="res://Game/Scripts/Globals/DebugCommands.gd" id="1_emqrf"]
+[ext_resource type="Script" uid="uid://dyig4ccf7pbcb" path="res://Modules/Debug/DebugCommands.gd" id="1_emqrf"]
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("debug_text", "input_text")]
 visible = false

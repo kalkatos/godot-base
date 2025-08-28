@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cndotgxorx3id"]
 
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/BaseCanvas.tscn" id="2_h66oc"]
-[ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Game/Tester/System/MusicTester.tscn" id="3_rsmbn"]
+[ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Modules/Audio/Samples/MusicTester.tscn" id="3_rsmbn"]
 [ext_resource type="Texture2D" uid="uid://cehfsbt5in6v3" path="res://Game/Art/Sprites/placeholder_tex.png" id="5_p0tac"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uibud"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dtic0iflpvadp"]
 
-[ext_resource type="Script" uid="uid://bm0ivuuqk8nd3" path="res://Game/Scripts/Globals/AudioController.gd" id="1_unv7j"]
+[ext_resource type="Script" uid="uid://bm0ivuuqk8nd3" path="res://Modules/Audio/AudioController.gd" id="1_unv7j"]
 
 [node name="AudioController" type="AudioListener2D" node_paths=PackedStringArray("music_channel", "sfx_channel_1", "sfx_channel_2", "sfx_channel_3")]
 current = true

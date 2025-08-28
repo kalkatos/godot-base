@@ -14,7 +14,7 @@ config/name="GodotBase"
 config/version="v0.0.1"
 run/main_scene="uid://cndotgxorx3id"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icons/icon.svg"
+config/icon="res://Icons/icon.svg"
 
 [audio]
 
@@ -22,12 +22,12 @@ buses/default_bus_layout="uid://ddnbh7f2pwxil"
 
 [autoload]
 
-Storage="*res://Game/Scripts/Globals/Storage.gd"
-SignalBus="*res://Game/Scripts/Globals/SignalBus.gd"
-Debug="*res://Game/Settings/Globals/DebugCommands.tscn"
-Pooler="*res://Game/Scripts/Globals/Pooler.gd"
-AudioController="*res://modules/audio/AudioController.tscn"
-Global="*res://Game/Scripts/Globals/Global.gd"
+Storage="*res://Modules/Storage/Storage.gd"
+SignalBus="*res://Modules/Globals/SignalBus.gd"
+Debug="*res://Modules/Debug/DebugCommands.tscn"
+Pooler="*res://Modules/Globals/Pooler.gd"
+AudioController="*res://Modules/Audio/AudioController.tscn"
+Global="*res://Modules/Globals/Global.gd"
 InputController="*res://addons/GenkiDraggable/InputController.tscn"
 Analytics="*res://addons/GenkiAnalytics/Analytics.tscn"
 
