@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bwfa60g3mul28"]
 
-[ext_resource type="Texture2D" uid="uid://cb7ekgkmdk0m6" path="res://Game/Art/Sprites/UI/handle_small_disabled.png" id="1_8xks6"]
+[ext_resource type="Texture2D" uid="uid://cb7ekgkmdk0m6" path="res://Placeholders/Sprites/UI/handle_small_disabled.png" id="1_8xks6"]
 [ext_resource type="Script" uid="uid://dkfpkpwp43aok" path="res://addons/GenkiCardGame/CardData.gd" id="1_y8f7d"]
 
 [resource]

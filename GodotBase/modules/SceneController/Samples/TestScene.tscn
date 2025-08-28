@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5ijmtqeasu31"]
 
-[ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/BaseCanvas.tscn" id="1_4jma3"]
+[ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Placeholders/UI/BaseCanvas.tscn" id="1_4jma3"]
 [ext_resource type="PackedScene" uid="uid://bplrqic4vdj56" path="res://Modules/SceneController/Samples/ButtonSceneLoader.tscn" id="2_35a6r"]
 [ext_resource type="PackedScene" uid="uid://xm3e2txawpy7" path="res://addons/GenkiDamage/Samples/DamageNumberTester.tscn" id="3_dnehv"]
 

@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://blfjs5bskwk1c"]
 
-[ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Game/Settings/Themes/base_theme.tres" id="1_5p2fr"]
+[ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_5p2fr"]
 [ext_resource type="Script" uid="uid://dqvgqqawdtc64" path="res://addons/GenkiCardGame/Card.gd" id="1_g8efq"]
 [ext_resource type="Script" uid="uid://ba4ca2mlxei2r" path="res://Modules/UI/Sprite3DViewport.gd" id="2_8ms8j"]
 [ext_resource type="Script" uid="uid://d264b3rhgvtis" path="res://addons/GenkiDraggable/Draggable.gd" id="2_tx2i4"]
-[ext_resource type="Texture2D" uid="uid://b7ywyxsie0ma6" path="res://Game/Art/Sprites/UI/panel.png" id="3_q103a"]
-[ext_resource type="Texture2D" uid="uid://cigbml224povc" path="res://Game/Art/Sprites/UI/depression.png" id="4_g8efq"]
-[ext_resource type="Texture2D" uid="uid://bbiahdsg4k31c" path="res://Game/Art/Sprites/UI/handle.png" id="4_wre1x"]
+[ext_resource type="Texture2D" uid="uid://b7ywyxsie0ma6" path="res://Placeholders/Sprites/UI/panel.png" id="3_q103a"]
+[ext_resource type="Texture2D" uid="uid://cigbml224povc" path="res://Placeholders/Sprites/UI/depression.png" id="4_g8efq"]
+[ext_resource type="Texture2D" uid="uid://bbiahdsg4k31c" path="res://Placeholders/Sprites/UI/handle.png" id="4_wre1x"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3kpqn"]
 viewport_path = NodePath("Front/SubViewport")
