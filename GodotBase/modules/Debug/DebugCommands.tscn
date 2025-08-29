@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dyig4ccf7pbcb" path="res://Modules/Debug/debug_commands.gd" id="1_emqrf"]
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("debug_text", "input_text")]
+layer = 128
 visible = false
 script = ExtResource("1_emqrf")
 debug_text = NodePath("ColorRect/RichTextLabel")
@@ -17,6 +18,7 @@ offset_right = -5.0
 offset_bottom = -441.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_force_pass_scroll_events = false
 color = Color(0, 0, 0, 0.27451)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
@@ -26,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_force_pass_scroll_events = false
 bbcode_enabled = true
 text = "--- Debug Text ---"
 scroll_following = true
@@ -41,4 +44,5 @@ offset_left = 5.72
 offset_top = 4.92001
 offset_right = 1109.72
 offset_bottom = 44.92
+mouse_force_pass_scroll_events = false
 placeholder_text = "Enter command"
