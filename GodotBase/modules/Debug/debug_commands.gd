@@ -65,6 +65,10 @@ func call_command (text: String) -> void:
 	call_deferred("_grab_focus_back")
 
 
+static func call_command_static (text: String) -> void:
+	Debug.call_command(text)
+
+
 func _handle_text_submitted (text: String) -> void:
 	call_command(text)
 
