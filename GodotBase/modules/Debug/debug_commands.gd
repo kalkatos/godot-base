@@ -20,29 +20,29 @@ func _unhandled_input(event: InputEvent) -> void:
 			input_text.grab_focus()
 
 
-func logm (msg: String):
+func logm (msg: String) -> void:
 	print(msg)
 	debug_text.newline()
 	debug_text.append_text(msg)
 
 
-func log_warning (msg: String):
+func log_warning (msg: String) -> void:
 	push_warning(msg)
 	debug_text.newline()
 	debug_text.append_text("[color=yellow]%s[/color]" % msg)
 
 
-func log_error (msg: String):
+func log_error (msg: String) -> void:
 	push_error(msg)
 	debug_text.newline()
 	debug_text.append_text("[color=red]%s[/color]" % msg)
 
 
-func add_function (func_name: String, callable: Callable) -> void:
+func add_command (func_name: String, callable: Callable) -> void:
 	commands[func_name] = callable
 
 
-func _handle_text_submitted (text: String):
+func call_command (text: String) -> void:
 	input_text.clear()
 	var has_params = text.find(" ") != -1
 	if has_params:
@@ -63,6 +63,10 @@ func _handle_text_submitted (text: String):
 	else:
 		log_warning("Command not found: " + text)
 	call_deferred("_grab_focus_back")
+
+
+func _handle_text_submitted (text: String) -> void:
+	call_command(text)
 
 
 func _grab_focus_back () -> void:
