@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dd1lacfgcfen5"]
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_e2xpx"]
-[ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Modules/UI/VersionText.gd" id="1_pedo5"]
+[ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Modules/UI/version_text.gd" id="1_pedo5"]
 [ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Placeholders/UI/BaseButton.tscn" id="3_lr2du"]
-[ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Modules/Globals/SignalBus.gd" id="4_ceq4o"]
-[ext_resource type="Script" uid="uid://bep52cret807s" path="res://Modules/Storage/StorageBinder.gd" id="5_e2xpx"]
-[ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Modules/UI/VisibilityAnimator.gd" id="5_lr2du"]
+[ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Modules/Globals/signal_bus.gd" id="4_ceq4o"]
+[ext_resource type="Script" uid="uid://bep52cret807s" path="res://Modules/Storage/storage_binder.gd" id="5_e2xpx"]
+[ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Modules/UI/visibility_animator.gd" id="5_lr2du"]
 
 [node name="BaseCanvas" type="CanvasLayer"]
 

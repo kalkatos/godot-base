@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqoje466dvsjk"]
 
-[ext_resource type="Script" uid="uid://d3g7c5taq8jwp" path="res://addons/GenkiAnalytics/Analytics.gd" id="1_jvmy8"]
-[ext_resource type="Script" uid="uid://b38dtp54cagi3" path="res://addons/GenkiAnalytics/HttpSender.gd" id="2_2la7n"]
+[ext_resource type="Script" uid="uid://d3g7c5taq8jwp" path="res://addons/GenkiAnalytics/analytics.gd" id="1_jvmy8"]
+[ext_resource type="Script" uid="uid://b38dtp54cagi3" path="res://addons/GenkiAnalytics/http_sender.gd" id="2_2la7n"]
 
 [node name="Analytics" type="Node" node_paths=PackedStringArray("sender")]
 script = ExtResource("1_jvmy8")

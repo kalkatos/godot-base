@@ -22,12 +22,12 @@ buses/default_bus_layout="uid://ddnbh7f2pwxil"
 
 [autoload]
 
-Storage="*res://Modules/Storage/Storage.gd"
-SignalBus="*res://Modules/Globals/SignalBus.gd"
+Storage="*res://Modules/Storage/storage.gd"
+SignalBus="*res://Modules/Globals/signal_bus.gd"
 Debug="*res://Modules/Debug/DebugCommands.tscn"
-Pooler="*res://Modules/Globals/Pooler.gd"
+Pooler="*res://Modules/Globals/pooler.gd"
 AudioController="*res://Modules/Audio/AudioController.tscn"
-Global="*res://Modules/Globals/Global.gd"
+Global="*res://Modules/Globals/global.gd"
 InputController="*res://addons/GenkiDraggable/InputController.tscn"
 Analytics="*res://addons/GenkiAnalytics/Analytics.tscn"
 
@@ -39,8 +39,8 @@ window/size/initial_position_type=4
 
 [editor]
 
+naming/node_name_num_separator=2
 naming/scene_name_casing=1
-naming/script_name_casing=1
 
 [editor_plugins]
 

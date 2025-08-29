@@ -5,7 +5,7 @@ const CUSTOM_TYPE_NAME := "DamageNumber"
 
 
 func _enter_tree() -> void:
-	add_custom_type(CUSTOM_TYPE_NAME, "Control", preload("DamageNumber.gd"), _get_plugin_icon())
+	add_custom_type(CUSTOM_TYPE_NAME, "Control", preload("damage_number.gd"), _get_plugin_icon())
 
 
 func _exit_tree() -> void:
