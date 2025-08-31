@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd1lacfgcfen5"]
+[gd_scene load_steps=12 format=3 uid="uid://dd1lacfgcfen5"]
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_e2xpx"]
 [ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Modules/UI/version_text.gd" id="1_pedo5"]
 [ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Placeholders/UI/BaseButton.tscn" id="3_lr2du"]
+[ext_resource type="Texture2D" uid="uid://xx14vs3686ht" path="res://Placeholders/Sprites/UI/settings.png" id="3_qidne"]
 [ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Modules/Globals/signal_bus.gd" id="4_ceq4o"]
+[ext_resource type="Texture2D" uid="uid://b1c5snrofhvsb" path="res://Placeholders/Sprites/UI/settings-pressed.png" id="4_cw8fv"]
+[ext_resource type="Texture2D" uid="uid://b4tqoswlmths7" path="res://Placeholders/Sprites/UI/settings-hover.png" id="5_agc72"]
 [ext_resource type="Script" uid="uid://bep52cret807s" path="res://Modules/Storage/storage_binder.gd" id="5_e2xpx"]
 [ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Modules/UI/visibility_animator.gd" id="5_lr2du"]
+[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Modules/Audio/audio_player.gd" id="7_tupdg"]
+[ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Modules/Audio/Samples/click_button.wav" id="8_15447"]
 
 [node name="BaseCanvas" type="CanvasLayer"]
 
@@ -41,13 +46,27 @@ text = "Scene Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Settings Button" parent="." instance=ExtResource("3_lr2du")]
-offset_left = 527.0
-offset_top = -349.0
-offset_right = 627.0
-offset_bottom = -309.0
-text = "Settings"
+[node name="Settings Button" type="TextureButton" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 9.0
+offset_right = -10.0
+offset_bottom = 49.0
+grow_horizontal = 0
+theme = ExtResource("1_e2xpx")
+texture_normal = ExtResource("3_qidne")
+texture_pressed = ExtResource("4_cw8fv")
+texture_hover = ExtResource("5_agc72")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("4_ceq4o")
+
+[node name="Click Sfx" type="Node" parent="Settings Button"]
+script = ExtResource("7_tupdg")
+audio = ExtResource("8_15447")
+metadata/_custom_type_script = "uid://brqtcgh6awxtg"
 
 [node name="Settings Panel" type="Panel" parent="."]
 physics_interpolation_mode = 0
@@ -171,6 +190,7 @@ offset_bottom = 79.0
 text = "OK"
 script = ExtResource("4_ceq4o")
 
+[connection signal="pressed" from="Settings Button" to="Settings Button/Click Sfx" method="play_global_sfx"]
 [connection signal="pressed" from="Settings Button" to="Settings Button" method="emit_on_settings_panel" binds= [true]]
 [connection signal="_on_settings_panel" from="Settings Panel" to="Settings Panel/VisibilityAnimator" method="animate_visibility"]
 [connection signal="_on_music_volume_set" from="Settings Panel/Music Container/Music Slider" to="Settings Panel/Music Container/Music Slider" method="set_value_no_signal"]
