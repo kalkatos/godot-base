@@ -1,3 +1,4 @@
+@icon("uid://dpf762npkqnp5")
 @tool
 class_name Card
 extends Node3D
@@ -32,7 +33,7 @@ func _update_view (key: String, value: Variant, node: Node):
 	match node_class:
 		"Label", "Label3D", "RichTextLabel":
 			node.text = value
-		"Sprite2D", "Sprite3D":
+		"Sprite2D", "Sprite3D", "TextureRect", "NinePatchRect":
 			node.texture = value
 		_:
 			Debug.log_error("Treatment for field view with key %s and class %s is not implemented." % [key, node_class])

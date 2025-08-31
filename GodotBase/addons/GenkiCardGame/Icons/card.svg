@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="111.93277mm"
+   height="111.51421mm"
+   viewBox="0 0 111.93277 111.51421"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="card.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.3708684"
+     inkscape:cx="170.69473"
+     inkscape:cy="196.22599"
+     inkscape:window-width="1918"
+     inkscape:window-height="1048"
+     inkscape:window-x="2695"
+     inkscape:window-y="423"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"><inkscape:page
+       x="0"
+       y="0"
+       width="111.93277"
+       height="111.51421"
+       id="page2"
+       margin="0"
+       bleed="0" /></sodipodi:namedview><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-19.686586,-16.702883)"><path
+       id="rect1"
+       style="fill:#fc7f7f;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:1"
+       d="m 48.614542,16.702856 c -15.395278,-0.05287 -22.384884,4.480461 -22.384884,19.87583 v 71.182934 c 0,15.39537 6.41059,20.50716 21.805871,20.45536 l 57.357481,-0.193 c 15.39528,-0.0518 19.87635,-4.09497 19.87635,-19.49034 V 38.12272 c 0,-15.395369 -5.06008,-21.173988 -20.45536,-21.22686 z M 55.7211,31.446408 97.128944,31.253404 C 108.39991,31.200869 110.3328,34.151189 110.3328,45.422282 V 73.148507 H 40.97321 V 45.422282 c 0,-11.271093 3.476919,-13.92334 14.74789,-13.975874 z M 40.97321,84.150081 h 69.35959 l 0.0965,8.588297 H 41.069712 Z m -0.41514,19.107369 h 69.99686 c 0.71837,7.74421 -2.37313,10.02297 -10.723928,10.02297 H 54.949083 c -8.350796,0 -14.337357,-0.54172 -14.391013,-10.02297 z"
+       sodipodi:nodetypes="ssssssssssssccsscccccccssc" /></g></svg>
