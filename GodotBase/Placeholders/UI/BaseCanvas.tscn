@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://dd1lacfgcfen5"]
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_e2xpx"]
-[ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Modules/UI/version_text.gd" id="1_pedo5"]
+[ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Modules/UI/version_text_.gd" id="1_pedo5"]
 [ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Placeholders/UI/BaseButton.tscn" id="3_lr2du"]
 [ext_resource type="Texture2D" uid="uid://xx14vs3686ht" path="res://Placeholders/Sprites/UI/settings.png" id="3_qidne"]
 [ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Globals/signal_bus.gd" id="4_ceq4o"]
 [ext_resource type="Texture2D" uid="uid://b1c5snrofhvsb" path="res://Placeholders/Sprites/UI/settings-pressed.png" id="4_cw8fv"]
 [ext_resource type="Texture2D" uid="uid://b4tqoswlmths7" path="res://Placeholders/Sprites/UI/settings-hover.png" id="5_agc72"]
-[ext_resource type="Script" uid="uid://bep52cret807s" path="res://Modules/Storage/storage_binder.gd" id="5_e2xpx"]
-[ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Modules/UI/visibility_animator.gd" id="5_lr2du"]
-[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Modules/Audio/audio_player.gd" id="7_tupdg"]
-[ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Modules/Audio/Samples/click_button.wav" id="8_15447"]
+[ext_resource type="Script" uid="uid://bep52cret807s" path="res://Modules/Storage/storage_binder_.gd" id="5_e2xpx"]
+[ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Modules/UI/visibility_animator_.gd" id="5_lr2du"]
+[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Modules/Audio/audio_player_.gd" id="7_tupdg"]
+[ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Modules/Audio/Samples/click_button_.wav" id="8_15447"]
 
 [node name="BaseCanvas" type="CanvasLayer"]
 

@@ -22,10 +22,10 @@ buses/default_bus_layout="uid://ddnbh7f2pwxil"
 
 [autoload]
 
-Storage="*res://Modules/Storage/storage.gd"
+Storage="*res://Modules/Storage/storage_.gd"
 SignalBus="*res://Game/Globals/signal_bus.gd"
 Debug="*res://Modules/Debug/DebugCommands.tscn"
-Pooler="*res://Modules/Utils/pooler.gd"
+Pooler="*res://Modules/Utils/pooler_.gd"
 AudioController="*res://Modules/Audio/AudioController.tscn"
 Global="*res://Game/Globals/global.gd"
 InputController="*res://addons/GenkiDraggable/InputController.tscn"
