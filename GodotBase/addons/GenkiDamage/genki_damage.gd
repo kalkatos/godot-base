@@ -5,12 +5,8 @@ const CUSTOM_TYPE_NAME := "DamageNumber"
 
 
 func _enter_tree() -> void:
-	add_custom_type(CUSTOM_TYPE_NAME, "Control", preload("damage_number.gd"), _get_plugin_icon())
+	add_custom_type(CUSTOM_TYPE_NAME, "Control", preload("damage_number.gd"), preload("uid://bo7uc4yxwy1t4"))
 
 
 func _exit_tree() -> void:
 	remove_custom_type(CUSTOM_TYPE_NAME)
-
-
-func _get_plugin_icon () -> Texture2D:
-	return EditorInterface.get_editor_theme().get_icon("Label", "EditorIcons")

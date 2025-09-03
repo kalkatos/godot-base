@@ -14,6 +14,9 @@ signal on_clicked (mouse_position: Vector2)
 @export var hoverable: bool = true
 ## If set to TRUE, the object can be dragged.
 @export var draggable: bool = true
+## If set to TRUE, the object can be clicked.
+@export var clickable: bool = true
+@export_group("Drag Settings")
 ## If set to TRUE, the object will be dragged from its pivot point.
 @export var drag_from_pivot: bool = true
 ## Set an offset to be applied when dragging the object.
@@ -43,10 +46,11 @@ func _ready() -> void:
 func _handle_mouse_entered ():
 	_is_hovering = true
 	InputController.mouse_enter(self)
-	if !hoverable:
+	if not hoverable:
 		return
 	on_hover_entered.emit()
 	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+	_hover_entered()
 
 
 func _handle_mouse_exited ():
@@ -57,6 +61,7 @@ func _handle_mouse_exited ():
 	on_hover_exited.emit()
 	if not _is_being_dragged:
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+	_hover_exited()
 
 
 func _handle_process ():
@@ -112,8 +117,18 @@ func _before_end_drag (mouse_position: Vector2):
 
 
 func _before_click (mouse_position: Vector2):
+	if not clickable:
+		return
 	on_clicked.emit(mouse_position)
 	_click(mouse_position)
+
+
+func _hover_entered ():
+	pass
+
+
+func _hover_exited ():
+	pass
 
 
 func _begin_drag (_mouse_position: Vector2):
@@ -129,5 +144,4 @@ func _end_drag (_mouse_position: Vector2):
 
 
 func _click (_mouse_position: Vector2):
-	Debug.logm("Clicked!")
 	pass

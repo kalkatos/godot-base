@@ -1,3 +1,4 @@
+@icon("uid://6k7urmibyeb8")
 class_name Hand
 extends Zone
 

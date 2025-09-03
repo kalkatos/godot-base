@@ -1,3 +1,4 @@
+@icon("uid://bo7uc4yxwy1t4")
 class_name DamageNumber
 extends Node2D
 

@@ -1,3 +1,4 @@
+@icon("uid://djlh8cto0xekt")
 class_name Stack
 extends Zone
 

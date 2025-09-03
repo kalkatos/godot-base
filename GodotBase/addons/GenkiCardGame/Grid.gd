@@ -1,6 +1,6 @@
-extends Zone
-
+@icon("uid://ba00b4aryg4g5")
 class_name Grid
+extends Zone
 
 @export var size: Vector2i = Vector2i(0, 0)
 @export var distance: Vector2 = Vector2(3.0, 3.0)

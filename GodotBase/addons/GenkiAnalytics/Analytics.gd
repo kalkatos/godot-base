@@ -1,9 +1,14 @@
 extends Node
 
+@export var debug_mode: bool = false
 @export var sender: AnalyticsSender
 
 
 func _ready() -> void:
+	if OS.has_feature("editor") and not debug_mode:
+		Debug.logm("Analytics module disabled in editor")
+		queue_free()
+		return
 	if not sender.is_initialized:
 		await sender.on_initialized
 	send_event("session_started")
@@ -39,6 +44,8 @@ func send_unique_event (key: String, opt_value: String = ""):
 
 
 func _is_initialized () -> bool:
+	if OS.has_feature("editor") and not debug_mode:
+		return false
 	if sender and sender.is_initialized:
 		return true
 	Debug.log_warning("Analytics module is not initialized. Nothing will be sent")
