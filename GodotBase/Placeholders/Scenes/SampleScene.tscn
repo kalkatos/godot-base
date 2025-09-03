@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ckau5e8rr7hev"]
 
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Placeholders/UI/BaseCanvas.tscn" id="1_y6el6"]
-[ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Modules/Audio/Samples/MusicTester_.tscn" id="2_krcbd"]
+[ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Modules/Audio/Samples/MusicTester.tscn" id="2_krcbd"]
 [ext_resource type="Texture2D" uid="uid://cehfsbt5in6v3" path="res://Placeholders/Sprites/placeholder_tex.png" id="3_2uv06"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uibud"]

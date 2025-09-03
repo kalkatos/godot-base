@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgilv0f24mtpj"]
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_4lkno"]
-[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Modules/Audio/audio_player_.gd" id="2_7vtla"]
-[ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Modules/Audio/Samples/click_button_.wav" id="3_ga26l"]
+[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Modules/Audio/audio_player.gd" id="2_7vtla"]
+[ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Modules/Audio/Samples/click_button.wav" id="3_ga26l"]
 
 [node name="BaseButton" type="Button"]
 anchors_preset = 8
