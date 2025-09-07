@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_e2xpx"]
 [ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Modules/UI/version_text.gd" id="1_pedo5"]
-[ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Placeholders/UI/BaseButton.tscn" id="3_lr2du"]
+[ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="3_lr2du"]
 [ext_resource type="Texture2D" uid="uid://xx14vs3686ht" path="res://Placeholders/Sprites/UI/settings.png" id="3_qidne"]
 [ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Globals/signal_bus.gd" id="4_ceq4o"]
 [ext_resource type="Texture2D" uid="uid://b1c5snrofhvsb" path="res://Placeholders/Sprites/UI/settings-pressed.png" id="4_cw8fv"]

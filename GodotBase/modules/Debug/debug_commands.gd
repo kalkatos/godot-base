@@ -1,4 +1,3 @@
-@tool
 extends CanvasLayer
 
 @export var debug_text: RichTextLabel

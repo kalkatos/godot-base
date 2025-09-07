@@ -1,18 +1,15 @@
 class_name GridTester
 extends Grid
 
-var _counter: int = 0
 var _prefab: Node
 var _next_slot_position: Callable = _next_slot_position_with_negatives
 
 
 func _ready () -> void:
 	for card in get_children():
-		_counter += 1
-		card.get_node("Front/SubViewport/RichTextLabel").text = str(_counter)
 		var next = _next_slot()
 		grid[next] = card
-		card.get_node("Draggable").on_clicked.connect(func(_pos): _handle_click(next.x, next.y))
+		card.on_clicked.connect(func(_pos): _handle_click(next.x, next.y))
 
 
 func _input (event: InputEvent) -> void:
@@ -21,12 +18,13 @@ func _input (event: InputEvent) -> void:
 			Debug.logm("Adding")
 			if not _prefab:
 				_prefab = get_last()
+				if not _prefab:
+					Debug.log_error("No card is child of GridTester.")
+					return
 			var new_card = _prefab.duplicate()
 			var next = _next_slot()
 			add_to_grid(new_card, next)
-			_counter += 1
-			new_card.get_node("Front/SubViewport/RichTextLabel").text = str(_counter)
-			new_card.get_node("Draggable").on_clicked.connect(func(_pos): _handle_click(next.x, next.y))
+			new_card.on_clicked.connect(func(_pos): _handle_click(next.x, next.y))
 			_organize()
 		elif event.keycode == KEY_S:
 			_organize()

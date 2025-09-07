@@ -10,4 +10,6 @@ func _organize ():
 	var i = 0
 	for child in get_children():
 		child.global_position = global_position + distance * i * direction
+		child.scale = Vector3.ONE
+		child.rotation = Quaternion.IDENTITY
 		i += 1

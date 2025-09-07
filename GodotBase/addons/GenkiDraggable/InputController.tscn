@@ -7,5 +7,5 @@ script = ExtResource("1_n431x")
 drag_plane_gizmo = NodePath("Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 9.31844, 5.94625)
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 9.78148, 6.21355)
 gizmo_extents = 1.0

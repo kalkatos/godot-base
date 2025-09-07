@@ -33,6 +33,9 @@ var _drag_origin: Vector3
 var _is_being_dragged: bool
 var _is_hovering: bool
 
+var global_offset: Vector3:
+	get: return (to_global(drag_offset) - to_global(Vector3.ZERO))
+
 
 func _ready() -> void:
 	mouse_entered.connect(_handle_mouse_entered)
@@ -80,7 +83,7 @@ func _before_begin_drag (mouse_position: Vector2):
 	_is_being_dragged = true
 	on_drag_began.emit(mouse_position)
 	var point = InputController.mouse_to_world_position(mouse_position)
-	_target_position = point + _offset + drag_offset
+	_target_position = point + _offset + global_offset
 	if not drag_from_pivot:
 		_offset = root.global_position - point
 	_begin_drag_lerp = 0.0
@@ -97,7 +100,7 @@ func _before_drag (mouse_position: Vector2):
 		return
 	on_dragged.emit(mouse_position)
 	var point = InputController.mouse_to_world_position(mouse_position)
-	_target_position = point + _offset + drag_offset
+	_target_position = point + _offset + global_offset
 	if use_offset and not is_equal_approx(_begin_drag_lerp, 1.0):
 		_begin_drag_lerp = clamp(_begin_drag_lerp + begin_drag_speed * get_process_delta_time(), 0.0, 1.0)
 		root.global_position = _drag_origin.lerp(_target_position, _begin_drag_lerp)

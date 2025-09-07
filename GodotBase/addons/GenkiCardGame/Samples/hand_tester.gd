@@ -1,13 +1,7 @@
 class_name HandTester
 extends Hand
 
-var counter: int = 0
 var prefab: Node
-
-
-func _ready () -> void:
-	for card in get_children():
-		counter += 1
 
 
 func _input (event: InputEvent) -> void:
@@ -22,7 +16,6 @@ func _input (event: InputEvent) -> void:
 				prefab = get_last()
 			var new_card = prefab.duplicate()
 			add_item(new_card)
-			counter += 1
 			_organize()
 		elif event.keycode == KEY_S:
 			_organize()

@@ -2,7 +2,6 @@
 class_name Grid
 extends Zone
 
-@export var size: Vector2i = Vector2i(0, 0)
 @export var distance: Vector2 = Vector2(3.0, 3.0)
 
 var grid: Dictionary[Vector2i, Node]
@@ -19,6 +18,7 @@ func _organize ():
 		var tween = grid[pos].create_tween()
 		tween.tween_property(grid[pos], "position", target_position, 0.2)
 		tween.parallel().tween_property(grid[pos], "rotation_degrees", Vector3.ZERO, 0.2)
+		tween.parallel().tween_property(grid[pos], "scale", Vector3.ONE, 0.2)
 
 func add_to_grid (node: Node, pos: Vector2i):
 	if grid.has(pos) and grid[pos]:

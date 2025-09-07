@@ -7,17 +7,20 @@ signal _on_settings_panel (open: bool)
 
 
 func emit_on_settings_panel (open: bool):
-	_on_settings_panel.emit(open)
+	if SignalBus != self:
+		_on_settings_panel.emit(open)
 	SignalBus._on_settings_panel.emit(open)
 
 
 func emit_on_sfx_volume_set (value: float):
-	_on_sfx_volume_set.emit(value)
+	if SignalBus != self:
+		_on_sfx_volume_set.emit(value)
 	SignalBus._on_sfx_volume_set.emit(value)
 
 
 func emit_on_music_volume_set (value: float):
-	_on_music_volume_set.emit(value)
+	if SignalBus != self:
+		_on_music_volume_set.emit(value)
 	SignalBus._on_music_volume_set.emit(value)
 
 

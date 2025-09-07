@@ -7,23 +7,29 @@ extends Draggable
 	set(new_data):
 		data = new_data
 		_setup(new_data)
-@export var field_views: Dictionary[String, Node]
+@export var field_views: Dictionary[String, Variant]
 
 @export_group("References")
 @export var front: Node3D
 @export var back: Node3D
+@export var glow_obj: Node3D
+@export var visuals: Array[VisualInstance3D]
 
 var is_highlighted: bool = false
 
 var is_face_up: bool:
 	get: return global_basis.z.dot(Vector3.UP) >= 0
+var is_glowing: bool:
+	get: return glow_obj.visible
 
 var _values: Dictionary[String, Variant]
-var _drag_rotation_vector: Vector3
-var _camera_face_down_direction: Vector3
+var _camera: Camera3D
 var _drag_quat: Quaternion
 var _front_highlight_tween: Tween
 var _back_highlight_tween: Tween
+var _default_highlight_settings: HighlightSettings
+var _saved_sorting_order: int
+var _last_sorting_order: int
 
 const FACE_UP = Quaternion(-0.7071, 0, 0, 0.7071)
 const FACE_DOWN = Quaternion(0.0, 0.7071, -0.7071, 0.0)
@@ -32,11 +38,17 @@ const FACE_DOWN = Quaternion(0.0, 0.7071, -0.7071, 0.0)
 func _ready () -> void:
 	super()
 	_values = {}
-	var camera = get_viewport().get_camera_3d()
-	if not camera:
+	_camera = get_viewport().get_camera_3d()
+	if not _camera and not Engine.is_editor_hint():
 		Debug.log_error("No camera 3D found in the current viewport.")
-		return
-	_drag_rotation_vector = camera.basis.z
+	_default_highlight_settings = HighlightSettings.new(
+			Vector3(0, 0, Global.highlight_height),
+			Vector3(0, 0, -Global.highlight_height),
+			Vector3(1.1, 1.1, 1.1),
+			false,
+			0.2,
+			Tween.TRANS_BOUNCE,
+			Tween.EASE_OUT)
 
 
 func set_data (data_: CardData) -> void:
@@ -47,38 +59,27 @@ func set_data (data_: CardData) -> void:
 func set_field_value (key: String, value: Variant):
 	_values[key] = value
 	if field_views.has(key):
-		_update_view(key, value, field_views[key])
+		var field = field_views[key]
+		if field is NodePath:
+			_update_view(key, value, get_node(field))
+		elif field is Array:
+			for nodepath in field:
+				_update_view(key, value, get_node(nodepath))
+		else:
+			Debug.log_error("Field view for key %s is neither a NodePath nor an Array of NodePaths." % key)
 
 
 func set_highlight (on: bool) -> void:
 	if on == is_highlighted:
 		return
+	if on and _is_being_dragged:
+		return
+	_apply_highlight(on, _default_highlight_settings)
+	is_highlighted = on
 	if on:
-		if _is_being_dragged:
-			return
-		if _front_highlight_tween:
-			_front_highlight_tween.kill()
-		_front_highlight_tween = create_tween()
-		_front_highlight_tween.tween_property(front, "position", Vector3(0, 0, Global.highlight_height), 0.2)
-		_front_highlight_tween.parallel().tween_property(front, "scale", Vector3(1.1, 1.1, 1.1), 0.2)
-		if _back_highlight_tween:
-			_back_highlight_tween.kill()
-		_back_highlight_tween = create_tween()
-		_back_highlight_tween.tween_property(back, "position", Vector3(0, 0, -Global.highlight_height), 0.2)
-		_back_highlight_tween.parallel().tween_property(back, "scale", Vector3(1.1, 1.1, 1.1), 0.2)
-		is_highlighted = true
+		set_sorting(Global.highlighted_card_sorting, false)
 	else:
-		if _front_highlight_tween:
-			_front_highlight_tween.kill()
-		_front_highlight_tween = create_tween()
-		_front_highlight_tween.tween_property(front, "position", Vector3(0, 0, 0), 0.2)
-		_front_highlight_tween.parallel().tween_property(front, "scale", Vector3(1, 1, 1), 0.2)
-		if _back_highlight_tween:
-			_back_highlight_tween.kill()
-		_back_highlight_tween = create_tween()
-		_back_highlight_tween.tween_property(back, "position", Vector3(0, 0, 0), 0.2)
-		_back_highlight_tween.parallel().tween_property(back, "scale", Vector3(1, 1, 1), 0.2)
-		is_highlighted = false
+		set_sorting(_saved_sorting_order)
 
 
 func set_face (up: bool) -> void:
@@ -89,9 +90,8 @@ func set_face (up: bool) -> void:
 
 
 func flip () -> void:
-	Debug.logm("Flipping card %s" % [name])
 	var up = not is_face_up
-	var target_quaternion = FACE_UP if up else FACE_DOWN
+	var target_quaternion = (FACE_UP if up else FACE_DOWN) * get_parent().quaternion.inverse()
 	var start_position = global_position
 	var subtween = create_tween()
 	subtween.tween_property(self, "global_position", start_position + Vector3(0, 1.5, 0), 0.1)
@@ -102,11 +102,69 @@ func flip () -> void:
 	tween.finished.connect(_handle_flip_finished)
 
 
+func set_glow (on: bool) -> void:
+	glow_obj.visible = on
+
+
+func tween_to (position: Vector3, time: float) -> Tween:
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", position, time)
+	return tween
+
+
+func set_sorting (order: int, save: bool = true) -> void:
+	if save:
+		_last_sorting_order = _saved_sorting_order
+		_saved_sorting_order = order
+	if is_highlighted:
+		order = Global.highlighted_card_sorting
+	for visual in visuals:
+		visual.sorting_offset = order
+
+
 func _setup (_data: CardData):
 	if not _data:
 		return
 	for key in _data.fields:
 		set_field_value(key, _data.fields[key])
+
+
+func _apply_highlight(on: bool, settings: HighlightSettings) -> void:
+	if on:
+		if _front_highlight_tween:
+			_front_highlight_tween.kill()
+		_front_highlight_tween = create_tween()
+		_front_highlight_tween.set_trans(settings.trans)
+		_front_highlight_tween.set_ease(settings.ease)
+		_front_highlight_tween.tween_property(front, "position", settings.front_offset, settings.time)
+		_front_highlight_tween.parallel().tween_property(front, "scale", settings.scale, settings.time)
+		if settings.face_camera:
+			var target_quat = _face_camera_quat() * quaternion.inverse()
+			_front_highlight_tween.parallel().tween_property(front, "quaternion", target_quat, settings.time)
+		if _back_highlight_tween:
+			_back_highlight_tween.kill()
+		_back_highlight_tween = create_tween()
+		_back_highlight_tween.set_trans(settings.trans)
+		_back_highlight_tween.set_ease(settings.ease)
+		_back_highlight_tween.tween_property(back, "position", settings.back_offset, settings.time)
+		_back_highlight_tween.parallel().tween_property(back, "scale", settings.scale, settings.time)
+	else:
+		if _front_highlight_tween:
+			_front_highlight_tween.kill()
+		_front_highlight_tween = create_tween()
+		_front_highlight_tween.set_trans(settings.trans)
+		_front_highlight_tween.set_ease(settings.ease)
+		_front_highlight_tween.tween_property(front, "position", Vector3(0, 0, 0), 0.2)
+		_front_highlight_tween.parallel().tween_property(front, "scale", Vector3(1, 1, 1), 0.2)
+		if front.quaternion != Quaternion.IDENTITY:
+			_front_highlight_tween.parallel().tween_property(front, "quaternion", Quaternion.IDENTITY, 0.2)
+		if _back_highlight_tween:
+			_back_highlight_tween.kill()
+		_back_highlight_tween = create_tween()
+		_back_highlight_tween.set_trans(settings.trans)
+		_back_highlight_tween.set_ease(settings.ease)
+		_back_highlight_tween.tween_property(back, "position", Vector3(0, 0, 0), 0.2)
+		_back_highlight_tween.parallel().tween_property(back, "scale", Vector3(1, 1, 1), 0.2)
 
 
 func _update_view (key: String, value: Variant, node: Node):
@@ -134,7 +192,8 @@ func _hover_exited ():
 func _begin_drag (_mouse_position: Vector2):
 	set_highlight(false)
 	var camera = get_viewport().get_camera_3d()
-	_drag_quat = Quaternion(get_parent().global_basis.z, _drag_rotation_vector)
+	_drag_quat = _face_camera_quat()
+	set_sorting(Global.drag_card_sorting, false)
 
 
 func _drag (_mouse_position: Vector2):
@@ -142,7 +201,8 @@ func _drag (_mouse_position: Vector2):
 
 
 func _end_drag (_mouse_position: Vector2):
-	pass
+	Debug.logm("Card: drag ended in %s" % name)
+	set_sorting(_last_sorting_order)
 
 
 func _click (_mouse_position: Vector2):
@@ -151,3 +211,29 @@ func _click (_mouse_position: Vector2):
 
 func _handle_flip_finished () -> void:
 	pass
+
+
+func _face_camera_quat () -> Quaternion:
+	if is_face_up:
+		return _camera.quaternion * get_parent().quaternion.inverse()
+		# return Quaternion(get_parent().global_basis.z, _drag_rotation_vector)
+	return Quaternion(Basis(-_camera.basis.x, _camera.basis.y, -_camera.basis.z)) * get_parent().quaternion.inverse()
+
+
+class HighlightSettings:
+	var front_offset: Vector3
+	var back_offset: Vector3
+	var scale: Vector3
+	var face_camera: bool
+	var time: float
+	var trans: int
+	var ease: int
+
+	func _init (front_offset: Vector3, back_offset: Vector3, scale: Vector3, face_camera: bool, time: float, trans: int, ease: int):
+		self.front_offset = front_offset
+		self.back_offset = back_offset
+		self.scale = scale
+		self.face_camera = face_camera
+		self.time = time
+		self.trans = trans
+		self.ease = ease

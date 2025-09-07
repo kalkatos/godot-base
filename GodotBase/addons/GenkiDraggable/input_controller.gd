@@ -38,16 +38,7 @@ func _ready ():
 		plane = Plane(drag_plane_gizmo.basis.y, drag_plane_gizmo.global_position)
 
 
-func _process (_delta: float) -> void:
-	if (
-			_click_status == ClickStatus.BEGAN
-			and _hover
-			and Time.get_ticks_msec() - _input_start_time >= click_threshold_time_ms
-	):
-		begin_drag(_hover)
-
-
-func _input (event: InputEvent) -> void:
+func _unhandled_input (event: InputEvent) -> void:
 	if event is InputEventMouse:
 		input_info = event
 		if event is InputEventMouseMotion:
@@ -56,7 +47,10 @@ func _input (event: InputEvent) -> void:
 			elif (
 					_click_status == ClickStatus.BEGAN
 					and _hover
-					and _input_start_position.distance_to(event.position) >= click_threshold_distance
+					and (
+						_input_start_position.distance_to(event.position) >= click_threshold_distance
+						or Time.get_ticks_msec() - _input_start_time >= click_threshold_time_ms
+					)
 			):
 				begin_drag(_hover)
 		elif event is InputEventMouseButton:
@@ -67,26 +61,36 @@ func _input (event: InputEvent) -> void:
 				_input_start_position = event.position
 				_click_status = ClickStatus.BEGAN
 			elif event.is_released():
-				if _hover:
+				var target = _hover if _hover else _draggable
+				if target:
 					if _click_status == ClickStatus.BEGAN:
-						click(_hover)
+						click(target)
 					elif _click_status == ClickStatus.CONVERTED_TO_DRAG:
-						end_drag(_hover)
+						end_drag(target)
 				_click_status = ClickStatus.NOTHING
 
 
 func mouse_enter (draggable: Draggable) -> void:
+	if is_dragging:
+		return
 	_hover = draggable
 	on_mouse_entered_draggable.emit(draggable, input_info)
 
 
 func mouse_exit (draggable: Draggable) -> void:
+	if is_dragging:
+		return
 	if _hover == draggable:
 		_hover = null
 	on_mouse_exited_draggable.emit(draggable, input_info)
 
 
 func begin_drag (draggable: Draggable) -> void:
+	if is_dragging:
+		if _draggable == draggable:
+			return
+		else:
+			end_drag(_draggable)
 	_click_status = ClickStatus.CONVERTED_TO_DRAG
 	draggable._before_begin_drag(input_info.position)
 	on_drag_began.emit(draggable, input_info)

@@ -55,7 +55,8 @@ func remove_item_no_nofity (item: Node):
 
 
 func remove_item_option (item: Node, notify: bool):
-	item.reparent(get_tree().root)
+	if item.get_parent() == self:
+		item.reparent(get_tree().root)
 	_item_removed(item)
 	if notify:
 		on_item_removed.emit(item)

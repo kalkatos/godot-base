@@ -9,6 +9,8 @@ extends Zone
 @export var max_width: float = 15.0
 @export var count_reference: int = 5
 
+var _input_monitor: Dictionary[Card, CardInputTracker] = {}
+
 
 func _organize ():
 	_organize_option(false)
@@ -28,12 +30,13 @@ func _organize_option (snap: bool):
 	var start_x = -total_width / 2
 	for i in range(count):
 		var card = get_child(i)
+		_add_input_tracker(card)
 		var t = float(i) / max(1, count - 1)
 		var pos_x = start_x + (i * used_distance)
 		var pos_y = 0.0
 		if bend:
 			pos_y = bend.sample(t) * used_height
-		var target_pos = Vector3(pos_x, pos_y, 0)
+		var target_pos = Vector3(pos_x, pos_y, i * 0.01)
 		var angle = lerp(used_angle, -used_angle, t)
 		var target_rot = Vector3(0, 0, angle)
 		if snap:
@@ -43,3 +46,73 @@ func _organize_option (snap: bool):
 			var tween = card.create_tween()
 			tween.tween_property(card, "position", target_pos, 0.2)
 			tween.parallel().tween_property(card, "rotation_degrees", target_rot, 0.2)
+			tween.parallel().tween_property(card, "scale", Vector3.ONE, 0.2)
+		card.set_sorting(Global.hand_card_sorting + i)
+
+
+func add_item_option (item: Node, notify: bool):
+	super(item, notify)
+	_add_input_tracker(item as Card)
+
+
+func remove_item_option (item: Node, notify: bool):
+	super(item, notify)
+	_dispose_input_tracker(item as Card)
+
+
+func _dispose_input_tracker (card: Card) -> void:
+	if _input_monitor.has(card):
+		_input_monitor[card]._dispose()
+		_input_monitor.erase(card)
+
+
+func _add_input_tracker (card: Card) -> void:
+	if not _input_monitor.has(card):
+		_input_monitor[card] = CardInputTracker.new(card, self)
+
+
+func _handle_card_drag_began (card: Card, mouse_pos: Vector2) -> void:
+	pass
+
+
+func _handle_card_dragged (_card: Card, mouse_pos: Vector2) -> void:
+	pass
+
+
+func _handle_card_drag_ended (card: Card, mouse_pos: Vector2) -> void:
+	pass
+
+
+func _handle_card_clicked (_card: Card, mouse_pos: Vector2) -> void:
+	pass
+
+
+class CardInputTracker:
+	var card: Card
+	var hand: Hand
+
+	func _init (card_: Card, hand_: Hand) -> void:
+		card = card_
+		hand = hand_
+		card.on_drag_began.connect(_drag_began)
+		card.on_dragged.connect(_dragged)
+		card.on_drag_ended.connect(_drag_ended)
+		card.on_clicked.connect(_clicked)
+
+	func _dispose () -> void:
+		card.on_drag_began.disconnect(_drag_began)
+		card.on_dragged.disconnect(_dragged)
+		card.on_drag_ended.disconnect(_drag_ended)
+		card.on_clicked.disconnect(_clicked)
+
+	func _drag_began (mouse_pos: Vector2) -> void:
+		hand._handle_card_drag_began(card, mouse_pos)
+
+	func _dragged (mouse_pos: Vector2) -> void:
+		hand._handle_card_dragged(card, mouse_pos)
+
+	func _drag_ended (mouse_pos: Vector2) -> void:
+		hand._handle_card_drag_ended(card, mouse_pos)
+
+	func _clicked (mouse_pos: Vector2) -> void:
+		hand._handle_card_clicked(card, mouse_pos)
