@@ -15,7 +15,6 @@ func notify_finished (item: PoolItem):
 		Debug.log_error("Something went wrong, item is not in busy list")
 	else:
 		pool.busy.remove_at(index)
-	Debug.logm("Recycling item " + str(item.number))
 	pool.available.insert(0, item)
 
 
@@ -52,7 +51,6 @@ class Pool:
 				continue
 			break
 		if item:
-			Debug.logm("Reusing item: " + str(item.number))
 			busy.append(item)
 		else:
 			return create_new()
@@ -65,7 +63,6 @@ class Pool:
 		busy.append(new_item)
 		count += 1
 		new_item.number = count
-		Debug.logm("New instance count: " + str(count))
 		return new_obj
 
 

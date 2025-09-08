@@ -13,24 +13,24 @@ var is_playing: bool
 
 func _ready () -> void:
 	is_playing = false
-	particles.emitting = false
 	particles.texture = subviewport.get_texture()
 	particles.finished.connect(_handle_particles_finished)
 
 
-func play (value: String, position: Vector2):
+func play (value: String, position: Vector2, color: Color = Color.WHITE) -> void:
 	if is_playing:
 		var other = Pooler.get_new(self) as DamageNumber
 		var my_parent = get_parent()
 		if other.get_parent() != my_parent:
 			my_parent.add_child(other)
 			other.owner = my_parent
-		other.play(value, position)
+		other.play(value, position, color)
 		return
 	visible = true
 	is_playing = true
 	text.text = value
-	set_position(position)
+	global_position = position
+	modulate = color
 	particles.restart()
 
 

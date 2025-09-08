@@ -35,8 +35,6 @@ var _last_sorting_order: int
 const FACE_UP = Quaternion(-0.7071, 0, 0, 0.7071)
 const FACE_DOWN = Quaternion(0.0, 0.7071, -0.7071, 0.0)
 
-static var _first_card: Card
-
 
 func _ready () -> void:
 	super()
@@ -73,18 +71,10 @@ func set_field_value (key: String, value: Variant):
 
 
 func set_highlight (on: bool, force: bool = false) -> void:
-	if not _first_card:
-		_first_card = self
 	if highlight_frozen_state:
-		if _first_card == self:
-			Debug.logm("Card highlight: frozen state, ignoring set to %s" % str(on))
 		return
 	if on == is_highlighted and not force:
-		if _first_card == self:
-			Debug.logm("Card highlight: already set to %s and not force, ignoring" % str(on))
 		return
-	if _first_card == self:		
-		Debug.logm("Card highlight: set to %s (force: %s)" % [str(on), str(force)])
 	_apply_highlight(on, _default_highlight_settings)
 	is_highlighted = on
 	if on:
