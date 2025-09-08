@@ -17,6 +17,8 @@ signal on_clicked (mouse_position: Vector2)
 ## If set to TRUE, the object can be clicked.
 @export var clickable: bool = true
 @export_group("Drag Settings")
+## If set to TRUE, the object will be moved when dragging.
+@export var translate_on_drag: bool = true
 ## If set to TRUE, the object will be dragged from its pivot point.
 @export var drag_from_pivot: bool = true
 ## Set an offset to be applied when dragging the object.
@@ -48,7 +50,8 @@ func _ready() -> void:
 
 func _handle_mouse_entered ():
 	_is_hovering = true
-	InputController.mouse_enter(self)
+	if not InputController.register_mouse_enter_in_draggable(self):
+		return
 	if not hoverable:
 		return
 	on_hover_entered.emit()
@@ -58,7 +61,8 @@ func _handle_mouse_entered ():
 
 func _handle_mouse_exited ():
 	_is_hovering = false
-	InputController.mouse_exit(self)
+	if not InputController.register_mouse_exit_in_draggable(self):
+		return
 	if not hoverable:
 		return
 	on_hover_exited.emit()
@@ -70,10 +74,11 @@ func _handle_mouse_exited ():
 func _handle_process ():
 	if not _is_being_dragged or not draggable:
 		return
-	if is_equal_approx(_begin_drag_lerp, 1.0):
-		root.global_position = _target_position
-	elif not use_offset:
-		root.global_position = _drag_origin.lerp(_target_position, _begin_drag_lerp)
+	if translate_on_drag:
+		if is_equal_approx(_begin_drag_lerp, 1.0):
+			root.global_position = _target_position
+		elif not use_offset:
+			root.global_position = _drag_origin.lerp(_target_position, _begin_drag_lerp)
 
 
 func _before_begin_drag (mouse_position: Vector2):
@@ -88,7 +93,7 @@ func _before_begin_drag (mouse_position: Vector2):
 		_offset = root.global_position - point
 	_begin_drag_lerp = 0.0
 	_drag_origin = root.global_position
-	if not use_offset:
+	if translate_on_drag and not use_offset:
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "_begin_drag_lerp", 1.0, 0.2)
@@ -103,7 +108,8 @@ func _before_drag (mouse_position: Vector2):
 	_target_position = point + _offset + global_offset
 	if use_offset and not is_equal_approx(_begin_drag_lerp, 1.0):
 		_begin_drag_lerp = clamp(_begin_drag_lerp + begin_drag_speed * get_process_delta_time(), 0.0, 1.0)
-		root.global_position = _drag_origin.lerp(_target_position, _begin_drag_lerp)
+		if translate_on_drag:
+			root.global_position = _drag_origin.lerp(_target_position, _begin_drag_lerp)
 	_drag(mouse_position)
 
 

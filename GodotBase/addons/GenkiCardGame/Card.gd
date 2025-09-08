@@ -16,6 +16,7 @@ extends Draggable
 @export var visuals: Array[VisualInstance3D]
 
 var is_highlighted: bool = false
+var highlight_frozen_state: bool = false
 
 var is_face_up: bool:
 	get: return global_basis.z.dot(Vector3.UP) >= 0
@@ -33,6 +34,8 @@ var _last_sorting_order: int
 
 const FACE_UP = Quaternion(-0.7071, 0, 0, 0.7071)
 const FACE_DOWN = Quaternion(0.0, 0.7071, -0.7071, 0.0)
+
+static var _first_card: Card
 
 
 func _ready () -> void:
@@ -69,17 +72,33 @@ func set_field_value (key: String, value: Variant):
 			Debug.log_error("Field view for key %s is neither a NodePath nor an Array of NodePaths." % key)
 
 
-func set_highlight (on: bool) -> void:
-	if on == is_highlighted:
+func set_highlight (on: bool, force: bool = false) -> void:
+	if not _first_card:
+		_first_card = self
+	if highlight_frozen_state:
+		if _first_card == self:
+			Debug.logm("Card highlight: frozen state, ignoring set to %s" % str(on))
 		return
-	if on and _is_being_dragged:
+	if on == is_highlighted and not force:
+		if _first_card == self:
+			Debug.logm("Card highlight: already set to %s and not force, ignoring" % str(on))
 		return
+	if _first_card == self:		
+		Debug.logm("Card highlight: set to %s (force: %s)" % [str(on), str(force)])
 	_apply_highlight(on, _default_highlight_settings)
 	is_highlighted = on
 	if on:
 		set_sorting(Global.highlighted_card_sorting, false)
 	else:
 		set_sorting(_saved_sorting_order)
+
+
+func set_highlight_and_freeze (on: bool, freeze: bool) -> void:
+	if not freeze:
+		highlight_frozen_state = false
+	set_highlight(on, true)
+	if freeze:
+		highlight_frozen_state = true
 
 
 func set_face (up: bool) -> void:
