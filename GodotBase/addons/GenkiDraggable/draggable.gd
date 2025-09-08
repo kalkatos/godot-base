@@ -55,7 +55,6 @@ func _handle_mouse_entered ():
 	if not hoverable:
 		return
 	on_hover_entered.emit()
-	Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 	_hover_entered()
 
 
@@ -66,8 +65,6 @@ func _handle_mouse_exited ():
 	if not hoverable:
 		return
 	on_hover_exited.emit()
-	if not _is_being_dragged:
-		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	_hover_exited()
 
 
@@ -84,7 +81,6 @@ func _handle_process ():
 func _before_begin_drag (mouse_position: Vector2):
 	if not draggable or _is_being_dragged:
 		return
-	Input.set_default_cursor_shape(Input.CURSOR_MOVE)
 	_is_being_dragged = true
 	on_drag_began.emit(mouse_position)
 	var point = InputController.mouse_to_world_position(mouse_position)
@@ -118,10 +114,6 @@ func _before_end_drag (mouse_position: Vector2):
 		return
 	_is_being_dragged = false
 	on_drag_ended.emit(mouse_position)
-	if _is_hovering:
-		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	else:
-		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	_end_drag(mouse_position)
 
 
