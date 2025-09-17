@@ -87,7 +87,6 @@ func register_mouse_exit_in_draggable (draggable: Draggable) -> bool:
 
 func begin_drag (draggable: Draggable) -> void:
 	is_dragging = true
-	Debug.logm("InputController: BEGIN_DRAG %s" % draggable.name)
 	if _draggable:
 		if _draggable == draggable:
 			return
@@ -110,7 +109,6 @@ func end_drag (draggable: Draggable) -> void:
 	if not is_dragging:
 		return
 	is_dragging = false
-	Debug.logm("InputController: END_DRAG %s" % draggable.name)
 	draggable._before_end_drag(input_info.position)
 	_draggable = null
 	on_drag_ended.emit(draggable, input_info)

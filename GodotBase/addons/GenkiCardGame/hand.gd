@@ -1,3 +1,4 @@
+@tool
 @icon("uid://6k7urmibyeb8")
 class_name Hand
 extends Zone
@@ -16,7 +17,7 @@ func _organize ():
 	_organize_option(false)
 
 
-func _organize_option (snap: bool):
+func _organize_option (snap: bool, sorting_base: int = 0) -> void:
 	var count = get_child_count()
 	if count == 0:
 		return
@@ -29,8 +30,10 @@ func _organize_option (snap: bool):
 		used_distance = max_width / (count - 1)
 	var start_x = -total_width / 2
 	for i in range(count):
-		var card = get_child(i)
-		_add_input_tracker(card)
+		var child = get_child(i)
+		if child is Card:
+			_add_input_tracker(child)
+			child.set_sorting(sorting_base + i)
 		var t = float(i) / max(1, count - 1)
 		var pos_x = start_x + (i * used_distance)
 		var pos_y = 0.0
@@ -40,14 +43,16 @@ func _organize_option (snap: bool):
 		var angle = lerp(used_angle, -used_angle, t)
 		var target_rot = Vector3(0, 0, angle)
 		if snap:
-			card.position = target_pos
-			card.rotation_degrees = target_rot
+			child.position = target_pos
+			child.rotation_degrees = target_rot
 		else:
-			var tween = card.create_tween()
-			tween.tween_property(card, "position", target_pos, 0.2)
-			tween.parallel().tween_property(card, "rotation_degrees", target_rot, 0.2)
-			tween.parallel().tween_property(card, "scale", Vector3.ONE, 0.2)
-		card.set_sorting(Global.hand_card_sorting + i)
+			if not Engine.is_editor_hint():
+				var tween = child.tween_to_local(target_pos, 0.2)
+				tween.parallel().tween_property(child, "rotation_degrees", target_rot, 0.2)
+				tween.parallel().tween_property(child, "scale", Vector3.ONE, 0.2)
+			else:
+				child.position = target_pos
+				child.global_basis = global_basis
 
 
 func add_item_option (item: Node, notify: bool):
@@ -67,6 +72,8 @@ func _dispose_input_tracker (card: Card) -> void:
 
 
 func _add_input_tracker (card: Card) -> void:
+	if Engine.is_editor_hint():
+		return
 	if not _input_monitor.has(card):
 		_input_monitor[card] = CardInputTracker.new(card, self)
 
@@ -113,6 +120,7 @@ class CardInputTracker:
 
 	func _drag_ended (mouse_pos: Vector2) -> void:
 		hand._handle_card_drag_ended(card, mouse_pos)
+		hand._organize()
 
 	func _clicked (mouse_pos: Vector2) -> void:
 		hand._handle_card_clicked(card, mouse_pos)

@@ -7,7 +7,6 @@ extends Node
 func _ready() -> void:
 	if OS.has_feature("editor") and not debug_mode:
 		Debug.logm("Analytics module disabled in editor")
-		queue_free()
 		return
 	if not sender.is_initialized:
 		await sender.on_initialized

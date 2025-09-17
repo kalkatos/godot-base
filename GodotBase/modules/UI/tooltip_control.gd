@@ -1,7 +1,8 @@
 class_name TooltipControl
 extends ClampedControl
+## ClampedControl implementation for a tooltip, with open/close animations.
 
-@export var panel_bg: Panel
+@export var panel_bg: Control
 @export var content: Control
 
 
@@ -11,7 +12,7 @@ func _ready ():
 
 func open ():
 	panel_bg.visible = true
-	panel_bg.scale = Vector2.ZERO
+	panel_bg.scale = Vector2(0.1, 0.1)
 	panel_bg.modulate.a = 1.0
 	content.modulate.a = 0.0
 	var open_tween := create_tween()

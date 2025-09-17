@@ -1,5 +1,6 @@
 class_name ClampedControl
 extends Control
+## Control implementation that allows setting its position clamped to the screen bounds, with pivot ratio support.
 
 @export var target: Control
 @export_range(0.0, 1.0) var pivot_ratio_x: float = 0.0
@@ -23,7 +24,7 @@ func set_position_screen_clamped (new_position: Vector2):
 	set_position_offset(new_position)
 
 
-func get_position_screen_clamped (new_position: Vector2):
+func get_position_screen_clamped (new_position: Vector2) -> Vector2:
 	if not target:
 		target = self
 	var screen_size = get_window().size

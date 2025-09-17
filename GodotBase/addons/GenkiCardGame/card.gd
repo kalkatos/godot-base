@@ -26,6 +26,7 @@ var is_glowing: bool:
 var _values: Dictionary[String, Variant]
 var _camera: Camera3D
 var _drag_quat: Quaternion
+var _main_tween: Tween
 var _front_highlight_tween: Tween
 var _back_highlight_tween: Tween
 var _default_highlight_settings: HighlightSettings
@@ -105,10 +106,11 @@ func flip () -> void:
 	var subtween = create_tween()
 	subtween.tween_property(self, "global_position", start_position + Vector3(0, 1.5, 0), 0.1)
 	subtween.tween_property(self, "global_position", start_position, 0.1)
-	var tween = create_tween()
-	tween.tween_subtween(subtween)
-	tween.parallel().tween_property(self, "quaternion", target_quaternion, 0.2)
-	tween.finished.connect(_handle_flip_finished)
+	_kill_main_tween()
+	_main_tween = create_tween()
+	_main_tween.tween_subtween(subtween)
+	_main_tween.parallel().tween_property(self, "quaternion", target_quaternion, 0.2)
+	_main_tween.finished.connect(_handle_flip_finished)
 
 
 func set_glow (on: bool) -> void:
@@ -116,9 +118,23 @@ func set_glow (on: bool) -> void:
 
 
 func tween_to (position: Vector3, time: float) -> Tween:
-	var tween = create_tween()
-	tween.tween_property(self, "global_position", position, time)
-	return tween
+	_kill_main_tween()
+	_main_tween = create_tween()
+	_main_tween.tween_property(self, "global_position", position, time)
+	return _main_tween
+
+
+func tween_to_local (position: Vector3, time: float) -> Tween:
+	_kill_main_tween()
+	_main_tween = create_tween()
+	_main_tween.tween_property(self, "position", position, time)
+	return _main_tween
+
+
+func get_sorting() -> int:
+	if visuals.size() > 0:
+		return visuals[0].sorting_offset
+	return 0
 
 
 func set_sorting (order: int, save: bool = true) -> void:
@@ -190,6 +206,12 @@ func _update_view (key: String, value: Variant, node: Node):
 			Debug.log_error("Treatment for field view with key %s and class %s is not implemented." % [key, node_class])
 
 
+func _kill_main_tween () -> void:
+	if _main_tween:
+		_main_tween.kill()
+		_handle_main_tween_killed()
+
+
 func _hover_entered ():
 	set_highlight(true)
 
@@ -210,8 +232,7 @@ func _drag (_mouse_position: Vector2):
 
 
 func _end_drag (_mouse_position: Vector2):
-	Debug.logm("Card: drag ended in %s" % name)
-	set_sorting(_last_sorting_order)
+	pass
 
 
 func _click (_mouse_position: Vector2):
@@ -219,6 +240,10 @@ func _click (_mouse_position: Vector2):
 
 
 func _handle_flip_finished () -> void:
+	pass
+
+
+func _handle_main_tween_killed () -> void:
 	pass
 
 

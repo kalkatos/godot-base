@@ -1,3 +1,4 @@
+@tool
 @icon("uid://ba00b4aryg4g5")
 class_name Grid
 extends Zone
@@ -19,6 +20,7 @@ func _organize ():
 		tween.tween_property(grid[pos], "position", target_position, 0.2)
 		tween.parallel().tween_property(grid[pos], "rotation_degrees", Vector3.ZERO, 0.2)
 		tween.parallel().tween_property(grid[pos], "scale", Vector3.ONE, 0.2)
+
 
 func add_to_grid (node: Node, pos: Vector2i):
 	if grid.has(pos) and grid[pos]:

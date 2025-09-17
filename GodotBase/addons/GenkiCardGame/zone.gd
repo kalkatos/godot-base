@@ -1,3 +1,4 @@
+@tool
 class_name Zone
 extends Node3D
 
@@ -8,6 +9,11 @@ signal on_shuffled
 @export var organize_after_add: bool = true
 @export var organize_after_remove: bool = true
 @export var organize_after_shuffle: bool = true
+
+@export_tool_button("Organize")
+var organize_button = organize_button_pressed
+func organize_button_pressed ():
+	_organize()
 
 
 func add_item (item: Node):
@@ -20,12 +26,10 @@ func add_item_no_notify (item: Node):
 
 func add_item_option (item: Node, notify: bool):
 	var item_parent = item.get_parent()
-	if item_parent:
-		if item_parent is Zone:
-			item_parent.notify_item_removed(item)
-		item.reparent(self)
-	else:
+	if not item_parent:
 		add_child(item)
+	elif item_parent != self:
+		item.reparent(self)
 	_item_added(item)
 	if notify:
 		on_item_added.emit(item)
@@ -62,10 +66,6 @@ func remove_item_option (item: Node, notify: bool):
 		on_item_removed.emit(item)
 	if organize_after_remove:
 		_organize()
-
-
-func notify_item_removed (item: Node):
-	remove_item(item)
 
 
 func shuffle ():

@@ -39,3 +39,16 @@ func _handle_particles_finished ():
 	is_playing = false
 	finished.emit()
 	visible = false
+
+
+static func play_static (prefab: PackedScene, value: String, position: Vector2, color: Color = Color.WHITE) -> void:
+	var instance = prefab.instantiate() as DamageNumber
+	Global.get_tree().get_root().add_child(instance)
+	instance.play(value, position, color)
+
+
+static func play_static_3d (prefab: PackedScene, value: String, position: Vector3, color: Color = Color.WHITE) -> void:
+	var instance = prefab.instantiate() as DamageNumber
+	Global.get_tree().get_root().add_child(instance)
+	var pos3d = Global.get_viewport().get_camera_3d().unproject_position(position)
+	instance.play(value, pos3d, color)
