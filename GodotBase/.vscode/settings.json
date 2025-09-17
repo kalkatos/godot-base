@@ -4,5 +4,6 @@
         "**/*.uid": true
     },
     "editor.insertSpaces": false,
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "editor.detectIndentation": true,
 }

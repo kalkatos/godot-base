@@ -20,12 +20,11 @@
 		"scope": "gdscript",
 		"prefix": "newsig",
 		"body": [
-			"signal _${1:name}",
-			"",
-			"",
+			"signal _on_${1:name}",
 			"func emit_${1:name} ():",
-			"\t_${1:name}.emit()",
-			"\tSignalBus._${1:name}.emit()",
+			"\tif SignalBus != self:",
+			"\t\t_on_${1:name}.emit()",
+			"\tSignalBus._on_${1:name}.emit()",
 			""
 		],
 		"description": "Add a new signal to SignalBus"
@@ -35,12 +34,12 @@
 		"scope": "gdscript",
 		"prefix": "newsigp",
 		"body": [
-			"signal _${1:name} (${2:varname}: ${3:type})",
-			"",
-			"",
-			"func emit_${1:name} (${2:varname}: ${3:type}):",
-			"\t_${1:name}.emit(${2:varname})",
-			"\tSignalBus._${1:name}.emit(${2:varname})",
+			"signal _on_${1:name} (${2:param}: ${3:type})",
+			"func emit_${1:name} (${2:param}: ${3:type}):",
+			"\tGlobal.${4:varname} = ${2:param}",
+			"\tif SignalBus != self:",
+			"\t\t_on_${1:name}.emit(${2:param})",
+			"\tSignalBus._on_${1:name}.emit(${2:param})",
 			""
 		],
 		"description": "Add a new signal to SignalBus with parameters"
@@ -50,10 +49,21 @@
 		"scope": "gdscript",
 		"prefix": "vtod",
 		"body": [
-			"var ${1:varname}: String:",
+			"var ${1:varname}: Variant:",
 			"\tget: return _values.${1:varname}",
 			"\tset(value): _values.${1:varname} = value",
 		],
 		"description": "Creates a variable that updates dictionary '_values'"
+	},
+	
+	"Variable to Field": {
+		"scope": "gdscript",
+		"prefix": "vtof",
+		"body": [
+			"var ${1:varname}: Variant:",
+			"\tget: return fields.${1:varname}",
+			"\tset(value): fields.${1:varname} = value",
+		],
+		"description": "Creates a variable that updates dictionary 'fields'"
 	},
 }
