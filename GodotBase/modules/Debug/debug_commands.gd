@@ -1,3 +1,4 @@
+@tool
 extends CanvasLayer
 
 @export var debug_text: RichTextLabel
@@ -16,7 +17,10 @@ func _ready () -> void:
 
 
 func _unhandled_input (event: InputEvent) -> void:
-	if event is not InputEventKey:
+	if event is not InputEventKey or Engine.is_editor_hint():
+		return
+	if event.keycode == KEY_F7 and event.pressed and not event.echo:
+		get_tree().paused = not get_tree().paused
 		return
 	if event.is_action_released("ui_cancel"):
 		is_open = !is_open

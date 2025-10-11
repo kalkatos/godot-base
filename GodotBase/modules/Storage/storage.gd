@@ -5,7 +5,7 @@ signal on_value_saved (key: String, value: Variant)
 const SAVE_NAME: String = "save_game"
 
 var saved_dict := {}
-var save_name: String = "user://%s.dat" % SAVE_NAME
+var save_name: String = "user://%s.data" % SAVE_NAME
 
 
 func _ready () -> void:

@@ -36,7 +36,7 @@ func _ready ():
 		plane = Plane(drag_plane_gizmo.basis.y, drag_plane_gizmo.global_position)
 
 
-func _unhandled_input (event: InputEvent) -> void:
+func _input (event: InputEvent) -> void:
 	if event is InputEventMouse:
 		input_info = event
 		if event is InputEventMouseMotion:
@@ -46,8 +46,8 @@ func _unhandled_input (event: InputEvent) -> void:
 					_click_status == ClickStatus.BEGAN
 					and _hover
 					and (
-						_input_start_position.distance_to(event.position) >= click_threshold_distance
-						or Time.get_ticks_msec() - _input_start_time >= click_threshold_time_ms
+						Time.get_ticks_msec() - _input_start_time >= click_threshold_time_ms
+						or _input_start_position.distance_to(event.position) >= click_threshold_distance
 					)
 			):
 				begin_drag(_hover)

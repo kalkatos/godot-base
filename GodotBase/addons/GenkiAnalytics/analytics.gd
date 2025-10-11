@@ -34,6 +34,11 @@ func send_event_with_number (key: String, num: float):
 
 
 func send_unique_event (key: String, opt_value: String = ""):
+	if _is_initialized():
+		sender.send_unique(key, opt_value, key)
+
+
+func send_one_shot_event (key: String, opt_value: String = ""):
 	if not _is_initialized():
 		return
 	if Storage.has_value(key):

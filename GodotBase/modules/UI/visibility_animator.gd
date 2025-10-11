@@ -10,10 +10,10 @@ var is_showing: bool = false
 
 
 func _ready () -> void:
-	if not target.is_node_ready():
+	if target != self and not target.is_node_ready():
 		await target.ready
-	is_showing = target.visible and not is_zero_approx(target.modulate.a)
 	target.visible = start_active
+	is_showing = target.visible and not is_zero_approx(target.modulate.a)
 
 
 func animate_visibility (active: bool):

@@ -26,3 +26,7 @@ func initialize ():
 
 func send (key: String, value: String):
 	Debug.logm("Sending (FAKE) event: %s with value %s" % [key, value])
+
+
+func send_unique (key: String, value: String, id: String):
+	Debug.logm("Sending (FAKE) unique event: %s with value %s and id %s" % [key, value, id])

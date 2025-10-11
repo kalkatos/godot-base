@@ -17,6 +17,7 @@ extends Draggable
 
 var is_highlighted: bool = false
 var highlight_frozen_state: bool = false
+var card_name: String = "Card"
 
 var is_face_up: bool:
 	get: return global_basis.z.dot(Vector3.UP) >= 0
@@ -150,6 +151,7 @@ func set_sorting (order: int, save: bool = true) -> void:
 func _setup (_data: CardData):
 	if not _data:
 		return
+	card_name = _data.name if _data.name else "Card"
 	for key in _data.fields:
 		set_field_value(key, _data.fields[key])
 
@@ -199,7 +201,7 @@ func _update_view (key: String, value: Variant, node: Node):
 	var node_class = node.get_class()
 	match node_class:
 		"Label", "Label3D", "RichTextLabel":
-			node.text = value
+			node.text = str(value)
 		"Sprite2D", "Sprite3D", "TextureRect", "NinePatchRect":
 			node.texture = value
 		_:

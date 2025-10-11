@@ -17,14 +17,14 @@ func organize_button_pressed ():
 
 
 func add_item (item: Node):
-	add_item_option(item, true)
+	add_item_option(item, true, organize_after_add)
 
 
 func add_item_no_notify (item: Node):
-	add_item_option(item, false)
+	add_item_option(item, false, organize_after_add)
 
 
-func add_item_option (item: Node, notify: bool):
+func add_item_option (item: Node, notify: bool, organize: bool):
 	var item_parent = item.get_parent()
 	if not item_parent:
 		add_child(item)
@@ -33,7 +33,7 @@ func add_item_option (item: Node, notify: bool):
 	_item_added(item)
 	if notify:
 		on_item_added.emit(item)
-	if organize_after_add:
+	if organize:
 		_organize()
 
 
@@ -46,8 +46,12 @@ func insert_item_no_notify (index: int, item: Node):
 
 
 func insert_item_option (index: int, item: Node, notify: bool):
-	add_item_option(item, notify)
+	add_item_option(item, false, false)
 	move_child(item, index)
+	if notify:
+		on_item_added.emit(item)
+	if organize_after_add:
+		_organize()
 
 
 func remove_item (item: Node):

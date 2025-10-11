@@ -4,11 +4,15 @@ extends Node2D
 
 signal finished
 
-@export var text: Label
+@export var label: Label
 @export var subviewport: SubViewport
 @export var particles: CPUParticles2D
+@export var prefix: String = ""
+@export var suffix: String = ""
 
 var is_playing: bool
+
+static var first_instances: Dictionary[PackedScene, DamageNumber] = {}
 
 
 func _ready () -> void:
@@ -28,7 +32,7 @@ func play (value: String, position: Vector2, color: Color = Color.WHITE) -> void
 		return
 	visible = true
 	is_playing = true
-	text.text = value
+	label.text = prefix + value + suffix
 	global_position = position
 	modulate = color
 	particles.restart()
@@ -41,14 +45,28 @@ func _handle_particles_finished ():
 	visible = false
 
 
-static func play_static (prefab: PackedScene, value: String, position: Vector2, color: Color = Color.WHITE) -> void:
+static func play_static (prefab: PackedScene, value: String, position: Vector2, color: Color = Color.WHITE, parent: Node = null) -> void:
+	if first_instances.has(prefab):
+		first_instances[prefab].play(value, position, color)
+		return
 	var instance = prefab.instantiate() as DamageNumber
-	Global.get_tree().get_root().add_child(instance)
+	if parent:
+		parent.add_child(instance)
+		instance.owner = parent
+	else:
+		Global.get_tree().get_root().add_child(instance)
+	first_instances[prefab] = instance
 	instance.play(value, position, color)
 
 
-static func play_static_3d (prefab: PackedScene, value: String, position: Vector3, color: Color = Color.WHITE) -> void:
-	var instance = prefab.instantiate() as DamageNumber
-	Global.get_tree().get_root().add_child(instance)
-	var pos3d = Global.get_viewport().get_camera_3d().unproject_position(position)
-	instance.play(value, pos3d, color)
+static func play_static_parent (prefab: PackedScene, value: String, position: Vector2, parent: Node = null) -> void:
+	play_static(prefab, value, position, Color.WHITE, parent)
+
+
+static func play_static_3d (prefab: PackedScene, value: String, position: Vector3, color: Color = Color.WHITE, parent: Node = null) -> void:
+	var pos2d = Global.get_viewport().get_camera_3d().unproject_position(position)
+	play_static(prefab, value, pos2d, color, parent)
+
+
+static func play_static_3d_parent (prefab: PackedScene, value: String, position: Vector3, parent: Node = null) -> void:
+	play_static_3d(prefab, value, position, Color.WHITE, parent)
