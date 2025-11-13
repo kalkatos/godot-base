@@ -1,6 +1,8 @@
 class_name VisibilityAnimator3D
 extends Node3D
 
+signal finished
+
 @export var targets: Array[SpriteBase3D]
 @export var target_alpha: float = 1.0
 @export var start_active: bool
@@ -28,6 +30,8 @@ func animate_visibility (activate: bool):
 			target.visible = true
 			var tween_on = target.create_tween()
 			tween_on.tween_property(target, "modulate:a", target_alpha, animation_time)
+			await tween_on.finished
+			finished.emit()
 		return
 	if not is_showing:
 		return
@@ -36,6 +40,7 @@ func animate_visibility (activate: bool):
 		target.modulate.a = target_alpha
 		var tween_off = target.create_tween()
 		tween_off.tween_property(target, "modulate:a", 0.0, animation_time)
+		await tween_off.finished
+		finished.emit()
 		if deactivate_on_end:
-			await tween_off.finished
 			target.visible = false

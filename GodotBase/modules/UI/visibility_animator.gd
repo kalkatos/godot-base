@@ -1,6 +1,8 @@
 class_name VisibilityAnimator
 extends Control
 
+signal finished
+
 @export var target: Control
 @export var start_active: bool
 @export var deactivate_on_end: bool = true
@@ -25,6 +27,8 @@ func animate_visibility (active: bool):
 		target.visible = true
 		var tween_on = create_tween()
 		tween_on.tween_property(target, "modulate:a", 1.0, animation_time)
+		await tween_on.finished
+		finished.emit()
 		return
 	if not is_showing:
 		return
@@ -32,6 +36,7 @@ func animate_visibility (active: bool):
 	target.modulate.a = 1.0
 	var tween_off = create_tween()
 	tween_off.tween_property(target, "modulate:a", 0.0, animation_time)
+	await tween_off.finished
+	finished.emit()
 	if deactivate_on_end:
-		await tween_off.finished
 		target.visible = false

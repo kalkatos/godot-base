@@ -151,7 +151,11 @@ func set_sorting (order: int, save: bool = true) -> void:
 func _setup (_data: CardData):
 	if not _data:
 		return
-	card_name = _data.name if _data.name else "Card"
+	var name = _data.get_name()
+	if name:
+		card_name = name
+	else:
+		card_name = "Card"
 	for key in _data.fields:
 		set_field_value(key, _data.fields[key])
 

@@ -8,7 +8,7 @@ var saved_dict := {}
 var save_name: String = "user://%s.data" % SAVE_NAME
 
 
-func _ready () -> void:
+func _enter_tree () -> void:
 	var serialized = load_from_file()
 	if serialized.is_empty():
 		saved_dict = {}

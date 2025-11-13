@@ -3,5 +3,5 @@ extends Resource
 
 @export var fields: Dictionary[String, Variant]
 
-var name: String:
-	get: return resource_path.get_file().trim_suffix('.tres')
+func get_name() -> String:
+	return resource_path.get_file().trim_suffix('.tres')

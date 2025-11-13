@@ -47,3 +47,9 @@ static func raycast_first_instance (mouse_pos: Vector2, type: Variant, exception
 			from = hit_info["position"]
 			to = from + ray * 100.0
 	return null
+
+
+static func is_translation_key (text: String) -> bool:
+	if text.is_empty():
+		return false
+	return text.begins_with("$") and text.ends_with("$")

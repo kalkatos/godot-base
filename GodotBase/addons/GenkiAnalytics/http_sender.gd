@@ -5,9 +5,9 @@ const URL: String = "https://playcard8887.azurewebsites.net/api/SendEvent"
 const HEADERS: Array[String] = ["Content-Type: application/json"]
 
 
-func send (key: String, value: String) -> void:
+func send (key: String, value: Variant) -> void:
 	var data = {
-		PLAYER_ID_KEY: player_id,
+		"PlayerId": Analytics.player_id,
 		"Key": key,
 		"Value": value,
 	}
@@ -15,12 +15,12 @@ func send (key: String, value: String) -> void:
 	add_child(request)
 	request.request(URL, HEADERS, HTTPClient.METHOD_POST, JSON.stringify(data))
 	request.request_completed.connect(func (_x, _y, _z, _w): request.queue_free())
-	Debug.logm("Sending event: %s with value %s" % [key, value])
+	Debug.logm("Sending event: %s with value %s" % [key, str(value)])
 
 
-func send_unique (key: String, value: String, id: String) -> void:
+func send_unique (key: String, value: Variant, id: String) -> void:
 	var data = {
-		PLAYER_ID_KEY: player_id,
+		"PlayerId": Analytics.player_id,
 		"Key": key,
 		"Value": value,
 		"ForcePartitionKey": id,
@@ -29,4 +29,4 @@ func send_unique (key: String, value: String, id: String) -> void:
 	add_child(request)
 	request.request(URL, HEADERS, HTTPClient.METHOD_POST, JSON.stringify(data))
 	request.request_completed.connect(func (_x, _y, _z, _w): request.queue_free())
-	Debug.logm("Sending event: %s with value %s and id %s" % [key, value, id])
+	Debug.logm("Sending event: %s with value %s and id %s" % [key, str(value), id])

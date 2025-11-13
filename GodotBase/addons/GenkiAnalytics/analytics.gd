@@ -3,19 +3,20 @@ extends Node
 @export var debug_mode: bool = false
 @export var sender: AnalyticsSender
 
+static var player_id: String
 
-func _ready() -> void:
+
+func _enter_tree() -> void:
 	if OS.has_feature("editor") and not debug_mode:
 		Debug.logm("Analytics module disabled in editor")
 		return
-	if not sender.is_initialized:
-		await sender.on_initialized
-	send_event("session_started")
-
-
-func _notification (what):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST and _is_initialized():
-		send_event("session_ended")
+	player_id = Storage.load("player_id", "")
+	if player_id.is_empty():
+		player_id = str(randi())
+		Storage.save("player_id", player_id)
+		Debug.logm("Setup as player id: " + player_id)
+	else:
+		Debug.logm("Loaded player id: " + player_id)
 
 
 func send_event (key: String):
@@ -30,15 +31,15 @@ func send_event_with_string (key: String, value: String):
 
 func send_event_with_number (key: String, num: float):
 	if _is_initialized():
-		sender.send(key, str(num))
+		sender.send(key, num)
 
 
-func send_unique_event (key: String, opt_value: String = ""):
+func send_unique_event (key: String, opt_value: Variant = null):
 	if _is_initialized():
 		sender.send_unique(key, opt_value, key)
 
 
-func send_one_shot_event (key: String, opt_value: String = ""):
+func send_one_shot_event (key: String, opt_value: Variant = null):
 	if not _is_initialized():
 		return
 	if Storage.has_value(key):
