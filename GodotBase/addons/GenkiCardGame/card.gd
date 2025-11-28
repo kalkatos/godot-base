@@ -36,6 +36,7 @@ var _last_sorting_order: int
 
 const FACE_UP = Quaternion(-0.7071, 0, 0, 0.7071)
 const FACE_DOWN = Quaternion(0.0, 0.7071, -0.7071, 0.0)
+const HIGHLIGHT_HEIGHT: float = 0.5
 
 
 func _ready () -> void:
@@ -45,8 +46,8 @@ func _ready () -> void:
 	if not _camera and not Engine.is_editor_hint():
 		Debug.log_error("No camera 3D found in the current viewport.")
 	_default_highlight_settings = HighlightSettings.new(
-			Vector3(0, 0, Global.highlight_height),
-			Vector3(0, 0, -Global.highlight_height),
+			Vector3(0, 0, HIGHLIGHT_HEIGHT),
+			Vector3(0, 0, -HIGHLIGHT_HEIGHT),
 			Vector3(1.1, 1.1, 1.1),
 			false,
 			0.2,
