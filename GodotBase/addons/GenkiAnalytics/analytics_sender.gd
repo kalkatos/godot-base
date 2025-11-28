@@ -2,8 +2,6 @@ class_name AnalyticsSender
 extends Node
 ## Base class for sender implementations
 
-signal on_initialized
-
 var is_initialized: bool
 
 
@@ -13,7 +11,6 @@ func _ready() -> void:
 
 func initialize ():
 	is_initialized = true
-	on_initialized.emit()
 
 
 func send (key: String, value: Variant):
