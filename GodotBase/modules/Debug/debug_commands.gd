@@ -1,6 +1,7 @@
 @tool
 extends CanvasLayer
 
+@export var disable: bool = false
 @export var debug_text: RichTextLabel
 @export var input_text: LineEdit
 
@@ -17,7 +18,7 @@ func _ready () -> void:
 
 
 func _unhandled_input (event: InputEvent) -> void:
-	if event is not InputEventKey or Engine.is_editor_hint():
+	if disable or event is not InputEventKey or Engine.is_editor_hint():
 		return
 	if event.keycode == KEY_F7 and event.pressed and not event.echo:
 		get_tree().paused = not get_tree().paused
