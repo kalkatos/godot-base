@@ -1,0 +1,3 @@
+[submodule "GodotBase/addons/genki-analytics"]
+	path = GodotBase/addons/genki-analytics
+	url = https://github.com/kalkatos/genki-analytics.git

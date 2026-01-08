@@ -29,7 +29,7 @@ Pooler="*res://Modules/Utils/pooler.gd"
 AudioController="*res://Modules/Audio/AudioController.tscn"
 Global="*res://Game/Globals/global.gd"
 InputController="*res://addons/GenkiDraggable/InputController.tscn"
-Analytics="*res://addons/GenkiAnalytics/Analytics.tscn"
+Analytics="*res://addons/genki-analytics/Analytics.tscn"
 
 [display]
 
