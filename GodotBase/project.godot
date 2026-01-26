@@ -8,12 +8,16 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="GodotBase"
 config/version="v0.0.1"
 run/main_scene="uid://ckau5e8rr7hev"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Icons/icon.svg"
 
 [audio]
@@ -28,7 +32,6 @@ Debug="*res://Modules/Debug/DebugCommands.tscn"
 Pooler="*res://Modules/Utils/pooler.gd"
 AudioController="*res://Modules/Audio/AudioController.tscn"
 Global="*res://Game/Globals/global.gd"
-InputController="*res://addons/GenkiDraggable/InputController.tscn"
 Analytics="*res://addons/genki-analytics/Analytics.tscn"
 
 [display]
@@ -44,7 +47,7 @@ naming/scene_name_casing=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GenkiDamage/plugin.cfg", "res://addons/GenkiDraggable/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg")
+enabled=PackedStringArray("res://addons/GenkiDraggable/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg")
 
 [gui]
 
