@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dd1lacfgcfen5"]
+[gd_scene format=3 uid="uid://dd1lacfgcfen5"]
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_e2xpx"]
 [ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Modules/UI/version_text.gd" id="1_pedo5"]
@@ -12,9 +12,9 @@
 [ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Modules/Audio/audio_player.gd" id="7_tupdg"]
 [ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Modules/Audio/Samples/click_button.wav" id="8_15447"]
 
-[node name="BaseCanvas" type="CanvasLayer"]
+[node name="BaseCanvas" type="CanvasLayer" unique_id=1254415164]
 
-[node name="Version Label" type="Label" parent="."]
+[node name="Version Label" type="Label" parent="." unique_id=1871922805]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -29,7 +29,7 @@ text = "v0.0.0"
 vertical_alignment = 2
 script = ExtResource("1_pedo5")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2112699183]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -46,7 +46,7 @@ text = "Scene Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Settings Button" type="TextureButton" parent="."]
+[node name="Settings Button" type="TextureButton" parent="." unique_id=1034200337]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -63,12 +63,12 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("4_ceq4o")
 
-[node name="Click Sfx" type="Node" parent="Settings Button"]
+[node name="Click Sfx" type="Node" parent="Settings Button" unique_id=2013972338]
 script = ExtResource("7_tupdg")
 audio = ExtResource("8_15447")
 metadata/_custom_type_script = "uid://brqtcgh6awxtg"
 
-[node name="Settings Panel" type="Panel" parent="."]
+[node name="Settings Panel" type="Panel" parent="." unique_id=1122838717]
 physics_interpolation_mode = 0
 visible = false
 anchors_preset = 8
@@ -84,7 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_ceq4o")
 
-[node name="VisibilityAnimator" type="Control" parent="Settings Panel" node_paths=PackedStringArray("target")]
+[node name="VisibilityAnimator" type="Control" parent="Settings Panel" unique_id=115661104 node_paths=PackedStringArray("target")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -93,7 +93,7 @@ target = NodePath("..")
 animation_time = 0.2
 metadata/_custom_type_script = "uid://c7y0qe0vrsik5"
 
-[node name="Title Background" type="ColorRect" parent="Settings Panel"]
+[node name="Title Background" type="ColorRect" parent="Settings Panel" unique_id=1440024561]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
@@ -101,7 +101,7 @@ offset_right = 289.0
 offset_bottom = 43.0
 color = Color(0.650868, 0.650868, 0.650868, 0.505882)
 
-[node name="Title" type="Label" parent="Settings Panel/Title Background"]
+[node name="Title" type="Label" parent="Settings Panel/Title Background" unique_id=644722491]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -114,7 +114,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 24
 text = "Settings"
 
-[node name="Music Container" type="HBoxContainer" parent="Settings Panel"]
+[node name="Music Container" type="HBoxContainer" parent="Settings Panel" unique_id=789093847]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,11 +129,11 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Music Label" type="Label" parent="Settings Panel/Music Container"]
+[node name="Music Label" type="Label" parent="Settings Panel/Music Container" unique_id=593232146]
 layout_mode = 2
 text = "Music Volume:"
 
-[node name="Music Slider" type="HSlider" parent="Settings Panel/Music Container"]
+[node name="Music Slider" type="HSlider" parent="Settings Panel/Music Container" unique_id=1030701213]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_e2xpx")
@@ -143,12 +143,12 @@ value = 1.0
 tick_count = 5
 script = ExtResource("4_ceq4o")
 
-[node name="Music Volume Binder" type="Node" parent="Settings Panel/Music Container/Music Slider"]
+[node name="Music Volume Binder" type="Node" parent="Settings Panel/Music Container/Music Slider" unique_id=1905614671]
 script = ExtResource("5_e2xpx")
 key = "master_music_volume"
 metadata/_custom_type_script = "uid://bep52cret807s"
 
-[node name="Sfx Container" type="HBoxContainer" parent="Settings Panel"]
+[node name="Sfx Container" type="HBoxContainer" parent="Settings Panel" unique_id=942301973]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -163,12 +163,12 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Sfx Label" type="Label" parent="Settings Panel/Sfx Container"]
+[node name="Sfx Label" type="Label" parent="Settings Panel/Sfx Container" unique_id=1399937183]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "SFX Volume:"
 
-[node name="Sfx Slider" type="HSlider" parent="Settings Panel/Sfx Container"]
+[node name="Sfx Slider" type="HSlider" parent="Settings Panel/Sfx Container" unique_id=1395163289]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_e2xpx")
@@ -178,12 +178,12 @@ value = 1.0
 tick_count = 5
 script = ExtResource("4_ceq4o")
 
-[node name="Sfx Volume Binder" type="Node" parent="Settings Panel/Sfx Container/Sfx Slider"]
+[node name="Sfx Volume Binder" type="Node" parent="Settings Panel/Sfx Container/Sfx Slider" unique_id=1956888120]
 script = ExtResource("5_e2xpx")
 key = "master_sfx_volume"
 metadata/_custom_type_script = "uid://bep52cret807s"
 
-[node name="Ok_Button" parent="Settings Panel" instance=ExtResource("3_lr2du")]
+[node name="Ok_Button" parent="Settings Panel" unique_id=1255138464 instance=ExtResource("3_lr2du")]
 layout_mode = 1
 offset_top = 39.0
 offset_bottom = 79.0
