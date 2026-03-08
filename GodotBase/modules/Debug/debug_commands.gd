@@ -9,12 +9,17 @@ var is_open: bool = false
 var commands: Dictionary[String, Callable] = {}
 var last_commands: Array[String]
 var last_index: int
+var _logger: Logger
 
 
 func _ready () -> void:
 	input_text.text_submitted.connect(_handle_text_submitted)
 	add_command("time", _set_time_scale)
 	add_command("fps", _set_fps)
+	if not Engine.is_editor_hint():
+		_logger = preload("res://Modules/Debug/debug_logger.gd").new()
+		_logger.setup(debug_text)
+		OS.add_logger(_logger)
 
 
 func _unhandled_input (event: InputEvent) -> void:
@@ -40,22 +45,19 @@ func _unhandled_input (event: InputEvent) -> void:
 				input_text.text = last_commands[last_index]
 
 
-func logm (msg: String) -> void:
+## @deprecated("Use print() instead — messages are now intercepted automatically by the Logger.")
+func logm(msg: String) -> void:
 	print(msg)
-	debug_text.newline()
-	debug_text.append_text(msg)
 
 
-func log_warning (msg: String) -> void:
+## @deprecated("Use push_warning() instead — warnings are now intercepted automatically by the Logger.")
+func log_warning(msg: String) -> void:
 	push_warning(msg)
-	debug_text.newline()
-	debug_text.append_text("[color=yellow]%s[/color]" % msg)
 
 
-func log_error (msg: String) -> void:
+## @deprecated("Use push_error() instead — errors are now intercepted automatically by the Logger.")
+func log_error(msg: String) -> void:
 	push_error(msg)
-	debug_text.newline()
-	debug_text.append_text("[color=red]%s[/color]" % msg)
 
 
 func add_command (func_name: String, callable: Callable) -> void:
@@ -84,17 +86,17 @@ func call_command (text: String) -> void:
 				params.append(p)
 		if commands.has(func_name):
 			commands[func_name].callv(params)
-			logm("Function executed: " + func_name + " with params: " + str(params))
+			print("Function executed: " + func_name + " with params: " + str(params))
 		else:
-			log_warning("Command not found: " + func_name)
+			push_warning("Command not found: " + func_name)
 	elif commands.has(text):
 		if commands[text].get_argument_count() > 0:
-			log_warning("Command requires parameters: " + text)
+			push_warning("Command requires parameters: " + text)
 		else:
 			commands[text].call()
-			logm("Function executed: " + text)
+			print("Function executed: " + text)
 	else:
-		log_warning("Command not found: " + text)
+		push_warning("Command not found: " + text)
 	call_deferred("_grab_focus_back")
 
 
