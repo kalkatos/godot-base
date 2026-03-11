@@ -13,17 +13,20 @@ var offset_from_ratio: Vector2:
 		return -Vector2(target.size.x * pivot_ratio_x, target.size.y * pivot_ratio_y)
 
 
+## Applies a position to the target control while accounting for pivot ratio offsets.
 func set_position_offset (new_position: Vector2):
 	if not target:
 		target = self
 	target.position = new_position + offset_from_ratio
 
 
+## Clamps the given position to screen bounds and applies it to the target control.
 func set_position_screen_clamped (new_position: Vector2):
 	new_position = get_position_screen_clamped(new_position)
 	set_position_offset(new_position)
 
 
+## Calculates a screen-clamped version of the provided position based on the target's size and pivot.
 func get_position_screen_clamped (new_position: Vector2) -> Vector2:
 	if not target:
 		target = self
@@ -33,5 +36,6 @@ func get_position_screen_clamped (new_position: Vector2) -> Vector2:
 	return new_position
 
 
+## Recalculates the internal pivot offset based on current dimensions and pivot ratios.
 func update_pivot_offset ():
 	pivot_offset = Vector2(size.x * pivot_ratio_x, size.y * pivot_ratio_y)

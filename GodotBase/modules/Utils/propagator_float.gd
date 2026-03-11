@@ -1,4 +1,5 @@
 class_name PropagatorFloat
+## Utility component that categorizes a float value into discrete "ranks" based on defined thresholds.
 extends Node
 
 signal on_rank_1
@@ -22,6 +23,7 @@ signal on_rank_9
 @export_range(0.0, 1.0) var rank_9: float = 1.0
 
 
+## Categorizes the input value into one of nine ranks and emits the corresponding signal.
 func propagate (value: float) -> void:
 	if value <= rank_1:
 		on_rank_1.emit()

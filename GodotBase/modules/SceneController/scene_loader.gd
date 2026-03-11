@@ -1,10 +1,12 @@
 class_name SceneLoader
+## Simple utility component to trigger scene transitions to a pre-defined TPCN file.
 extends Node
 
 @export_file("*.tscn") var scene: String
 
 
-func load_scene ():
+## Changes the current scene to the one specified in the 'scene' export property.
+func load_scene () -> void:
 	if !scene:
 		Debug.log_error("No scene provided.")
 		return

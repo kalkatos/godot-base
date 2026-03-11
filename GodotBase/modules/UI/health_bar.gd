@@ -1,4 +1,5 @@
 class_name HealthBar
+## Dual-layered visual progress bar with a delayed secondary indicator for feedback on health changes.
 extends Control
 
 @export var delayed_bar: Range
@@ -7,6 +8,7 @@ extends Control
 var update_tween: Tween
 
 
+## Updates the health bars with a tweened animation for the delayed (ghost) bar.
 func set_value (new_value: float) -> void:
 	delayed_bar.value = real_bar.value
 	real_bar.value = new_value

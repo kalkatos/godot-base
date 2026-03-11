@@ -1,4 +1,5 @@
 class_name ResourceValueLabel
+## Helper component that automatically updates a target node's text with a property value from a Resource.
 extends Node
 
 @export var target: Node
@@ -8,15 +9,18 @@ extends Node
 @export var suffix: String = ""
 
 
+## Validates the setup and updates the target node's text with the resource property's value.
 func setup () -> void:
 	if not target or not resource or property_name == "":
 		return
+	# Ensure the target node can receive text updates
 	if not target.has_method("set_text"):
 		Debug.log_warning("Target node does not have set_text method")
 		return
 	if property_name == "":
 		Debug.log_warning("Property name is empty")
 		return
+	# Verify that the resource actually contains the specified property
 	if not resource.get_property_list().any(func(p): return p.name == property_name):
 		Debug.log_warning("Resource does not have property: %s" % property_name)
 		return

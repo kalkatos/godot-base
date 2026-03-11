@@ -1,3 +1,4 @@
+## Sample script to demonstrate and test screen-clamped UI positioning on mouse click.
 extends Control
 
 @export var control: TooltipControl
@@ -5,7 +6,8 @@ extends Control
 var is_open: bool
 
 
-func _input(event: InputEvent) -> void:
+## Listens for click events to reposition and toggle the test tooltip.
+func _input (event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		if not is_open:
 			Debug.logm("Opening")

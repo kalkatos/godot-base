@@ -1,4 +1,5 @@
 class_name TweenPlayer
+## High-level component to trigger predefined tween animations (bump, shake) on a target node.
 extends Node
 
 @export var target: Node
@@ -17,9 +18,11 @@ enum TweenAnimation
 }
 
 
+## Plays the designated tween animation on the target node.
 func play () -> Tween:
 	if not target or animation == TweenAnimation.NONE:
 		return null
+	# Automatically calculate pivot offset for Control nodes
 	if target is Control:
 		var control = target as Control
 		control.pivot_offset = Vector2(control.size.x * override_pivot_offset.x, control.size.y * override_pivot_offset.y)

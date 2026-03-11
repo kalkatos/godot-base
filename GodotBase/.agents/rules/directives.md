@@ -2,9 +2,9 @@
 trigger: always_on
 ---
 
-# Game Architecture
+# Directives
 
-The game architecture must be strictly followed for every change executed in the code. This document is the **single source of truth** for structural and coding conventions.
+These directives must be strictly followed for every change executed in the code. This document is the **single source of truth** for structural and coding conventions.
 
 ---
 
@@ -66,7 +66,10 @@ GodotBase/             # (Or your specific Project Folder)
 - **Communicating upward**: A node must **never** directly reference its parent or siblings. Use signals (via `SignalBus`) to communicate data upward or outward.
 - **Rationale**: This keeps the scene tree decoupled and allows nodes to be reattached or reused without breaking references.
 
-### 4. Autoloaded Globals (`project.godot`)
+### 4. Don't repeat yourself (DRY)
+- If you have the same code in multiple places, you should extract it into a function or a class and reuse it.
+
+### 5. Autoloaded Globals (`project.godot`)
 The following singletons are autoloaded and available project-wide:
 
 | Autoload Name      | Path                                    | Purpose                                    |
@@ -79,12 +82,12 @@ The following singletons are autoloaded and available project-wide:
 | `Global`           | `Game/Globals/global.gd`                | Project-wide constants, references, and runtime state |
 | `Analytics`        | `addons/genki-analytics/Analytics.tscn` | Analytics tracking                         |
 
-### 5. Global State (`global.gd`)
+### 6. Global State (`global.gd`)
 - `Global` holds **exported configuration** (`@export` groups for Defaults, Measurements, References, Prefabs, Sorting Orders, etc.) and **runtime state** variables.
 - Configuration values set via `@export` should be adjusted in the editor on the `Global.tscn` (or globally loaded equivalent) — not hardcoded in scripts.
 - Runtime state is mutable and managed by Controllers and `SignalBus` emit functions.
 
-### 6. Enums (`enums.gd`)
+### 7. Enums (`enums.gd`)
 - All project-wide enumerations live in `enums.gd` (class name: `Enums`).
 - Current enums: Add any enums needed for the specific game here.
 - Always reference enums as `Enums.<EnumName>.<Value>`.
@@ -126,6 +129,7 @@ The following singletons are autoloaded and available project-wide:
 - **Model scripts**: Named after the data they represent.
 - **Node references**: Use `@export` variables bound in the editor rather than `get_node()` / `$` paths when referencing child nodes.
 - **Method declarations**: Always include a space between the method name and the opening parenthesis (e.g., `func my_method (param: int) -> void:` instead of `func my_method(param: int) -> void:`).
+- **No blank lines** within the same method
 
 ---
 
