@@ -15,14 +15,14 @@ func setup () -> void:
 		return
 	# Ensure the target node can receive text updates
 	if not target.has_method("set_text"):
-		Debug.log_warning("Target node does not have set_text method")
+		push_warning("Target node does not have set_text method")
 		return
 	if property_name == "":
-		Debug.log_warning("Property name is empty")
+		push_warning("Property name is empty")
 		return
 	# Verify that the resource actually contains the specified property
 	if not resource.get_property_list().any(func(p): return p.name == property_name):
-		Debug.log_warning("Resource does not have property: %s" % property_name)
+		push_warning("Resource does not have property: %s" % property_name)
 		return
 	var value = resource.get(property_name)
 	target.set_text("%s%s%s" % [prefix, str(value), suffix])

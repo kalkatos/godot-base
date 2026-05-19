@@ -8,6 +8,6 @@ extends Node
 ## Changes the current scene to the one specified in the 'scene' export property.
 func load_scene () -> void:
 	if !scene:
-		Debug.log_error("No scene provided.")
+		push_error("No scene provided.")
 		return
 	get_tree().change_scene_to_file(scene)

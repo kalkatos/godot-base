@@ -29,9 +29,9 @@ var master_sfx_volume: float:
 func _ready () -> void:
 	# Load volume settings from local storage
 	var saved_music_volume = Storage.load("master_music_volume", 1.0)
-	Debug.logm("Loaded music volume: " + str(saved_music_volume))
+	print("Loaded music volume: " + str(saved_music_volume))
 	var saved_sfx_volume = Storage.load("master_sfx_volume", 1.0)
-	Debug.logm("Loaded sfx volume: " + str(saved_sfx_volume))
+	print("Loaded sfx volume: " + str(saved_sfx_volume))
 	# Prepare SFX channel array for rotational playback
 	sfx_channels = [
 		sfx_channel_1,

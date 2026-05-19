@@ -62,3 +62,33 @@ static func is_translation_key (text: String) -> bool:
 	if text.is_empty():
 		return false
 	return text.begins_with("$") and text.ends_with("$")
+
+
+## Animates a number in a Label or RichTextLabel from a starting value to an ending value.
+## If [param discrete] is true, the value is rounded to the nearest integer and cast to int to avoid decimal suffixes.
+static func animate_number (text_object: Node, start_value: float, end_value: float, duration: float = 0.5, discrete: bool = true) -> void:
+	if not text_object is Label and not text_object is RichTextLabel:
+		push_warning("animate_number: text_object is not a Label or RichTextLabel")
+		return
+	var was_interrupted: bool = false
+	if tween_map.has(text_object):
+		var old_tween = tween_map[text_object][0]
+		if old_tween and old_tween.is_valid():
+			old_tween.kill()
+			was_interrupted = true
+		tween_map.erase(text_object)
+	text_object.set("text", str(int(round(start_value))) if discrete else str(start_value))
+	if duration <= 0.0:
+		text_object.set("text", str(int(round(end_value))) if discrete else str(end_value))
+		return
+	var hold_duration: float = min(duration, 0.06) if was_interrupted else 0.0
+	var tween_duration: float = max(duration - hold_duration, 0.0)
+	var tween = text_object.create_tween()
+	tween_map[text_object] = [tween]
+	if hold_duration > 0.0:
+		tween.tween_interval(hold_duration)
+	if tween_duration > 0.0:
+		tween.tween_method(func (val: float) -> void: text_object.set("text", str(int(round(val))) if discrete else str(val)), start_value, end_value, tween_duration)
+	else:
+		tween.tween_callback(func () -> void: text_object.set("text", str(int(round(end_value))) if discrete else str(end_value)))
+	tween.finished.connect(func () -> void: if tween_map.get(text_object, [null])[0] == tween: tween_map.erase(text_object))

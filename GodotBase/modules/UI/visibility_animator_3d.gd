@@ -30,23 +30,26 @@ func animate_visibility (activate: bool):
 		if is_showing:
 			return
 		is_showing = true
+		var tween_on = null
 		for target in targets:
 			target.modulate.a = 0.0
 			target.visible = true
-			var tween_on = target.create_tween()
+			tween_on = target.create_tween()
 			tween_on.tween_property(target, "modulate:a", target_alpha, animation_time)
-			await tween_on.finished
-			finished.emit()
+		await tween_on.finished
+		finished.emit()
 		return
 	# Handle deactivation/fade-out
 	if not is_showing:
 		return
 	is_showing = false
+	var tween_off = null
 	for target in targets:
 		target.modulate.a = target_alpha
-		var tween_off = target.create_tween()
+		tween_off = target.create_tween()
 		tween_off.tween_property(target, "modulate:a", 0.0, animation_time)
-		await tween_off.finished
-		finished.emit()
-		if deactivate_on_end:
+	await tween_off.finished
+	if deactivate_on_end:
+		for target in targets:
 			target.visible = false
+	finished.emit()

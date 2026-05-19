@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bahar2cinahxn"]
+[gd_scene format=3 uid="uid://bahar2cinahxn"]
 
 [ext_resource type="Script" uid="uid://dyig4ccf7pbcb" path="res://Modules/Debug/debug_commands.gd" id="1_emqrf"]
 
-[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("debug_text", "input_text")]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1712498804 node_paths=PackedStringArray("debug_text", "input_text")]
 layer = 128
 visible = false
 script = ExtResource("1_emqrf")
 debug_text = NodePath("ColorRect/RichTextLabel")
 input_text = NodePath("LineEdit")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1128923062]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -21,7 +21,7 @@ grow_vertical = 2
 mouse_force_pass_scroll_events = false
 color = Color(0, 0, 0, 0.27451)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect" unique_id=1628661408]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +34,7 @@ text = "--- Debug Text ---"
 scroll_following = true
 vertical_alignment = 2
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1456085860]
 anchors_preset = -1
 anchor_left = 0.001
 anchor_top = 0.389

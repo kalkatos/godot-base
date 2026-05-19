@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8o76lsj2kl4o"]
+[gd_scene format=3 uid="uid://c8o76lsj2kl4o"]
 
 [ext_resource type="Script" uid="uid://ckcrx2v1syhnm" path="res://Modules/UI/Samples/clamped_control_tester.gd" id="1_vl0x7"]
 [ext_resource type="Script" uid="uid://c8y6n04tkecp1" path="res://Modules/UI/tooltip_control.gd" id="2_mukhp"]
 
-[node name="ClampedControlTester" type="Control" node_paths=PackedStringArray("control")]
+[node name="ClampedControlTester" type="Control" unique_id=102557794 node_paths=PackedStringArray("control")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_vl0x7")
 control = NodePath("PopupPanel")
 
-[node name="PopupPanel" type="Control" parent="." node_paths=PackedStringArray("panel_bg", "content")]
+[node name="PopupPanel" type="Control" parent="." unique_id=658024994]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -19,11 +19,8 @@ offset_right = 228.0
 grow_vertical = 0
 pivot_offset = Vector2(0, 75)
 script = ExtResource("2_mukhp")
-panel_bg = NodePath("Panel")
-content = NodePath("Panel/RichTextLabel")
-pivot_ratio_y = 1.0
 
-[node name="Panel" type="Panel" parent="PopupPanel"]
+[node name="Panel" type="Panel" parent="PopupPanel" unique_id=202443857]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 75)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PopupPanel/Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PopupPanel/Panel" unique_id=19080309]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

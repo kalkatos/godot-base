@@ -1,3 +1,4 @@
+class_name DebugLogger
 extends Logger
 ## Custom logger that intercepts all print/push_warning/push_error calls and displays them in the in-game debug panel.
 ## Registered via OS.add_logger() from global Debug session.
@@ -24,9 +25,9 @@ func _log_message (message: String, error: bool) -> void:
 func _log_error (function: String, file: String, line: int, code: String, rationale: String, editor_notify: bool, error_type: int, script_backtraces: Array[ScriptBacktrace]) -> void:
 	if debug_text == null:
 		return
-	var detail := rationale if rationale != "" else code
-	var location := "%s:%d in %s" % [file.get_file(), line, function]
-	var text := "%s (%s)" % [detail, location]
+	var detail = rationale if rationale != "" else code
+	var stack_trace = "\n".join(script_backtraces.map(func(b): return b.format(4)))
+	var text = "%s\n%s" % [detail, stack_trace]
 	match error_type:
 		Logger.ERROR_TYPE_WARNING:
 			_append_text.call_deferred("[color=yellow]%s[/color]" % text)

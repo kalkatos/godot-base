@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpcyw2mlwue8y"
-path.s3tc="res://.godot/imported/borderless.png-d8af5e320a567fcc127e2181f924aa57.s3tc.ctex"
-path.etc2="res://.godot/imported/borderless.png-d8af5e320a567fcc127e2181f924aa57.etc2.ctex"
+uid="uid://dhfjiibs3vqrr"
+path.s3tc="res://.godot/imported/square_border_white.png-cb96aca0ae5b53386c37c51819c884b6.s3tc.ctex"
+path.etc2="res://.godot/imported/square_border_white.png-cb96aca0ae5b53386c37c51819c884b6.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Placeholders/Sprites/UI/borderless.png"
-dest_files=["res://.godot/imported/borderless.png-d8af5e320a567fcc127e2181f924aa57.s3tc.ctex", "res://.godot/imported/borderless.png-d8af5e320a567fcc127e2181f924aa57.etc2.ctex"]
+source_file="res://Placeholders/Sprites/UI/square_border_white.png"
+dest_files=["res://.godot/imported/square_border_white.png-cb96aca0ae5b53386c37c51819c884b6.s3tc.ctex", "res://.godot/imported/square_border_white.png-cb96aca0ae5b53386c37c51819c884b6.etc2.ctex"]
 
 [params]
 

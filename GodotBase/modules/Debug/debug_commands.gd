@@ -23,6 +23,7 @@ func _ready () -> void:
 		_logger = preload("res://Modules/Debug/debug_logger.gd").new()
 		_logger.setup(debug_text)
 		OS.add_logger(_logger)
+	visible = false
 
 
 ## Handles keyboard shortcuts for toggling visibility, zooming, and navigating command history.
