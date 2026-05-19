@@ -28,10 +28,10 @@ buses/default_bus_layout="uid://ddnbh7f2pwxil"
 
 Storage="*res://Modules/Storage/storage.gd"
 SignalBus="*res://Game/Globals/signal_bus.gd"
-Debug="*uid://bahar2cinahxn"
+Debug="*uid://djqwxqbyb74xg"
+Global="*res://Game/Globals/global.gd"
 Pooler="*res://Modules/Utils/pooler.gd"
 AudioController="*res://Modules/Audio/AudioController.tscn"
-Global="*res://Game/Globals/global.gd"
 Analytics="*res://addons/genki-analytics/Analytics.tscn"
 
 [display]
