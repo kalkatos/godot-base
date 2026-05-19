@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhfjiibs3vqrr"
 path.s3tc="res://.godot/imported/square_border_white.png-cb96aca0ae5b53386c37c51819c884b6.s3tc.ctex"
-path.etc2="res://.godot/imported/square_border_white.png-cb96aca0ae5b53386c37c51819c884b6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Placeholders/Sprites/UI/square_border_white.png"
-dest_files=["res://.godot/imported/square_border_white.png-cb96aca0ae5b53386c37c51819c884b6.s3tc.ctex", "res://.godot/imported/square_border_white.png-cb96aca0ae5b53386c37c51819c884b6.etc2.ctex"]
+dest_files=["res://.godot/imported/square_border_white.png-cb96aca0ae5b53386c37c51819c884b6.s3tc.ctex"]
 
 [params]
 
