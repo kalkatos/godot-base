@@ -7,7 +7,7 @@ This file helps AI coding agents become productive quickly in this repository.
 - Engine: Godot 4.x (project config currently targets feature `4.6` in `<ProjectName>/project.godot`)
 - Project root for Godot: `<ProjectName>/` (template default: `GodotBase/`)
 - Main scene: configured by UID in `<ProjectName>/project.godot`
-- Architecture source of truth: `<ProjectName>/architecture.md`
+- Code conventions source of truth: `.agents/rules/directives.md`
 
 Template note:
 - When this template is renamed for a new game, replace `<ProjectName>` with the new root folder name.
@@ -25,21 +25,10 @@ Policy:
 
 ## Core Architectural Rules
 
-Follow `<ProjectName>/architecture.md`. Key rules to apply immediately:
-
-- MVC in `<ProjectName>/Game/Code/`:
-  - `Model/`: data/resources
-  - `View/`: presentation only
-  - `Control/`: orchestration
-- Cross-node communication goes through `SignalBus`:
-  - Signals are `_on_*`
-  - Emit helpers are `emit_on_*`
-- Node communication rule: access children directly, signal upward (no parent/sibling tight-coupling).
-- Prefer `@export` node references configured in scenes over hardcoded node paths.
+Follow `.agents/rules/directives.md`.
 
 High-value files:
-- `<ProjectName>/architecture.md`
-- `<ProjectName>/project.godot`
+- `.agents/rules/directives.md`
 - `<ProjectName>/Game/Globals/signal_bus.gd`
 - `<ProjectName>/Game/Globals/global.gd`
 - `<ProjectName>/Game/Code/Model/enums.gd`
@@ -50,7 +39,6 @@ High-value files:
 - Signal naming: `_on_*`
 - Emitter helpers: `emit_on_*`
 - Keep domain enums centralized in `<ProjectName>/Game/Code/Model/enums.gd` (`Enums.*`).
-- Respect script prefixes documented in architecture (`ru_`, `vf_`, `eff_`, `act_`, `br_`).
 
 ## Autoload Awareness
 
@@ -76,7 +64,6 @@ Testing:
 
 ## Agent Workflow Tips
 
-- Read `README.md` and `<ProjectName>/architecture.md` before non-trivial changes.
 - For behavior bugs, trace signal flow first (`SignalBus` -> controllers -> views).
 - For balance/content tweaks, prefer data/resources in `Game/_GameDesign/` over hardcoding.
 - Keep edits minimal and scoped; do not refactor across layers unless requested.
