@@ -30,7 +30,7 @@ trigger: always_on
   A. In-scene signal hookups first for screen-local interactions.
   B. SignalBus only when receiver is outside the scene subtree or must survive scene transitions.
 6. **Config**: Avoid hardcoding; use `Game/Code/Model/Config/<system_name>_config.gd` script and a `Game/_GameDesign/Config/<SystemName>Config.tscn` scene to store configurable values.
-7. **Lists**: When creating a list of UI elements updated by a list, always create a single child object that will serve as prefab for other identical elements within that container. Do NOT create UI elements like Controls, Buttons, and Containers via code. To populate the list use the template below:
+7. **Lists**: When creating a list of UI elements updated by a list of data objects, always create a single child object that will serve as prefab for other identical elements within that container. Do NOT create UI elements like Controls, Buttons, and Containers via code. To populate the list use the template below:
 ```gdscript
 @export var container: Control # A reference to the container that will have at least one template child
 func populate (data_list: Array) -> void:
