@@ -23,7 +23,7 @@ Policy:
 - Modify `Modules/` carefully (shared utilities).
 - Avoid editing `addons/` unless the task explicitly requires it.
 
-## Core Architectural Rules
+## Core Coding Conventions
 
 Follow `.agents/rules/directives.md`.
 
@@ -38,6 +38,7 @@ High-value files:
 - GDScript style in this repo commonly uses a space before `(` in function declarations/calls where already established; keep local file style consistent.
 - Signal naming: `_on_*`
 - Emitter helpers: `emit_on_*`
+- Handlers: `_handle_*`
 - Keep domain enums centralized in `<ProjectName>/Game/Code/Model/enums.gd` (`Enums.*`).
 
 ## Autoload Awareness
@@ -52,10 +53,10 @@ When changing systems that emit signals or mutate shared state:
 
 From `<ProjectName>/`:
 
-- Open/run project in editor:
-  - `godot4 --path .`
-- Headless run (when available in your local Godot install):
-  - `godot4 --headless --path .`
+Run:
+```powershell
+& 'C:\Program Files\Godot\Godot_console.exe' --headless --path . -s res://addons/gut/gut_cmdln.gd -gdir=res://tests/unit -ginclude_subdirs -gexit -glog=1
+```
 
 Testing:
 - GUT is included under `<ProjectName>/addons/gut/`.
