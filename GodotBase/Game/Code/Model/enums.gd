@@ -1,7 +1,8 @@
 class_name Enums
 
-enum ExampleEnum {
-	ONE,
-	TWO,
-	THREE,
+enum SceneName {
+	NONE,
+	MAIN_MENU,
+	GAMEPLAY,
+	CHARACTER_SELECT,
 }

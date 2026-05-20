@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://qe4q0x6dac7k"]
+
+[ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_rplwk"]
+[ext_resource type="Texture2D" uid="uid://xx14vs3686ht" path="res://Placeholders/Sprites/UI/settings.png" id="2_p4j1m"]
+[ext_resource type="Script" uid="uid://dnk65ottux66y" path="res://Modules/UI/animated_button.gd" id="3_m0itv"]
+[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Modules/Audio/audio_player.gd" id="4_kp08j"]
+[ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Modules/Audio/Samples/click_button.wav" id="5_51hg8"]
+[ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Modules/UI/visibility_animator.gd" id="6_aub0f"]
+[ext_resource type="Texture2D" uid="uid://cuivn861jo7y2" path="res://Placeholders/Sprites/UI/square.png" id="7_2x7ko"]
+[ext_resource type="Script" uid="uid://bui7n4qf35rn2" path="res://Game/Globals/signal_bus.gd" id="8_w3cou"]
+[ext_resource type="Script" uid="uid://bep52cret807s" path="res://Modules/Storage/storage_binder.gd" id="9_35ytm"]
+[ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="10_6en76"]
+
+[node name="SettingsScreen" type="CanvasLayer" unique_id=1155492907]
+
+[node name="Settings Button" type="TextureButton" parent="." unique_id=1818066579]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 9.0
+offset_right = -10.0
+offset_bottom = 49.0
+grow_horizontal = 0
+theme = ExtResource("1_rplwk")
+texture_normal = ExtResource("2_p4j1m")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_m0itv")
+
+[node name="Click Sfx" type="Node" parent="Settings Button" unique_id=208531841]
+script = ExtResource("4_kp08j")
+audio = ExtResource("5_51hg8")
+metadata/_custom_type_script = "uid://brqtcgh6awxtg"
+
+[node name="VisibilityAnimator" type="Control" parent="." unique_id=1923927618 node_paths=PackedStringArray("target")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_aub0f")
+target = NodePath("../CloseOverlayButton")
+animation_time = 0.2
+metadata/_custom_type_script = "uid://c7y0qe0vrsik5"
+
+[node name="CloseOverlayButton" type="TextureButton" parent="." unique_id=1323233827]
+visible = false
+self_modulate = Color(0, 0, 0, 0.75000006)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_2x7ko")
+stretch_mode = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="CloseOverlayButton" unique_id=1462291818]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings Panel" type="Panel" parent="CloseOverlayButton/CenterContainer" unique_id=771444162]
+physics_interpolation_mode = 0
+custom_minimum_size = Vector2(350, 300)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CloseOverlayButton/CenterContainer/Settings Panel" unique_id=39356115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer" unique_id=600901611]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer" unique_id=789604244]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer" unique_id=1176894744]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Music Container" type="HBoxContainer" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer" unique_id=1156353813]
+layout_mode = 2
+alignment = 1
+
+[node name="Music Label" type="Label" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container" unique_id=548268265]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="Music Slider" type="HSlider" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container" unique_id=927058308]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_rplwk")
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 5
+script = ExtResource("8_w3cou")
+
+[node name="Music Volume Binder" type="Node" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container/Music Slider" unique_id=652944802]
+script = ExtResource("9_35ytm")
+key = "master_music_volume"
+metadata/_custom_type_script = "uid://bep52cret807s"
+
+[node name="Sfx Container" type="HBoxContainer" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer" unique_id=1121273662]
+layout_mode = 2
+alignment = 1
+
+[node name="Sfx Label" type="Label" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container" unique_id=1343428150]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "SFX Volume:"
+
+[node name="Sfx Slider" type="HSlider" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container" unique_id=1746695997]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_rplwk")
+max_value = 1.0
+step = 0.05
+value = 1.0
+tick_count = 5
+script = ExtResource("8_w3cou")
+
+[node name="Sfx Volume Binder" type="Node" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container/Sfx Slider" unique_id=725926962]
+script = ExtResource("9_35ytm")
+key = "master_sfx_volume"
+metadata/_custom_type_script = "uid://bep52cret807s"
+
+[node name="Space_2" type="Control" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer" unique_id=1064223122]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Ok_Button" parent="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer" unique_id=1367823969 instance=ExtResource("10_6en76")]
+layout_mode = 2
+text = "OK"
+
+[connection signal="pressed" from="Settings Button" to="Settings Button/Click Sfx" method="play_global_sfx"]
+[connection signal="pressed" from="Settings Button" to="VisibilityAnimator" method="animate_visibility" binds= [true]]
+[connection signal="pressed" from="CloseOverlayButton" to="VisibilityAnimator" method="animate_visibility" binds= [false]]
+[connection signal="_on_music_volume_set" from="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container/Music Slider" to="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container/Music Slider" method="set_value_no_signal"]
+[connection signal="value_changed" from="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container/Music Slider" to="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container/Music Slider" method="emit_on_music_volume_set"]
+[connection signal="value_changed" from="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container/Music Slider" to="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container/Music Slider/Music Volume Binder" method="change_value"]
+[connection signal="on_value_changed" from="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container/Music Slider/Music Volume Binder" to="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Music Container/Music Slider" method="set_value_no_signal"]
+[connection signal="_on_sfx_volume_set" from="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container/Sfx Slider" to="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container/Sfx Slider" method="set_value_no_signal"]
+[connection signal="value_changed" from="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container/Sfx Slider" to="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container/Sfx Slider" method="emit_on_sfx_volume_set"]
+[connection signal="value_changed" from="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container/Sfx Slider" to="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container/Sfx Slider/Sfx Volume Binder" method="change_value"]
+[connection signal="on_value_changed" from="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container/Sfx Slider/Sfx Volume Binder" to="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Sfx Container/Sfx Slider" method="set_value_no_signal"]
+[connection signal="pressed" from="CloseOverlayButton/CenterContainer/Settings Panel/MarginContainer/VBoxContainer/Ok_Button" to="VisibilityAnimator" method="animate_visibility" binds= [false]]

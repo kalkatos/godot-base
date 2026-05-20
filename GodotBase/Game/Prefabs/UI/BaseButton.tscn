@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgilv0f24mtpj"]
+[gd_scene format=3 uid="uid://cgilv0f24mtpj"]
 
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_4lkno"]
 [ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Modules/Audio/audio_player.gd" id="2_7vtla"]
+[ext_resource type="Script" uid="uid://dnk65ottux66y" path="res://Modules/UI/animated_button.gd" id="2_ga26l"]
 [ext_resource type="AudioStream" uid="uid://dtmxl00momw0h" path="res://Modules/Audio/Samples/click_button.wav" id="3_ga26l"]
 
-[node name="BaseButton" type="Button"]
+[node name="BaseButton" type="Button" unique_id=29189713]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,8 +19,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_4lkno")
 text = "Button"
+script = ExtResource("2_ga26l")
 
-[node name="Click Sfx" type="Node" parent="."]
+[node name="Click Sfx" type="Node" parent="." unique_id=1106600613]
 script = ExtResource("2_7vtla")
 audio = ExtResource("3_ga26l")
 metadata/_custom_type_script = "uid://brqtcgh6awxtg"

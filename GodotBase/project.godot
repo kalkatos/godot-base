@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="GodotBase"
 config/version="v0.0.1"
-run/main_scene="uid://ckau5e8rr7hev"
+run/main_scene="uid://dceoe3061w4wb"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Icons/icon.svg"
 

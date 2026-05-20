@@ -18,14 +18,24 @@ func emit_on_sfx_volume_set (value: float):
 		_on_sfx_volume_set.emit(value)
 	SignalBus._on_sfx_volume_set.emit(value)
 
+# ███████████████████████████████  T R A N S I T I O N S  █████████████████████████████████
 
-signal _on_settings_panel (open: bool)
-func emit_on_settings_panel (open: bool):
-	Global.settings_panel_open = open
+## Requests a scene change; origin_scene identifies the caller, data carries routing info.
+signal _on_scene_transition_requested (origin_scene: Enums.SceneName, data: String)
+## Requests a scene change; origin_scene identifies the caller, data carries routing info.
+func emit_scene_transition_requested (origin_scene: Enums.SceneName, data: String) -> void:
 	if SignalBus != self:
-		_on_settings_panel.emit(open)
-	SignalBus._on_settings_panel.emit(open)
+		_on_scene_transition_requested.emit(origin_scene, data)
+	SignalBus._on_scene_transition_requested.emit(origin_scene, data)
 
+
+## Fires after a scene transition has finished loading; scene and data match the original request.
+signal _on_scene_transition_completed (scene: Enums.SceneName, data: String)
+## Fires after a scene transition has finished loading; scene and data match the original request.
+func emit_scene_transition_completed (scene: Enums.SceneName, data: String) -> void:
+	if SignalBus != self:
+		_on_scene_transition_completed.emit(scene, data)
+	SignalBus._on_scene_transition_completed.emit(scene, data)
 
 # ███████████████████████████████  R E A D Y  ███████████████████████████████████
 
