@@ -11,6 +11,8 @@ Ask the questions one at a time, waiting for feedback on each question before co
 
 If a question can be answered by exploring the codebase, explore the codebase instead.
 
+Use the `AskUserQuestion` tool to get the answer.
+
 </what-to-do>
 
 <supporting-info>

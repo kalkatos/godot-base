@@ -30,7 +30,7 @@ Storage="*res://Modules/Storage/storage.gd"
 SignalBus="*res://Game/Globals/signal_bus.gd"
 Debug="*uid://djqwxqbyb74xg"
 Global="*res://Game/Globals/global.gd"
-Pooler="*res://Modules/Utils/pooler.gd"
+Pooler="*res://Modules/Pooler/pooler.gd"
 AudioController="*res://Modules/Audio/AudioController.tscn"
 Analytics="*res://addons/genki-analytics/Analytics.tscn"
 
