@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cgalaayter43u" path="res://Game/Code/View/main_menu_presenter.gd" id="1_gcpx7"]
 [ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="1_m4b53"]
-[ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="3_5c1ua"]
+[ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Modules/Placeholders/Themes/base_theme.tres" id="3_5c1ua"]
 
 [node name="MainMenu" type="Control" unique_id=2145878074]
 layout_mode = 3

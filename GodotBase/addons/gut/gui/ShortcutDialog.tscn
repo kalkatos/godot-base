@@ -15,7 +15,7 @@ script = ExtResource("1_qq8qn")
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 1912.0
-offset_bottom = 1679.0
+offset_bottom = 1682.0
 
 [node name="Layout" type="VBoxContainer" parent="Scroll" unique_id=501181924]
 layout_mode = 2

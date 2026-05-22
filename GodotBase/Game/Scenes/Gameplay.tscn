@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dd1lacfgcfen5" path="res://Game/Prefabs/UI/GameplayCanvas.tscn" id="1_y6el6"]
 [ext_resource type="PackedScene" uid="uid://d1wtvvf8esweu" path="res://Modules/Audio/Samples/MusicTester.tscn" id="2_krcbd"]
-[ext_resource type="Texture2D" uid="uid://cehfsbt5in6v3" path="res://Placeholders/Sprites/placeholder_tex.png" id="3_2uv06"]
+[ext_resource type="Texture2D" uid="uid://dbu7lg3bafuu1" path="res://Modules/Placeholders/Sprites/placeholder_tex.png" id="3_2uv06"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uibud"]
 shading_mode = 0

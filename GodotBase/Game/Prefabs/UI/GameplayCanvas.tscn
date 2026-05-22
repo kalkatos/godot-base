@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dd1lacfgcfen5"]
 
-[ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Placeholders/Themes/base_theme.tres" id="1_e2xpx"]
+[ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Modules/Placeholders/Themes/base_theme.tres" id="1_e2xpx"]
 [ext_resource type="Script" uid="uid://gnf2b0v1ida" path="res://Modules/UI/version_text.gd" id="1_pedo5"]
 [ext_resource type="PackedScene" uid="uid://qe4q0x6dac7k" path="res://Game/Prefabs/UI/SettingsScreen.tscn" id="3_aall6"]
 
