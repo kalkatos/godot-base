@@ -4,3 +4,6 @@
 [submodule "GodotBase/addons/genki-flying-text"]
 	path = GodotBase/addons/genki-flying-text
 	url = https://github.com/kalkatos/genki-flying-text.git
+[submodule "GodotBase/Modules"]
+	path = GodotBase/Modules
+	url = https://github.com/kalkatos/gdmodules.git
