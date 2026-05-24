@@ -2,6 +2,8 @@
 
 Keep this document brief. Prefer 1-3 bullets per section and short sentences over exhaustive detail.
 
+**IMPORTANT**: This document language must use clear atomic terms that will be present in the `.docs/glossary.md` to avoid ambiguity in later stages. For example, if the game concept has a gravity inversion mechanic, emphasize naming it explicitly and consistently as "gravity inversion".
+
 ## 1. Game Identity
 
 - Working title: [Insert working title here]
@@ -20,7 +22,7 @@ Keep this document brief. Prefer 1-3 bullets per section and short sentences ove
 
 ## 4. Core Mechanics
 
-[Bullet point list with the main actions and interactions the player repeats moment to moment.]
+[Bullet-point list with the main actions and interactions the player repeats moment to moment.]
 
 ## 5. Unique Features
 
@@ -28,8 +30,8 @@ Keep this document brief. Prefer 1-3 bullets per section and short sentences ove
 
 ## 6. References
 
-[List a few games, films, books, or other inspirations. Note what is being borrowed from each reference, not just the name.]
+[List a few games, films, books, or other inspirations. Note what is being borrowed from each reference, not just the name. e.g. "From [Game A], we take the fast-paced combat and combo system; from [Game B], we borrow the time manipulation mechanics; from [Film C], we draw inspiration for the narrative tone and themes".]
 
-## 7. Further Notes (Optional)
+## 7. Further Notes
 
-[Add any additional thoughts, constraints, or ideas that don't fit in the sections above but are important to capture for the development team.]
+[Add any additional thoughts, constraints, or ideas that don't fit in the sections above but are important to capture for the development team. e.g. "The game should have a minimalist art style with a limited color palette"; "The narrative should explore themes of identity and memory"; "The core loop should be designed for short play sessions of 10-15 minutes".]
