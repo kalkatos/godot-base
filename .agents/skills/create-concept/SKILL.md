@@ -41,6 +41,7 @@ When this skill is invoked:
    - Do not proceed to drafting until the user confirms the final direction.
 
 5. Build the concept using the template exactly.
+   - The working title must be a one word descriptor that captures the theme, core twist, or tone, the more evocative the better. (e.g., "Summer", "Heist", "Prism").
    - Output must contain only these sections, in this order:
      1. Game Identity
      2. Elevator Pitch
