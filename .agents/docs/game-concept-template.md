@@ -1,8 +1,8 @@
 # Game Concept: [GAME TITLE]
 
-Keep this document brief. Prefer 1-3 bullets per section and short sentences over exhaustive detail.
+Keep this document brief. Prefer 1 to 3 bullets per section and short sentences over exhaustive detail. This is a high-level overview to align the team on the core identity and vision of the game. Detailed design decisions, mechanics, and features will be defined later in the development process.
 
-**IMPORTANT**: This document language must use clear atomic terms that will be present in the `.docs/glossary.md` to avoid ambiguity in later stages. For example, if the game concept has a gravity inversion mechanic, emphasize naming it explicitly and consistently as "gravity inversion".
+**IMPORTANT**: The language in this document must use clear, unambiguous terms that are also defined in `.docs/glossary.md`. This avoids ambiguity in later stages. For example, if the concept includes a gravity inversion mechanic, name it explicitly and use the exact term "gravity inversion" consistently.
 
 ## 1. Game Identity
 
@@ -14,15 +14,15 @@ Keep this document brief. Prefer 1-3 bullets per section and short sentences ove
 
 ## 2. Elevator Pitch
 
-[Summarize the game in 2-3 sentences. Explain what the player does, what makes the premise interesting, and why this game should exist. e.g. "A bullet-hell roguelite where you control an auto-firing character surviving endless waves of monsters (Vampire Survivors)"; "A physics-based puzzle game where you manipulate time to navigate through challenging levels (Braid)"; "Roguelike poker where the jokers are wild cards that change the rules of the game (Balatro)".]
+[Summarize the game in 2 to 3 sentences. Explain what the player does, what makes the premise interesting, and why this game should exist. For example: "A bullet-hell roguelite where you control an auto-firing character and survive endless waves of monsters (Vampire Survivors)"; "A physics-based puzzle game where you manipulate time to navigate challenging levels (Braid)"; "A roguelike poker game where jokers are wild cards that change the rules (Balatro)".]
 
 ## 3. Player Fantasy
 
-[Describe who the player gets to feel like and what fantasy the game delivers at its best. e.g. "Feel like a powerful wizard battling hordes of enemies with devastating spells"; "Feel like a clever thief sneaking through shadows and outsmarting guards"; "Feel like a heroic adventurer exploring a vast world filled with secrets and danger".]
+[Describe who the player feels like and the fantasy the game delivers at its best. For example: "Feel like a powerful wizard battling hordes of enemies with devastating spells"; "Feel like a clever thief sneaking through shadows and outsmarting guards"; "Feel like a heroic adventurer exploring a vast world filled with secrets and danger".]
 
 ## 4. Core Mechanics
 
-[Bullet-point list with the main actions and interactions the player repeats moment to moment.]
+[Provide a bullet-point list of the main actions and interactions the player repeats moment to moment.]
 
 ## 5. Unique Features
 
@@ -30,8 +30,8 @@ Keep this document brief. Prefer 1-3 bullets per section and short sentences ove
 
 ## 6. References
 
-[List a few games, films, books, or other inspirations. Note what is being borrowed from each reference, not just the name. e.g. "From [Game A], we take the fast-paced combat and combo system; from [Game B], we borrow the time manipulation mechanics; from [Film C], we draw inspiration for the narrative tone and themes".]
+[List a few games, films, books, or other inspirations. Note what you are borrowing from each reference, not just the name. For example: "From [Game A], we take the fast-paced combat and combo system; from [Game B], we borrow the time manipulation mechanics; from [Film C], we draw inspiration for the narrative tone and themes".]
 
 ## 7. Further Notes
 
-[Add any additional thoughts, constraints, or ideas that don't fit in the sections above but are important to capture for the development team. e.g. "The game should have a minimalist art style with a limited color palette"; "The narrative should explore themes of identity and memory"; "The core loop should be designed for short play sessions of 10-15 minutes".]
+[Add any additional thoughts, constraints, or ideas that do not fit in the sections above but are important for the development team. For example: "The game should have a minimalist art style with a limited color palette"; "The narrative should explore themes of identity and memory"; "The core loop should be designed for short play sessions of 10 to 15 minutes".]
