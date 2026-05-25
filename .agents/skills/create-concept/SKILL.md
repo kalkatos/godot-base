@@ -1,109 +1,48 @@
 ---
 name: create-concept
-description: Generate .docs/game-concept.md from a finite interview using the project template. Use when user asks to create a game concept, fill game-concept.md, define game identity, or run a concept interview.
-argument-hint: Briefly describe the game idea to seed draft options (optional).
+description: "Guided game concept ideation — from zero idea to a structured game concept document. Uses professional studio ideation techniques, player psychology frameworks, and structured creative exploration."
+argument-hint: "[genre or theme hint, or 'open']"
+user-invocable: true
 ---
 
-# Create Concept
+When this skill is invoked:
 
-Create or update `.docs/game-concept.md` using the structure and constraints from `.agents/docs/game-concept-template.md`.
+1. Parse the argument for an optional genre or theme hint.
+   - If open or no argument is provided, start from scratch.
+   - Ignore external review-mode files and external gate workflows.
 
-## When To Use
+2. Resolve local source documents before questioning.
+   - Read [.agents/docs/game-concept-template.md] as the single output schema.
+   - Read [.docs/glossary.md] and enforce term consistency in concept language.
+   - If [.docs/glossary.md] is missing, create it when the first term needs definition.
+   - If [.docs/game-concept.md] exists, resume and refine rather than restart.
 
-- User asks for a new game concept document.
-- User wants to fill `.docs/game-concept.md` via guided interview.
-- User has a rough idea and needs multiple draft options per section.
+3. Run collaborative ideation in short interactive phases.
+   - Use AskUserQuestion for constrained choices.
+   - Use free-text prompts for nuanced answers.
+   - Do not silently invent major decisions without user confirmation.
 
-## Inputs And Required Files
+4. Build the concept using the template exactly.
+   - Output must contain only these sections, in this order:
+     1. Game Identity
+     2. Elevator Pitch
+     3. Player Fantasy
+     4. Core Mechanics
+     5. Unique Features
+     6. References
+     7. Further Notes
+   - Keep each section brief: 1 to 3 bullets where possible.
+   - Use clear and unambiguous terminology aligned to [.docs/glossary.md].
+   - Do not add extra sections such as MDA tables, player taxonomy, technical feasibility gates, or pipeline checklists.
 
-- Template source: `.agents/docs/game-concept-template.md`
-- Output file: `.docs/game-concept.md`
-- Terminology reference: `.docs/glossary.md`
+5. Write the final document to [.docs/game-concept.md].
+   - Create directories lazily only if needed.
+   - Preserve concise style and template heading names.
 
-If `.docs/glossary.md` is missing, notify the user and continue. Use explicit terms anyway and list terms that should be added to the glossary in a short note at the end of the generated concept.
+6. Return a short completion summary.
+   - Include: working title, one-sentence pitch, and written path.
 
-## Finite Interview Flow
-
-Run exactly 8 questions, in order. Do not ask additional discovery questions unless the user explicitly requests deeper iteration.
-
-For each question:
-
-1. Present exactly 3 draft options labeled `A`, `B`, `C`.
-2. Ensure options are meaningfully different in tone, scope, or design direction.
-3. Ask the user to choose one option or provide a custom answer.
-4. If user gives custom input, keep it, provide one concise polished rewrite for confirmation, then move to next question.
-
-Questions:
-
-1. Working title and high-level genre direction.
-2. Perspective and player count.
-3. Target platform and session length expectation.
-4. Elevator pitch (2 to 3 sentences).
-5. Player fantasy statement.
-6. Core mechanics (moment-to-moment loop).
-7. Unique features and differentiation.
-8. References and further notes (including constraints).
-
-## Option Generation Rules
-
-For every question, generate options that are concrete and usable as-is:
-
-- Include explicit nouns and verbs (avoid vague phrases like "fun gameplay").
-- Keep each option short: 1 line for metadata questions, up to 3 lines for narrative fields.
-- Use unambiguous terms that can be mirrored in `.docs/glossary.md`.
-- Avoid repeating the same concept with minor wording changes.
-- Keep options aligned with the selected concept direction from earlier answers while still offering adjacent variations.
-
-## Language Behavior
-
-- Match the user's language for questions, options, confirmations, and final summary.
-- Preserve domain terms consistently; if a term should remain in a specific language for clarity, keep it stable and mention it in glossary notes.
-
-## Assembly Rules For `.docs/game-concept.md`
-
-After question 8, compile the document with the same section order and headings from the template:
-
-1. Game Identity
-2. Elevator Pitch
-3. Player Fantasy
-4. Core Mechanics
-5. Unique Features
-6. References
-7. Further Notes
-
-Formatting requirements:
-
-- Preserve concise style: 1 to 3 bullets per section when applicable.
-- Keep elevator pitch to 2 to 3 sentences.
-- Ensure all terms are clear and consistent.
-- Replace all placeholders; no bracketed template text may remain.
-
-## Completion Checks
-
-Before saving, verify all checks pass:
-
-- Exactly 8 interview answers were collected.
-- Every section in template exists in the output.
-- No unresolved placeholders remain.
-- At least 3 core mechanics bullets exist.
-- At least 2 unique features exist.
-- References include what is borrowed from each reference.
-
-If any check fails, run one compact repair pass by asking only targeted follow-up prompts for missing fields.
-
-## Save Behavior
-
-- Write the final content to `.docs/game-concept.md`.
-- If the file already exists, overwrite it only after confirming with the user.
-- After save, present a short summary:
-  - The selected concept direction.
-  - Terms that should be added to `.docs/glossary.md`.
-  - Optional next step: create milestones in `.docs/milestones.md`.
-
-## Response Style During Interview
-
-- Keep each question concise.
-- Always show options `A`, `B`, `C` before asking for selection.
-- Support quick replies like `A`, `B with changes`, or freeform.
-- Maintain momentum: one question at a time, no batching multiple questions in one turn.
-- After custom replies, show one polished rewrite and ask for quick confirm before continuing.
+Guardrails:
+- This skill is self-contained for this repository.
+- Do not reference external template paths outside this repository.
+- If the user asks for richer downstream docs, suggest separate follow-up skills after concept write is complete.
