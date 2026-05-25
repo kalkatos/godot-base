@@ -14,7 +14,7 @@ Keep this document brief. Prefer 1 to 3 bullets per section and short sentences 
 
 ## 2. Elevator Pitch
 
-[Summarize the game in 2 to 3 sentences. Explain what the player does, what makes the premise interesting, and why this game should exist. For example: "A bullet-hell roguelite where you control an auto-firing character and survive endless waves of monsters (Vampire Survivors)"; "A physics-based puzzle game where you manipulate time to navigate challenging levels (Braid)"; "A roguelike poker game where jokers are wild cards that change the rules (Balatro)".]
+[Summarize the game in 1 to 2 sentences. Explain what the player does, what makes the premise interesting, and why this game should exist. For example: "A bullet-hell roguelite where you control an auto-firing character and survive endless waves of monsters (Vampire Survivors)"; "A physics-based puzzle game where you manipulate time to navigate challenging levels (Braid)"; "A roguelike poker game where jokers are wild cards that change the rules (Balatro)".]
 
 ## 3. Player Fantasy
 
