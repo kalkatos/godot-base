@@ -47,3 +47,7 @@ Testing:
 - GUT is included under `src/addons/gut/`.
 - CLI entrypoint is `res://addons/gut/cli/gut_cli.gd`.
 - If a test task is requested, prefer project-specific test config when present (for example `.gutconfig.json`), otherwise use GUT CLI options.
+
+## Tools
+
+- `ph-creator`: an agent available for generating placeholder images. Use it when you need a placeholder image, placeholder icon, mockup tile, dummy graphic, or quick generated image from a short prompt.
