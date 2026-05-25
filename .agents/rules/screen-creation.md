@@ -60,7 +60,7 @@ InGameHUD: CanvasLayer
 
 ## Directives
 
-1. **Containers**: Use container nodes as parents of UI elements to ensure proper layout and scalability. Avoid absolute positioning of UI elements. The most used containers are:
+SC-01. **Containers**: Use container nodes as parents of UI elements to ensure proper layout and scalability. Avoid absolute positioning of UI elements. The most used containers are:
   - `VBoxContainer`: Arranges children vertically.
   - `HBoxContainer`: Arranges children horizontally.
   - `MarginContainer`: Provides padding around its child elements.

@@ -6,16 +6,16 @@ trigger: always_on
 
 - Scope: These directives apply to GDScript files (`.gd`) and scene wiring in `.tscn` files.
 
-1. **Methods**: `func name (param: type) -> void:` (Always space before parenthesis).
-2. **Body**: No blank lines within methods.
-3. **Naming**:
+CS-01. **Methods**: `func name (param: type) -> void:` (Always space before parenthesis).
+CS-02. **Body**: No blank lines within methods.
+CS-03. **Naming**:
 	- Signals: `_on_signal_name` | Emit: `emit_signal_name` | Handler: `_handle_signal_name`
-4. **Enums**: All global enums must exist in `src/Game/Globals/enums.gd` and be accessed via `Enums.EnumName.VALUE`.
-5. **Nodes**: Use `@export` references for child nodes. `get_node()` is allowed only for dynamic/runtime-instanced nodes when exported references are not feasible.
-6. **Load at Runtime**: Never use runtime load references with `load()` or `preload()`. Always use exported references for scenes, scripts, and resources.
-7. **Signals**: Use `SignalBus` for cross-system communication. For scene-local interactions, use in-scene signals and hookups.
-8. **Config**: Avoid hardcoding values. Use `src/Game/Code/Model/Config/<system_name>_config.gd` script and a `Game/_GameDesign/Config/<SystemName>Config.tscn` scene to store configurable values.
-9. **UI**: Never create UI elements like Controls, Buttons, and Containers via code. Instead, create a single child object in the scene that will serve as a prefab for other identical elements within that container. To populate the list, use the template below:
+CS-04. **Enums**: All global enums must exist in `src/Game/Globals/enums.gd` and be accessed via `Enums.EnumName.VALUE`.
+CS-05. **Nodes**: Use `@export` references for child nodes. `get_node()` is allowed only for dynamic/runtime-instanced nodes when exported references are not feasible.
+CS-06. **Load at Runtime**: Never use runtime load references with `load()` or `preload()`. Always use exported references for scenes, scripts, and resources.
+CS-07. **Signals**: Use `SignalBus` for cross-system communication. For scene-local interactions, use in-scene signals and hookups.
+CS-08. **Config**: Avoid hardcoding values. Use `src/Game/Code/Model/Config/<system_name>_config.gd` script and a `Game/_GameDesign/Config/<SystemName>Config.tscn` scene to store configurable values.
+CS-09. **UI**: Never create UI elements like Controls, Buttons, and Containers via code. Instead, create a single child object in the scene that will serve as a prefab for other identical elements within that container. To populate the list, use the template below:
 ```gdscript
 @export var container: Control # A reference to the container that will have at least one template child
 func populate (data_list: Array) -> void:
@@ -35,8 +35,8 @@ func populate (data_list: Array) -> void:
 			continue
 		# Setup `current_view` with data from `data_list[i]`
 ```
-10. **DRY**: Factor out repeated code into reusable methods or utilities.
-11. **Inferred Assignment Operator**: NEVER use `:=` (inferred type assignment). Use instead either: 
+CS-10. **DRY**: Factor out repeated code into reusable methods or utilities.
+CS-11. **Inferred Assignment Operator**: NEVER use `:=` (inferred type assignment). Use instead either: 
   - Explicit type: `var my_var: Type = value`
   - Cast to type: `var my_var = value as Type`
   - No type: `var my_var = value`
