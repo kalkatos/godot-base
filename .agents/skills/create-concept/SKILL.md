@@ -53,6 +53,7 @@ When this skill is invoked:
    - Keep each section brief: 1 to 3 bullets where possible.
    - Use clear and unambiguous terminology aligned to [.docs/glossary.md].
    - Do not add extra sections such as MDA tables, player taxonomy, technical feasibility gates, or pipeline checklists.
+   - If the user provided one or more source documents with existing content, add references to them in the Further Notes section.
 
 6. Write the final document to [.docs/game-concept.md].
    - Create directories lazily only if needed.
