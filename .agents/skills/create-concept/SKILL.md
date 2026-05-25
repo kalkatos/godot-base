@@ -21,8 +21,26 @@ When this skill is invoked:
    - Use AskUserQuestion for constrained choices.
    - Use free-text prompts for nuanced answers.
    - Do not silently invent major decisions without user confirmation.
+   - Start with exactly four anchor questions before any drafting:
+     1. Tone
+     2. Run Length
+     3. Meta Progression Weight
+     4. Core Twist
+   - These four are mandatory because they are the minimum high-impact decision set that prevents generic output and anchors the template:
+     - Tone anchors language for Elevator Pitch, Player Fantasy, and Further Notes.
+     - Run Length anchors pacing constraints for Core Mechanics and Further Notes.
+     - Meta Progression Weight is a major structural decision and must be confirmed, not inferred.
+     - Core Twist defines differentiation for Unique Features and the central pitch sentence.
+   - Follow with identity confirmation questions (Perspective, Target Platform, Player Count) to complete Game Identity.
+   - Rationale: this sequence gathers the smallest decisive set first, keeps ideation short, and satisfies the requirement to avoid unconfirmed major assumptions.
 
-4. Build the concept using the template exactly.
+4. Generate three distinct concept directions and get explicit user selection.
+   - Propose exactly 3 clearly different ideas based on the confirmed anchors.
+   - Keep each idea brief (title + 2 to 4 bullets).
+   - Prompt the user to choose one direction, or customize by mixing elements across ideas using an open-text response.
+   - Do not proceed to drafting until the user confirms the final direction.
+
+5. Build the concept using the template exactly.
    - Output must contain only these sections, in this order:
      1. Game Identity
      2. Elevator Pitch
@@ -35,11 +53,11 @@ When this skill is invoked:
    - Use clear and unambiguous terminology aligned to [.docs/glossary.md].
    - Do not add extra sections such as MDA tables, player taxonomy, technical feasibility gates, or pipeline checklists.
 
-5. Write the final document to [.docs/game-concept.md].
+6. Write the final document to [.docs/game-concept.md].
    - Create directories lazily only if needed.
    - Preserve concise style and template heading names.
 
-6. Return a short completion summary.
+7. Return a short completion summary.
    - Include: working title, one-sentence pitch, and written path.
 
 Guardrails:
