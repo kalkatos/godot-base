@@ -4,67 +4,42 @@ This file helps AI coding agents become productive quickly in this repository.
 
 ## Project Snapshot
 
-- Engine: Godot 4.x (project config currently targets feature `4.6` in `<ProjectName>/project.godot`)
-- Project root for Godot: `<ProjectName>/` (template default: `GodotBase/`)
-- Main scene: configured by UID in `<ProjectName>/project.godot`
-- Code conventions source of truth: `.agents/rules/directives.md`
-
-Template note:
-- When this template is renamed for a new game, replace `<ProjectName>` with the new root folder name.
+- A Godot 4.x game project. (Currently 4.6)
+- Project root for Godot: `src/`
+- Folder for game-specific documentation and instructions: `.docs/`
+  - `.docs/game-concept.md`: Elevator pitch, player fantasy, core mechanics, unique features.
+  - `.docs/glossary.md`: Definitions for key domain terms and concepts.
+  - `.docs/milestones.md`: Definitions of major features and development phases.
+  - `.docs/roadmap.md`: Daily task list derived from milestones, with clear and concise descriptions.
 
 ## Where To Work
 
-- Game-specific logic: `<ProjectName>/Game/`
-- Reusable, game-agnostic systems: `<ProjectName>/Modules/`
-- Third-party addons/plugins: `<ProjectName>/addons/`
+- Game-specific logic, assets, and configurations: `src/Game/`
+- Reusable, game-agnostic systems: `src/Modules/`
+- Third-party addons/plugins: `src/addons/`
 
-Policy:
-- Prefer implementing game behavior in `Game/`.
-- Modify `Modules/` carefully (shared utilities).
-- Avoid editing `addons/` unless the task explicitly requires it.
+## Policy
 
-## Core Coding Conventions
+- Prefer implementing game behavior in `src/Game/`.
+- Modify `src/Modules/` carefully (shared utilities).
+- Avoid editing `src/addons/` unless the task explicitly requires it.
 
-Follow `.agents/rules/directives.md`.
+## Core Rules
 
-High-value files:
-- `.agents/rules/directives.md`
-- `<ProjectName>/Game/Globals/signal_bus.gd`
-- `<ProjectName>/Game/Globals/global.gd`
-- `<ProjectName>/Game/Code/Model/enums.gd`
-
-## Conventions To Preserve
-
-- GDScript style in this repo commonly uses a space before `(` in function declarations/calls where already established; keep local file style consistent.
-- Signal naming: `_on_*`
-- Emitter helpers: `emit_on_*`
-- Handlers: `_handle_*`
-- Keep domain enums centralized in `<ProjectName>/Game/Code/Model/enums.gd` (`Enums.*`).
-
-## Autoload Awareness
-
-Autoloads are defined in `<ProjectName>/project.godot` (for example `SignalBus`, `Global`, `Storage`, `Pooler`, `AudioController`, `Analytics`, `Debug`).
-
-When changing systems that emit signals or mutate shared state:
-- Inspect emit functions in `<ProjectName>/Game/Globals/signal_bus.gd` for side effects.
-- Check consumers before changing signal payloads.
+Rules the agent must follow when working on tasks. These rules are non-negotiable and must be adhered to in order to maintain code quality, consistency, and project organization.
+  - `.agents/rules/coding-standards.md` for code style and standards.
+  - `.agents/rules/agent-workflow-tips.md` for common workflows and gotchas to avoid.
+  - `.agents/rules/screen-creation.md` for specific guidelines on creating UI screens and scenes.
+  - `.agents/rules/architecture.md` TBD
 
 ## Run and Test
 
-From `<ProjectName>/`:
-
-Run:
+From `src/` run:
 ```powershell
 & 'C:\Program Files\Godot\Godot_console.exe' --headless --path . -s res://addons/gut/gut_cmdln.gd -gdir=res://tests/unit -ginclude_subdirs -gexit -glog=1
 ```
 
 Testing:
-- GUT is included under `<ProjectName>/addons/gut/`.
+- GUT is included under `src/addons/gut/`.
 - CLI entrypoint is `res://addons/gut/cli/gut_cli.gd`.
 - If a test task is requested, prefer project-specific test config when present (for example `.gutconfig.json`), otherwise use GUT CLI options.
-
-## Agent Workflow Tips
-
-- For behavior bugs, trace signal flow first (`SignalBus` -> controllers -> views).
-- For balance/content tweaks, prefer data/resources in `Game/_GameDesign/` over hardcoding.
-- Keep edits minimal and scoped; do not refactor across layers unless requested.
