@@ -2,7 +2,7 @@
 
 Keep this document brief. Prefer 1 to 3 bullets per section and short sentences over exhaustive detail. This is a high-level overview to align the team on the core identity and vision of the game. Detailed design decisions, mechanics, and features will be defined later in the development process.
 
-**IMPORTANT**: The language in this document must use clear, unambiguous terms that are also defined in `.docs/glossary.md`. This avoids ambiguity in later stages. For example, if the concept includes a gravity inversion mechanic, name it explicitly and use the exact term "gravity inversion" consistently.
+**IMPORTANT**: The language in this document must use clear, unambiguous terms that are also defined in [.docs/glossary.md]. This avoids ambiguity in later stages. For example, if the concept includes a gravity inversion mechanic, name it explicitly and use the exact term "gravity inversion" consistently.
 
 ## 1. Game Identity
 

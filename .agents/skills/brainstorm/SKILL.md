@@ -14,10 +14,6 @@ When this skill is invoked:
 2. **Set the brainstorming goal** based on the user's input. This will guide the ideation process and ensure relevance. Then, write down the goal in a file named [.docs/brainstorm/<YYYY-MM-DD>_<goal>.md] that will be used as a reference throughout the brainstorming process.
 
 3. **Interview** the user relentlessly to understand their needs, constraints, and preferences related to the brainstorming topic. Use open-ended questions to encourage detailed responses.
-  - Use `AskUserQuestion` for structured questions with specific options.
-  - Use free-text prompts for more exploratory questions that require nuance.
-  - Do not make assumptions about the user's needs or preferences without explicit confirmation. Always ask for clarification if something is unclear.
-  - Write down key insights from the interview after each question.
 
 4. **Propose next steps** based on the insights gathered from the interview. These steps should be actionable and directly related to the brainstorming goal. Write these steps in the same file as the insights.
 
@@ -39,10 +35,10 @@ When this skill is invoked:
   - Time-box each phase — keep momentum, don't over-deliberate early
 
 **Reference (if present)**
-- `.docs/game-concept.md`: What this game is about.
-- `.docs/glossary.md`: Definitions for key domain terms and concepts.
-- `.docs/roadmap.md`: Definitions of major features and development phases.
-- `.docs/backlog.md`: Daily task list derived from milestones, with clear and concise descriptions.
+- [.docs/game-concept.md]: What this game is about.
+- [.docs/glossary.md]: Definitions for key domain terms and concepts.
+- [.docs/roadmap.md]: Definitions of major features and development phases.
+- [.docs/backlog.md]: Daily task list derived from milestones, with clear and concise descriptions.
 the game concept document, the glossary, and any other relevant documents to ensure consistency and build on existing ideas. If the user has a game concept in progress, use it as a springboard for brainstorming related ideas.
 
 </supporting-info>

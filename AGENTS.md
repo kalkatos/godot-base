@@ -6,12 +6,12 @@ This file helps AI coding agents become productive quickly in this repository.
 
 - A Godot 4.x game project. (Currently 4.6)
 - Project root for Godot: `src/`
-- Folder for game-specific documentation and instructions: `.docs/`.
+- Folder for game-specific documentation and instructions: [.docs/].
 - Important files that describe the project, its current state, and future plans:
-  - `.docs/game-concept.md`: Elevator pitch, player fantasy, core mechanics, unique features.
-  - `.docs/glossary.md`: Definitions for key domain terms and concepts.
-  - `.docs/roadmap.md`: Definitions of major features and development phases.
-  - `.docs/backlog.md`: Daily task list derived from milestones, with clear and concise descriptions.
+  - [.docs/game-concept.md]: Elevator pitch, player fantasy, core mechanics, unique features.
+  - [.docs/glossary.md]: Definitions for key domain terms and concepts.
+  - [.docs/roadmap.md]: Definitions of major features and development phases.
+  - [.docs/backlog.md]: Daily task list derived from milestones, with clear and concise descriptions.
 - If the files above are missing or incomplete, notify the user that they are important and they should prioritize creating and filling them in before proceeding with other tasks.
 - Create those files lazily — only when you have something to write by using their templates in `.agents/docs/`.
 
@@ -40,6 +40,17 @@ Rules the agent must follow when working on tasks. These rules are non-negotiabl
   - `.agents/rules/screen-creation.md` for specific guidelines on creating UI screens and scenes.
   - `.agents/rules/architecture.md` TBD
 
+## Interview
+
+When a document or task requires you to run an Interview, follow these guidelines:
+  - Ask the user questions relentlessly about every aspect of the topic until reaching a shared understanding.
+  - Walk down each branch of the design tree, resolving dependencies between decisions one-by-one.
+  - For each question, provide your recommended answer.
+  - Use the `AskUserQuestion` tool.
+  - Use free-text prompts for more exploratory questions that require nuance.
+  - Do not make assumptions about the user's needs or preferences without explicit confirmation. Always ask for clarification if something is unclear.
+  - Write down key insights from the interview after each question.
+
 ## Run and Test
 
 From `src/` run:
@@ -64,7 +75,7 @@ Testing:
 **Persona**: A name used to refer to a specific agent that is responsible for a certain project or field of expertise. When a persona name is invoked, the corresponding project context is being referred to. For example, if the user says "Hey, [Persona Name], can you help me with this task?", the agent associated with that persona will be activated and will understand that the task is related to the project it is responsible for.
 **_NOT_**: Agent.
 
-**Interview**: A structured conversation between the agent and the user to gather information, clarify requirements, and make decisions. Interviews can include a series of questions, prompts, and confirmations to ensure that the agent fully understands the user's needs and preferences before proceeding with a task.
+**Interview**: A structured conversation between the agent and the user to gather information, clarify requirements, and make decisions. Check the [Interview](#interview) section for guidelines.
 **_NOT_**: Question, Conversation, Dialogue.
 
 **Milestone**: A major development phase that represents a significant goal or achievement in the project. Milestones are defined in the `roadmap.md` can be one of the following "Project Setup", "Core Loop", "Vertical Slice", "MVP", "Alpha", "Beta", and "Launch".
