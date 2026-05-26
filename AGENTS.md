@@ -54,4 +54,4 @@ Testing:
 
 ## Tools
 
-- `.agents/agents/ph-creator.agent.md`: a subagent for generating placeholder images. Use it when you need a placeholder image, placeholder icon, mockup tile, dummy graphic, or quick generated image from a short prompt.
+- `.agents/agents/ph-creator.agent.md`: a subagent for generating placeholder images. Use it when you need a placeholder `.png` image, placeholder icon, mockup tile, dummy graphic, or quick generated image from a short prompt. For example: "Character named Joseph", or "Gold HUD icon".
