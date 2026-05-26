@@ -12,10 +12,10 @@ When this skill is invoked:
    - Ignore external review-mode files and external gate workflows.
 
 2. Resolve local source documents before questioning.
-   - Read [.agents/docs/game-concept-template.md] as the single output schema.
-   - Read [.docs/glossary.md] and enforce term consistency in concept language.
-   - If [.docs/glossary.md] is missing, create it when the first term needs definition.
-   - If [.docs/game-concept.md] exists, resume and refine rather than restart.
+   - Read `.agents/docs/game-concept-template.md` as the single output schema.
+   - Read `.docs/glossary.md` and enforce term consistency in concept language.
+   - If `.docs/glossary.md` is missing, create it when the first term needs definition.
+   - If `.docs/game-concept.md` exists, resume and refine rather than restart.
 
 3. Run collaborative ideation in short interactive phases.
    - Use `AskUserQuestion` for constrained choices.
@@ -61,11 +61,11 @@ When this skill is invoked:
      7. References
      8. Further Notes
    - Keep each section brief: 1 to 3 bullets where possible.
-   - Use clear and unambiguous terminology aligned to [.docs/glossary.md].
+   - Use clear and unambiguous terminology aligned to `.docs/glossary.md`.
    - Do not add extra sections such as MDA tables, player taxonomy, technical feasibility gates, or pipeline checklists.
    - If the user provided one or more source documents with existing content, add references to them in the Further Notes section.
 
-7. Write the final document to [.docs/game-concept.md].
+7. Write the final document to `.docs/game-concept.md`.
    - Create directories lazily only if needed.
    - Preserve concise style and template heading names.
 
