@@ -9,7 +9,7 @@ user-invocable: true
 
 When this skill is invoked:
 
-1. **Parse the argument** the user provided. If none ask what they want to brainstorm about before proceeding.
+1. **Parse the argument** the user provided. If none, ask what they want to brainstorm about before proceeding.
 
 2. **Set the brainstorming goal** based on the user's input. This will guide the ideation process and ensure relevance. Then, write down the goal in a file named [.docs/brainstorm/<YYYY-MM-DD>_<goal>.md] that will be used as a reference throughout the brainstorming process.
 
@@ -41,7 +41,8 @@ When this skill is invoked:
 **Reference (if present)**
 - `.docs/game-concept.md`: What this game is about.
 - `.docs/glossary.md`: Definitions for key domain terms and concepts.
-- `.docs/milestones.md`: Definitions of major features and development phases.
+- `.docs/roadmap.md`: Definitions of major features and development phases.
+- `.docs/backlog.md`: Daily task list derived from milestones, with clear and concise descriptions.
 the game concept document, the glossary, and any other relevant documents to ensure consistency and build on existing ideas. If the user has a game concept in progress, use it as a springboard for brainstorming related ideas.
 
 </supporting-info>

@@ -18,10 +18,10 @@ Key considerations:
 3. **Prototype (Optional)**:
   - Run `/prototype [feature or system name]` to fill in or update the current milestone with prototypes if needed.
   - **Argument**: The name of a specific feature, mechanic, system, or idea that requires prototyping. For example: "core combat mechanic", "shield system", "enemy AI behavior", "level layout", etc.
-  - **Output**: A `milestones.md` file with a roadmap of major features and development phases, including any optional prototypes for testing specific mechanics or ideas.
+  - **Output**: A `roadmap.md` file with a roadmap of major features and development phases, including any optional prototypes for testing specific mechanics or ideas.
 
 3. **Milestones**:
   - Run `/milestone` to fill in or update the current milestone.
   - **Argument**: Not required.
-  - **Output**: A `milestones.md` file with a roadmap of major features and development phases.
+  - **Output**: A `roadmap.md` file with a roadmap of major features and development phases.
   
