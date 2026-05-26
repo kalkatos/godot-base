@@ -1,5 +1,5 @@
 ---
-name: create-concept
+name: start
 description: "Guided game concept ideation — from zero idea to a structured game concept document. Uses professional studio ideation techniques, player psychology frameworks, and structured creative exploration."
 argument-hint: "[genre or theme hint, or 'open']"
 user-invocable: true
