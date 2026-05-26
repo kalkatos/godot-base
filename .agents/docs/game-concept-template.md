@@ -1,4 +1,4 @@
-# Game Concept: [GAME TITLE]
+# GAME CONCEPT: [GAME TITLE]
 
 Keep this document brief. Prefer 1 to 3 bullets per section and short sentences over exhaustive detail. This is a high-level overview to align the team on the core identity and vision of the game. Detailed design decisions, mechanics, and features will be defined later in the development process.
 
@@ -24,14 +24,18 @@ Keep this document brief. Prefer 1 to 3 bullets per section and short sentences 
 
 [Provide a bullet-point list of the main actions and interactions the player repeats moment to moment.]
 
-## 5. Unique Features
+## 5. Core Loop
+
+[Describe the core loop of the game in bullet-point form, which is the primary cycle of actions and feedback that creates the main gameplay experience. For example: "Explore a procedurally generated dungeon, fight monsters, collect loot, and return to town to upgrade your character before diving back into the next dungeon".]
+
+## 6. Unique Features
 
 [List the standout ideas, twists, or combinations that make this concept distinct from familiar genre patterns.]
 
-## 6. References
+## 7. References
 
 [List a few games, films, books, or other inspirations. Note what you are borrowing from each reference, not just the name. For example: "From [Game A], we take the fast-paced combat and combo system; from [Game B], we borrow the time manipulation mechanics; from [Film C], we draw inspiration for the narrative tone and themes".]
 
-## 7. Further Notes
+## 8. Further Notes
 
 [Add any additional thoughts, constraints, or ideas that do not fit in the sections above but are important for the development team. For example: "The game should have a minimalist art style with a limited color palette"; "The narrative should explore themes of identity and memory"; "The core loop should be designed for short play sessions of 10 to 15 minutes".]

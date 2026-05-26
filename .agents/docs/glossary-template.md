@@ -1,4 +1,4 @@
-# Glossary: [GAME TITLE]
+# GLOSSARY: [GAME TITLE]
 
 This document defines key terms and concepts for the project. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
 

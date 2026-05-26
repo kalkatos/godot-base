@@ -11,17 +11,17 @@ This document present the next steps for the project. The daily must fill this d
 - [ ] Fill in `.docs/glossary.md` with definitions for key domain terms and concepts.
 - [ ] Fill in `.docs/milestones.md` with what the project must have on each version.
 
-### Milestone v1: [Milestone Name]
+### [Milestone Name]
 
 - [ ] <Task Name>: [Task Description]
 - [ ] <Task Name>: [Task Description]
 
-### Milestone v2: [Milestone Name]
+### [Milestone Name]
 
 - [ ] <Task Name>: [Task Description]
 - [ ] <Task Name>: [Task Description]
 
-### Milestone v3: [Milestone Name]
+### [Milestone Name]
 
 - [ ] <Task Name>: [Task Description]
 - [ ] <Task Name>: [Task Description]
