@@ -6,12 +6,12 @@ This file helps AI coding agents become productive quickly in this repository.
 
 - A Godot 4.x game project. (Currently 4.6)
 - Project root for Godot: `src/`
-- Folder for game-specific documentation and instructions: [.docs/].
+- Folder for game-specific documentation and instructions: `.docs/`.
 - Important files that describe the project, its current state, and future plans:
-  - [.docs/game-concept.md]: Elevator pitch, player fantasy, core mechanics, unique features.
-  - [.docs/glossary.md]: Definitions for key domain terms and concepts.
-  - [.docs/roadmap.md]: Definitions of major features and development phases.
-  - [.docs/backlog.md]: Daily task list derived from milestones, with clear and concise descriptions.
+  - `.docs/game-concept.md`: Elevator pitch, player fantasy, core mechanics, unique features.
+  - `.docs/glossary.md`: Definitions for key domain terms and concepts.
+  - `.docs/roadmap.md`: Definitions of major features and development phases.
+  - `.docs/backlog.md`: Daily task list derived from milestones, with clear and concise descriptions.
 - If the files above are missing or incomplete, notify the user that they are important and they should prioritize creating and filling them in before proceeding with other tasks.
 - Create those files lazily — only when you have something to write by using their templates in `.agents/docs/`.
 
