@@ -6,11 +6,14 @@ This file helps AI coding agents become productive quickly in this repository.
 
 - A Godot 4.x game project. (Currently 4.6)
 - Project root for Godot: `src/`
-- Folder for game-specific documentation and instructions: `.docs/`. Notify the user if any of the following are missing:
+- Folder for game-specific documentation and instructions: `.docs/`.
+- Important files that describe the project, its current state, and future plans:
   - `.docs/game-concept.md`: Elevator pitch, player fantasy, core mechanics, unique features.
   - `.docs/glossary.md`: Definitions for key domain terms and concepts.
   - `.docs/milestones.md`: Definitions of major features and development phases.
   - `.docs/roadmap.md`: Daily task list derived from milestones, with clear and concise descriptions.
+- If the files above are missing or incomplete, notify the user that they are important and they should prioritize creating and filling them in before proceeding with other tasks.
+- Create those files lazily — only when you have something to write by using their templates in `.agents/docs/`.
 
 ## Where To Work
 
@@ -27,6 +30,7 @@ This file helps AI coding agents become productive quickly in this repository.
 - Prefer implementing game behavior in `src/Game/`.
 - Modify `src/Modules/` carefully (shared utilities).
 - Avoid editing `src/addons/` unless the task explicitly requires it.
+- Avoid editing `.agents/` unless the task explicitly requires it (agent definitions, skills, rules, etc.).
 
 ## Core Rules
 
@@ -50,4 +54,4 @@ Testing:
 
 ## Tools
 
-- `ph-creator`: an agent available for generating placeholder images. Use it when you need a placeholder image, placeholder icon, mockup tile, dummy graphic, or quick generated image from a short prompt.
+- `.agents/agents/ph-creator.agent.md`: a subagent for generating placeholder images. Use it when you need a placeholder image, placeholder icon, mockup tile, dummy graphic, or quick generated image from a short prompt.
