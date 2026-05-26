@@ -6,7 +6,13 @@ Each one of the sub-milestones aim to be tasks that can be completed in a few da
 
 === WE ARE HERE === [Move this marker down as we progress through the milestones]
 
-## v0: Prototypes (Optional)
+## v0: Project Setup
+
+### v0.1: Start
+
+Run `/start` and `/glossary` to fill in the `game-concept.md` and `glossary.md` documents with the initial game concept and project terms.
+
+### v0.2: Prototyping
 
 Throwaway prototypes to test specific mechanics, interactions, or ideas that are crucial for the game and require experimentation before committing to a full implementation. These prototypes can be quick and dirty, using placeholder assets and minimal polish, as their main purpose is to validate concepts and inform the design of the core loop.
 
