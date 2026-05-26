@@ -1,4 +1,4 @@
-# Workflow
+# User Manual
 
 Key considerations:
 - Every document must use clear terms that are present in the `glossary.md` to avoid ambiguity.
@@ -7,17 +7,21 @@ Key considerations:
 
 1. **Start**:
   - Run `/start [genre, theme, idea, or concept]` to define what the game is.
-  - **Output**: A concise `game-concept.md` file outlining the elevator pitch, player fantasy, core mechanics, and unique features. The game concept must already have terms for key domain entities and systems to avoid ambiguities in later stages.
+  - **Argument**: A short description of the game idea, genre, theme, or concept to kickstart the project. For example: "top-down roguelike set in a cyberpunk city where players control a hacker with unique abilities." You may also reference a custom document with the game.
+  - **Output**: A concise `game-concept.md` file outlining the elevator pitch, player fantasy, core mechanics, and unique features.
 
 2. **Glossary**:
   - Run `/glossary` to identify key domain terms and concepts.
+  - **Argument**: Not required.
   - **Output**: A `glossary.md` file with definitions for important game-specific terminology.
 
 3. **Prototype (Optional)**:
   - Run `/prototype [feature or system name]` to fill in or update the current milestone with prototypes if needed.
+  - **Argument**: The name of a specific feature, mechanic, system, or idea that requires prototyping. For example: "core combat mechanic", "shield system", "enemy AI behavior", "level layout", etc.
   - **Output**: A `milestones.md` file with a roadmap of major features and development phases, including any optional prototypes for testing specific mechanics or ideas.
 
 3. **Milestones**:
   - Run `/milestone` to fill in or update the current milestone.
+  - **Argument**: Not required.
   - **Output**: A `milestones.md` file with a roadmap of major features and development phases.
   

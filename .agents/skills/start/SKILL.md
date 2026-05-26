@@ -31,7 +31,7 @@ When this skill is invoked:
      - Tone anchors language for Elevator Pitch, Player Fantasy, and Further Notes.
      - Session Length anchors pacing constraints for Core Mechanics, Core Loop, and Further Notes.
      - Meta Progression Weight is a major structural decision and must be confirmed, not inferred.
-     - Inspiration provides an initial creative direction and inspiration for the whole concept.
+     - Inspiration provides an initial creative direction for the whole concept and fills in References.
      - Core Twist defines differentiation for Unique Features and the central pitch sentence.
    - Follow with identity confirmation questions (Perspective, Target Platform, Player Count) to complete Game Identity.
    - Rationale: this sequence gathers the smallest decisive set first, keeps ideation short, and satisfies the requirement to avoid unconfirmed major assumptions.

@@ -1,6 +1,8 @@
 # PROJECT STATE: [GAME NAME]
 
+**This is an agent-updated file. Do not edit manually.**
+
 Simple file to keep track of the current state of the project. This file should be updated regularly to reflect the current milestone and sub-milestone that the project is in.
 
-[Milestone Name]
-[Sub-milestone Name]
+Milestone: Undefined
+Sub-milestone: Undefined
