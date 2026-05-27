@@ -33,11 +33,6 @@ Key considerations:
   - **Argument**: Not required.
   - **Output**: A visual diagram (e.g., flowchart, mind map) that illustrates the game's systems, their relationships, and interactions.
 
-**Create Screen**:
-  - Run `/create-screen [screen name]` to create a new screen or scene in the project with efficiency.
-  - **Argument**: The name of the screen to be created. For example: "Main Menu", "Inventory Screen", "Combat HUD", "Pause Menu", etc.
-  - **Output**: A new scene file in the appropriate folder (e.g., `src/Game/Scenes/`) with a basic layout and placeholder elements.
-
 **Scaffold**:
   - Run `/scaffold [feature or system name]` to create a scaffold of code files and folders for a specific feature or system.
   - **Argument**: The name of the feature or system to be scaffolded. For example: "Inventory System", "Combat System", "Dialogue System", etc.
