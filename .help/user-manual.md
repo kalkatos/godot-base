@@ -4,6 +4,16 @@ Key considerations:
 - Every document must use clear terms that are present in the `glossary.md` to avoid ambiguity.
 - When an art asset is needed, the agent should use the subagent `ph-creator` to generate a placeholder image with a descriptive filename, and place it in the `src/Game/Art/_Placeholders` folder. The agent should then reference this asset in the code or scene as needed.
 
+### Core Principles
+
+The vision for this workflow is to create a structured, efficient, and collaborative process for game development using the agent. The workflow is designed to be:
+
+- **Opinionated**: There are strict skills to be run at specific times, with specific arguments, and specific outputs. This structure ensures consistency and clarity in the development process.
+- **Collaborative**: The agent is a partner in the development process, working at your side to create the game. You are the human in the loop. No full delegation here.
+- **Iterative**: Build in cycles of ideation, selection, and refinement. Avoid the waterfall method or one-shot generation.
+- **Bite-sized**: Guide the agent to break down the process into small, manageable steps. Avoid overwhelming it with too much information or too many choices at once.
+- **Lean**: Focus on the minimum viable output at each stage. Avoid unnecessary steps or over-engineering.
+
 ## Core Workflow
 
 1. **Start**:
