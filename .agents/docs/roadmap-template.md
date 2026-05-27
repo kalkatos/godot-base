@@ -4,6 +4,8 @@ Each one of the sprints aim to be tasks that can be completed in a few days to t
 
 **NOTE:** The milestone name is the goal of the milestone to reach, not what it contains.
 
+---
+
 ## v0: Project Setup
 
 The initial setup of the project, including defining the game concept, setting up the development environment, and creating the necessary documentation and tools to manage the project effectively.
@@ -24,6 +26,8 @@ Throwaway prototypes to test specific mechanics, interactions, or ideas that are
 
 [[More prototypes if needed...]]
 
+---
+
 ## v1: Core Loop
 
 Just the bare bones mechanics to have a playable version of the game with placeholders.
@@ -36,6 +40,8 @@ Just the bare bones mechanics to have a playable version of the game with placeh
 
 [[More numbered items as needed...]]
 
+---
+
 ## v2: Vertical Slice
 
 Validated core loop with a small amount of content to demonstrate the game's potential and set the tone for the rest of development.
@@ -44,6 +50,8 @@ Validated core loop with a small amount of content to demonstrate the game's pot
 **Description:** [[TBD]]
 
 [[More numbered items as needed...]]
+
+---
 
 ## v3: Minimum Viable Product (MVP)
 
@@ -54,6 +62,8 @@ The most stripped down version of the game that is still fun and delivers on the
 
 [[More numbered items as needed...]]
 
+---
+
 ## v4: Alpha (Feature Complete)
 
 All core features are implemented, but content may still be placeholder or incomplete. This version should be playable from start to finish with all intended mechanics, but may have bugs, balance issues, and missing content.
@@ -63,6 +73,8 @@ All core features are implemented, but content may still be placeholder or incom
 
 [[More numbered items as needed...]]
 
+---
+
 ## v5: Beta (Content Complete)
 
 All content is implemented and the game is feature complete. This version should be close to release-ready, but may still have bugs, balance issues, and require polish. No need for user stories in this version as all the features should already be implemented and the focus is on polishing and bug fixing.
@@ -71,6 +83,8 @@ All content is implemented and the game is feature complete. This version should
 **Description:** [[TBD]]
 
 [[More numbered items as needed...]]
+
+---
 
 ## v6: Launch
 
