@@ -4,5 +4,5 @@
 
 Simple file to keep track of the current state of the project. This file should be updated regularly to reflect the current milestone and sprint that the project is in.
 
-Milestone: Undefined
-Sprint: Undefined
+Milestone: Core Loop
+Sprint: Fighter & Arena Foundation
