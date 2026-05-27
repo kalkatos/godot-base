@@ -21,7 +21,6 @@ Throwaway prototypes to test specific mechanics, interactions, or ideas that are
 #### Sprint v0.2.1: [[Prototype Name]]
 
 **Description:** [[Short description of the prototype, its goals, and what it will test. For example: "A simple arena prototype to test the core combat mechanics and shield system. The player will face waves of basic enemies while protecting a single meek NPC."]]
-**User Story:** [[A short user story that describes the player's experience with the prototype. For example: "As a player, I want to test the core combat mechanics and shield system in a simple arena setting, so that I can provide feedback on the feel and balance of the gameplay."]]
 
 [[More prototypes if needed...]]
 

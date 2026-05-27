@@ -8,24 +8,24 @@ user-invocable: true
 <what-to-do>
 
 1. **Check Files**
-  - Before starting, check if all the files below exist. If any of them are missing, redirect to the `/milestone` skill and exit this skill.
+  - Before starting, check that all the files below exist. If any are missing, redirect to the `/milestone` skill and exit this skill.
     - `.docs/project-state.md`
     - `.docs/roadmap.md`
     - `.docs/backlog.md`
 
 2. **Check Sprint**
   - Read the project state.
-  - If the milestone is "Undefined", redirect to the `/milestone` skill and exit this skill.
-  - Else if the backlog document has tasks for the current sprint already:
-    - If they are all marked as done, redirect to the `/milestone` skill to finish the sprint and exit this skill.
-    - Else `AskUserQuestion` if they want to review the tasks for the current sprint.
-      - If they confirm, Interview them to review the tasks, offer help to complete them, then exit this skill.
-      - Else, tell them the next incomplete task, offer to help them with it, then exit this skill.
+  - If the milestone is "Undefined" (or any value not in the Milestone List), redirect to the `/milestone` skill and exit this skill.
+  - Else if the backlog has tasks listed AND the backlog header matches the current sprint in the project state:
+    - If all tasks are marked as done, redirect to the `/milestone` skill to finish the sprint and exit this skill.
+    - Else `AskUserQuestion` if the user wants to review the tasks for the current sprint.
+      - If the user confirms, Interview them to review the tasks, offer help to complete them, then exit this skill.
+      - Else, tell the user the next incomplete task, offer to help with it, then exit this skill.
   - Else if the sprint listed in the backlog header differs from the current sprint in the project state:
     - `AskUserQuestion` if you can override the backlog header to match the current sprint in the project state.
-      - If they confirm, clear the backlog tasks and update the header, then go to step 3 (Fill in the Backlog).
+      - If they confirm, clear all existing backlog tasks and update the header, then go to step 3 (Fill in the Backlog).
       - Else, redirect to the `/milestone` skill at the "Change Sprint" step to change the current sprint, then exit this skill.
-  - Else (no tasks in the backlog for the current sprint), go to step 3.
+  - Else (the backlog is empty or has no tasks for the current sprint), go to step 3.
 
 3. **Fill in the Backlog**
   - Interview the user to define the tasks for the current sprint, then write them to the backlog.

@@ -10,34 +10,38 @@ user-invocable: true
 0. **Bootstrap Project Files**
   - Check if `.docs/roadmap.md` exists. If not, create it based on the template in `.agents/docs/roadmap-template.md` and set every milestone and sprint to "TBD".
   - Check if `.docs/backlog.md` exists. If not, create it based on the template in `.agents/docs/backlog-template.md`.
-  - Check if `.docs/project-state.md` exists and contains a defined milestone and sprint. If not, infer the current milestone and sprint from the roadmap by locating the roadmap mark. Create or update the project state accordingly.
+  - Check if `.docs/project-state.md` exists and contains a defined milestone and sprint. If not, infer the current milestone and sprint from the roadmap by locating the Roadmap Marker. Create or update the project state accordingly.
   - If the project state milestone is "TBD" (fresh template), treat it as "Undefined" for the purposes of step 1.
 
 1. **Get Project State**
   - Read the project state.
-  - If the milestone is "Undefined" (or "TBD"), update the project state to "Milestone: Project Setup" and "Sprint: Start".
+  - If the milestone is "Undefined", update the project state to "Milestone: Project Setup" and "Sprint: Start".
   - If the milestone is "Project Setup" and the sprint is "Undefined" or "Start":
     - Read `.docs/game-concept.md`.
     - If the game concept does not exist or is incomplete, tell the user to run the `/start` skill and exit this skill.
-  - Check if the current milestone and sprint align with the roadmap mark position in the roadmap. If not, notify the user and `AskUserQuestion` to confirm the current milestone and sprint based on the roadmap, then update the project state accordingly.
+  - Check if the current milestone and sprint align with the Roadmap Marker position in the roadmap. If not, notify the user and `AskUserQuestion` to confirm the current milestone and sprint based on the roadmap, then update the project state accordingly.
 
 2. **Check Milestone**
-  - Read the section about the current milestone in the roadmap.
+  - Read the section about the current milestone in the roadmap. If no section exists for the current milestone, notify the user and create it by appending the milestone to the roadmap using the template format, with no sprints defined yet.
   - If no sprints are defined for the current milestone:
     - Run an Interview to define the sprints for the current milestone.
-    - Go to step 4 (Change Sprint) to change the current sprint to the first one in the list.
+    - Go to step 4 (Change Sprint) to change the current sprint to the first sprint in the list.
   - Else:
     - Read the backlog.
     - If the backlog has tasks for the current sprint:
       - If all tasks are done, go to step 3 (Finish Sprint).
       - Else, redirect to `/daily` and continue from there (exit this skill).
     - Else:
-      - `AskUserQuestion` to confirm the next sprint.
+      - `AskUserQuestion` to confirm the next sprint (the sprint immediately after the Roadmap Marker in the roadmap).
       - Once confirmed, go to step 4 (Change Sprint) to change the current sprint to the one confirmed.
+      - If the user does not confirm, exit this skill.
 
 3. **Finish Sprint**
   - If the finished sprint is a prototype sprint (its name or description references "prototype"), run the `/prototype-review` skill, then continue with the steps below instead of exiting.
-  - Move the roadmap mark to the next sprint in the roadmap.
+  - Determine the next sprint in the roadmap. If no next sprint exists:
+    - If the current milestone is "Launch" (the final milestone), notify the user that the project roadmap is complete and exit this skill.
+    - Otherwise, treat the first sprint of the next milestone as the next sprint. If that milestone has no sprints defined, go to step 2 (Check Milestone) to define them, then return here.
+  - Move the Roadmap Marker to the next sprint in the roadmap.
   - Update the project state to the new sprint.
   - If the new sprint is a prototype sprint (its name or description references "prototype"), run the `/prototype` skill and exit this skill.
   - If the new sprint is in the same milestone, exit this skill.
@@ -47,7 +51,7 @@ user-invocable: true
     - If the user denies, Interview them to understand what is missing for them to consider the milestone goal reached, then exit this skill.
 
 4. **Change Sprint**
-  - Set the roadmap mark and project state to the new sprint.
+  - Set the Roadmap Marker and project state to the new sprint.
   - Clear all tasks from the backlog and update its header to the new sprint.
   - Redirect to `/daily` to fill in the backlog and continue from there (exit this skill).
 
@@ -63,9 +67,9 @@ user-invocable: true
   - Fill in current sprint tasks.
   - Change the current milestone and/or current sprint when the user confirms that they have reached that milestone or done all the tasks in the current sprint.
 - When working on the roadmap, only edit the current milestone section and keep the rest of the document intact.
-- The sprints must be organized sequentially so that the roadmap mark can be moved down and everything above it is already completed. This means that if the user wants to change the current sprint to one that is not the next one in the list, the list must be rearranged to put that sprint next in line after the current one.
-- When changing the current sprint or milestone, the roadmap mark must be updated accordingly.
-- This is the only skill allowed to edit the roadmap and project state documents, so all changes to those documents must be done through this skill to ensure consistency and avoid conflicts.
+- The sprints must be organized sequentially so that the Roadmap Marker can be moved down and everything above it is already completed. This means that if the user wants to change the current sprint to one that is not the next one in the list, the list must be rearranged to put that sprint next in line after the current one.
+- When changing the current sprint or milestone, the Roadmap Marker must be updated accordingly.
+- This is the only skill allowed to edit the roadmap and the project state documents, so all changes to those documents must be done through this skill to ensure consistency and avoid conflicts.
 
 ## How to identify a prototype sprint:
 
@@ -84,7 +88,7 @@ user-invocable: true
   - A tool or pipeline setup
   - A prototype to test a specific mechanic or idea
   - A large refactor or redesign
-- Each sprint must be described as follows:
+- Each sprint must be described as follows (matching the roadmap template format):
   - **Name:** [[Name of the sprint, concise and descriptive. For example: "Backend Communication", "Simulation Layer", "Enemy AI", "Combat System", "Forest Biome"]]
   - **Description:** [[Short description of the sprint. For example: "Create a bare bones level to test the core mechanics.", "Implement the shield mechanic, where the player can block incoming attacks and reflect projectiles back at enemies."]]
 - Examples of badly designed sprints to avoid:
@@ -103,10 +107,8 @@ Milestone can only be one of the names below. Each milestone name is the state o
 5. Beta
 6. Launch
 
-**Sprints Defined**: A milestone has defined sprints if its section in the roadmap contains a list of sprints with descriptions and user stories, even if they are not yet confirmed by the user. The presence of this list indicates that the milestone has a defined structure of work to be done, which can be reviewed and confirmed by the user. 
+**Sprints Defined**: A milestone has defined sprints if its section in the roadmap contains a list of sprints with substantive descriptions and user stories (not placeholder text like "TBD" or "[[Name: TBD]]"), even if the user has not yet confirmed them. The presence of this list indicates that the milestone has a defined structure of work to be done, which can be reviewed and confirmed by the user.
 
 **Game Concept Completeness**: The game concept is complete if it has the following sections filled out with meaningful content: Game Identity, Elevator Pitch, Player Fantasy, Core Mechanics, Core Loop, Unique Features, References, and Further Notes.
-
-
 
 </supporting-info>

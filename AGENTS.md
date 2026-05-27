@@ -81,11 +81,17 @@ Testing:
 **Milestone**: A major development phase that represents a significant goal or achievement in the project. Milestones are defined in the `roadmap.md` can be one of the following "Project Setup", "Core Loop", "Vertical Slice", "MVP", "Alpha", "Beta", and "Launch".
 **_NOT_**: Sprint, Roadmap, Threshold, State, Task, Version, Phase, Duty.
 
+**Milestone List**: The ordered sequence of milestone names that define the project's development phases. Each milestone name is the goal state of the project once that milestone is reached, not a description of what it contains: 0. Project Setup, 1. Core Loop, 2. Vertical Slice, 3. MVP, 4. Alpha, 5. Beta, 6. Launch.
+**_NOT_**: Sprint List, Task List, Feature List, Phase List.
+
 **Roadmap**: The document that formalizes the milestones, providing a clear definition of what each milestone entails and what the project must have on each version. Live in `roadmap.md`.
 **_NOT_**: Milestones, Backlog, Sprints, Tasks, Duties.
 
 **Sprint**: A smaller development phase within a milestone that focuses on specific tasks or features. Sprints are defined in the `roadmap.md` and broken down in tasks in the `backlog.md`.
 **_NOT_**: Milestone, Roadmap, Threshold, State, Task, Version, Phase, Duty, Work.
+
+**Prototype Sprint**: A sprint focused on rapid experimentation to validate a specific mechanic, interaction, or idea before committing to full implementation. A sprint is a prototype sprint if its name or description contains the word "prototype" (case-insensitive).
+**_NOT_**: Feature Sprint, Production Sprint, Milestone.
 
 **Backlog**: The document that formalizes the tasks within a sprint, providing a detailed list of work items to be completed. Live in `backlog.md`.
 **_NOT_**: Milestones, Roadmap, Sprints, Tasks, Duties.
@@ -104,3 +110,15 @@ Testing:
 
 **Project State**: The current status of the project in terms of its milestone and sprint, as documented in `project-state.md`.
 **_NOT_**: Project Status, Project Condition, Project Phase, Project Health.
+
+**Current Sprint**: The sprint the project is actively working on, as recorded in `project-state.md`. The current sprint determines which tasks appear in the `backlog.md`.
+**_NOT_**: Active Sprint, Working Sprint, Ongoing Sprint.
+
+**Game Concept**: The high-level design document (`.docs/game-concept.md`) that defines the game's identity, elevator pitch, player fantasy, core mechanics, core loop, unique features, references, and further notes.
+**_NOT_**: Game Design Document, GDD, Pitch Document.
+
+**Milestone Goal**: The concrete deliverable or state that defines when a milestone is considered reached, as described in the milestone's section of `roadmap.md`.
+**_NOT_**: Milestone Target, Milestone Objective, Milestone Completion.
+
+**Skill**: A named workflow invoked by the user (`/skillname`) or by another skill, defined by a `SKILL.md` file in `.agents/skills/`. Skills encapsulate domain-specific instructions for recurring tasks.
+**_NOT_**: Agent, Tool, Command, Rule.
