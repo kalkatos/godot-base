@@ -2,15 +2,23 @@
 
 Each one of the sprints aim to be tasks that can be completed in a few days to two weeks at most. The goal is to have a clear path to follow and to be able to track progress easily. The milestones should be defined in a way that they build on top of each other, so that the completion of one milestone unlocks the next one. Tasks smaller than those must go to the `backlog.md` document.
 
-**NOTE:** The version name is the goal of the milestone to reach, not what it contains.
+**NOTE:** The milestone name is the goal of the milestone to reach, not what it contains.
 
-=== WE ARE HERE === [[Move this roadmap marker down as we progress through the milestones]]
+## v0: Project Setup
 
-## v0: Prototypes (Optional)
+The initial setup of the project, including defining the game concept, setting up the development environment, and creating the necessary documentation and tools to manage the project effectively.
+
+=== WE ARE HERE (Current milestone and sprint below) === [[Move this roadmap marker down as we progress through the milestones]]
+
+### Sprint v0.1: Start
+
+Create the game concept document with a clear and concise game idea that includes the core gameplay loop, player fantasy, and unique features. This will serve as the foundation for the rest of the development process and will help to align the team on the vision for the game.
+
+### Sprint v0.2: Prototypes (Optional)
 
 Throwaway prototypes to test specific mechanics, interactions, or ideas that are crucial for the game and require experimentation before committing to a full implementation. These prototypes can be quick and dirty, using placeholder assets and minimal polish, as their main purpose is to validate concepts and inform the design of the core loop.
 
-### [[Prototype Name]]
+#### Sprint v0.2.1: [[Prototype Name]]
 
 **Description:** [[Short description of the prototype, its goals, and what it will test. For example: "A simple arena prototype to test the core combat mechanics and shield system. The player will face waves of basic enemies while protecting a single meek NPC."]]
 **User Story:** [[A short user story that describes the player's experience with the prototype. For example: "As a player, I want to test the core combat mechanics and shield system in a simple arena setting, so that I can provide feedback on the feel and balance of the gameplay."]]
