@@ -20,7 +20,7 @@ Just the bare bones mechanics to have a playable version of the game with placeh
 
 ### Sprint v1.1: Fighter & Arena Foundation
 
-**Description:** Side-view 2D arena with two placeholder fighters, basic movement and positioning states, health bars, and round structure. All visuals are placeholders — the goal is a functional arena where two entities can face each other.
+**Description:** Side-view 2D arena with two placeholder fighters, card-driven positioning and animation states (no free movement — all actions are deck-driven), health bars, and round structure. All visuals are placeholders — the goal is a functional arena where two entities can face each other.
 
 ### Sprint v1.2: Tactic Card & Deck System
 
@@ -32,7 +32,7 @@ Just the bare bones mechanics to have a playable version of the game with placeh
 
 ### Sprint v1.4: Fight Simulation & Replay
 
-**Description:** Autonomous fight execution: the AI decisions play out in real-time with hit detection, damage calculation, health tracking, and visual feedback. The fight is watchable as a replay (~3 min per match).
+**Description:** Autonomous fight execution: the AI decisions play out in real-time with card-driven action resolution (no physics hitboxes — animation and damage are simulated from card data), health tracking, and visual feedback. The fight is watchable as a replay (~3 min per match).
 
 ### Sprint v1.5: Scouting & Deck Teching
 

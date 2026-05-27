@@ -57,4 +57,5 @@ A roguelite autobattler where you build a fighter's AI brain through a deck of t
 - **Tone**: Stylized and energetic — vibrant fighter personalities, arcade energy, flashy visual effects, big moment punctuation.
 - **Meta-progression**: Light roguelite-lite — unlock new fighters, starter cards, and arenas between runs. No heavy stat grinding.
 - **Pacing**: ~3 min per fight, ~10 opponents per run, ~30 min per full run. Sessions can be picked up and put down between fights.
+- **Simulation Model**: Fights are fully simulation-driven — no real-time physics collisions or player-controlled movement. Cards determine all actions (attacks, blocks, positioning), and outcomes are calculated directly from card data. The spectacle comes from animation and presentation, not from physics interaction.
 - Concept originated from `/start` with seed: "Street Fighter-like fighting game but autobattler. The user defines rules, but the battle happens asynchronously."
