@@ -31,6 +31,6 @@
 
 - The backlog can have only one sprint's tasks at a time, which must be the current sprint in project state. This is to avoid confusion and keep the backlog focused on the current work.
 - When filling in the backlog, make sure to write clear and actionable tasks that can be completed in a few hours up to two days. Avoid vague or broad tasks that are not specific enough to guide the work.
-- A good task is one that has a clear goal, a defined scope, and can be completed within a reasonable timeframe. For example, "Implement player attack animation" is a good task, while "Implement combat system" is too broad and should be broken down into smaller tasks.
+- A good task is one that has a clear goal, a defined scope, and can be completed within a reasonable timeframe. For example, "Implement player attack animation" is a good task, while "Implement combat system" is too broad and more fitting to be a sprint where smaller tasks would look like "Player Attack and Block" + "Basic enemy AI" + "Create attack animations" + "Implement damage calculation".
 
 </supporting-info>
