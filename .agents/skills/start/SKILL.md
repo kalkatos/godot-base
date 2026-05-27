@@ -9,7 +9,6 @@ When this skill is invoked:
 
 1. Parse the argument for an optional genre or theme hint.
    - If `open` or no argument is provided, start from scratch.
-   - Ignore external review-mode files and external gate workflows.
 
 2. Resolve local source documents before questioning.
    - Read `.agents/docs/game-concept-template.md` as the single output schema.
@@ -17,11 +16,7 @@ When this skill is invoked:
    - If `.docs/glossary.md` is missing, create it when the first term needs definition.
    - If `.docs/game-concept.md` exists, resume and refine rather than restart.
 
-3. Run collaborative ideation in short interactive phases.
-   - Use `AskUserQuestion` for constrained choices.
-   - Use free-text prompts for nuanced answers.
-   - Do not silently invent major decisions without user confirmation.
-   - Start with exactly five anchor questions before any drafting:
+3. Interview the user to confirm creative anchors and constraints about the topics below, which will guide the concept generation and prevent generic outputs. For each topic, await user answers before proceeding:
      1. Tone
      2. Session Length
      3. Meta Progression Weight
@@ -62,7 +57,7 @@ When this skill is invoked:
      8. Further Notes
    - Keep each section brief: 1 to 3 bullets where possible.
    - Use clear and unambiguous terminology aligned to `.docs/glossary.md`.
-   - Do not add extra sections such as MDA tables, player taxonomy, technical feasibility gates, or pipeline checklists.
+   - Do not add extra sections such as MDA tables, player taxonomy, technical feasibility gates, or pipeline checklists unless explicitly requested.
    - If the user provided one or more source documents with existing content, add references to them in the Further Notes section.
 
 7. Write the final document to `.docs/game-concept.md`.
@@ -71,8 +66,8 @@ When this skill is invoked:
 
 8. Return a short completion summary.
    - Include: working title, one-sentence pitch, and written path.
+   - Include a reminder of the next recommended skill from the workflow, if applicable.
 
 Guardrails:
 - This skill is self-contained for this repository.
-- Do not reference external template paths outside this repository.
 - If the user asks for richer downstream docs, suggest separate follow-up skills after concept write is complete.
