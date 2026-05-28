@@ -1,4 +1,4 @@
-# GLOSSARY: [[GAME TITLE]]
+# GLOSSARY: Fighter
 
 This document defines key terms and concepts for the project. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
 
@@ -50,47 +50,56 @@ This document defines key terms and concepts for the project. It should be updat
 **Game Concept**: The high-level design document (`.docs/game-concept.md`) that defines the game's identity, elevator pitch, player fantasy, core mechanics, core loop, unique features, references, and further notes.
 **_NOT_**: Game Design Document, GDD, Pitch Document.
 
-**Fighter**: A combatant entity in the arena controlled by a deck of tactic cards. Has a visual sprite, animation states, and health. All actions (attacks, blocks, positioning) are determined by its deck's AI decisions, not by player input.
-**_NOT_**: Character, Player, Avatar, Hero.
+**Fighter**: A programmable combatant entity in the arena controlled by a state machine. Has a visual sprite, animation states, and health. All actions (attacks, blocks, positioning) are determined by its state machine's autonomous decisions, not by player input. The fighter may be a robot, creature, or humanoid — the player is its programmer.
+**_NOT_**: Character, Player, Avatar, Hero, Unit.
 
 **Arena**: The side-view 2D stage where two fighters face each other. Contains background, ground/platform, and camera. Visuals are placeholders in early sprints.
 **_NOT_**: Stage, Level, Map, Ring.
 
-**Tactic Card (Behavior Card)**: A card that defines a specific action or decision a fighter's AI can make during a fight (e.g., jab, block low, anti-air, jump). The deck of tactic cards IS the fighter's decision-making brain.
-**_NOT_**: Ability, Skill, Move, Action, Spell.
+**State**: A named behavior mode that a fighter enters and stays in until a condition triggers a transition out. Examples: "Keep Distance," "Rush Down," "Defend," "Grapple." While in a state, the fighter executes its associated actions.
+**_NOT_**: Stance, Mode, Phase, Status.
 
-**Deck**: A collection of tactic cards assigned to a fighter, defining all possible actions that fighter can take during a fight. Built before the fight and refined through drafting and teching.
-**_NOT_**: Hand, Pile, Collection, Set.
+**Condition**: A trigger rule that, when met, causes a transition from the current state to a target state. Conditions evaluate opponent proximity, health thresholds, opponent state, distance, or timed intervals. Examples: "Opponent is within melee range," "Health < 50%," "Opponent is in the air."
+**_NOT_**: Trigger, Event, Rule, If-Statement.
 
-**Simulation-Driven Combat**: The combat model where all fight outcomes are resolved from card data — no real-time physics collisions or hitboxes. When a card is played (e.g., kick), the attacker plays the kick animation, the defender plays the hurt animation, and damage is calculated directly from card values.
+**Action**: A concrete behavior the fighter executes while in a state. Actions repeat or sustain for the duration of the state. Examples: "Fire projectile every 2s," "Move backward," "Block incoming attacks," "Grapple opponent."
+**_NOT_**: Move, Ability, Skill, Spell, Command.
+
+**Transition**: A directed wire connecting a condition to a target state within the state machine. When the condition evaluates to true, the fighter transitions from its current state to the target state, where it begins executing that state's actions.
+**_NOT_**: Edge, Link, Connection, Jump, Branch.
+
+**Program (State Machine)**: The complete graph of states, conditions, actions, and transitions that defines a fighter's autonomous behavior during combat. Built before the fight and refined through rewiring and unlocking. The program IS the fighter's decision-making brain.
+**_NOT_**: Deck, Build, Loadout, Script, AI.
+
+**Simulation-Driven Combat**: The combat model where all fight outcomes are resolved from state machine data — no real-time physics collisions or hitboxes. When an action fires (e.g., projectile, grapple), the attacker plays the corresponding animation, the defender plays the reaction animation, and damage is calculated directly from action values. All behavior emerges from state machines evaluating conditions and firing transitions.
 **_NOT_**: Physics Combat, Real-Time Combat, Hitbox Combat.
 
-**Card-Driven Positioning**: Movement and positioning in the arena are determined by tactic cards, not by free player-controlled movement. If a card says a fighter jumps or steps forward, the corresponding animation plays.
+**State-Driven Positioning**: Movement and positioning in the arena are determined by state machine actions, not by free player-controlled movement. If a state's action says the fighter steps forward or jumps backward, the corresponding animation plays.
 **_NOT_**: Free Movement, Player Movement, WASD.
 
-**Replay**: A spectatable autonomous fight (~3 min) where two AI-driven fighters execute their decks. The player watches but does not control the action. Fights are fully animated with hit sparks and camera work.
+**Replay**: A spectatable autonomous fight (~3 min) where two programmed fighters execute their state machines. The player watches but does not control the action. Fights are fully animated with hit sparks, state transition visual indicators, and camera work.
 **_NOT_**: Match, Battle, Fight Session, Simulation.
 
 **Round**: A timed segment within a fight. Managed by a round timer with start/stop/reset. Rounds provide structure for fight pacing and win/loss conditions.
 **_NOT_**: Turn, Phase, Match, Stage.
 
-**Scouting**: The between-fight phase where the player views fragments of the next opponent's deck and their fighting style tendencies to inform deck teching decisions.
-**_NOT_**: Spying, Inspecting, Viewing.
+**Recon**: The between-fight phase where the player views fragments of the next opponent's state machine — their states, key transitions, and behavioral tendencies — to inform rewiring decisions.
+**_NOT_**: Scouting, Spying, Inspecting, Viewing.
 
-**Deck Teching**: The between-fight action of swapping tactic cards in and out of your deck to counter a scouted opponent's tendencies (e.g., adding anti-air cards against a jumper).
-**_NOT_**: Editing, Modifying, Tuning, Tweaking.
+**Rewiring**: The between-fight action of modifying a fighter's state machine — adding, removing, or reconnecting states, conditions, actions, and transitions — to counter a recon'd opponent's tendencies (e.g., adding a "Deflect" state against a projectile-heavy opponent).
+**_NOT_**: Teching, Editing, Modifying, Tuning, Tweaking.
 
-**Drafting**: Picking new tactic cards from a selection after winning a fight, evolving the fighter's deck mid-run.
-**_NOT_**: Looting, Collecting, Earning, Buying.
+**Unlocking**: Picking new states, conditions, or actions from a selection after winning a fight, expanding the fighter's state machine mid-run.
+**_NOT_**: Drafting, Looting, Collecting, Earning, Buying.
 
-**Run (Gauntlet)**: A full playthrough sequence of ~10 opponents in succession, with scouting, teching, and drafting between each fight. A run ends when the player loses a fight or defeats all opponents.
+**Run (Gauntlet)**: A full playthrough sequence of ~10 opponents in succession, with recon, rewiring, and unlocking between each fight. A run ends when the player loses a fight or defeats all opponents.
 **_NOT_**: Session, Game, Match, Campaign.
 
-**Fight Manager**: The orchestrator scene that spawns two fighters in the arena, manages round timers, coordinates card-driven action resolution, and provides hooks for the fight flow.
-**_NOT_**: Game Manager, Battle Controller, Arena Controller.
+**Combat Director**: The orchestrator scene that spawns two fighters in the arena, manages round timers, coordinates state-machine-driven action resolution, evaluates conditions, fires transitions, and provides hooks for the fight flow.
+**_NOT_**: Fight Manager, Game Manager, Battle Controller, Arena Controller.
 
-**State Machine**: The fighter's animation and behavior state system (e.g., idle, attack, hurt). States determine which animations play and transition rules between states. All state transitions are triggered by card-driven actions.
-**_NOT_**: Finite State Machine, FSM, Animation Controller.
+**State Machine**: The core gameplay construct that defines a fighter's autonomous behavior. A directed graph of states (behavior modes), conditions (transition triggers), actions (behaviors executed within a state), and transitions (wires from conditions to target states). The player builds and rewires the state machine between fights; during combat it executes autonomously. This is the primary tool of player expression — the state machine IS the fighter's brain.
+**_NOT_**: Finite State Machine, FSM, Animation Controller, Deck, Program (see Program).
 
 **Milestone Goal**: The concrete deliverable or state that defines when a milestone is considered reached, as described in the milestone's section of `roadmap.md`.
 **_NOT_**: Milestone Target, Milestone Objective, Milestone Completion.
