@@ -44,7 +44,7 @@ The vision for this workflow is to create a structured, efficient, and collabora
   - **Output**: A visual diagram (e.g., flowchart, mind map) that illustrates the game's systems, their relationships, and interactions.
 
 **Scaffold**:
-  - Run `/scaffold [feature or system name]` to create a scaffold of code files and folders for a specific feature or system.
+  - Run `/scaffold [feature or system name]` to create a scaffold of code files and folders for a specific feature or system. Best used for complex features or systems that require a structured starting point for implementation.
   - **Argument**: The name of the feature or system to be scaffolded. For example: "Inventory System", "Combat System", "Dialogue System", etc.
   - **Output**: A structured set of code files and folders in the appropriate location (e.g., `src/Game/Code/`) that provides a starting point for implementing the specified feature or system.
 
