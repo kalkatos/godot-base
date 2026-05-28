@@ -1,6 +1,8 @@
 # GLOSSARY: Fighter
 
-This document defines key terms and concepts for the project. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
+This document defines key terms and concepts for the project to stabilish an ubiquitous language. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
+
+## System Terms
 
 **Agent**: An autonomous entity that can perform tasks, make decisions, and interact with the user and the project files. Agents have specific skills and rules that govern their behavior.
 **_NOT_**: Persona.
@@ -49,6 +51,10 @@ This document defines key terms and concepts for the project. It should be updat
 
 **Game Concept**: The high-level design document (`.docs/game-concept.md`) that defines the game's identity, elevator pitch, player fantasy, core mechanics, core loop, unique features, references, and further notes.
 **_NOT_**: Game Design Document, GDD, Pitch Document.
+
+---
+
+## Project Specific Terms
 
 **Fighter**: A programmable combatant entity in the arena controlled by a state machine. Has a visual sprite, animation states, and health. All actions (attacks, blocks, positioning) are determined by its state machine's autonomous decisions, not by player input. The fighter may be a robot, creature, or humanoid — the player is its programmer.
 **_NOT_**: Character, Player, Avatar, Hero, Unit.
