@@ -1,4 +1,4 @@
-# GAME CONCEPT: [[GAME TITLE]]
+# GAME CONCEPT: [[WORKING TITLE]]
 
 Keep this document brief. Prefer 1 to 3 bullets per section and short sentences over exhaustive detail. This is a high-level overview to align the team on the core identity and vision of the game. Detailed design decisions, mechanics, and features will be defined later in the development process.
 

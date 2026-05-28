@@ -1,4 +1,4 @@
-# ROADMAP: [[GAME NAME]]
+# ROADMAP: [[WORKING TITLE]]
 
 Each one of the sprints aim to be tasks that can be completed in a few days to two weeks at most. The goal is to have a clear path to follow and to be able to track progress easily. The milestones should be defined in a way that they build on top of each other, so that the completion of one milestone unlocks the next one. Tasks smaller than those must go to the `backlog.md` document.
 

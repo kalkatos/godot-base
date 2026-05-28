@@ -1,4 +1,4 @@
-# PROJECT STATE: [GAME NAME]
+# PROJECT STATE: [[WORKING TITLE]]
 
 **This is an agent-updated file. Do not edit manually.**
 

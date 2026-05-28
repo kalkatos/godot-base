@@ -1,6 +1,8 @@
-# GLOSSARY: [[GAME TITLE]]
+# GLOSSARY: [[WORKING TITLE]]
 
-This document defines key terms and concepts for the project. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
+This document defines key terms and concepts for the project to stabilish an ubiquitous language. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
+
+## System Terms
 
 **Agent**: An autonomous entity that can perform tasks, make decisions, and interact with the user and the project files. Agents have specific skills and rules that govern their behavior.
 **_NOT_**: Persona.
@@ -55,3 +57,10 @@ This document defines key terms and concepts for the project. It should be updat
 
 **Skill**: A named workflow invoked by the user (`/skillname`) or by another skill, defined by a `SKILL.md` file in `.agents/skills/`. Skills encapsulate domain-specific instructions for recurring tasks.
 **_NOT_**: Agent, Tool, Command, Rule.
+
+---
+
+## Project Specific Terms
+
+**Example Term**: [[Concise definition of Example Term.]]
+**_NOT_**: [[Negative terms for Example Term.]]

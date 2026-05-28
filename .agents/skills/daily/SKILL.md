@@ -30,6 +30,20 @@ user-invocable: true
 3. **Fill in the Backlog**
   - Interview the user to define the tasks for the current sprint, then write them to the backlog.
 
+4. **Write Decisions**
+  - Read `.docs/decisions.md`.
+  - If any important decisions were made during the interview that were not already recorded, write them to the decisions document.
+
+5. **Keep Up To Date**
+  - While running this skill, often there will occur clarifications, specifications, or detailing of concepts, tasks, or decisions.
+  - Read the documents:
+    - `.docs/game-concept.md`
+    - `.docs/roadmap.md`
+    - `.docs/glossary.md`
+    - `.docs/decisions.md`
+  - If you detect that the user choices during the interview conflict with any of the documents or have implications, notify the user, and use `AskUserQuestion` to know if they want to update the documents to reflect the new choices.
+    - If they confirm, update the relevant documents with the new choices to keep them up to date.
+
 </what-to-do>
 
 <supporting-info>
