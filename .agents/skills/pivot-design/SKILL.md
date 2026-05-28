@@ -10,7 +10,7 @@ Interview the user section-by-section through the game-concept.md, gather the ne
 ## Quick start
 
 1. Verify `.docs/game-concept.md` exists. If not, stop — this skill pivots, it does not create.
-2. Interview the user through each section of the concept (see [Interview flow](#interview-flow)).
+2. Interview the user through each section of the concept (see Interview flow).
 3. After each section is resolved, apply changes to `game-concept.md` immediately.
 4. After all concept sections are updated, scan for stale glossary terms and propagate.
 5. Record the pivot as a decision in `.docs/decisions.md`.
@@ -73,7 +73,5 @@ After all changes are applied, append a decision entry to `.docs/decisions.md`. 
 
 ## Rules
 
-- Never modify `.agents/` files other than the skill being created.
-- Never modify `src/addons/`.
 - Always use terms consistent with the glossary after it's updated.
 - The concept document must stay within the template structure — do not add or remove sections.
