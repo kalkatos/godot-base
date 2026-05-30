@@ -49,5 +49,5 @@ CS-11. **Inferred Assignment Operator**: NEVER use `:=` (inferred type assignmen
 | `Debug` | `Game/Debug/DebugCommands.tscn` | Dev Console |
 | `Pooler` | `Modules/Utils/pooler.gd` | Object Pooling |
 | `AudioController` | `Modules/Audio/AudioController.tscn` | SFX/Music |
-| `Global` | `Game/Globals/Global.tscn` | Config & Runtime State |
+| `Global` | `Game/Globals/Global.tscn` | Global holder object |
 | `Analytics` | `addons/genki-analytics/Analytics.tscn` | Tracking |
