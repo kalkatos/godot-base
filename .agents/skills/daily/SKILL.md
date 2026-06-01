@@ -41,7 +41,7 @@ user-invocable: true
     - `.docs/roadmap.md`
     - `.docs/glossary.md`
     - `.docs/decisions.md`
-  - If you detect that the user choices during the interview conflict with any of the documents or have implications, notify the user, and use `AskUserQuestion` to know if they want to update the documents to reflect the new choices.
+  - If you detect that the choices made during the interview conflict with any of the documents or have implications, notify the user, and use `AskUserQuestion` to know if they want to update the documents to reflect the new choices.
     - If they confirm, update the relevant documents with the new choices to keep them up to date.
 
 </what-to-do>
