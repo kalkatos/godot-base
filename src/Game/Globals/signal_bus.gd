@@ -5,7 +5,6 @@ extends Node
 
 signal _on_music_volume_set (value: float)
 func emit_on_music_volume_set (value: float):
-	Global.music_volume = value
 	if SignalBus != self:
 		_on_music_volume_set.emit(value)
 	SignalBus._on_music_volume_set.emit(value)
@@ -13,7 +12,6 @@ func emit_on_music_volume_set (value: float):
 
 signal _on_sfx_volume_set (value: float)
 func emit_on_sfx_volume_set (value: float):
-	Global.sfx_volume = value
 	if SignalBus != self:
 		_on_sfx_volume_set.emit(value)
 	SignalBus._on_sfx_volume_set.emit(value)
