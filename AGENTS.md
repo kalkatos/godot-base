@@ -36,7 +36,7 @@ This file helps AI coding agents become productive quickly in this repository.
 
 Rules you must follow when working on tasks. These rules are non-negotiable and must be adhered to in order to maintain code quality, consistency, and project organization.
   - Coding Standards: `.agents/rules/coding-standards.md` for code style and standards.
-  - Agent Workflow: `.agents/rules/agent-workflow.md` for common workflows and gotchas to avoid.
+  - Agent workflow and gotchas are folded into `.agents/rules/coding-standards.md` and `.agents/rules/architecture.md`.
   - Screen Creation: `.agents/rules/screen-creation.md` for specific guidelines on creating UI screens and scenes.
   - Architecture: `.agents/rules/architecture.md` TBD
 
