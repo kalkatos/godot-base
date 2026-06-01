@@ -12,6 +12,7 @@ This file helps AI coding agents become productive quickly in this repository.
   - `.docs/glossary.md`: Definitions for key domain terms and concepts.
   - `.docs/roadmap.md`: Definitions of major features and development phases.
   - `.docs/backlog.md`: Daily task list derived from milestones, with clear and concise descriptions.
+  - `.docs/decisions.md`: Record of key decisions, rationale, and alternatives considered.
 - If the files above are missing or incomplete, notify the user that they are important and they should prioritize creating and filling them in before proceeding with other tasks.
 - Create those files lazily — only when you have something to write by using their templates in `.agents/docs/`.
 

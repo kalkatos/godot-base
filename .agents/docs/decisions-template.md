@@ -1,4 +1,4 @@
-# DECISIONS: Read
+# DECISIONS: [[WORKING TITLE]]
 
 Decisions taken during the project that impact the direction of development, design, or other aspects of the game. This document serves as a record of those decisions, the rationale behind them, and any alternatives that were considered.
 
