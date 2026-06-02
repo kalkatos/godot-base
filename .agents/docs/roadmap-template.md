@@ -1,96 +1,102 @@
 # ROADMAP: [[WORKING TITLE]]
 
-Each one of the sprints aim to be tasks that can be completed in a few days to two weeks at most. The goal is to have a clear path to follow and to be able to track progress easily. The milestones should be defined in a way that they build on top of each other, so that the completion of one milestone unlocks the next one. Tasks smaller than those must go to the `backlog.md` document.
+Each sprint should be completable in a few days to two weeks. Milestones build on each other — completing one unlocks the next. Tasks smaller than a sprint belong in `backlog.md`.
 
-**NOTE:** The milestone name is the goal of the milestone to reach, not what it contains.
+**NOTE:** The milestone name is the goal state to reach, not a description of what it contains.
 
 ---
 
 ## v0: Project Setup
 
-The initial setup of the project, including defining the game concept, setting up the development environment, and creating the necessary documentation and tools to manage the project effectively.
+Initial project scaffolding: define the game concept, set up the development environment, create documentation, and establish project management tooling.
 
-=== WE ARE HERE (Current milestone/sprint below) === [[Move this roadmap marker down as we progress through the milestones]]
+=== WE ARE HERE (Current milestone/sprint below) === [[Move this marker down as milestones complete]]
 
 ### Sprint v0.1: Start
 
-Create the game concept document with a clear and concise game idea that includes the core gameplay loop, player fantasy, and unique features. This will serve as the foundation for the rest of the development process and will help to align the team on the vision for the game.
+Create the `game-concept.md` document with a clear and concise game idea. This is the foundation — it aligns the team on vision before any work begins.
+
+**Output:** `.docs/game-concept.md` filled in. No code.
 
 ### Sprint v0.2: Prototypes (Optional)
 
-Throwaway prototypes to test specific mechanics, interactions, or ideas that are crucial for the game and require experimentation before committing to a full implementation. These prototypes can be quick and dirty, using placeholder assets and minimal polish, as their main purpose is to validate concepts and inform the design of the core loop.
+Throwaway prototypes to test specific mechanics that are crucial to the game and require experimentation before committing. Use placeholder assets and minimal polish — the goal is to validate concepts, not ship features.
 
 #### Sprint v0.2.1: [[Prototype Name]]
 
-**Description:** [[Short description of the prototype, its goals, and what it will test. For example: "A simple arena prototype to test the core combat mechanics and shield system. The player will face waves of basic enemies while protecting a single meek NPC."]]
+**Question:** [[The single falsifiable hypothesis this prototype tests. Format: "If the player [action], will they feel [emotion] — evidenced by [signal]?"]]
 
-[[More prototypes if needed...]]
+**Path:** [[HTML / Engine / Paper — chosen based on what's being tested]]
+
+**Success:** [[Specific, measurable criteria for the prototype to pass]]
+
+[[Add more prototype sprints as needed — one per hypothesis]]
 
 ---
 
 ## v1: Core Loop
 
-Just the bare bones mechanics to have a playable version of the game with placeholders.
+Bare-bones mechanics to have a playable version of the game with placeholders. The goal is a functional skeleton — all core systems connected, even if ugly and unbalanced.
 
-### v1.1: [[Name: TBD]]
-**Description:** [[TBD]]
+### Sprint v1.1: [[Name: TBD]]
+**Goal:** [[What must be demonstrable by the end of this sprint]]
 
-### v1.2: [[Name: TBD]]
-**Description:** [[TBD]]
+### Sprint v1.2: [[Name: TBD]]
+**Goal:** [[...]]
 
-[[More numbered items as needed...]]
+[[Add more sprints as needed]]
 
 ---
 
 ## v2: Vertical Slice
 
-Validated core loop with a small amount of content to demonstrate the game's potential and set the tone for the rest of development.
+Validated core loop with a small amount of polished content. This is the "taste test" — enough to demonstrate the game's potential and set the tone for the rest of development. Target: 3–5 minutes of continuous gameplay at near-shippable quality.
 
-### v2.1: [[Name: TBD]]
-**Description:** [[TBD]]
+### Sprint v2.1: [[Name: TBD]]
+**Goal:** [[...]]
 
-[[More numbered items as needed...]]
+[[Add more sprints as needed]]
 
 ---
 
 ## v3: Minimum Viable Product (MVP)
 
-The most stripped down version of the game that is still fun and delivers on the core player fantasy. This version should be playable from start to finish, but with minimal content and placeholder assets.
+The most stripped-down version of the game that is still fun and delivers on the core player fantasy. Playable from start to finish with minimal content and placeholder assets. This is the first version you'd be comfortable showing to a stranger.
 
-### v3.1: [[Name: TBD]]
-**Description:** [[TBD]]
+### Sprint v3.1: [[Name: TBD]]
+**Goal:** [[...]]
 
-[[More numbered items as needed...]]
+[[Add more sprints as needed]]
 
 ---
 
 ## v4: Alpha (Feature Complete)
 
-All core features are implemented, but content may still be placeholder or incomplete. This version should be playable from start to finish with all intended mechanics, but may have bugs, balance issues, and missing content.
+All core features implemented. Content may still be placeholder or incomplete. Playable from start to finish with all intended mechanics — expect bugs, balance issues, and missing content.
 
-### v4.1: [[Name: TBD]]
-**Description:** [[TBD]]
+### Sprint v4.1: [[Name: TBD]]
+**Goal:** [[...]]
 
-[[More numbered items as needed...]]
+[[Add more sprints as needed]]
 
 ---
 
 ## v5: Beta (Content Complete)
 
-All content is implemented and the game is feature complete. This version should be close to release-ready, but may still have bugs, balance issues, and require polish. No need for user stories in this version as all the features should already be implemented and the focus is on polishing and bug fixing.
+All content implemented, all features locked. The game is close to release-ready. Focus shifts to polish, bug fixing, balance, and performance. No new features or user stories — only refinement.
 
-### v5.1: [[Name: TBD]]
-**Description:** [[TBD]]
+### Sprint v5.1: [[Name: TBD]]
+**Goal:** [[...]]
 
-[[More numbered items as needed...]]
+[[Add more sprints as needed]]
 
 ---
 
 ## v6: Launch
 
-The final version of the game that is ready for public release. This version should be polished, stable, and free of major bugs. No need for user stories in this version as all the features should already be implemented and the focus is on polishing and bug fixing.
+The final version ready for public release. Polished, stable, and free of major bugs.
 
-### v6.1: [[Name: TBD]]
-**Description:** [[TBD]]
+### Sprint v6.1: [[Name: TBD]]
+**Goal:** [[...]]
 
-[[More numbered items as needed...]]
+[[Add more sprints as needed]]
