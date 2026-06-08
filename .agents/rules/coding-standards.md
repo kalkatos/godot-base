@@ -48,6 +48,7 @@ CS-11. **Inferred Assignment Operator**: NEVER use `:=` (inferred type assignmen
   - Explicit type: `var my_var: Type = value`
   - Cast to type: `var my_var = value as Type`
   - No type: `var my_var = value`
+CS-12. **Autoload order** If touching autoload/singleton behavior, check initialization order assumptions and avoid circular dependencies.
 
 ## Global Autoloads
 | Name | Path | Purpose |
@@ -60,4 +61,3 @@ CS-11. **Inferred Assignment Operator**: NEVER use `:=` (inferred type assignmen
 | `Global` | `Game/Globals/Global.tscn` | Global holder object |
 | `Analytics` | `addons/genki-analytics/Analytics.tscn` | Tracking |
 
-- If touching autoload/singleton behavior, check initialization order assumptions and avoid circular dependencies.
