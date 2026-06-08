@@ -50,6 +50,7 @@ The Presenter translates: `button_pressed` (View) → `_on_scene_transition_requ
 - `_on_*` signals in `signal_bus.gd` auto-connect via `_ready()` for global accessibility.
 - Paired with `emit_*` helper functions for clean emissions throughout the codebase.
 - In-scene signals remain local; only cross-system events go on SignalBus.
+- The handler of the signal will implement `handle_*` for that signal.
 
 ## Communication Rules
 
@@ -100,11 +101,19 @@ Models are passive Resources. Access them via one of these patterns:
 
 | Pattern | How | When |
 |---------|-----|------|
-| **Direct Export** | `@export var config: MyConfigResource` | Scene-specific config wired in editor |
+| **Direct Export** | `@export var spell: SomeSpell` | Scene-specific data object wired in editor |
 | **Registry/Autoload** | Central config autoload queried at runtime | Shared data needed by multiple systems |
 | **Storage Load** | `Storage.load("key", default)` | Runtime-persisted player data |
 
 Models hold no logic and emit no signals. They are data, nothing more.
+
+## Model types
+
+All model objects are mapped to a `.gd` script in `src/Game/Code/Model/(Config || <Category>)`. They can be Config or Resources.
+| Type | Extension | Folder | What |
+|---|---|---|---|
+| Config | .tscn | `src/Game/_GameDesign/Config` | Variables for systems that can be accessed through autoload. |
+| Resource | .tres | `src/Game/_GameDesign/<Category>` | Portable data containers for game elements like spells, characters, items, etc. |
 
 ## Composition Patterns
 
@@ -124,7 +133,7 @@ These are explicitly forbidden:
 1. **View touching SignalBus directly** — Views don't know what events mean; Presenters translate
 2. **Controller referencing a View** — Controllers are game rules, presentation-agnostic
 3. **Service depending on a higher-level Service** — Violates dependency hierarchy
-4. **Hardcoded values in scripts** — All config lives in `_GameDesign/` Resources
+4. **Hardcoded values in scripts** — All config lives in `_GameDesign/` Resources (data) or Scenes (config)
 5. **Model holding logic** — Models are passive data; no methods beyond getters
 6. **SignalBus signals named after UI** — Domain language only
 
