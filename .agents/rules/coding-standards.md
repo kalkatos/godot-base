@@ -49,6 +49,7 @@ CS-11. **Inferred Assignment Operator**: NEVER use `:=` (inferred type assignmen
   - Cast to type: `var my_var = value as Type`
   - No type: `var my_var = value`
 CS-12. **Autoload order** If touching autoload/singleton behavior, check initialization order assumptions and avoid circular dependencies.
+CS-13. **Descriptive names**: As per *Clean Code*, use descriptive names for variables. No one letter variable names.
 
 ## Global Autoloads
 | Name | Path | Purpose |
