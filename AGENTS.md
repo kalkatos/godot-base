@@ -54,9 +54,14 @@ When a document or task requires you to run an Interview, follow these guideline
 
 ## Run and Test
 
-From `src/` run:
-```powershell
-& 'C:\Program Files\Godot\Godot_console.exe' --headless --path . -s res://addons/gut/gut_cmdln.gd -gdir=res://tests/unit -ginclude_subdirs -gexit -glog=1
+On Windows:
+```bash
+cd src && 'C:\Program Files\Godot\Godot_console.exe' --headless --path . -s res://addons/gut/gut_cmdln.gd -gdir=res://tests/unit -ginclude_subdirs -gexit -glog=1
+```
+
+On Linux:
+```bash
+cd src && '/usr/local/bin/godot' --headless --path . -s res://addons/gut/gut_cmdln.gd -gdir=res://tests/unit -ginclude_subdirs -gexit -glog=1
 ```
 
 Testing:
