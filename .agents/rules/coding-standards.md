@@ -50,6 +50,9 @@ CS-11. **Inferred Assignment Operator**: NEVER use `:=` (inferred type assignmen
   - No type: `var my_var = value`
 CS-12. **Autoload order** If touching autoload/singleton behavior, check initialization order assumptions and avoid circular dependencies.
 CS-13. **Descriptive names**: As per *Clean Code*, use descriptive names for variables. No one letter variable names.
+CS-14. **Enums instead of open values**: If a variable can have a finite range of values, use an enum. Examples: CombatResult (VICTORY, DEFEAT, DRAW); FighterPosition (FRONT, REAR, FLANK); SpellType (DAMAGE, HEAL, BUFF, DEBUFF); Team (TEAM_A, TEAM_B).
+CS-15. **Avoid using dictionaries as data transfer objects**: There are many cons to that approach, but mainly: no enforced schema, lack of type safety, and poor readability. Dictionaries as DTOs are OK only for: rapid prototyping, testing, and serialization friendliness.
+CS-16. **Add types to collections**: Since Godot 4.X, arrays and dictionaries can have types. Add them whenever possible using brackets `Array[String]`, `Dictionary[String, Node]`.
 
 ## Global Autoloads
 | Name | Path | Purpose |
@@ -61,4 +64,3 @@ CS-13. **Descriptive names**: As per *Clean Code*, use descriptive names for var
 | `AudioController` | `Modules/Audio/AudioController.tscn` | SFX/Music |
 | `Global` | `Game/Globals/Global.tscn` | Global holder object |
 | `Analytics` | `addons/genki-analytics/Analytics.tscn` | Tracking |
-
