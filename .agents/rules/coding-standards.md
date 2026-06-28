@@ -53,6 +53,8 @@ CS-13. **Descriptive names**: As per *Clean Code*, use descriptive names for var
 CS-14. **Enums instead of open values**: If a variable can have a finite range of values, use an enum. Examples: CombatResult (VICTORY, DEFEAT, DRAW); FighterPosition (FRONT, REAR, FLANK); SpellType (DAMAGE, HEAL, BUFF, DEBUFF); Team (TEAM_A, TEAM_B).
 CS-15. **Avoid using dictionaries as data transfer objects**: There are many cons to that approach, but mainly: no enforced schema, lack of type safety, and poor readability. Dictionaries as DTOs are OK only for: rapid prototyping, testing, and serialization friendliness.
 CS-16. **Add types to collections**: Since Godot 4.X, arrays and dictionaries can have types. Add them whenever possible using brackets `Array[String]`, `Dictionary[String, Node]`.
+CS-17. **Concise comments**: Use max 1-2 sentences to describe classes, variables, or functions.
+CS-18. **Beware of reserved terms**: In Godot, there are member names that shadow global identifiers. Avoid variable or function names like: pow, seed, name, min, max, abs, sin, cos, print, len, type_of.
 
 ## Global Autoloads
 | Name | Path | Purpose |
