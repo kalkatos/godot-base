@@ -1,10 +1,13 @@
 # 回 DIAN Agentic Gamedev Process v2
 
+Process for developing games using AI. The goal is to use skills to identify what tasks need to be done, and execute them in a structured way following the project's rules and guidelines. The process is designed to be flexible and adaptable to different types of games and development teams.
+
 ## Rules, Guidelines, and Observations
 
-- The entire process has two phases: Pre-production and Production. The pre-production phase is focused on defining the game concept and testing the core mechanics with prototypes. The production phase is focused on building the game in milestones, with daily check-ins to review progress and plan the next steps.
+- The entire process has two phases: Pre-production and Production. The pre-production phase is focused on defining the game concept and (optionally) testing the core mechanics with prototypes. The production phase is focused on building the game in milestones, with daily check-ins to review progress and plan the next steps.
+- The focus is always on the current milestone and sprint with the game vision in mind without over-planning, and not trying to predict the future for the whole project.
 - A day is not bound to a specific date. It is simply a unit of work that represents a set of tasks that can be completed in a single session. A day can be as short as a few hours or as long as a full workday, depending on the complexity of the tasks and the availability of the team.
-- **Milestone List** (ordered, fixed):
+- **Milestone List** (ordered, rigid):
 0. Project Setup
 1. Core Loop
 2. Vertical Slice
