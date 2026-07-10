@@ -19,6 +19,8 @@ Process for developing games using AI. The goal is to use skills to identify wha
 
 ## Files
 
+All documents have a template in the `.docs/templates/` folder. The following files are used in the process:
+
 - `.docs/decisions.md`: A log of all decisions made during the project, including the rationale behind each decision and any alternatives considered.
 - `.docs/glossary.md`: Defines key terms and concepts for the project to establish an ubiquitous language.
 - `.docs/roadmap.md`: Lists milestones and sprints.
@@ -30,7 +32,7 @@ Process for developing games using AI. The goal is to use skills to identify wha
 - `.docs/daily/daily_<vX.Y.Z>.md`: A log of what will be done on a specific day.
 - `.docs/reviews/review_<vX.Y.Z.W>.md`: The content of what was reviewed for a task with a verdict of either "APPROVED" or "NEEDS REVISION".
 
-## Task Fields
+## Task Fields (in order of execution)
 
 - **Game Design**: Tasks related to describing game mechanics, level design, and overall game experience.
 - **Art**: Tasks related to creating placeholders, or describing visual or audio assets for the game.
@@ -51,15 +53,25 @@ Process for developing games using AI. The goal is to use skills to identify wha
 
 - **/milestone** Starts a new milestone. The user must provide what milestone they are targeting, if they don't ask them before proceeding. Use /grill-me with the user to define the current milestone sprints.
   - *Output*: Update the `roadmap.md` and `project-state.md` to reflect the new milestone.
-- **/sprint-planning** Use /grill-me with the user to define the current sprint tasks.
+- **/sprint** Use /grill-me with the user to define the current sprint tasks.
   - *Output*: Update the `roadmap.md`, the `project-state.md`, and the `backlog.md` to reflect the new sprint.
-- **/daily** Use /grill-me with the user to assert what tasks can be completed on the day. Then organize them in order of field if present: 1. Game Design, 2. Art, 3. UI, 4. Programming, 5. Testing.
-- **/task-execution** Identify the task to be executed. If coming from a review with verdict of "NEEDS REVISION", read what was reviewed to fix. Identify the field of the task and invoke the appropriate 'execute' skill. At the end of execution, invoke the /task-review skill to review the completed task and provide feedback. This will help ensure that the work meets the project requirements and quality standards.
-  - **/execute-task-game-design** Gather full context before acting. Follow the game concept, the decisions, the glossary, and the daily notes. Write clear, concise, and actionable design documentation on folder `.docs/game-design/`. Avoid verbosity.
-  - **/execute-task-art** Identify what art assets will be needed. Create placeholder assets for each one of them. Check or create `.docs/art-assets.md` according to template. Add to it the description of each asset identified.
-  - **/execute-task-ui** Gather full context before acting. Follow the game concept, the decisions, the glossary, and the daily notes. Create wireframes first. Then read `.agents/rules/screen-creation.md` and implement the user interface screens, menus, or HUDs.
-  - **/execute-task-programming** Gather full context before acting. Follow coding standards. Write clean, maintainable code. Use prefabs where appropriate. Avoid verbose comments.
-  - **/execute-task-testing** Identify the tests that need to be written. Create test cases that verify the game's functionality and avoid regressions. Follow testing standards.
+- **/daily** Use /grill-me with the user to assert what tasks can be completed on the day. Then organize them in order of field if present: 1. Game Design, 2. Art, 3. UI, 4. Programming, 5. Testing. Invoke `/daily-review` to do a second review pass on the tasks and provide feedback.
+  - *Output*: Update the `backlog.md` to reflect the tasks for the day and create a new file in `.docs/daily/daily_<vX.Y.Z>.md` to log what was discussed.
+- **/daily-review** Review the tasks for the day and provide feedback on their feasibility, priority, and dependencies. If any tasks are deemed unfeasible or require additional information, invoke `/grill-me` to gather more context from the user. Write to the daily log file in `.docs/daily/daily_<vX.Y.Z>.md` with the feedback and any additional context gathered.
+  - *Output*: Update the `backlog.md` to reflect the review and update the daily log file in `.docs/daily/daily_<vX.Y.Z>.md`.
+- **/task-execution** Identify the task to be executed. If coming from a review with verdict of "NEEDS REVISION", read what was reviewed to fix. Identify the field of the task and invoke the appropriate 'execute' skill. At the end of execution, invoke the /task-review skill to review the completed task and provide feedback. This will help ensure that the work meets the project requirements and quality standards. If creating a new file, read `.agents/rules/file-naming.md`.
+  - *Output*: Execution of one of the 'execute' skills below.
+- **/execute-task-game-design** Gather full context before acting. Follow the game concept, the decisions, the glossary, and the daily notes. Write clear, concise, and actionable design documentation on folder `.docs/game-design/`. Avoid verbosity.
+  - *Output*: Update the appropriate design document in `.docs/game-design/` with the new design documentation.
+- **/execute-task-art** Identify what art assets will be needed. Create placeholder assets for each one of them. Check or create `.docs/art-assets.md` according to template. Add to it the description of each asset identified.
+  - *Output*: Update the `.docs/art-assets.md` with the new asset descriptions and create placeholder assets in the appropriate folder.
+- **/execute-task-ui** Gather full context before acting. Follow the game concept, the decisions, the glossary, and the daily notes. Create wireframes first. Then read `.agents/rules/screen-creation.md` and implement the user interface screens, menus, or HUDs as `.tscn` objects. Do not write code for this step.
+  - *Output*: Create or update the appropriate `.tscn` files in `src/Game/Scenes/` or `src/Game/Prefabs/` with the new user interface screens, menus, or HUDs.
+- **/execute-task-programming** Gather full context before acting. Follow `.agents/rules/coding-standards.md` and `.agents/rules/architecture.md`. Write clean, maintainable code. Create and use prefabs where appropriate. Avoid verbose comments.
+  - *Output*: Create or update the appropriate code files in `src/Game/Code/` with the new code. Add prefabs to `src/Game/Prefabs/` if needed.
+- **/execute-task-testing** Identify the tests that need to be written. Create test cases that verify the game's functionality and avoid regressions. Follow testing standards.
+  - *Output*: Create or update the appropriate test files in `src/tests/unit/` with the new test cases.
 - **/task-review** This will help ensure that the work meets the project requirements and quality standards. Review the completed task and provide a verdict of either "APPROVED" or "NEEDS REVISION" on a file in `.docs/reviews/review_<vX.Y.Z.W>.md`. Further reviews for the same task must go to the same file. Stop if reached 3 reviews with verdict of "NEEDS REVISION" and escalate to the user if you see a channel of communication available.
+  - *Output*: Update the appropriate review file in `.docs/reviews/review_<vX.Y.Z.W>.md` with the verdict and any feedback or comments on the completed task.
 
 
