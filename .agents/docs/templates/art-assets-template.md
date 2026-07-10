@@ -18,7 +18,7 @@ List of art assets identified for production during today's session. Each asset 
 
 - **Type:** [[Character sprite / Environment tile / UI element / Background / Effect / Icon / Other]]
 - **Dimensions:** [[Width × Height, e.g., 64×64, 1920×1080]]
-- **Description:** [[Detailed description of what this asset should look like. Include color palette notes, mood, level of detail, animation requirements if any.]]
+- **Description:** [[Detailed description of what this asset should look like in its final form. Include color palette notes, mood, level of detail, animation requirements if any.]]
 - **References:** [[Links to reference images, existing games with similar assets, or concept art]]
 - **Technical notes:** [[Sprite sheet layout, atlas requirements, file format, naming conventions, any engine-specific constraints]]
 - **Assigned to:** [[Artist or placeholder needed?]]

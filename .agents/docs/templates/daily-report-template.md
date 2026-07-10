@@ -57,18 +57,6 @@ Summary of backlog changes:
 
 ---
 
-## Team Assignments
-
-| Persona | Role | Today's Focus |
-|---------|------|---------------|
-| @Angel | Programmer | [[...]] |
-| @Jack | GUI Developer | [[...]] |
-| @Fairy | Art Director | [[...]] |
-| @Levi | Sound Designer | [[...]] |
-| @Imp | QA | [[...]] |
-
----
-
 ## Notes & Observations
 
 - [[Any additional notes, observations, or context that may be useful later.]]
