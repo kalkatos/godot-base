@@ -8,13 +8,14 @@ Process for developing games using AI. The goal is to use skills to identify wha
 - The focus is always on the current milestone and sprint with the game vision in mind without over-planning, and not trying to predict the future for the whole project.
 - A day is not bound to a specific date. It is simply a unit of work that represents a set of tasks that can be completed in a single session. A day can be as short as a few hours or as long as a full workday, depending on the complexity of the tasks and the availability of the team.
 - **Milestone List** (ordered, rigid):
-0. Project Setup
-1. Core Loop
-2. Vertical Slice
-3. MVP
-4. Alpha
-5. Beta
-6. Launch
+  0. Project Setup
+  1. Core Loop
+  2. Vertical Slice
+  3. MVP
+  4. Alpha
+  5. Beta
+  6. Launch
+- The final art and sound assets will be created by the user or a human artist. The AI will only create placeholder assets for the purpose of testing and prototyping.
 
 ## Files
 
