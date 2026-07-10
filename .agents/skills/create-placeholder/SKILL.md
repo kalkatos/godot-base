@@ -1,7 +1,13 @@
 ---
 name: create-placeholder
 description: "Use when you need a placeholder image, icon, mockup tile, dummy graphic, or quick generated image for game development. Invokes create_image.py to generate a .png from a short prompt with configurable size, color, shape, and text."
-user-invocable: true
+version: 2.0.0
+author: Hermes Agent
+license: MIT
+metadata:
+  hermes:
+    tags: [gamedev, production, assets, placeholder]
+    related_skills: [identify-art-assets]
 ---
 
 # /create-placeholder — Placeholder Image Generator
@@ -21,7 +27,7 @@ This is used ad-hoc during Production (steps 11-12) whenever a programmer or UI 
 
 ## The Script
 
-The placeholder generator lives at `.scripts/create_image.py`. It uses PIL/Pillow and requires no external dependencies beyond what's standard.
+The placeholder generator lives at `<project-root>/.scripts/create_image.py`. It uses PIL/Pillow and requires no external dependencies beyond what's standard.
 
 ### Script Flags
 
@@ -68,7 +74,7 @@ Show the command you plan to run and ask for confirmation:
 
 ### 3. Run the Script
 
-Execute the command from the project root. The project root is determined by finding `project.godot` or `src/project.godot` in the working directory.
+Execute the command from the project root. The project root is determined by finding `project.godot` or `src/project.godot` from the workspace directory.
 
 If the script fails with a PIL/Pillow error, install it: `pip install Pillow` and retry.
 
@@ -100,6 +106,10 @@ If the user needs multiple placeholders, offer to batch them:
 3. **Missing Pillow.** The script needs PIL/Pillow. If `pip install Pillow` fails, notify the user.
 4. **Backslash in text.** Line breaks in text should be literal `\n` characters that the script handles — don't escape them twice.
 5. **Overwriting files.** Check if the target file already exists. If so, warn the user before overwriting.
+
+## Support Files
+
+- `references/command-quickref.md` — Full flag reference table, defaults by asset type, common output folders, and troubleshooting. Use this for quick command construction.
 
 ## Verification Checklist
 

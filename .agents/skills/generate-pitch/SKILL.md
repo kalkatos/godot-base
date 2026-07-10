@@ -1,7 +1,13 @@
 ---
 name: generate-pitch
 description: "Use when you need to create a short, compelling elevator pitch for a game based on market research. @Capy (game designer): reads market research, synthesizes a pitch with unique selling points, and writes pitch.md."
-user-invocable: true
+version: 2.0.0
+author: Hermes Agent
+license: MIT
+metadata:
+  hermes:
+    tags: [gamedev, pre-production, design, pitch]
+    related_skills: [do-market-research, start]
 ---
 
 # /generate-pitch — Game Elevator Pitch

@@ -1,7 +1,13 @@
 ---
 name: analyze-risks
 description: "Use when you need to identify gameplay risks that should be tested with prototypes. @Capy (game designer): reads the game concept, analyzes mechanics for uncertainty, and writes risks.md with testable prototype questions."
-user-invocable: true
+version: 2.0.0
+author: Hermes Agent
+license: MIT
+metadata:
+  hermes:
+    tags: [gamedev, pre-production, design, risk-analysis]
+    related_skills: [start, prototype]
 ---
 
 # /analyze-risks — Gameplay Risk Analysis

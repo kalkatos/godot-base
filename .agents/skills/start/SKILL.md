@@ -1,7 +1,13 @@
 ---
 name: start
 description: "Use when you need to create a game concept document from an elevator pitch. @Capy (game designer): runs a guided ideation interview, generates concept directions, defines the core loop, and writes game-concept.md."
-user-invocable: true
+version: 2.0.0
+author: Hermes Agent
+license: MIT
+metadata:
+  hermes:
+    tags: [gamedev, pre-production, design, concept]
+    related_skills: [generate-pitch, analyze-risks]
 ---
 
 # /start — Game Concept Ideation
@@ -24,7 +30,7 @@ This is step 3 of the Agentic Gamedev Process (Pre-production phase).
 
 - Read `.docs/pitch.md` — this is your primary creative input.
 - Read the most recent market research (`.docs/market-research-*.md`) for audience and competitor context.
-- Read `.agents/docs/game-concept-template.md` as the single output schema.
+- Read `.agents/docs/game-concept-template.md` from the project root as the single output schema.
 - Read `.docs/glossary.md` and enforce term consistency. If missing, create it when the first term needs definition.
 - If `.docs/game-concept.md` already exists, resume and refine rather than restarting.
 

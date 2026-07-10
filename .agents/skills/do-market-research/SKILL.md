@@ -1,7 +1,13 @@
 ---
 name: do-market-research
 description: "Use when you need to research the current game market — trending genres, themes, competitor analysis, and potential niches. @Dino (marketer): searches the web, analyzes findings, and writes a market-research report to inform the pitch."
-user-invocable: true
+version: 2.0.0
+author: Hermes Agent
+license: MIT
+metadata:
+  hermes:
+    tags: [gamedev, pre-production, research, market]
+    related_skills: [generate-pitch]
 ---
 
 # /do-market-research — Market Research for Game Development
@@ -22,8 +28,10 @@ This is step 1 of the Agentic Gamedev Process (Pre-production phase).
 
 ### 1. Determine the Project Root
 
-- Look for a Godot project by checking for `project.godot` or `src/project.godot` in the working directory.
+- Read the active workspace directory from the session context.
+- Look for a Godot project by checking for `project.godot` or `src/project.godot`.
 - If a Godot project is found, use its `.docs/` directory for output. Otherwise, ask the user to specify the project root.
+- Store the project root for this session.
 
 ### 2. Gather the Research Scope
 
@@ -50,7 +58,7 @@ Review all collected data. Identify:
 
 ### 5. Write the Market Research Document
 
-Read the template at `.agents/docs/templates/market-research-template.md` and use it as the document structure. Fill in every section with real data from the research.
+Read the template at `.agents/docs/templates/market-research-template.md` from the project root and use it as the document structure. Fill in every section with real data from the research.
 
 Write the output to `.docs/market-research-<short-description>-<date>.md` where:
 - `<short-description>` is a 2-4 word hyphenated summary (e.g., `roguelike-card-battler`)
