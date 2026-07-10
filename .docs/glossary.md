@@ -4,12 +4,6 @@ This document defines key terms and concepts for the project to stabilish an ubi
 
 ## System Terms
 
-**Agent**: An autonomous entity that can perform tasks, make decisions, and interact with the user and the project files. Agents have specific skills and rules that govern their behavior.
-**_NOT_**: Persona.
-
-**Persona**: A name used to refer to a specific agent that is responsible for a certain project or field of expertise. When a persona name is invoked, the corresponding project context is being referred to. For example, if the user says "Hey, [Persona Name], can you help me with this task?", the agent associated with that persona will be activated and will understand that the task is related to the project it is responsible for.
-**_NOT_**: Agent.
-
 **Interview**: A structured conversation between the agent and the user to gather information, clarify requirements, and make decisions. Check the [Interview](#interview) section for guidelines.
 **_NOT_**: Question, Conversation, Dialogue.
 

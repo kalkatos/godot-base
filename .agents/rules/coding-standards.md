@@ -55,6 +55,7 @@ CS-15. **Avoid using dictionaries as data transfer objects**: There are many con
 CS-16. **Add types to collections**: Since Godot 4.X, arrays and dictionaries can have types. Add them whenever possible using brackets `Array[String]`, `Dictionary[String, Node]`.
 CS-17. **Concise comments**: Use max 1-2 sentences to describe classes, variables, or functions.
 CS-18. **Beware of reserved terms**: In Godot, there are member names that shadow global identifiers. Avoid variable or function names like: pow, seed, name, min, max, abs, sin, cos, print, len, type_of.
+CS-19. **Avoid verbose comments**: Comment only 1 to 2 sentences for variables, functions, and classes. Avoid in-line comments.
 
 ## Global Autoloads
 | Name | Path | Purpose |

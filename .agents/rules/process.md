@@ -1,0 +1,50 @@
+# 回 DIAN Agentic Gamedev Process v2
+
+## Rules, Guidelines, and Observations
+
+- The entire process has two phases: Pre-production and Production. The pre-production phase is focused on defining the game concept and testing the core mechanics with prototypes. The production phase is focused on building the game in milestones, with daily check-ins to review progress and plan the next steps.
+- A day is not bound to a specific date. It is simply a unit of work that represents a set of tasks that can be completed in a single session. A day can be as short as a few hours or as long as a full workday, depending on the complexity of the tasks and the availability of the team.
+
+## Files
+
+- `.docs/decisions.md`: A log of all decisions made during the project, including the rationale behind each decision and any alternatives considered.
+- `.docs/glossary.md`: Defines key terms and concepts for the project to establish an ubiquitous language.
+- `.docs/roadmap.md`: Lists milestones and sprints.
+- `.docs/project-state.md`: A simple file to point out what are the current milestone, sprint and day.
+- `.docs/backlog.md`: Lists tasks for the current sprint divided by day.
+- `.docs/art-assets.md`: Lists all art assets needed for the project.
+- `.docs/sound-assets.md`: Lists all sound assets needed for the project.
+- `.docs/design/<system_name>_design.md`: Lists design notes for a specific system.
+- `.docs/daily/daily_<vX.Y.Z>.md`: A log of what will be done on a specific day.
+- `.docs/reviews/review_<vX.Y.Z.W>.md`: The content of what was reviewed for a task with a verdict of either "APPROVED" or "NEEDS REVISION".
+
+## Task Fields
+
+- **Game Design**: Tasks related to describing game mechanics, level design, and overall game experience.
+- **Art**: Tasks related to creating placeholders, or describing visual or audio assets for the game.
+- **Programming**: Tasks related to writing and maintaining the game's code.
+- **UI**: Tasks related to creating wireframes and implementing the user interface.
+- **Testing**: Tasks related to testing the game and identifying bugs.
+
+## The Process
+
+### Pre-production Phase
+
+- **/market-research** Conduct market research to identify trends, target audience, and potential competitors. This will help inform the game concept and design decisions.
+- **/game-concept** Define the game concept, including the genre, core mechanics, and unique selling points. Create a design document that outlines the game's vision and goals.
+- **/risk-assessment** Identify potential risks and challenges that may arise during development. Prototypes must address these risks and test the core mechanics to ensure they are fun and engaging.
+- **/prototype** Develop prototypes to test the core mechanics and address the identified risks. Iterate on the prototypes based on feedback and testing results.
+
+### Production Phase
+
+- **/milestone** Use /grill-me with the user to define the current milestone sprints.
+  - *Output*: Update the `roadmap.md` and `project-state.md` to reflect the new milestone.
+- **/sprint-planning** Use /grill-me with the user to define the current sprint tasks.
+  - *Output*: Update the `roadmap.md`, the `project-state.md`, and the `backlog.md` to reflect the new sprint.
+- **/daily** Use /grill-me with the user to assert what tasks can be completed on the day. Then organize them in order of field if needed: 1. Game Design, 2. Art, 3. Programming, 4. UI, 5. Testing.
+- **/task-execution** Identify the task to be executed. If coming from a review with verdict of "NEEDS REVISION", read what was reviewed to fix. Identify the field of the task (programming, UI, testing, art, design) and invoke the appropriate 'execute' skill. At the end of execution, invoke the /task-review skill to review the completed task and provide feedback. This will help ensure that the work meets the project requirements and quality standards.
+  - **/execute-task-art** Identify what art assets will be needed. Create placeholder assets if necessary. Check or create `.docs/art-assets.md` according to template. Add to it the description of each asset identified.
+  - **/execute-task-programming** Gather full context before acting. Follow coding standards. Write clean, maintainable code. Avoid verbose comments.
+- **/task-review** This will help ensure that the work meets the project requirements and quality standards. Review the completed task and provide a verdict of either "APPROVED" or "NEEDS REVISION" on a file in `.docs/reviews/review_<vX.Y.Z.W>.md`. Further reviews for the same task must go to the same file. Stop if reached 3 reviews with verdict of "NEEDS REVISION" and escalate to the user if you have access to them.
+
+

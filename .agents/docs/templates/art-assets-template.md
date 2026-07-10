@@ -1,14 +1,6 @@
-# ART ASSETS NEEDED: YYYY-MM-DD
+# ART ASSETS NEEDED: [[PROJECT NAME]]
 
-List of art assets identified for production during today's session. Each asset includes a detailed description, references, and instructions. Assets are listed in priority order.
-
----
-
-## Context
-
-- **Milestone:** [[Current milestone]]
-- **Sprint:** [[Current sprint]]
-- **Visual style reference:** [[Link to art bible, mood board, or style guide if one exists]]
+List of all art assets identified as necessary for the project.
 
 ---
 
@@ -50,19 +42,3 @@ List of art assets identified for production during today's session. Each asset 
 - **Assigned to:** [[...]]
 - **Priority:** [[...]]
 - **Depends on:** [[...]]
-
----
-
-## Placeholder Assets Needed
-
-*Assets that can be created with `/create-placeholder` while final art is in progress.*
-
-| Placeholder | Command | Final Asset |
-|-------------|---------|-------------|
-| [[Name]] | `/create-placeholder ...` | [[Asset Name]] |
-
----
-
-## Notes
-
-- [[Any additional context about the art direction, style consistency, or pipeline considerations.]]

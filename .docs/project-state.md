@@ -4,5 +4,6 @@
 
 Simple file to keep track of the current state of the project. This file should be updated regularly to reflect the current milestone and sprint that the project is in.
 
-Milestone: Undefined
-Sprint: Undefined
+Milestone: Undefined [[e.g. v1 Core Loop]]
+Sprint: Undefined [[e.g. v1.1 Battle System]]
+Day: Undefined [[e.g. v1.1.3]]
