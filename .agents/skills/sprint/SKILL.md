@@ -100,27 +100,21 @@ Stop when the user says the sprint is covered. There is no minimum or maximum ta
 
 ### 5. Review Before Writing
 
-Present the sprint plan summarized and grouped by field:
+Present the sprint plan summarized under the Unassigned pool:
 
 ```
 ## Sprint vX.Y: [Name]
 **Goal:** [What must be demonstrable]
 
-### Game Design
-- [ ] [Task Name]: [Description]
-
-### Art
-- [ ] [Task Name]: [Description]
-
-### UI
-- [ ] [Task Name]: [Description]
-
-### Programming
-- [ ] [Task Name]: [Description]
-
-### Testing
-- [ ] [Task Name]: [Description]
+### Unassigned
+- [ ] [Task Name] (Game Design): [Description]
+- [ ] [Task Name] (Art): [Description]
+- [ ] [Task Name] (UI): [Description]
+- [ ] [Task Name] (Programming): [Description]
+- [ ] [Task Name] (Testing): [Description]
 ```
+
+Tasks are grouped by field within Unassigned for readability. Day sub-sections are added later by `/daily`.
 
 Ask: "Does this look right? Adjust anything?"
 
@@ -134,15 +128,18 @@ Once confirmed:
 - `backlog.md` contains ONLY the current sprint's tasks. When starting a **new** sprint (not a re-plan):
   1. Save a copy of the current backlog to `.docs/backlogs/backlog-vX.Y.md` for archival (create the directory if needed).
   2. Remove all previous sprint sections before writing the new one.
-- Replace or create the sprint section with the confirmed tasks, grouped by field in order: Game Design, Art, UI, Programming, Testing.
-- Use the backlog template format (`.agents/templates/backlog-template.md`):
+- Write tasks under `### Unassigned`, grouped by field in order: Game Design, Art, UI, Programming, Testing. Day sub-sections are added later by `/daily`.
+- Format:
   ```
   ## Sprint vX.Y: [Name]
+  **Goal:** [Goal]
+
+  ### Unassigned
   - [ ] [Task Name] (Game Design): [Description]
-  - [ ] [Task Name] (Art): [Description]
+  - [ ] [Task Name] (Programming): [Description]
   ...
   ```
-- If redefining an existing sprint, preserve completed tasks (✅) unless the user explicitly asks to drop them.
+- If redefining an existing sprint, preserve completed tasks (✅) unless the user explicitly asks to drop them. Preserve existing day sub-sections — only rewrite the Unassigned pool.
 
 **Update `roadmap.md`:**
 - Fill in the sprint name and goal if they were placeholders.
