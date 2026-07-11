@@ -147,16 +147,13 @@ Once confirmed:
 - Set `Milestone:` to the new milestone (e.g., `v1 Core Loop`).
 - Set `Sprint:` to `Undefined` (sprint planning is `/sprint`'s job).
 - Set `Day:` to `Undefined`.
-
-**Append to `decisions.md`:**
-- Add a decision entry for the milestone transition:
+- Append a transition entry to the History section:
 
 ```
-**[Milestone Started: vX Name]**
-**What:** Started milestone vX [Name]. Definition of done: [exit criteria].
-**Why:** [Reason for transitioning — based on interview context].
-**When:** [YYYY-MM-DD], vX: [Name], Sprint: N/A.
-**Alternatives Considered:** Remaining on previous milestone; skipping to a later milestone.
+---
+**[vX Name] — Started [YYYY-MM-DD]**
+Definition of done: [exit criteria].
+Why: [Reason for transitioning — based on interview context].
 ```
 
 ### 8. Report Completion
