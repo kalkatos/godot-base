@@ -50,14 +50,18 @@ Derive a short slug from the confirmed scope (e.g., `roguelike-deckbuilder`, `co
 - **Recommendation:** One paragraph synthesizing findings into a clear direction.
 - **Sources:** List sources used (model knowledge acknowledged as such).
 
-**Phase B — Web Enrichment (opportunistic):** Use `fetch_webpage` to supplement specific data points. Attempt these lookups in priority order, but do not block — if any fail or timeout, proceed with model knowledge alone and note it:
+**Phase B — Web Search Enrichment (opportunistic):** Before running any search, check whether `vscode-websearchforcopilot_webSearch` (or any equivalent web search tool) is available in the current toolset.
 
-1. **SteamDB or Steam Charts** — current player counts, saturation signals for the genre (e.g., how many similar games released recently, price distribution).
-2. **Relevant subreddit or forum** (e.g., r/roguelikes, r/cozygames, r/IndieDev) — community sentiment, common complaints about existing games in the genre, what players are asking for.
-3. **Metacritic / OpenCritic** — recent notable releases in the genre, critic vs. user score gaps that signal unmet expectations.
-4. **Steam tags / "More Like This"** — for a key competitor, check what games Steam recommends as similar; reveals how the platform categorizes the genre and what adjacent niches exist.
+- **If available:** Use it to supplement specific data points. Attempt these searches in priority order, but do not block — if any fail or return noise, proceed with model knowledge alone and note it:
 
-If all lookups fail or are skipped, add a note: "Web enrichment not available — findings based on model knowledge as of [training cutoff]."
+  1. **Genre trends & recent releases** — e.g., "best [genre] games 2025 2026 indie trending", "current state of [genre] market saturation"
+  2. **Community sentiment** — e.g., "reddit [genre] what players want complaints underserved", "[genre] games overdone gaps innovation"
+  3. **Competitor specifics** — e.g., "[specific game] review reception player count 2025", "[genre] hidden gems overlooked indie"
+  4. **Adjacent niches** — e.g., "[genre] hybrid games genre-blending innovative", "games like [competitor] but with [twist]"
+
+- **If no web search tool is available:** Tell the user: "No web search tool is available in this environment. Web search produces far better market research than model knowledge alone — it finds real-time data on recent releases, current player counts, pricing, and community sentiment. Model knowledge is frozen at training cutoff and may miss the latest trends. Do you want to continue with model knowledge only, or would you prefer to enable a web search tool first?" Respect their decision.
+
+If proceeding without web search, add a note to the report: "Web enrichment not available — findings based on model knowledge as of [training cutoff]."
 
 ### 4. Sanity Check — Before Writing
 
@@ -96,7 +100,7 @@ Return a summary including:
 3. **Unanchored recommendation.** The recommendation must trace back to data in the report, not be a random opinion.
 4. **Over-interviewing.** The triage is 1-2 questions max. Don't replicate `/game-concept`'s full anchor interview.
 5. **Skipping the lineage note.** Prior reports must be listed so the research trail is visible.
-6. **Web scraping as blocker.** If `fetch_webpage` fails or is slow, proceed without it. Model knowledge alone is sufficient.
+6. **Web search as blocker.** If `vscode-websearchforcopilot_webSearch` returns nothing useful, proceed without it. Model knowledge alone is sufficient.
 
 ## Verification Checklist
 
