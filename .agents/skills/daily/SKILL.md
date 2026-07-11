@@ -65,16 +65,16 @@ Stop when the user says the day is planned. Don't over-plan — a day should hav
 
 ### 5. Review
 
-Present the day plan in field order:
+Present the day plan in field order, with each task assigned a W number (sequential across all fields):
 
 ```
 ## Day vX.Y.Z
 
 ### Game Design
-- [ ] [Task]: [Description]
+- [ ] vX.Y.Z.1 - Design combat system
 
 ### Art
-- [ ] [Task]: [Description]
+- [ ] vX.Y.Z.2 - Create player sprite placeholder
 ...
 ```
 
@@ -84,7 +84,8 @@ Ask: "Ready to commit?"
 
 **Update `backlog.md`:**
 - Move selected tasks from `### Unassigned` into a new `### Day vX.Y.Z` sub-section.
-- Move auto-carried tasks from yesterday's day sub-section into today's.
+- Assign each task a W number (starting at 1, sequential across all fields in the day). Write as: `- [ ] vX.Y.Z.W - Task description`.
+- Move auto-carried tasks from yesterday's day sub-section into today's. Re-number them with today's version (new W numbers).
 - Mark yesterday's completed tasks as `[x]`.
 
 **Update `project-state.md`:**
