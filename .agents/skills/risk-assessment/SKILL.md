@@ -70,19 +70,7 @@ After all risks are identified, present the prioritization table from the templa
 
 Confirm the final ordering with the user.
 
-### 5. Assign Prototype Paths
-
-For each risk, recommend a prototype path based on what the question is testing:
-
-| Question Tests | Recommended Path |
-|----------------|------------------|
-| Feel, juice, game feel | **Engine** (Godot) — need real-time input and feedback |
-| Rules, balance, numbers | **Paper** — spreadsheet, tabletop sim, or manual calculation |
-| Logic, systems, generation | **HTML/JS** — fast iteration, no engine overhead |
-
-Confirm each path with the user.
-
-### 6. Review Before Writing
+### 5. Review Before Writing
 
 Evaluate the risk analysis against these criteria. Present concerns and iterate:
 
@@ -91,11 +79,11 @@ Evaluate the risk analysis against these criteria. Present concerns and iterate:
 - **Coverage:** Did we miss any domain that's critical to this specific concept?
 - **Actionability:** Can someone read this and immediately know what prototype to build?
 
-### 7. Write the Document
+### 6. Write the Document
 
 Write to `.docs/risks.md`. Follow `.agents/templates/risks-template.md` exactly. Create the `.docs/` directory if it doesn't exist.
 
-### 8. Report Completion
+### 7. Report Completion
 
 Return a summary including:
 
@@ -111,8 +99,7 @@ Return a summary including:
 3. **Vague prototype questions.** "Is the game fun?" is untestable. Every question must have a concrete signal.
 4. **Too many risks.** Cap at 5. More than that and you're listing anxieties, not risks.
 5. **Skipping the grill.** A superficial interview produces superficial risks. Grill relentlessly.
-6. **Wrong prototype path.** Don't recommend an engine prototype for a balance question, or a paper prototype for a feel question.
-7. **Not updating decisions.** If a risk assessment leads to a design decision, record it in `.docs/decisions.md`.
+6. **Not updating decisions.** If a risk assessment leads to a design decision, record it in `.docs/decisions.md`.
 
 ## Verification Checklist
 
@@ -123,7 +110,6 @@ Return a summary including:
 - [ ] Grill-me interview completed for each relevant domain
 - [ ] Risks capped at 5 maximum
 - [ ] Prioritization table confirmed with user
-- [ ] Prototype paths assigned and confirmed
 - [ ] Review criteria checked and feedback incorporated
 - [ ] Output written to `.docs/risks.md`
 - [ ] Decisions updated if any were made

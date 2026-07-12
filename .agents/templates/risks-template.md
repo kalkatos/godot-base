@@ -1,6 +1,6 @@
 # RISK ANALYSIS: [[WORKING TITLE]] — YYYY-MM-DD
 
-Identified gameplay risks that are unknown or unproven based on the game concept. These risks should be tested with prototypes before committing to full production. Each risk includes a testable question that a prototype can answer.
+Identified gameplay risks that are unknown or unproven based on the game concept. These risks should be tested with Godot prototypes before committing to full production. Each risk includes a testable question that a prototype can answer.
 
 Keep this document focused — only include risks that can be meaningfully reduced through prototyping.
 
@@ -16,8 +16,6 @@ Keep this document focused — only include risks that can be meaningfully reduc
 
 **Success criteria:** [[How will we know if the prototype validates or refutes the risk? Be specific and measurable.]]
 
-**Prototype path suggestion:** [[HTML / Engine / Paper — based on what the question is testing. Feel → Engine, rules → Paper, logic → HTML.]]
-
 ---
 
 ## Risk 2: [[Risk Name]]
@@ -30,8 +28,6 @@ Keep this document focused — only include risks that can be meaningfully reduc
 
 **Success criteria:** [[...]]
 
-**Prototype path suggestion:** [[...]]
-
 ---
 
 ## Risk 3: [[Risk Name]]
@@ -43,8 +39,6 @@ Keep this document focused — only include risks that can be meaningfully reduc
 **Prototype question:** [[...]]
 
 **Success criteria:** [[...]]
-
-**Prototype path suggestion:** [[...]]
 
 ---
 

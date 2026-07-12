@@ -1,21 +1,20 @@
-# Concept Prototype Report: [Concept Name]
+# Prototype Report: [Prototype Name]
 
 > **Date**: [YYYY-MM-DD]
-> **Prototype Path**: [HTML / Engine / Paper]
-> **Concept File**: design/gdd/game-concept.md (if exists)
+> **Slug**: [prototype-folder-name]
 
 ---
 
 ## Hypothesis
 
 [The falsifiable hypothesis this prototype set out to test:
-"If the player [does X], they will feel [Y] — evidenced by [measurable signal Z]."]
+"If the player [does X], will they feel [Y] — evidenced by [measurable signal Z]."]
 
 ---
 
 ## Riskiest Assumption Tested
 
-[What was identified as the biggest risk in the concept, and whether it proved out.]
+[What was identified as the biggest risk, and whether it proved out. Reference risks.md if applicable.]
 
 ---
 
@@ -23,11 +22,8 @@
 
 [What was built, how long it took, what shortcuts were taken deliberately.]
 
-**Path chosen:** [HTML / Engine / Paper]
-**Reason for path:** [Why this path was appropriate for this hypothesis]
-
 **Shortcuts taken (intentional):**
-- [e.g., hardcoded values, placeholder art, no menus, etc.]
+- [e.g., hardcoded values, placeholder art, no menus, monolith script, etc.]
 
 ---
 
@@ -42,8 +38,6 @@ directly where possible.]
 
 | Metric | Value |
 |--------|-------|
-| Path used | [HTML / Engine / Paper] |
-| Iterations to playable | [N — Engine path only; N/A otherwise] |
 | Prototype duration | [e.g., 4 hours] |
 | Playtesters | [N internal / N external] |
 | Feel assessment | [Specific — "response felt sluggish at 200ms" not "felt bad"] |
@@ -59,21 +53,14 @@ directly where possible.]
 
 ## If Proceeding
 
-[What the prototype revealed that should directly inform GDD writing:]
+[What the prototype revealed that should directly inform production:]
 
 - **Core tuning values discovered:** [e.g., "jump height of 3.5 units felt best"]
 - **Assumptions confirmed:** [What the concept doc assumed that proved true]
 - **Assumptions disproved:** [What the concept doc assumed that proved wrong]
 - **Emergent mechanics:** [Behaviors that appeared during testing worth formalizing]
 
-> Note: If HTML path was used and feel is uncertain, consider an engine prototype
-> targeting feel specifically before committing to GDDs.
-
-**Next steps:**
-1. `/design-review design/gdd/game-concept.md`
-2. `/gate-check`
-3. `/map-systems`
-4. `/design-system [mechanic]` (use learnings in Tuning Knobs and Formulas sections)
+**Next step:** Run `/milestone` to start the Production phase, or `/prototype` to test another risk.
 
 ---
 
@@ -84,7 +71,7 @@ to adjust. Be specific about what to change, not just that something needs chang
 
 **Pivot direction:** [What to try differently]
 **What to keep:** [What worked and should be preserved]
-**Next step:** `/prototype [revised-concept]`
+**Next step:** `/prototype [revised-target]`
 
 ---
 
@@ -93,11 +80,13 @@ to adjust. Be specific about what to change, not just that something needs chang
 [Why this concept does not work — what specific signal led to this verdict.
 This report is the deliverable; no further action needed on this concept.]
 
-**Next step:** `/brainstorm [new-direction]`
+**Next step:** Return to `/game-concept` with a new direction.
 
 ---
 
 ## Lessons Learned
+
+[What this prototype taught that applies beyond this specific concept.]
 
 - **What assumptions were broken by actually building this?**
   [...]
