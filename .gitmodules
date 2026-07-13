@@ -7,3 +7,6 @@
 [submodule "GodotBase/Modules"]
 	path = src/Modules
 	url = https://github.com/kalkatos/gdmodules.git
+[submodule ".agents"]
+	path = .agents
+	url = https://github.com/kalkatos/dian.git
