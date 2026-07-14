@@ -1,4 +1,4 @@
-# GLOSSARY: [[WORKING TITLE]]
+# GLOSSARY: Street
 
 This document defines key terms and concepts for the project to stabilish an ubiquitous language. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
 
@@ -56,5 +56,11 @@ This document defines key terms and concepts for the project to stabilish an ubi
 
 ## Project Specific Terms
 
-**Example Term**: [[Concise definition of Example Term.]]
-**_NOT_**: [[Negative terms for Example Term.]]
+**Technique**: A combat option unlocked during a run that changes how the fighter attacks, moves, or survives.
+**_NOT_**: Skill, Upgrade, Power-up.
+
+**Combo Chain**: A linked sequence of attacks that rewards timing, spacing, and enemy pressure management.
+**_NOT_**: Combo, Chain, Hit Streak.
+
+**Power Surge**: A temporary combat state that boosts the fighter's offensive pressure or defensive resilience for a short window.
+**_NOT_**: Burst, Overdrive, Buff.
