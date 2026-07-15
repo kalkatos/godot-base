@@ -147,7 +147,7 @@ Each battle runs in 1 to 5 minutes.
   - Damage = (Base Damage * (Attacker's POW / Target's DEF))
   - For critical: if a random number between 0 and 1 is lower than (Attacker's LUK / (STATS_RANGE * 0.6) * (CRITICAL_BASE_PCT / 100)), the damage is multiplied by 2.
   - If the damage is negative or equal to zero, it is treated as 1.
-  - For the base attack, the base damage is that character's POW.
+  - For the basic attack, the base damage is that character's POW.
 - The client will receive the battle data from the server as a json object with the following structure:
 ```json
   "seed": 46132522008
@@ -155,7 +155,7 @@ Each battle runs in 1 to 5 minutes.
       "team_name": "e34a80eb",
       "slots": [
         {
-          "id": "character_id",
+          "id": "mage_id",
           "item_1": "item_id_1",
           "item_2": "item_id_2",
           "item_3": "item_id_3",
