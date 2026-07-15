@@ -1,6 +1,6 @@
-# GLOSSARY: [[WORKING TITLE]]
+# GLOSSARY: Mahou
 
-This document defines key terms and concepts for the project to stabilish an ubiquitous language. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
+This document defines key terms and concepts for the project to establish a ubiquitous language. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
 
 ## System Terms
 
@@ -56,5 +56,41 @@ This document defines key terms and concepts for the project to stabilish an ubi
 
 ## Project Specific Terms
 
-**Example Term**: [[Concise definition of Example Term.]]
-**_NOT_**: [[Negative terms for Example Term.]]
+**Team**: A group of 1 to 6 unique characters assembled by the player, each with spells, items, positions, and instructions. Teams are submitted to the server for async matchmaking.
+**_NOT_**: Party, Group, Squad, Roster.
+
+**Character**: A playable mage with stats (HP, MP, POW, DEF, SPD, LUK), a type (Vanguard, Striker, Support), passive abilities, and up to 10 instructions.
+**_NOT_**: Hero, Unit, Champion, Mage (too specific — a character may not be a mage in all contexts).
+
+**Instruction**: A conditional rule (condition → target → action) that dictates a character's behavior during their turn. Evaluated in order; the first with a met condition is executed.
+**_NOT_**: Rule, Script, Command, Gambit, Behavior.
+
+**Spell**: An equipable action with an element, target type, effect (damage/heal/buff/debuff), mana cost, and base value. Each character has up to 3 spell slots.
+**_NOT_**: Skill, Ability, Action, Magic.
+
+**Item**: An equipable or consumable that provides static bonuses, passive abilities, or one-time effects. Each character has up to 3 item slots.
+**_NOT_**: Equipment, Gear, Accessory, Relic.
+
+**Battle**: A deterministic, seed-based combat between two teams running up to MAX_TURNS turns, spectated by the player at variable speed.
+**_NOT_**: Match, Fight, Round, Encounter, Duel.
+
+**Initiative List**: The turn order for a battle, precomputed from each character's SPD + luck factor for MAX_TURNS entries, updated if speed changes mid-combat.
+**_NOT_**: Turn Order, Speed Order, Action Queue.
+
+**Position**: A character's placement on the 2×3 grid (front row: left/middle/right; back row: left/middle/right). Front row characters protect back row from single-target attacks.
+**_NOT_**: Slot, Tile, Cell, Location, Formation.
+
+**Type**: A character's role classification — Vanguard (tank, front row), Striker (damage dealer, any row), or Support (healer/buffer/debuffer, back row).
+**_NOT_**: Class, Role, Job, Archetype.
+
+**Element**: A spell's magical affinity — fire, ice, lightning, wind, earth, water, light, dark, or none. Used in damage calculation and resistance interactions.
+**_NOT_**: Type, Affinity, Attribute, School.
+
+**Seed**: A numeric value that ensures deterministic battle outcomes. Given the same seed and team compositions, the battle result is always identical.
+**_NOT_**: Key, Hash, Random Seed (redundant), ID.
+
+**League**: The competitive ranking system where submitted teams are matched and players climb through wins. Stretch goal beyond MVP.
+**_NOT_**: Ladder, Tournament, Season, Division.
+
+**Desktop Companion**: The format constraint: a small, always-on-top window designed for second-screen play while doing other activities.
+**_NOT_**: Overlay, Widget, Mini-window, Sidebar.

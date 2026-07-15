@@ -1,8 +1,18 @@
 # CODE SCAFFOLDING: MAHOU
 
+Classes inherit according to their use:
+- In Godot:
+  - editor-only: Resource
+  - runtime-only: RefCounted
+  - view-only: Node/Node2D/Node3D/Control
+- In Unity:
+  - editor-only: ScriptableObject
+  - runtime-only: C# base class (no inheritance)
+  - view-only: MonoBehaviour
+
 ## Model
 
-### Class: Mage extends Resource
+### Class: Mage (editor-only)
 Template for a character's stats and passive abilities in editor.
 var mage_id: String
 var hp: int
@@ -13,17 +23,17 @@ var speed: int
 var luck: int
 var abilities: Array[Ability]
 
-### Class: Rule extends Resource
+### Class: Rule (editor-only)
 Base class for all battle modifiers used in abilities, spells, items, and status effects. It has all the virtual methods that will be implemented in inheriting classes.
 
-### Class: Ability extends Resource
+### Class: Ability (editor-only)
 A character's ability that can be used in the game.
 var id: String
 var title: String
 var description: String
 var rules: Array[Rule]
 
-### Class: Spell extends Resource
+### Class: Spell (editor-only)
 A character's spell that can be used in the game.
 var id: String
 var title: String
@@ -33,7 +43,7 @@ var mana_cost: int
 var base_damage: int
 var rules: Array[Rule]
 
-### Class: Item extends Resource
+### Class: Item (editor-only)
 A character's item that can be used in the game.
 var id: String
 var title: String
@@ -42,14 +52,14 @@ var is_consumable: bool
 var charges: int
 var rules: Array[Rule]
 
-### Class: StatusEffect extends Resource
+### Class: StatusEffect (editor-only)
 Status effect that modifies a character.
 var id: String
 var title: String
 var description: String
 var rules: Array[Rule]
 
-### Class: Instruction extends Resource
+### Class: Instruction (editor-only)
 A character's instruction that can be used in the game. It's a Resource mostly for in-editor testing and debugging purposes, runtime uses only InstructionData.
 var condition: Enums.Condition
 var target: Enums.Target
@@ -58,7 +68,7 @@ var action_index: int
 func export () -> InstructionData # To save locally or to be sent to the server.
 func import (data: InstructionData) # To load locally or to be received from the server.
 
-### Class: MageInit extends Resource
+### Class: MageInit (editor-only)
 A character's initial conditions. It's a Resource mostly for in-editor testing and debugging purposes, runtime uses only MageData and MageUnit.
 var mage: Mage
 var spells: Array[Spell]
@@ -67,7 +77,7 @@ var instructions: Array[Instruction]
 func export () -> MageData # To save locally or to be sent to the server.
 func import (data: MageData) # To load locally or to be received from the server.
 
-### Class: Team extends Resource
+### Class: Team (editor-only)
 Team definition. It's a Resource mostly for in-editor testing and debugging purposes, runtime uses only TeamData.
 var front_left: MageInit
 var front_middle: MageInit
@@ -78,7 +88,7 @@ var back_right: MageInit
 func export () -> TeamData # To save locally or to be sent to the server.
 func import (data: TeamData) # To load locally or to be received from the server.
 
-### Class: MageUnit extends RefCounted
+### Class: MageUnit (runtime-only)
 Definitions for a character's stats and passive abilities in runtime. Runtime id is the object's instance id.
 var mage_id: String # Source Mage for reference, not to be used as unique differentiator in dictionaries, etc.
 var hp: int
@@ -95,26 +105,26 @@ var items: Array[Item]
 var instructions: Array[Instruction]
 var status_effects: Array[AppliedStatusEffect]
 
-### Class: AppliedStatusEffect extends RefCounted
+### Class: AppliedStatusEffect (runtime-only)
 Status effect applied to a character.
 var status_effect: StatusEffect
 var stacks: int
 
-### Class: InstructionData extends RefCounted
+### Class: InstructionData (runtime-only)
 A character's instruction in simple data format.
 var condition: String
 var target: String
 var action_type: String
 var action_index: int
 
-### Class: MageData extends RefCounted
+### Class: MageData (runtime-only)
 A character's initial conditions in simple data format.
 var mage_id: String
 var spell_ids: Array[String]
 var item_ids: Array[String]
 var instructions: Array[InstructionData]
 
-### Class: TeamData extends RefCounted
+### Class: TeamData (runtime-only)
 Team definition for a battle in simple data format.
 var front_left: MageData
 var front_middle: MageData
@@ -123,7 +133,7 @@ var back_left: MageData
 var back_middle: MageData
 var back_right: MageData
 
-### Class: BattleData extends RefCounted
+### Class: BattleData (runtime-only)
 Initial data for a battle in simple data format.
 var seed: int
 var team_1: TeamData
@@ -135,12 +145,12 @@ var version: String
 
 ## Control
 
-### Class: RandomNumberGenerator extends RefCounted
+### Class: RandomNumberGenerator (runtime-only)
 Singleton object for a simulation that draws a random number. Any random number within the simulation must be drawn through it to avoid drifting.
 var seed_value: int
 func init (seed_value: int)
 
-### Class: Simulator extends RefCounted
+### Class: Simulator (runtime-only)
 Main calculator of battles. Given a seed number and the teams' composition, the result will always be the same.
 static func run (data: BattleData)
 
