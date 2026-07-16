@@ -1,5 +1,5 @@
 ## Manages scene transitions across the game with fade in/out effects. Listens for scene_transition_requested from any scene controller and determines which scene to load based on the origin and data provided. Hybrid presenter+controller.
-class_name TransitionController
+class_name TransitionPresenter
 extends Control
 
 @export var fade_rect: ColorRect
@@ -56,7 +56,7 @@ func _resolve_target_scene (origin_scene: Enums.SceneName, data: String) -> Pack
 			_current_scene_name = Enums.SceneName.MAIN_MENU
 			_current_scene_data = data
 			return main_menu_scene
-	push_error("TransitionController: Unhandled scene transition request from '%s' with data '%s'" % [Enums.SceneName.keys()[origin_scene], data])
+	push_error("TransitionPresenter: Unhandled scene transition request from '%s' with data '%s'" % [Enums.SceneName.keys()[origin_scene], data])
 	_current_scene_name = Enums.SceneName.MAIN_MENU
 	_current_scene_data = data
 	return main_menu_scene

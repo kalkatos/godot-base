@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csnr56q1b7nat"]
 
-[ext_resource type="Script" uid="uid://c6oqlouuseiwa" path="res://Game/Code/Presenters/character_select_presenter.gd" id="1_ftukv"]
+[ext_resource type="Script" uid="uid://c6oqlouuseiwa" path="res://Game/Code/Presenter/character_select_presenter.gd" id="1_ftukv"]
 [ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="2_vyfej"]
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Modules/Placeholders/Themes/base_theme.tres" id="3_vyfej"]
 

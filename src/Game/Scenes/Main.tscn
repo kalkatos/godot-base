@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dceoe3061w4wb"]
 
-[ext_resource type="Script" uid="uid://bbd52oxrlhd3l" path="res://Game/Code/Control/transition_controller.gd" id="1_2gt0e"]
+[ext_resource type="Script" uid="uid://bbd52oxrlhd3l" path="res://Game/Code/Presenter/transition_presenter.gd" id="1_2gt0e"]
 [ext_resource type="PackedScene" uid="uid://ckau5e8rr7hev" path="res://Game/Scenes/Gameplay.tscn" id="2_h66oc"]
 [ext_resource type="PackedScene" uid="uid://c0lx8ocg413kp" path="res://Game/Scenes/MainMenu.tscn" id="2_wbhe7"]
 [ext_resource type="PackedScene" uid="uid://csnr56q1b7nat" path="res://Game/Scenes/CharacterSelect.tscn" id="4_wcv8c"]
