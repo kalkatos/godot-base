@@ -148,6 +148,7 @@ var origin: Variant
 
 ## Control
 
+
 ### Class: RandomNumberGenerator
 Singleton object for a simulation that draws a random number. Any random number within the simulation must be drawn through it to avoid drifting.
 var seed_value: int
@@ -196,19 +197,25 @@ func clean_up () -> void
 
 ---
 
+## Presenter
+
+
+
+---
+
 ## Enums
 
-### Enum: Position
+### Position
 FRONT_LEFT, FRONT_MIDDLE, FRONT_RIGHT, BACK_LEFT, BACK_MIDDLE, BACK_RIGHT
 
-### Enum: Element
+### Element
 NONE, FIRE, ICE, LIGHTNING, WIND, EARTH, WATER, LIGHT, DARK
 
-### Enum: Condition
+### Condition
 ALWAYS, HP_BELOW_25PCT, HP_BELOW_50PCT, HP_BELOW_75PCT, HP_ABOVE_25PCT, HP_ABOVE_50PCT, HP_ABOVE_75PCT, MP_BELOW_25PCT, MP_BELOW_50PCT, MP_BELOW_75PCT, MP_ABOVE_25PCT, MP_ABOVE_50PCT, MP_ABOVE_75PCT, IS_FIRST_TURN, HAS_STATUS_EFFECT, many more TBD...
 
-### Enum: Target
+### Target
 RANDOM, SELF, ALLY, ENEMY, ALL_ENEMIES, ALL_ALLIES
 
-### Enum: ActionType
+### ActionType
 BASIC_ATTACK, USE_SPELL, USE_ITEM, DIE
