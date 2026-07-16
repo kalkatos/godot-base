@@ -191,13 +191,20 @@ func clean_up () -> void
 
 ---
 
-## View
+## Presenter
 
+### Class: WindowPresenter
+Manages the window controls (close/quit, move, and change handle corner)
 
+### Class: MenuPresenter
+Has buttons for all the game menus and presents HUD information.
+
+### Class: BattlePresenter
+A screen that handles the battle controls (pause, speed 1x, 2x, 4x, and skip to the end)
 
 ---
 
-## Presenter
+## View
 
 
 
@@ -205,17 +212,17 @@ func clean_up () -> void
 
 ## Enums
 
-### Position
+### Enums.Position
 FRONT_LEFT, FRONT_MIDDLE, FRONT_RIGHT, BACK_LEFT, BACK_MIDDLE, BACK_RIGHT
 
-### Element
+### Enums.Element
 NONE, FIRE, ICE, LIGHTNING, WIND, EARTH, WATER, LIGHT, DARK
 
-### Condition
+### Enums.Condition
 ALWAYS, HP_BELOW_25PCT, HP_BELOW_50PCT, HP_BELOW_75PCT, HP_ABOVE_25PCT, HP_ABOVE_50PCT, HP_ABOVE_75PCT, MP_BELOW_25PCT, MP_BELOW_50PCT, MP_BELOW_75PCT, MP_ABOVE_25PCT, MP_ABOVE_50PCT, MP_ABOVE_75PCT, IS_FIRST_TURN, HAS_STATUS_EFFECT, many more TBD...
 
-### Target
+### Enums.Target
 RANDOM, SELF, ALLY, ENEMY, ALL_ENEMIES, ALL_ALLIES
 
-### ActionType
+### Enums.ActionType
 BASIC_ATTACK, USE_SPELL, USE_ITEM, DIE
