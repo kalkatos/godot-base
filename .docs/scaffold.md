@@ -80,6 +80,11 @@ var back_right: MageInit
 func export () -> TeamData # To save locally or to be sent to the server.
 func import (data: TeamData) # To load locally or to be received from the server.
 
+### Class: StorePriceCompendium
+A collection of all the items and spells available in the store and their prices.
+var items: Dictionary[Item, int]
+var spells: Dictionary[Spell, int]
+
 ---
 
 ## Runtime Model
@@ -193,35 +198,38 @@ func clean_up () -> void
 
 ## Presenter
 
-### Class: WindowPresenter
-Type: overlay screen. Accessible from: always on. Description: manages the window controls (close/quit, move, and change handle corner)
+### Class: MainScenePresenter
+Type: scene screen. Accessible from: always on. Description: is the only scene in the game and root for all the other screens. Manages the other screens. There are three modes: Team (shows a team and controls to edit it), Battle (shows a battle with controls to change its speed), and Store (shows the store with controls to buy items).
 
-### Class: MenuPresenter
-Type: overlay screen. Accessible from: foldable on the WindowPresenter. Description: has buttons for all the game menus and presents HUD information: current active teams, a button to add a new team, view history of battles.
+### Class: WindowPresenter
+Type: overlay screen. Accessible from: always on. Description: shows the window controls (close/quit, move, and change handle corner).
 
 ### Class: CharacterSelectPresenter
-Type: overlay screen. Accessible from: TeamScenePresenter. Description: shows and edits a team's composition and stats.
+Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: shows and edits a team's composition and stats.
 
 ### Class: ItemSelectPresenter
-Type: overlay screen. Accessible from: TeamScenePresenter. Description: shows item inventory and adds/removes items from a character.
+Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: shows item inventory and adds/removes items from a character.
 
 ### Class: SpellSelectPresenter
-Type: overlay screen. Accessible from: TeamScenePresenter. Description: shows spell inventory and adds/removes spells from a character.
+Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: shows spell inventory and adds/removes spells from a character.
 
 ### Class: InstructionSelectPresenter
-Type: overlay screen. Accessible from: TeamScenePresenter. Description: allows to edit a character's instructions.
+Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: allows to edit a character's instructions.
 
-### Class: TeamScenePresenter
-Type: scene screen. Accessible from: team related options on the MenuPresenter. Description: shows and edits a team's composition and stats.
+### Class: StorePresenter
+Type: popup screen. Accessible from: MainScenePresenter in Store Mode. Description: allows to buy items and spells.
 
-### Class: BattleScenePresenter
-Type: scene screen. Accessible from: history or main view options on the MenuPresenter. Description: A screen that replays a battle with controls (pause, speed 1x, 2x, 4x, and skip to the end)
+### Class: BattlePresenter
+Type: world (2D). Accessible from: MainScenePresenter in Battle Mode. Description: manages the battle simulation itself, except for the UI.
+
+### Class: TeamPresenter
+Type: world (2D). Accessible from: MainScenePresenter in Team Mode. Description: manages the team presentation in the world.
 
 ---
 
 ## View
 
-
+Inventory of spells, items, and characters. Menu of instructions. Store display. Current teams widget. Menu of buttons for each mode.
 
 ---
 
