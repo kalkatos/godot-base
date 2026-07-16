@@ -23,6 +23,7 @@ character_select_scene = ExtResource("4_wcv8c")
 layer = 128
 
 [node name="FadeRect" type="ColorRect" parent="CanvasLayer" unique_id=1726863755]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
