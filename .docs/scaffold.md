@@ -194,13 +194,28 @@ func clean_up () -> void
 ## Presenter
 
 ### Class: WindowPresenter
-Manages the window controls (close/quit, move, and change handle corner)
+Type: overlay screen. Accessible from: always on. Description: manages the window controls (close/quit, move, and change handle corner)
 
 ### Class: MenuPresenter
-Has buttons for all the game menus and presents HUD information.
+Type: overlay screen. Accessible from: foldable on the WindowPresenter. Description: has buttons for all the game menus and presents HUD information: current active teams, a button to add a new team, view history of battles.
 
-### Class: BattlePresenter
-A screen that handles the battle controls (pause, speed 1x, 2x, 4x, and skip to the end)
+### Class: CharacterSelectPresenter
+Type: overlay screen. Accessible from: TeamScenePresenter. Description: shows and edits a team's composition and stats.
+
+### Class: ItemSelectPresenter
+Type: overlay screen. Accessible from: TeamScenePresenter. Description: shows item inventory and adds/removes items from a character.
+
+### Class: SpellSelectPresenter
+Type: overlay screen. Accessible from: TeamScenePresenter. Description: shows spell inventory and adds/removes spells from a character.
+
+### Class: InstructionSelectPresenter
+Type: overlay screen. Accessible from: TeamScenePresenter. Description: allows to edit a character's instructions.
+
+### Class: TeamScenePresenter
+Type: scene screen. Accessible from: team related options on the MenuPresenter. Description: shows and edits a team's composition and stats.
+
+### Class: BattleScenePresenter
+Type: scene screen. Accessible from: history or main view options on the MenuPresenter. Description: A screen that replays a battle with controls (pause, speed 1x, 2x, 4x, and skip to the end)
 
 ---
 
