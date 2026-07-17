@@ -12,6 +12,7 @@ var defense: int
 var speed: int
 var luck: int
 var abilities: Array[Ability]
+var sprite: Texture2D
 
 ### Class: Rule
 Base class for all battle modifiers used in abilities, spells, items, and status effects. It has all the virtual methods that will be implemented in inheriting classes.
@@ -23,6 +24,7 @@ A character's ability that can be used in the game.
 var id: String
 var title: String
 var description: String
+var icon: Texture2D
 var rules: Array[Rule]
 
 ### Class: Spell
@@ -30,9 +32,9 @@ A character's spell that can be used in the game.
 var id: String
 var title: String
 var description: String
+var icon: Texture2D
 var element: Enums.Element
 var mana_cost: int
-var base_damage: int
 var rules: Array[Rule]
 
 ### Class: Item
@@ -40,6 +42,7 @@ A character's item that can be used in the game.
 var id: String
 var title: String
 var description: String
+var icon: Texture2D
 var is_consumable: bool
 var charges: int
 var rules: Array[Rule]
@@ -198,38 +201,54 @@ func clean_up () -> void
 
 ## Presenter
 
-### Class: MainScenePresenter
+### Class: MainScenePresenter extends CanvasLayer
 Type: scene screen. Accessible from: always on. Description: is the only scene in the game and root for all the other screens. Manages the other screens. There are three modes: Team (shows a team and controls to edit it), Battle (shows a battle with controls to change its speed), and Store (shows the store with controls to buy items).
 
-### Class: WindowPresenter
+### Class: WindowPresenter extends CanvasLayer
 Type: overlay screen. Accessible from: always on. Description: shows the window controls (close/quit, move, and change handle corner).
 
-### Class: CharacterSelectPresenter
+### Class: CharacterSelectPresenter extends CanvasLayer
 Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: shows and edits a team's composition and stats.
 
-### Class: ItemSelectPresenter
+### Class: ItemSelectPresenter extends CanvasLayer
 Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: shows item inventory and adds/removes items from a character.
 
-### Class: SpellSelectPresenter
+### Class: SpellSelectPresenter extends CanvasLayer
 Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: shows spell inventory and adds/removes spells from a character.
 
-### Class: InstructionSelectPresenter
+### Class: InstructionSelectPresenter extends CanvasLayer
 Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: allows to edit a character's instructions.
 
-### Class: StorePresenter
+### Class: StorePresenter extends CanvasLayer
 Type: popup screen. Accessible from: MainScenePresenter in Store Mode. Description: allows to buy items and spells.
 
-### Class: BattlePresenter
+### Class: BattlePresenter extends Node2D
 Type: world (2D). Accessible from: MainScenePresenter in Battle Mode. Description: manages the battle simulation itself, except for the UI.
 
-### Class: TeamPresenter
+### Class: TeamPresenter extends Node2D
 Type: world (2D). Accessible from: MainScenePresenter in Team Mode. Description: manages the team presentation in the world.
+
+### Class: InventoryPresenter extends CanvasLayer
+var container: GridContainer
+func setup (objects: Array[Resource]) -> void
+	# Setup the grid container with the InventoryObjectViews
+	# Hook up each InventoryObjectView signal to the _handle_object_click
+func _handle_object_click (object: InventoryObjectView) -> void
+	# Emit to SignalBus an intention of equipping the object
 
 ---
 
 ## View
+Menu of instructions. Store display. Current teams widget. Menu of buttons for each mode.
 
-Inventory of spells, items, and characters. Menu of instructions. Store display. Current teams widget. Menu of buttons for each mode.
+### Class: InventoryObjectView extends Control
+A visual representation of an object in the inventory (item, spell, or character).
+signal on_click
+var icon_view: TextureRect
+var _object: Resource
+func setup (object: Resource) -> void
+func _handle_click () -> void
+	on_click.emit()
 
 ---
 

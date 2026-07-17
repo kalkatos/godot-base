@@ -1,6 +1,6 @@
 ## Manages scene transitions across the game with fade in/out effects. Listens for scene_transition_requested from any scene controller and determines which scene to load based on the origin and data provided. Hybrid presenter+controller.
 class_name TransitionPresenter
-extends Control
+extends CanvasLayer
 
 @export var fade_rect: ColorRect
 @export_category("Scenes")

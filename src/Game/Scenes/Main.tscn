@@ -1,33 +1,269 @@
 [gd_scene format=3 uid="uid://dceoe3061w4wb"]
 
-[ext_resource type="Script" uid="uid://bbd52oxrlhd3l" path="res://Game/Code/Presenter/transition_presenter.gd" id="1_2gt0e"]
-[ext_resource type="PackedScene" uid="uid://ckau5e8rr7hev" path="res://Game/Scenes/Gameplay.tscn" id="2_h66oc"]
-[ext_resource type="PackedScene" uid="uid://c0lx8ocg413kp" path="res://Game/Scenes/MainMenu.tscn" id="2_wbhe7"]
-[ext_resource type="PackedScene" uid="uid://csnr56q1b7nat" path="res://Game/Scenes/CharacterSelect.tscn" id="4_wcv8c"]
+[ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="1_jri2w"]
+[ext_resource type="Texture2D" uid="uid://blh2xxnow8q73" path="res://Game/Art/_Placeholder/character.png" id="2_h66oc"]
 
-[node name="Main" type="Control" unique_id=396904736 node_paths=PackedStringArray("fade_rect")]
+[node name="Main" type="Node2D" unique_id=423185112]
+
+[node name="WindowPresenter" type="CanvasLayer" parent="." unique_id=1321873098]
+layer = 10
+
+[node name="MoveUp" parent="WindowPresenter" unique_id=29189713 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1235.0
+offset_top = 579.0
+offset_right = 1280.0
+offset_bottom = 624.0
+grow_horizontal = 1
+grow_vertical = 1
+theme_override_font_sizes/font_size = 14
+text = "🡅"
+
+[node name="CloseButton" parent="WindowPresenter" unique_id=2071943302 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1235.0
+offset_top = 622.0
+offset_right = 1280.0
+offset_bottom = 667.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "X"
+
+[node name="MoveLeft" parent="WindowPresenter" unique_id=155227940 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1139.0
+offset_top = 675.0
+offset_right = 1184.0
+offset_bottom = 720.0
+grow_horizontal = 1
+grow_vertical = 1
+theme_override_font_sizes/font_size = 14
+text = "🡄"
+
+[node name="SettingsButton" parent="WindowPresenter" unique_id=1805840324 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1182.0
+offset_top = 675.0
+offset_right = 1227.0
+offset_bottom = 720.0
+grow_horizontal = 1
+grow_vertical = 1
+text = "S"
+
+[node name="MoveButton" parent="WindowPresenter" unique_id=1517794560 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(55, 55)
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1225.0
+offset_top = 665.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 22
+text = "✥"
+
+[node name="MainScenePresenter" type="CanvasLayer" parent="." unique_id=1697466403]
+layer = 8
+
+[node name="MenuBar" type="Control" parent="MainScenePresenter" unique_id=1734221226]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 3
+anchors_preset = 0
+offset_left = 906.0
+offset_top = 675.0
+offset_right = 1123.0
+offset_bottom = 720.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainScenePresenter/MenuBar" unique_id=686204875]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("1_2gt0e")
-fade_rect = NodePath("CanvasLayer/FadeRect")
-main_menu_scene = ExtResource("2_wbhe7")
-gameplay_scene = ExtResource("2_h66oc")
-character_select_scene = ExtResource("4_wcv8c")
+theme_override_constants/separation = -2
+alignment = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1564749977]
-layer = 128
+[node name="MenuButton_1" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=412668824 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1
+"
 
-[node name="FadeRect" type="ColorRect" parent="CanvasLayer" unique_id=1726863755]
-visible = false
+[node name="MenuButton_2" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=1732055813 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "2"
+
+[node name="MenuButton_3" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=1803987388 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "3
+"
+
+[node name="MenuButton_4" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=1918591435 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "4
+"
+
+[node name="MenuButton_5" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=1054967274 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "5
+"
+
+[node name="TeamBar" type="Control" parent="MainScenePresenter" unique_id=163922325]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1205.0
+offset_top = 434.0
+offset_right = 1280.0
+offset_bottom = 576.0
+
+[node name="Panel" type="Panel" parent="MainScenePresenter/TeamBar" unique_id=592054284]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MainScenePresenter/TeamBar/Panel" unique_id=2057344136]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainScenePresenter/TeamBar/Panel/MarginContainer" unique_id=1324007578]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer" unique_id=1027212581]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Team_1" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1655981543 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(59, 0)
+layout_mode = 2
+text = "1"
+
+[node name="Team_2" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=644518533 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(59, 0)
+layout_mode = 2
+text = "2
+"
+
+[node name="Team_3" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=187867543 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(59, 0)
+layout_mode = 2
+text = "3
+"
+
+[node name="Team_4" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=8253207 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(59, 0)
+layout_mode = 2
+text = "4"
+
+[node name="TeamPresenter" type="Node2D" parent="." unique_id=1246766703]
+position = Vector2(585, 259)
+
+[node name="CharacterPlaceholder_1" type="Node2D" parent="TeamPresenter" unique_id=73731467]
+position = Vector2(407, 221)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_1" unique_id=1743706447]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_2" type="Node2D" parent="TeamPresenter" unique_id=668982415]
+position = Vector2(407, 293)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_2" unique_id=64472038]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_3" type="Node2D" parent="TeamPresenter" unique_id=624189085]
+position = Vector2(407, 365)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_3" unique_id=530483789]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_4" type="Node2D" parent="TeamPresenter" unique_id=109399694]
+position = Vector2(335, 221)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_4" unique_id=141385787]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_5" type="Node2D" parent="TeamPresenter" unique_id=324037515]
+position = Vector2(335, 293)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_5" unique_id=1874761599]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_6" type="Node2D" parent="TeamPresenter" unique_id=1291291997]
+position = Vector2(335, 365)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_6" unique_id=608487777]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_7" type="Node2D" parent="TeamPresenter" unique_id=1817674567]
+position = Vector2(575, 221)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_7" unique_id=1156036585]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_8" type="Node2D" parent="TeamPresenter" unique_id=1614709891]
+position = Vector2(575, 293)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_8" unique_id=783589902]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_9" type="Node2D" parent="TeamPresenter" unique_id=400277264]
+position = Vector2(575, 365)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_9" unique_id=342961196]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_10" type="Node2D" parent="TeamPresenter" unique_id=1565269888]
+position = Vector2(503, 221)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_10" unique_id=62740659]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_11" type="Node2D" parent="TeamPresenter" unique_id=38217789]
+position = Vector2(503, 293)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_11" unique_id=1985719922]
+texture = ExtResource("2_h66oc")
+
+[node name="CharacterPlaceholder_12" type="Node2D" parent="TeamPresenter" unique_id=2007169074]
+position = Vector2(503, 365)
+
+[node name="Sprite2D" type="Sprite2D" parent="TeamPresenter/CharacterPlaceholder_12" unique_id=757471837]
+texture = ExtResource("2_h66oc")
