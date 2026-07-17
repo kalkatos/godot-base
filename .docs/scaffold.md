@@ -202,31 +202,26 @@ func clean_up () -> void
 ## Presenter
 
 ### Class: MainScenePresenter extends CanvasLayer
-Type: scene screen. Accessible from: always on. Description: is the only scene in the game and root for all the other screens. Manages the other screens. There are three modes: Team (shows a team and controls to edit it), Battle (shows a battle with controls to change its speed), and Store (shows the store with controls to buy items).
+Type: scene screen. Accessible from: always on. Description: is the only scene in the game and root for all the other screens. Manages the other screens. Has a menu bar that shows different buttons depending on the current mode. In Idle Mode, it shows the buttons: store, inventory, history, and battle. In Battle Mode, it shows the buttons: pause, 1x, 2x, 4x, exit.
+var _mode: Enums.SceneMode
 
 ### Class: WindowPresenter extends CanvasLayer
 Type: overlay screen. Accessible from: always on. Description: shows the window controls (close/quit, move, and change handle corner).
 
-### Class: CharacterSelectPresenter extends CanvasLayer
-Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: shows and edits a team's composition and stats.
+### Class: CharacterEditPresenter extends CanvasLayer
+Type: popup screen. Accessible from: selecting a character in the world. Description: shows a character's stats, abilities, spells, items, and instructions and allows to edit them.
 
-### Class: ItemSelectPresenter extends CanvasLayer
-Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: shows item inventory and adds/removes items from a character.
-
-### Class: SpellSelectPresenter extends CanvasLayer
-Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: shows spell inventory and adds/removes spells from a character.
-
-### Class: InstructionSelectPresenter extends CanvasLayer
-Type: popup screen. Accessible from: MainScenePresenter in Team Mode. Description: allows to edit a character's instructions.
+### Class: HistoryPresenter extends CanvasLayer
+Type: popup screen. Accessible from: a button in the menu. Description: shows the history of battles for current team.
 
 ### Class: StorePresenter extends CanvasLayer
 Type: popup screen. Accessible from: MainScenePresenter in Store Mode. Description: allows to buy items and spells.
 
 ### Class: BattlePresenter extends Node2D
-Type: world (2D). Accessible from: MainScenePresenter in Battle Mode. Description: manages the battle simulation itself, except for the UI.
+Type: world (2D). Accessible from: always on. Description: manages the battle simulation itself, except for the UI. Runs the simulation and updates each character's HP/MP/etc.
 
 ### Class: TeamPresenter extends Node2D
-Type: world (2D). Accessible from: MainScenePresenter in Team Mode. Description: manages the team presentation in the world.
+Type: world (2D). Accessible from: always on. Description: manages the team presentation in the world. In Idle Mode, it shows the selected team and allows to edit it. In Battle Mode, it shows the player's team and the opponent team. Updates when a new team is selected.
 
 ### Class: InventoryPresenter extends CanvasLayer
 var container: GridContainer
@@ -253,6 +248,9 @@ func _handle_click () -> void
 ---
 
 ## Enums
+
+### Enums.SceneMode
+IDLE, BATTLE
 
 ### Enums.Position
 FRONT_LEFT, FRONT_MIDDLE, FRONT_RIGHT, BACK_LEFT, BACK_MIDDLE, BACK_RIGHT
