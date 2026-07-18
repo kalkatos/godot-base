@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d3t21lnoeywha"]
+
+[ext_resource type="PackedScene" uid="uid://bl4ce02fmaq4g" path="res://Game/Prefabs/UI/Presenters/BaseScreen.tscn" id="1_o82f1"]
+
+[node name="CanvasEditPresenter" type="CanvasLayer" unique_id=1201461638]
+
+[node name="RightScreen" parent="." unique_id=1911441534 instance=ExtResource("1_o82f1")]
+visible = false
+
+[node name="LeftScreen" parent="." unique_id=1646228988 instance=ExtResource("1_o82f1")]
+visible = false
+
+[node name="MarginContainer" parent="LeftScreen" index="0" unique_id=2013142131]
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 275
+
+[editable path="LeftScreen"]

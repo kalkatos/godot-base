@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dx0m688dh51je"]
+
+[ext_resource type="PackedScene" uid="uid://bl4ce02fmaq4g" path="res://Game/Prefabs/UI/Presenters/BaseScreen.tscn" id="1_o1iri"]
+
+[node name="HistoryPresenter" type="CanvasLayer" unique_id=1201461638]
+
+[node name="RightScreen" parent="." unique_id=1911441534 instance=ExtResource("1_o1iri")]
+visible = false

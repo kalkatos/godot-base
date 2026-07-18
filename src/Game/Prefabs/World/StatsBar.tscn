@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://cixi0113gqb4v"]
+
+[ext_resource type="Script" uid="uid://duex8oa5c3pqj" path="res://Modules/UI/health_bar.gd" id="1_tws0n"]
+[ext_resource type="Texture2D" uid="uid://jb2ueoafmvyr" path="res://Game/Art/_Placeholder/square.png" id="2_rll40"]
+[ext_resource type="StyleBox" uid="uid://bmefm55f8h56x" path="res://Game/Art/Theme/square_style.tres" id="3_rll40"]
+[ext_resource type="StyleBox" uid="uid://b502a4rr3k4og" path="res://Game/Art/Theme/square_blank.tres" id="3_yn1bx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yn1bx"]
+
+[node name="StatsBar" type="Control" unique_id=903070333]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 8.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2105745502]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="HealthBar" type="Control" parent="VBoxContainer" unique_id=1062083010 node_paths=PackedStringArray("delayed_bar", "real_bar")]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+script = ExtResource("1_tws0n")
+delayed_bar = NodePath("DelayedBar")
+real_bar = NodePath("MainBar")
+metadata/_custom_type_script = "uid://duex8oa5c3pqj"
+
+[node name="BarBackground" type="TextureRect" parent="VBoxContainer/HealthBar" unique_id=1713433987]
+self_modulate = Color(0.10230211, 0.10230211, 0.10230211, 1)
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rll40")
+expand_mode = 1
+
+[node name="DelayedBar" type="ProgressBar" parent="VBoxContainer/HealthBar" unique_id=1748381017]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_yn1bx")
+theme_override_styles/fill = ExtResource("3_yn1bx")
+value = 100.0
+show_percentage = false
+
+[node name="MainBar" type="ProgressBar" parent="VBoxContainer/HealthBar" unique_id=335637174]
+self_modulate = Color(0.99999994, 0.10114857, 0.12538806, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_yn1bx")
+theme_override_styles/fill = ExtResource("3_rll40")
+value = 100.0
+show_percentage = false
+
+[node name="ManaBar" type="Control" parent="VBoxContainer" unique_id=1527630706 node_paths=PackedStringArray("delayed_bar", "real_bar")]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+script = ExtResource("1_tws0n")
+delayed_bar = NodePath("DelayedBar")
+real_bar = NodePath("MainBar")
+metadata/_custom_type_script = "uid://duex8oa5c3pqj"
+
+[node name="BarBackground" type="TextureRect" parent="VBoxContainer/ManaBar" unique_id=536329285]
+self_modulate = Color(0.10230211, 0.10230211, 0.10230211, 1)
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rll40")
+expand_mode = 1
+
+[node name="DelayedBar" type="ProgressBar" parent="VBoxContainer/ManaBar" unique_id=998113761]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_yn1bx")
+theme_override_styles/fill = ExtResource("3_yn1bx")
+value = 100.0
+show_percentage = false
+
+[node name="MainBar" type="ProgressBar" parent="VBoxContainer/ManaBar" unique_id=924481162]
+self_modulate = Color(0, 0.5583258, 0.9341451, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_yn1bx")
+theme_override_styles/fill = ExtResource("3_rll40")
+value = 100.0
+show_percentage = false

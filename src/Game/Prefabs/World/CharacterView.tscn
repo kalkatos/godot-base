@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dncod3svab13g"]
+
+[ext_resource type="Texture2D" uid="uid://blh2xxnow8q73" path="res://Game/Art/_Placeholder/character.png" id="1_f5im4"]
+[ext_resource type="PackedScene" uid="uid://cixi0113gqb4v" path="res://Game/Prefabs/World/StatsBar.tscn" id="2_e4pfo"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0j0w2"]
+viewport_path = NodePath("Info/SubViewport")
+
+[node name="CharacterView" type="Node2D" unique_id=2114937469]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2146219284]
+texture = ExtResource("1_f5im4")
+
+[node name="Info" type="Node2D" parent="." unique_id=959211080]
+position = Vector2(0, 36)
+
+[node name="SubViewport" type="SubViewport" parent="Info" unique_id=1032700853]
+size = Vector2i(64, 8)
+
+[node name="StatsBar" parent="Info/SubViewport" unique_id=903070333 instance=ExtResource("2_e4pfo")]
+
+[node name="InfoSpriteView" type="Sprite2D" parent="Info" unique_id=1359160126]
+texture = SubResource("ViewportTexture_0j0w2")
+
+[editable path="Info/SubViewport/StatsBar"]

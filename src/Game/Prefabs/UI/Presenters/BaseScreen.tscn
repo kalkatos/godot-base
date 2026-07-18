@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bl4ce02fmaq4g"]
+
+[ext_resource type="Script" uid="uid://c7y0qe0vrsik5" path="res://Modules/UI/visibility_animator.gd" id="1_74sl5"]
+[ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="2_lwsy0"]
+
+[node name="VisibilityAnimator" type="Control" unique_id=1911441534 node_paths=PackedStringArray("target")]
+custom_minimum_size = Vector2(550, 340)
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_74sl5")
+target = NodePath(".")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2013142131]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 275
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=222841617]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" parent="MarginContainer/Panel" unique_id=29189713 instance=ExtResource("2_lwsy0")]
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -34.0
+offset_right = 17.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Close"
+
+[connection signal="pressed" from="MarginContainer/Panel/CloseButton" to="." method="animate_visibility" binds= [false]]

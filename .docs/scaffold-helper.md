@@ -21,4 +21,4 @@ Rules to govern the scaffolding process.
 - A presenter class is an aggregator of view objects. It may know positions, transitions, states, and animations. Usually, there is at least one presenter for each game scene (Gameplay, Menu, Character Selection, etc.). Some presenters might also be controllers (the hybrid presenter+controller is a presenter).
 - A controller class holds all the game logic. It modifies the runtime-model classes and sends signals that the presenters can react to. Examples: Battle controller, enemy AI, etc.
 
-- When analyzing a codebase, do not assume the class role by its name. Instead, get the full context of where it is used to determine its role.
+- When analyzing a codebase, do not assume the class layer by its name. Instead, get the full context of where it is used to determine its layer.

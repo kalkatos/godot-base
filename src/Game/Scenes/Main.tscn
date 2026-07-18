@@ -1,186 +1,52 @@
 [gd_scene format=3 uid="uid://dceoe3061w4wb"]
 
+[ext_resource type="PackedScene" uid="uid://b64og3wu6y6bw" path="res://Game/Prefabs/World/TeamHolder.tscn" id="1_h66oc"]
 [ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="1_jri2w"]
-[ext_resource type="Texture2D" uid="uid://jb2ueoafmvyr" path="res://Game/Art/_Placeholder/square.png" id="3_rsmbn"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbhe7"]
-texture = ExtResource("3_rsmbn")
+[ext_resource type="PackedScene" uid="uid://dx0m688dh51je" path="res://Game/Prefabs/UI/Presenters/HistoryPresenter.tscn" id="2_g0nht"]
+[ext_resource type="PackedScene" uid="uid://dmpxk2pttm6g1" path="res://Game/Prefabs/UI/Presenters/StorePresenter.tscn" id="2_wbhe7"]
+[ext_resource type="PackedScene" uid="uid://d3t21lnoeywha" path="res://Game/Prefabs/UI/Presenters/CharacterEditPresenter.tscn" id="4_vbxeb"]
+[ext_resource type="PackedScene" uid="uid://1r5jsmxfs72v" path="res://Game/Prefabs/UI/Presenters/InventoryPresenter.tscn" id="5_aqv53"]
+[ext_resource type="PackedScene" uid="uid://bl4ce02fmaq4g" path="res://Game/Prefabs/UI/Presenters/BaseScreen.tscn" id="7_g0nht"]
 
 [node name="Main" type="Node2D" unique_id=423185112]
 
 [node name="TeamPresenter" type="Node2D" parent="." unique_id=556968609]
-position = Vector2(850, 436)
+position = Vector2(856, 436)
 
 [node name="LeftTeamPosition" type="Node2D" parent="TeamPresenter" unique_id=638287002]
+
+[node name="TeamPresenter" parent="TeamPresenter/LeftTeamPosition" unique_id=1451471530 instance=ExtResource("1_h66oc")]
 
 [node name="RightTeamPosition" type="Node2D" parent="TeamPresenter" unique_id=238603289]
 position = Vector2(164, 0)
 
+[node name="TeamPresenter_2" parent="TeamPresenter/RightTeamPosition" unique_id=1305676519 instance=ExtResource("1_h66oc")]
+
 [node name="BattlePresenter" type="Node2D" parent="." unique_id=1537736161]
-position = Vector2(850, 436)
+position = Vector2(856, 436)
 
-[node name="CharacterEditPresenter" type="CanvasLayer" parent="." unique_id=812519420]
-visible = false
+[node name="HistoryPresenter" parent="." unique_id=1201461638 instance=ExtResource("2_g0nht")]
 
-[node name="Control" type="Control" parent="CharacterEditPresenter" unique_id=919780140]
-custom_minimum_size = Vector2(550, 340)
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="StorePresenter" parent="." unique_id=1058619500 instance=ExtResource("2_wbhe7")]
 
-[node name="MarginContainer" type="MarginContainer" parent="CharacterEditPresenter/Control" unique_id=940511500]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 275
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 50
+[node name="CanvasEditPresenter" parent="." unique_id=1838966306 instance=ExtResource("4_vbxeb")]
 
-[node name="Panel" type="Panel" parent="CharacterEditPresenter/Control/MarginContainer" unique_id=1769527863]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HistoryPresenter" type="CanvasLayer" parent="." unique_id=1597674403]
-visible = false
-
-[node name="Control" type="Control" parent="HistoryPresenter" unique_id=82754225]
-custom_minimum_size = Vector2(550, 340)
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="HistoryPresenter/Control" unique_id=1151350069]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 275
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 50
-
-[node name="Panel" type="Panel" parent="HistoryPresenter/Control/MarginContainer" unique_id=1949319974]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="StorePresenter" type="CanvasLayer" parent="." unique_id=1003400876]
-visible = false
-
-[node name="Control" type="Control" parent="StorePresenter" unique_id=1321209194]
-custom_minimum_size = Vector2(550, 340)
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="StorePresenter/Control" unique_id=1250054041]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 275
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 50
-
-[node name="Panel" type="Panel" parent="StorePresenter/Control/MarginContainer" unique_id=1789156779]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="InventoryPresenter" type="CanvasLayer" parent="." unique_id=925835541]
-visible = false
-
-[node name="InLeft" type="Control" parent="InventoryPresenter" unique_id=1071568190]
-custom_minimum_size = Vector2(550, 340)
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="InventoryPresenter/InLeft" unique_id=644857861]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 80
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 275
-theme_override_constants/margin_bottom = 50
-
-[node name="Panel" type="Panel" parent="InventoryPresenter/InLeft/MarginContainer" unique_id=780646657]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="InRight" type="Control" parent="InventoryPresenter" unique_id=914423346]
-custom_minimum_size = Vector2(550, 340)
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -550.0
-offset_top = -340.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="InventoryPresenter/InRight" unique_id=1748011001]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 275
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 80
-theme_override_constants/margin_bottom = 50
-
-[node name="Panel" type="Panel" parent="InventoryPresenter/InRight/MarginContainer" unique_id=1436941795]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="InventoryPresenter" parent="." unique_id=1199024664 instance=ExtResource("5_aqv53")]
 
 [node name="MainScenePresenter" type="CanvasLayer" parent="." unique_id=1697466403]
 layer = 8
 
-[node name="MenuBar" type="Control" parent="MainScenePresenter" unique_id=1734221226]
+[node name="MenuBarView" type="Control" parent="MainScenePresenter" unique_id=1734221226]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 906.0
+offset_left = 899.0
 offset_top = 675.0
-offset_right = 1123.0
+offset_right = 1116.0
 offset_bottom = 720.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainScenePresenter/MenuBar" unique_id=686204875]
+[node name="IdleModeBar" type="HBoxContainer" parent="MainScenePresenter/MenuBarView" unique_id=686204875]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -190,44 +56,78 @@ grow_vertical = 2
 theme_override_constants/separation = -2
 alignment = 1
 
-[node name="MenuButton_1" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=412668824 instance=ExtResource("1_jri2w")]
+[node name="MenuButton_1" parent="MainScenePresenter/MenuBarView/IdleModeBar" unique_id=412668824 instance=ExtResource("1_jri2w")]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
-text = "1
+text = "Sto"
+
+[node name="MenuButton_2" parent="MainScenePresenter/MenuBarView/IdleModeBar" unique_id=1732055813 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "Inv"
+
+[node name="MenuButton_3" parent="MainScenePresenter/MenuBarView/IdleModeBar" unique_id=1803987388 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "Hst
 "
 
-[node name="MenuButton_2" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=1732055813 instance=ExtResource("1_jri2w")]
+[node name="MenuButton_4" parent="MainScenePresenter/MenuBarView/IdleModeBar" unique_id=1918591435 instance=ExtResource("1_jri2w")]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
-text = "2"
+text = "Bat"
 
-[node name="MenuButton_3" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=1803987388 instance=ExtResource("1_jri2w")]
-custom_minimum_size = Vector2(45, 45)
-layout_mode = 2
-text = "3
-"
-
-[node name="MenuButton_4" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=1918591435 instance=ExtResource("1_jri2w")]
-custom_minimum_size = Vector2(45, 45)
-layout_mode = 2
-text = "4
-"
-
-[node name="MenuButton_5" parent="MainScenePresenter/MenuBar/HBoxContainer" unique_id=1054967274 instance=ExtResource("1_jri2w")]
+[node name="MenuButton_5" parent="MainScenePresenter/MenuBarView/IdleModeBar" unique_id=1054967274 instance=ExtResource("1_jri2w")]
+visible = false
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 text = "5
 "
 
-[node name="TeamBar" type="Control" parent="MainScenePresenter" unique_id=163922325]
+[node name="BattleModeBar" type="HBoxContainer" parent="MainScenePresenter/MenuBarView" unique_id=2109498933]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+alignment = 1
+
+[node name="MenuButton_1" parent="MainScenePresenter/MenuBarView/BattleModeBar" unique_id=29189713 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "Pse"
+
+[node name="MenuButton_2" parent="MainScenePresenter/MenuBarView/BattleModeBar" unique_id=1275440160 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "1x"
+
+[node name="MenuButton_3" parent="MainScenePresenter/MenuBarView/BattleModeBar" unique_id=2102483138 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "2x"
+
+[node name="MenuButton_4" parent="MainScenePresenter/MenuBarView/BattleModeBar" unique_id=214162801 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "4x"
+
+[node name="MenuButton_5" parent="MainScenePresenter/MenuBarView/BattleModeBar" unique_id=1054482436 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "Ext"
+
+[node name="TeamBarView" type="Control" parent="MainScenePresenter" unique_id=163922325]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1205.0
-offset_top = 395.0
+offset_top = 433.0
 offset_right = 1280.0
 offset_bottom = 576.0
 
-[node name="Panel" type="Panel" parent="MainScenePresenter/TeamBar" unique_id=592054284]
+[node name="Panel" type="Panel" parent="MainScenePresenter/TeamBarView" unique_id=592054284]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -236,7 +136,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MainScenePresenter/TeamBar/Panel" unique_id=2057344136]
+[node name="MarginContainer" type="MarginContainer" parent="MainScenePresenter/TeamBarView/Panel" unique_id=2057344136]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -248,41 +148,43 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MainScenePresenter/TeamBar/Panel/MarginContainer" unique_id=1324007578]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainScenePresenter/TeamBarView/Panel/MarginContainer" unique_id=1324007578]
 layout_mode = 2
+scroll_vertical = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer" unique_id=1027212581]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainScenePresenter/TeamBarView/Panel/MarginContainer/ScrollContainer" unique_id=1027212581]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
+alignment = 2
 
-[node name="BaseButton" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=29189713 instance=ExtResource("1_jri2w")]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_wbhe7")
-text = "+"
-
-[node name="Team_1" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1655981543 instance=ExtResource("1_jri2w")]
+[node name="Team_4" parent="MainScenePresenter/TeamBarView/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=8253207 instance=ExtResource("1_jri2w")]
 custom_minimum_size = Vector2(59, 0)
 layout_mode = 2
-text = "1"
+text = "4"
 
-[node name="Team_2" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=644518533 instance=ExtResource("1_jri2w")]
-custom_minimum_size = Vector2(59, 0)
-layout_mode = 2
-text = "2
-"
-
-[node name="Team_3" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=187867543 instance=ExtResource("1_jri2w")]
+[node name="Team_3" parent="MainScenePresenter/TeamBarView/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=187867543 instance=ExtResource("1_jri2w")]
 custom_minimum_size = Vector2(59, 0)
 layout_mode = 2
 text = "3
 "
 
-[node name="Team_4" parent="MainScenePresenter/TeamBar/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=8253207 instance=ExtResource("1_jri2w")]
+[node name="Team_2" parent="MainScenePresenter/TeamBarView/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=644518533 instance=ExtResource("1_jri2w")]
 custom_minimum_size = Vector2(59, 0)
 layout_mode = 2
-text = "4"
+text = "2
+"
+
+[node name="Team_1" parent="MainScenePresenter/TeamBarView/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1655981543 instance=ExtResource("1_jri2w")]
+custom_minimum_size = Vector2(59, 0)
+layout_mode = 2
+text = "1"
+
+[node name="AddButton" parent="MainScenePresenter/TeamBarView/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=55958042 instance=ExtResource("1_jri2w")]
+layout_mode = 2
+size_flags_vertical = 0
+text = "+"
+flat = true
 
 [node name="WindowPresenter" type="CanvasLayer" parent="." unique_id=1321873098]
 layer = 10
@@ -364,3 +266,31 @@ offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_font_sizes/font_size = 22
 text = "✥"
+
+[node name="VisualReference" parent="WindowPresenter" unique_id=1911441534 instance=ExtResource("7_g0nht")]
+visible = false
+
+[node name="SettingsPresenter" type="CanvasLayer" parent="." unique_id=1564774875]
+
+[node name="SettingsScreen" parent="SettingsPresenter" unique_id=13699381 instance=ExtResource("7_g0nht")]
+visible = false
+
+[node name="MarginContainer" parent="SettingsPresenter/SettingsScreen" index="0" unique_id=2013142131]
+theme_override_constants/margin_left = 170
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 170
+theme_override_constants/margin_bottom = 80
+
+[node name="DialogPresenter" type="CanvasLayer" parent="." unique_id=1508890201]
+
+[node name="SettingsScreen" parent="DialogPresenter" unique_id=1916603764 instance=ExtResource("7_g0nht")]
+visible = false
+
+[node name="MarginContainer" parent="DialogPresenter/SettingsScreen" index="0" unique_id=2013142131]
+theme_override_constants/margin_left = 170
+theme_override_constants/margin_top = 65
+theme_override_constants/margin_right = 170
+theme_override_constants/margin_bottom = 85
+
+[editable path="SettingsPresenter/SettingsScreen"]
+[editable path="DialogPresenter/SettingsScreen"]

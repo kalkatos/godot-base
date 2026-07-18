@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dmpxk2pttm6g1"]
+
+[ext_resource type="PackedScene" uid="uid://bl4ce02fmaq4g" path="res://Game/Prefabs/UI/Presenters/BaseScreen.tscn" id="1_eic6t"]
+
+[node name="StorePresenter" type="CanvasLayer" unique_id=1201461638]
+
+[node name="RightScreen" parent="." unique_id=1911441534 instance=ExtResource("1_eic6t")]
+visible = false

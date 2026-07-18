@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b64og3wu6y6bw"]
+
+[ext_resource type="PackedScene" uid="uid://dncod3svab13g" path="res://Game/Prefabs/World/CharacterView.tscn" id="1_2dg18"]
+
+[node name="TeamHolder" type="Node2D" unique_id=1451471530]
+
+[node name="Position_1" type="Node2D" parent="." unique_id=585389234]
+position = Vector2(104, 32)
+
+[node name="CharacterView_1" parent="Position_1" unique_id=2114937469 instance=ExtResource("1_2dg18")]
+
+[node name="Position_2" type="Node2D" parent="." unique_id=970429859]
+position = Vector2(104, 104)
+
+[node name="CharacterView_2" parent="Position_2" unique_id=1036109266 instance=ExtResource("1_2dg18")]
+
+[node name="Position_3" type="Node2D" parent="." unique_id=1634444200]
+position = Vector2(104, 176)
+
+[node name="CharacterView_3" parent="Position_3" unique_id=2123349088 instance=ExtResource("1_2dg18")]
+
+[node name="Position_4" type="Node2D" parent="." unique_id=1459921339]
+position = Vector2(32, 32)
+
+[node name="CharacterView_4" parent="Position_4" unique_id=454150873 instance=ExtResource("1_2dg18")]
+
+[node name="Position5" type="Node2D" parent="." unique_id=156246739]
+position = Vector2(32, 104)
+
+[node name="CharacterView_5" parent="Position5" unique_id=1147647056 instance=ExtResource("1_2dg18")]
+
+[node name="Position_6" type="Node2D" parent="." unique_id=250654221]
+position = Vector2(32, 176)
+
+[node name="CharacterView_6" parent="Position_6" unique_id=172266282 instance=ExtResource("1_2dg18")]
