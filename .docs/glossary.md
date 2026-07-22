@@ -56,5 +56,32 @@ This document defines key terms and concepts for the project to stabilish an ubi
 
 ## Project Specific Terms
 
-**Example Term**: [[Concise definition of Example Term.]]
-**_NOT_**: [[Negative terms for Example Term.]]
+**Tile**: A single cell on the puzzle grid. Tiles may carry a number, be an obstacle, a gate, the character's start position, or the exit.
+**_NOT_**: Cell, Square, Space, Block.
+
+**Grid**: The top-down play area composed of tiles, arranged in rows and columns.
+**_NOT_**: Board, Map, Field, Level.
+
+**Step**: A single movement of the character from one tile to an adjacent tile. Each step decreases the destination tile's number by 1.
+**_NOT_**: Move, Walk, Hop, Advance.
+
+**Rewind**: When a tile's number reaches zero, the character retraces their path backward by that tile's original value in steps, undoing state changes along the way.
+**_NOT_**: Undo, Rollback, Reverse, Reset, Echo, Recall.
+
+**Path**: The sequence of tiles the character has stepped on so far in the current puzzle.
+**_NOT_**: Route, Trail, Track, Line.
+
+**Ghost Trail**: A visual indicator showing the path being retraced during a rewind, allowing the player to see what is being undone.
+**_NOT_**: Afterimage, Shadow, Trace.
+
+**Gate**: A tile that blocks passage when closed and allows passage when open. Rewinds can toggle gate states.
+**_NOT_**: Door, Barrier, Wall, Blocker.
+
+**Exit**: The tile the character must reach to complete the puzzle.
+**_NOT_**: Goal, Destination, End, Finish.
+
+**Puzzle**: A single grid configuration with a start, exit, numbered tiles, and obstacles that the player must solve.
+**_NOT_**: Level, Stage, Board, Challenge.
+
+**Session**: A continuous play period, typically 3–5 puzzles lasting about 5 minutes.
+**_NOT_**: Run, Game, Round, Playthrough.
