@@ -18,6 +18,7 @@ var _is_transitioning: bool = false
 
 func _ready () -> void:
 	SignalBus._on_scene_transition_requested.connect(_handle_scene_transition_requested)
+	fade_rect.visible = true
 	fade_rect.modulate.a = 1.0
 	_handle_scene_transition_requested(Enums.SceneName.NONE, "")
 	_fade_in()
