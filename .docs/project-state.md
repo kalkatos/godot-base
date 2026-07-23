@@ -6,7 +6,6 @@ Simple file to keep track of the current state of the project. This file should 
 
 Milestone: Undefined [[e.g. v1 Core Loop]]
 Sprint: Undefined [[e.g. v1.1 Battle System]]
-Day: Undefined [[e.g. v1.1.3]]
 
 ---
 

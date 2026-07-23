@@ -4,7 +4,10 @@ This document defines key terms and concepts for the project to stabilish an ubi
 
 ## System Terms
 
-**Interview**: A structured conversation between the agent and the user to gather information, clarify requirements, and make decisions. Check the [Interview](#interview) section for guidelines.
+**Interview**: A structured conversation between the agent and the user to gather information, clarify requirements, and make decisions. Check the /grill-me skill.
+**_NOT_**: Question, Conversation, Dialogue.
+
+**Grill**: Same as Interview. A structured conversation between the agent and the user to gather information, clarify requirements, and make decisions. Check the /grill-me skill.
 **_NOT_**: Question, Conversation, Dialogue.
 
 **Milestone**: A major development phase that represents a significant goal or achievement in the project. Milestones are defined in the `roadmap.md` can be one of the following "Project Setup", "Core Loop", "Vertical Slice", "MVP", "Alpha", "Beta", and "Launch".
@@ -16,16 +19,16 @@ This document defines key terms and concepts for the project to stabilish an ubi
 **Roadmap**: The document that formalizes the milestones, providing a clear definition of what each milestone entails and what the project must have on each version. Live in `roadmap.md`.
 **_NOT_**: Milestones, Backlog, Sprints, Tasks, Duties.
 
-**Sprint**: A smaller development phase within a milestone that focuses on specific tasks or features. Sprints are defined in the `roadmap.md` and broken down in tasks in the `backlog.md`.
+**Sprint**: A smaller development phase within a milestone that focuses on specific tasks or features. Sprints are defined in the `roadmap.md` and broken down in tasks in a numbered `backlog-vX.Y.md` file.
 **_NOT_**: Milestone, Roadmap, Threshold, State, Task, Version, Phase, Duty, Work.
 
 **Prototype Sprint**: A sprint focused on rapid experimentation to validate a specific mechanic, interaction, or idea before committing to full implementation. A sprint is a prototype sprint if its name or description contains the word "prototype" (case-insensitive).
 **_NOT_**: Feature Sprint, Production Sprint, Milestone.
 
-**Backlog**: The document that formalizes the tasks within a sprint, providing a detailed list of work items to be completed. Live in `backlog.md`.
+**Backlog**: The document that formalizes the tasks within a sprint, providing a detailed list of work items to be completed. Each sprint has its own numbered file: `.docs/backlog-vX.Y.md`.
 **_NOT_**: Milestones, Roadmap, Sprints, Tasks, Duties.
 
-**Task**: A specific piece of work that can be completed in a few hours up to two days, defined in the `backlog.md` and assigned to a sprint. Tasks should be clear, concise, and actionable.
+**Task**: A specific piece of work that can be completed in a few hours up to two days, defined in a `backlog-vX.Y.md` file and assigned to a sprint. Tasks should be clear, concise, and actionable.
 **_NOT_**: Milestone, Roadmap, Sprint, Duty, Work, Phase, Session.
 
 **Roadmap Marker**: A marker in the `roadmap.md` that indicates the current milestone and sprint of the project.
@@ -40,7 +43,7 @@ This document defines key terms and concepts for the project to stabilish an ubi
 **Project State**: The current status of the project in terms of its milestone and sprint, as documented in `project-state.md`.
 **_NOT_**: Project Status, Project Condition, Project Phase, Project Health.
 
-**Current Sprint**: The sprint the project is actively working on, as recorded in `project-state.md`. The current sprint determines which tasks appear in the `backlog.md`.
+**Current Sprint**: The sprint the project is actively working on, as recorded in `project-state.md`. The current sprint determines which backlog file (`backlog-vX.Y.md`) contains the active tasks.
 **_NOT_**: Active Sprint, Working Sprint, Ongoing Sprint.
 
 **Game Concept**: The high-level design document (`.docs/game-concept.md`) that defines the game's identity, elevator pitch, player fantasy, core mechanics, core loop, unique features, references, and further notes.
@@ -51,6 +54,15 @@ This document defines key terms and concepts for the project to stabilish an ubi
 
 **Skill**: A named workflow invoked by the user (`/skillname`) or by another skill, defined by a `SKILL.md` file in `.agents/skills/`. Skills encapsulate domain-specific instructions for recurring tasks.
 **_NOT_**: Agent, Tool, Command, Rule.
+
+**Systems Index**: The canonical document (`.docs/systems-index.md`) that enumerates all game systems, maps their dependencies, and defines the prioritized design order.
+**_NOT_**: Architecture Doc, System Map, Dependency Chart.
+
+**Foundation System**: A system with zero internal dependencies; must be designed and built first because all other systems depend on it.
+**_NOT_**: Base System, Root System, Core System.
+
+**Design Phase**: A tier in the prioritized design order used during systems mapping and scaffold planning: Foundation → Core → Support → Polish. Each phase depends on the phases before it.
+**_NOT_**: Development Stage, Build Phase, Implementation Tier.
 
 ---
 
