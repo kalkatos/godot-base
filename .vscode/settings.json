@@ -5,5 +5,8 @@
     },
     "editor.insertSpaces": false,
     "files.eol": "\n",
-    "editor.detectIndentation": true
+    "editor.detectIndentation": true,
+    "chat.agentFilesLocations":{
+        ".agents/agents": true
+    }
 }
