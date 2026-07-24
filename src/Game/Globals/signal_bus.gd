@@ -35,6 +35,25 @@ func emit_scene_transition_completed (scene: Enums.SceneName, data: String) -> v
 		_on_scene_transition_completed.emit(scene, data)
 	SignalBus._on_scene_transition_completed.emit(scene, data)
 
+# ███████████████████████████████  T O O L T I P  █████████████████████████████████
+
+## Requests a tooltip to be shown with the given text.
+signal _on_show_tooltip (hint: String)
+## Requests a tooltip to be shown with the given text.
+func emit_show_tooltip (hint: String) -> void:
+	if SignalBus != self:
+		_on_show_tooltip.emit(hint)
+	SignalBus._on_show_tooltip.emit(hint)
+
+
+## Requests any currently visible tooltip to be hidden.
+signal _on_hide_tooltip ()
+## Requests any currently visible tooltip to be hidden.
+func emit_hide_tooltip () -> void:
+	if SignalBus != self:
+		_on_hide_tooltip.emit()
+	SignalBus._on_hide_tooltip.emit()
+
 # ███████████████████████████████  R E A D Y  ███████████████████████████████████
 
 func _ready ():
