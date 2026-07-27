@@ -8,7 +8,7 @@ extends Control
 @export_category("Scenes")
 @export var main_menu_scene: PackedScene
 @export var gameplay_scene: PackedScene
-@export var character_select_scene: PackedScene
+@export var level_select_scene: PackedScene
 
 var _current_scene: Node = null
 var _current_scene_name: Enums.SceneName = Enums.SceneName.MAIN_MENU
@@ -44,14 +44,14 @@ func _resolve_target_scene (origin_scene: Enums.SceneName, data: String) -> Pack
 		Enums.SceneName.MAIN_MENU:
 			match data:
 				"new_game":
-					_current_scene_name = Enums.SceneName.CHARACTER_SELECT
+					_current_scene_name = Enums.SceneName.LEVEL_SELECT
 					_current_scene_data = data
-					return character_select_scene
+					return level_select_scene
 				"continue":
 					_current_scene_name = Enums.SceneName.GAMEPLAY
 					_current_scene_data = data
 					return gameplay_scene
-		Enums.SceneName.CHARACTER_SELECT:
+		Enums.SceneName.LEVEL_SELECT:
 			_current_scene_name = Enums.SceneName.GAMEPLAY
 			_current_scene_data = data
 			return gameplay_scene
@@ -68,9 +68,8 @@ func _resolve_target_scene (origin_scene: Enums.SceneName, data: String) -> Pack
 func _transition_to (scene: PackedScene) -> void:
 	print("Transitioning to scene '%s' with data '%s'" % [Enums.SceneName.keys()[_current_scene_name], _current_scene_data])
 	_is_transitioning = true
-	var fade_out_duration: float = 4.0 if _current_scene_data == "act_complete" else 0.4
 	var tween := create_tween()
-	tween.tween_property(fade_rect, "modulate:a", 1.0, fade_out_duration)
+	tween.tween_property(fade_rect, "modulate:a", 1.0, 0.4)
 	await tween.finished
 	if _current_scene:
 		_current_scene.queue_free()

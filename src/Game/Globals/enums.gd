@@ -4,5 +4,5 @@ enum SceneName {
 	NONE,
 	MAIN_MENU,
 	GAMEPLAY,
-	CHARACTER_SELECT,
+	LEVEL_SELECT,
 }

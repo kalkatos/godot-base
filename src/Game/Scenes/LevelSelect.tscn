@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://csnr56q1b7nat"]
 
-[ext_resource type="Script" uid="uid://c6oqlouuseiwa" path="res://Game/Code/Presenter/character_select_presenter.gd" id="1_ftukv"]
+[ext_resource type="Script" uid="uid://cgk6npy2cphcb" path="res://Game/Code/Presenter/level_select_presenter.gd" id="1_vyfej"]
 [ext_resource type="PackedScene" uid="uid://cgilv0f24mtpj" path="res://Game/Prefabs/UI/BaseButton.tscn" id="2_vyfej"]
 [ext_resource type="Theme" uid="uid://chuq7tes1dmyf" path="res://Modules/Placeholders/Themes/base_theme.tres" id="3_vyfej"]
 
-[node name="CharacterSelect" type="Control" unique_id=2145878074]
+[node name="LevelSelect" type="Control" unique_id=2145878074]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ftukv")
+script = ExtResource("1_vyfej")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=595238506]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=595238506]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,29 +23,29 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Button_1" parent="VBoxContainer" unique_id=613813490 instance=ExtResource("2_vyfej")]
+[node name="Button_1" parent="HBoxContainer" unique_id=613813490 instance=ExtResource("2_vyfej")]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-text = "A"
+text = "1"
 
-[node name="Button_2" parent="VBoxContainer" unique_id=633761058 instance=ExtResource("2_vyfej")]
+[node name="Button_2" parent="HBoxContainer" unique_id=633761058 instance=ExtResource("2_vyfej")]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-text = "B"
+text = "2"
 
-[node name="Button_3" parent="VBoxContainer" unique_id=1276874258 instance=ExtResource("2_vyfej")]
+[node name="Button_3" parent="HBoxContainer" unique_id=1276874258 instance=ExtResource("2_vyfej")]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
-text = "C"
+text = "3"
 
 [node name="Label" type="Label" parent="." unique_id=314632102]
 layout_mode = 1
@@ -61,10 +61,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("3_vyfej")
 theme_override_colors/font_color = Color(0.92178, 0.92178, 0.92178, 1)
-text = "Character Select Scene"
+text = "Level Select Scene"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button_1" to="." method="emit_character_selected" binds= [0]]
-[connection signal="pressed" from="VBoxContainer/Button_2" to="." method="emit_character_selected" binds= [1]]
-[connection signal="pressed" from="VBoxContainer/Button_3" to="." method="emit_character_selected" binds= [2]]
+[connection signal="pressed" from="HBoxContainer/Button_1" to="." method="emit_level_selected" binds= [1]]
+[connection signal="pressed" from="HBoxContainer/Button_2" to="." method="emit_level_selected" binds= [2]]
+[connection signal="pressed" from="HBoxContainer/Button_3" to="." method="emit_level_selected" binds= [3]]
