@@ -51,7 +51,7 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "r
 
 [gui]
 
-theme/custom="uid://chuq7tes1dmyf"
+theme/custom="uid://dpx6qfbolegdh"
 theme/custom_font="uid://bc1b7ynm0vqv7"
 
 [input]

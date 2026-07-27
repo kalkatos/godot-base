@@ -17,7 +17,7 @@ script = ExtResource("1_2gt0e")
 fade_rect = NodePath("CanvasLayer/FadeRect")
 main_menu_scene = ExtResource("2_wbhe7")
 gameplay_scene = ExtResource("2_h66oc")
-character_select_scene = ExtResource("4_wcv8c")
+level_select_scene = ExtResource("4_wcv8c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1564749977]
 layer = 128
