@@ -29,6 +29,7 @@ Global="*res://Game/Globals/Global.tscn"
 Pooler="*res://Modules/Pooler/pooler.gd"
 AudioController="*res://Modules/Audio/AudioController.tscn"
 Analytics="*res://addons/genki-analytics/Analytics.tscn"
+MCPGameBridge="res://addons/godot_mcp/game_bridge/mcp_game_bridge.gd"
 
 [debug]
 
@@ -47,7 +48,14 @@ naming/scene_name_casing=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/gut/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/godot_mcp/plugin.cfg", "res://addons/gut/plugin.cfg")
+
+[godot_mcp]
+
+bind_mode=0
+custom_bind_ip=""
+port_override_enabled=true
+port_override=6550
 
 [gui]
 
