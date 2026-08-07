@@ -1,4 +1,4 @@
-# GLOSSARY: [[WORKING TITLE]]
+# GLOSSARY: SOCSIM
 
 This document defines key terms and concepts for the project to stabilish an ubiquitous language. It should be updated throughout development as new terms arise or existing ones evolve. The language used in this glossary must be consistent with the terms used in the `game-concept.md` and other documentation to ensure clarity and avoid ambiguity.
 
@@ -68,5 +68,23 @@ This document defines key terms and concepts for the project to stabilish an ubi
 
 ## Project Specific Terms
 
-**Example Term**: [[Concise definition of Example Term.]]
-**_NOT_**: [[Negative terms for Example Term.]]
+**Autobattler**: A game genre where units or teams fight automatically and the player influences the outcome through setup and tuning rather than direct control.
+**_NOT_**: RTS, Idle Game, Tactics Simulator.
+
+**Broadcast Camera**: The angled, sideline-following camera perspective that presents the match like a TV broadcast.
+**_NOT_**: Top-down view, Overhead Camera, Free Camera.
+
+**Compressed Realism Engine**: The core simulation that renders real soccer dynamics (possession, pressure, momentum, injuries, upsets) into a fast, watchable 10-minute match.
+**_NOT_**: Match AI, Match Script, Outcome Generator.
+
+**Fixture**: A single scheduled match between two teams, launched by the admin.
+**_NOT_**: Match, Game, Bout.
+
+**Preset**: A saved team configuration (its strength variables) stored in the local database and reused across fixtures.
+**_NOT_**: Save, Profile, Template.
+
+**Strength Variables**: The tunable per-team values (attack, defense, stamina, morale, luck weighting) that define a team's power and are rendered into match outcomes.
+**_NOT_**: Stats, Attributes, Parameters.
+
+**Upset**: A match outcome in which the statistically weaker team defeats the stronger team, enabled by the luck factor.
+**_NOT_**: Surprise, Twist, Comeback.
