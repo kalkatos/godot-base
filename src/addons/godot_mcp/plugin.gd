@@ -110,9 +110,7 @@ func _get_port_override_enabled() -> bool:
 
 
 func _get_port_override() -> int:
-	var raw_value := OS.get_environment("GODOT_PORT")
-	if raw_value.is_empty():
-		raw_value = str(ProjectSettings.get_setting(SETTING_PORT_OVERRIDE, WebSocketServer.DEFAULT_PORT))
+	var raw_value = str(ProjectSettings.get_setting(SETTING_PORT_OVERRIDE, WebSocketServer.DEFAULT_PORT))
 	var port := int(raw_value)
 	if port < MCPConstants.PORT_MIN or port > MCPConstants.PORT_MAX:
 		MCPLog.warn("Invalid port override '%s'; falling back to default port %d" % [str(raw_value), WebSocketServer.DEFAULT_PORT])
