@@ -2,7 +2,10 @@
   "mcpServers": {
     "godot": {
       "command": "npx",
-      "args": ["-y", "@satelliteoflove/godot-mcp"]
+      "args": ["-y", "@satelliteoflove/godot-mcp"],
+      "env": {
+        "GODOT_PORT": "6550"
+      }
     }
   }
 }

@@ -1,12 +1,14 @@
 {
-	"godotTools.editorPath.godot4": "c:\\Program Files\\Godot\\Godot.exe",
-	"files.exclude": {
+    "godotTools.editorPath.godot4": "c:\\Program Files\\Godot\\Godot.exe",
+    "files.exclude": {
         "**/*.uid": true
     },
     "editor.insertSpaces": false,
     "files.eol": "\n",
     "editor.detectIndentation": true,
-    "chat.agentFilesLocations":{
+    "chat.agentFilesLocations": {
         ".agents/agents": true
-    }
+    },
+    "chat.agent.maxRequests": 300,
+    "godotTools.lsp.serverPort": 6010
 }
