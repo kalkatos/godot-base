@@ -48,7 +48,7 @@ naming/scene_name_casing=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/godot_mcp/plugin.cfg", "res://addons/gut/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/godot_mcp/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/team_editor_settings/plugin.cfg")
 
 [godot_mcp]
 
@@ -74,3 +74,10 @@ click={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[team_editor_settings]
+
+apply_lsp_port=true
+lsp_port=6005
+apply_accent_color=true
+accent_color=Color(0.337, 0.62, 1, 1)

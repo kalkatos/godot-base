@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cgilv0f24mtpj"]
 
-[ext_resource type="Script" uid="uid://brqtcgh6awxtg" path="res://Modules/Audio/audio_player.gd" id="2_7vtla"]
-[ext_resource type="Script" uid="uid://dnk65ottux66y" path="res://Modules/UI/animated_button.gd" id="2_ga26l"]
+[ext_resource type="Script" uid="uid://dj7fa6sl7pbsj" path="res://Modules/UI/genki_button.gd" id="1_fuxmx"]
 [ext_resource type="AudioStream" uid="uid://d1yaah8e3hxig" path="res://Modules/Audio/Samples/click_button.wav" id="3_ga26l"]
 
 [node name="BaseButton" type="Button" unique_id=29189713]
@@ -17,11 +16,5 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Button"
-script = ExtResource("2_ga26l")
-
-[node name="Click Sfx" type="Node" parent="." unique_id=1106600613]
-script = ExtResource("2_7vtla")
-audio = ExtResource("3_ga26l")
-metadata/_custom_type_script = "uid://brqtcgh6awxtg"
-
-[connection signal="pressed" from="." to="Click Sfx" method="play_global_sfx"]
+script = ExtResource("1_fuxmx")
+click_sfx = ExtResource("3_ga26l")
