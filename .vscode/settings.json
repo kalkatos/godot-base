@@ -10,5 +10,5 @@
         ".agents/agents": true
     },
     "chat.agent.maxRequests": 300,
-    "godotTools.lsp.serverPort": 6010
+    "godotTools.lsp.serverPort": 6005
 }

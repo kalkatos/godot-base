@@ -4,7 +4,7 @@ This file helps AI coding agents become productive quickly in this repository.
 
 ## Project Snapshot
 
-- A Godot 4.x game project. (Currently 4.6)
+- A Godot 4.x game project.
 - Project root for Godot: `src/`
 - Folder for game-specific documentation and instructions: `.docs/`.
 - Important files that describe the project, its current state, and future plans:

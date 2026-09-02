@@ -1,9 +1,0 @@
-{
-    "godotTools.editorPath.godot4": "c:\\Program Files\\Godot\\Godot.exe",
-    "files.exclude": {
-        "**/*.uid": true
-    },
-    "editor.insertSpaces": false,
-    "files.eol": "\n",
-    "editor.detectIndentation": true,
-}
