@@ -14,7 +14,7 @@ config/name="GodotBase"
 config/version="v0.0.1"
 run/main_scene="uid://dceoe3061w4wb"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://Icons/icon.svg"
+config/icon="uid://bi5wpf4ti4iqx"
 
 [audio]
 
